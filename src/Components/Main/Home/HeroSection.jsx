@@ -25,6 +25,16 @@ const HeroSection = () => {
       </div>
       <div className="hero-right">
       </div>
+      <div className="absolute right-0 translate-y-1/4 uppercase text-background z-[0]">
+        <ul className="flex flex-col gap-1">
+          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>Bachelor</Link></li>
+          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>Master</Link></li>
+          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>Mba</Link></li>
+          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>Phd</Link></li>
+          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>Programs</Link></li>
+          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>International</Link></li>
+        </ul>
+      </div>
     </div>
   );
 };
