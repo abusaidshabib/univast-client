@@ -54,7 +54,7 @@ const AboutUs = () => {
               State-of-the-Art Facilities
             </h1>
             <p className="pt-5 font-sans text-p-white">
-              Our faculty's commitment to fostering intellectual curiosity and
+              Our faculty&apos;s commitment to fostering intellectual curiosity and
               critical thinking ensures that you receive a well-rounded
               education and are prepared for the challenges of the future.
             </p>
