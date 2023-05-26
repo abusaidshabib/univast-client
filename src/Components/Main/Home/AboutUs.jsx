@@ -5,7 +5,7 @@ import { AiOutlineCodepen } from "react-icons/ai";
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-background-500 grid items-center px-20">
+    <div className="min-h-screen w-full bg-background-500 about-section grid items-center px-20">
       <div>
         <p className="text-5xl text-primary-500 font-serif leading-relaxed">
           Empowering Minds,
