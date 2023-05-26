@@ -16,7 +16,9 @@ const CampusLife = () => {
           <p className="text-p-white py-3 text-xl tracking-wider">
             - Yekaterina Shulgina, Harvard Griffin GSAS
           </p>
-          <Link className="text-lg font-sans border-b-2 text-primary-500 border-primary-500">Read about Yekaterina</Link>
+          <Link className="text-lg font-sans border-b-2 text-primary-500 border-primary-500 hover:text-p-white hover:border-p-white">
+            Read about Yekaterina
+          </Link>
         </div>
         <div className="campus-image col-span-4">
           <img
