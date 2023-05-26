@@ -2,7 +2,7 @@ import logo from "../../../assets/Navbar/graduated-removebg-preview.png";
 
 const Footer = () => {
   return (
-    <div className="border-t-2 border-accent-500 py-10 bg-background-500 px-20 grid grid-cols-4 gap-20">
+    <div className="border-t-[1px] border-accent-500 py-10 bg-background-500 px-20 grid grid-cols-4 gap-20">
       <div>
         <div className="flex items-center font-primary">
           <div>
