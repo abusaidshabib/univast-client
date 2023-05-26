@@ -12,3 +12,7 @@ background-size: cover;
 background-blend-mode: darken;
 border-radius: 50%;
 }
+
+.campus-image{
+  height: 500px;
+}
