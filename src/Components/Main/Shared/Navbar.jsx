@@ -66,11 +66,21 @@ const Navbar = () => {
           </div>
           <div className="w-full menu-list font-primary">
             <ul className="text-p-white h-full text-5xl flex flex-col justify-center gap-8">
-              <li className="cursor-pointer hover:underline underline-offset-[12px] transition">Admissions</li>
-              <li className="cursor-pointer hover:underline underline-offset-[12px] transition">Academics</li>
-              <li className="cursor-pointer hover:underline underline-offset-[12px] transition">Research</li>
-              <li className="cursor-pointer hover:underline underline-offset-[12px] transition">Campus</li>
-              <li className="cursor-pointer hover:underline underline-offset-[12px] transition">About</li>
+              <li className="cursor-pointer hover:underline underline-offset-[12px] transition">
+                Admissions
+              </li>
+              <li className="cursor-pointer hover:underline underline-offset-[12px] transition">
+                Academics
+              </li>
+              <li className="cursor-pointer hover:underline underline-offset-[12px] transition">
+                Research
+              </li>
+              <li className="cursor-pointer hover:underline underline-offset-[12px] transition">
+                Campus
+              </li>
+              <li className="cursor-pointer hover:underline underline-offset-[12px] transition">
+                About
+              </li>
             </ul>
           </div>
         </div>
