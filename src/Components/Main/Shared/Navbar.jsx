@@ -30,7 +30,7 @@ const Navbar = () => {
           </p>
         </div>
         <div
-          className={`w-full min-h-screen px-20 bg-background-500 absolute top-0 left-0 animate-menu ${
+          className={`w-full min-h-screen px-20 bg-background-500 absolute top-0 animate-menu ${
             menu ? "left-0" : "-left-full"
           }`}
         >
