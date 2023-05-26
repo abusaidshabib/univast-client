@@ -57,9 +57,9 @@ export default {
         "error": "#F87272",
       },
       fontFamily: {
-        title: ['Noto Serif', "serif"],
         sans: ['Noto Sans', "sans-serif"],
-        serif: ['Noto Serif JP', "serif"]
+        serif: ['Noto Serif', "serif"],
+        display: ['Playfair Display SC', 'serif']
       }
     },
   },
