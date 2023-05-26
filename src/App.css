@@ -2,5 +2,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Noto Serif JP', serif;
+}
+
+.hero-right{
+background-image: url("./assets/Home/Graduation with girl.jpg"), radial-gradient(circle, transparent, #080f0f 70%);
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+background-blend-mode: darken;
 }
