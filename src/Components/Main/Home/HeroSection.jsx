@@ -24,7 +24,6 @@ const HeroSection = () => {
         </div>
       </div>
       <div className="hero-right">
-
       </div>
     </div>
   );
