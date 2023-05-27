@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main";
 import Home from "../../Pages/Main/Home";
+import Admission from "../../Pages/Main/Admission";
+import AdmissionForm from "../../Components/Main/Admission/AdmissionForm";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home></Home>
+      },
+      {
+        path: "/admission",
+        element: <Admission></Admission>
+      },
+      {
+        path: "/admission/online",
+        element: <AdmissionForm></AdmissionForm>
       }
     ]
   }
