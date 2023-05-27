@@ -10,8 +10,7 @@ const CampusLife = () => {
       <div className="grid grid-cols-12 py-10 gap-20 items-center">
         <div className="col-span-8">
           <p className="text-5xl text-accent-500 font-serif leading-relaxed">
-            "My advisor helped build my confidence as a researcher, and that’s
-            something that I’ll carry with me for the rest of my career."
+          &quot;My advisor helped build my confidence as a researcher, and that’s something that I’ll carry with me for the rest of my career.&quot;
           </p>
           <p className="text-p-white py-3 text-xl tracking-wider">
             - Yekaterina Shulgina, Harvard Griffin GSAS
