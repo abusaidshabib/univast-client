@@ -1,8 +1,9 @@
 import logo from "../../../assets/Navbar/graduated-removebg-preview.png";
+import { HiLocationMarker } from "react-icons/hi";
 
 const Footer = () => {
   return (
-    <div className="border-t-[1px] border-accent-500 py-10 bg-background-500 px-20 grid grid-cols-4 gap-20">
+    <div className="border-t-[1px] border-accent-500 py-10 bg-background-500 px-20 grid grid-cols-4 gap-20 text-p-white">
       <div>
         <div className="flex items-center font-primary">
           <div>
@@ -26,10 +27,8 @@ const Footer = () => {
         </p>
       </div>
       <div>
-        <p className="font-serif text-3xl text-p-white font-semibold text-left">
-          Programs
-        </p>
-        <ul className="list-none pt-3 text-p-white text-xl">
+        <p className="font-serif text-3xl font-semibold text-left">Programs</p>
+        <ul className="list-none pt-3 text-xl">
           <li className="hover:text-accent-500">- Bachelor</li>
           <li className="hover:text-accent-500">- Master</li>
           <li className="hover:text-accent-500">- MBA</li>
@@ -38,11 +37,22 @@ const Footer = () => {
         </ul>
       </div>
       <div>
-        <p className="font-serif text-3xl text-p-white font-semibold text-left">
-          Contact
+        <p className="font-serif text-3xl font-semibold text-left">Contact</p>
+        <p className="text-lg pt-3">
+          {" "}
+          - 190 NE 12th St, Moore, Oklahoma, United States
         </p>
+        <p className="text-lg">- +12 346 29 1211</p>
+        <p className="text-lg">- univast@gmail.com</p>
       </div>
-      <div></div>
+      <div>
+        <p className="font-serif text-3xl font-semibold text-left">Pages</p>
+        <ul className="list-none pt-3 text-xl">
+          <li className="hover:text-accent-500">- Home</li>
+          <li className="hover:text-accent-500">- About</li>
+          <li className="hover:text-accent-500">- Contact</li>
+        </ul>
+      </div>
     </div>
   );
 };
