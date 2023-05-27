@@ -22,7 +22,7 @@ const EventNews = () => {
               Our esteemed faculty members are at the heart of Univast
               University academic community. They are accomplished experts in
               their fields, dedicated to delivering high-quality education and
-              mentoring students. With their guidance, you'll delve into
+              mentoring students. With their guidance, you&apos;ll delve into
               cutting-edge research, engage in thought-provoking discussions,
               and receive personalized attention...
             </p>
@@ -44,7 +44,7 @@ const EventNews = () => {
               Our esteemed faculty members are at the heart of Univast
               University academic community. They are accomplished experts in
               their fields, dedicated to delivering high-quality education and
-              mentoring students. With their guidance, you'll delve into
+              mentoring students. With their guidance, you&apos;ll delve into
               cutting-edge research, engage in thought-provoking discussions,
               and receive personalized attention...
             </p>
@@ -66,7 +66,7 @@ const EventNews = () => {
               Our esteemed faculty members are at the heart of Univast
               University academic community. They are accomplished experts in
               their fields, dedicated to delivering high-quality education and
-              mentoring students. With their guidance, you'll delve into
+              mentoring students. With their guidance, you&apos;ll delve into
               cutting-edge research, engage in thought-provoking discussions,
               and receive personalized attention...
             </p>

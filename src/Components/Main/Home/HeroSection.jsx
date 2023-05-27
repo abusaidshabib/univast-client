@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="h-[calc(100vh-96px)] bg-background-500 grid grid-cols-2 px-20 gap-20">
+    <div className="min-h-[calc(100vh-96px)] bg-background-500 grid grid-cols-2 p-20 gap-20">
       <div className="grid place-content-center font-serif">
         <h1 className="text-7xl text-primary-500 leading-tight">
           Exploring <span className="text-secondary-500">The Nexus</span>{" "}

@@ -41,3 +41,9 @@ border-radius: 50%;
   }
 }
 
+
+.offer-right{
+  background-image: url('./assets/offer//free-time-students-bachelor-s-campus-life-rhythm-five-friendly-students-are-walking.jpg');
+  background-size: cover;
+  background-position: center;
+}
