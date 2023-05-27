@@ -17,9 +17,9 @@ const About = () => {
           ownership of their learning.
         </p>
       </div>
-      <div className="">
+      <div>
         <div className="relative">
-          <img src={campus} alt="" />
+          <img className="w-full" src={campus} alt="" />
           <div className="play-btn absolute cursor-pointer top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <BsPlayCircleFill className="text-8xl text-p-white bg-secondary-500 rounded-full"/>
           </div>

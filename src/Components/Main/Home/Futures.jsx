@@ -25,7 +25,7 @@ const Futures = () => {
           commitment to academic excellence, innovative teaching methodologies,
           and a vibrant campus community sets us apart.{" "}
         </p>
-        <div className="grid grid-cols-4 gap-12 font-serif pt-20">
+        <div className="grid grid-cols-4 gap-12 font-serif py-20">
           <div className="p-10 bg-cyan-600 rounded-md">
             <CiLight className="text-7xl text-p-white" />
             <h1 className="text-2xl text-p-white pt-3 font-semibold">
