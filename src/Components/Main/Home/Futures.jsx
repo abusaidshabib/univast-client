@@ -3,7 +3,7 @@ import { FaRegLightbulb } from "react-icons/fa";
 import { BsFillPencilFill } from "react-icons/bs";
 import { AiOutlineCodepen } from "react-icons/ai";
 
-const AboutUs = () => {
+const Futures = () => {
   return (
     <div className="min-h-screen w-full bg-background-500 about-section grid items-center px-20">
       <div>
@@ -75,4 +75,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default Futures;

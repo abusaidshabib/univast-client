@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import heroImg from "../../../assets/Home/Graduation with girl.jpg";
 
 const HeroSection = () => {
   return (
-    <div className="min-h-[calc(100vh-96px)] bg-background-500 grid grid-cols-2 p-20 gap-20">
-      <div className="grid place-content-center font-serif">
+    <div className="min-h-[calc(100vh-96px)] bg-background-500 grid grid-cols-2 px-20 gap-20">
+      <div className="grid place-content-center py-20 font-serif">
         <h1 className="text-7xl text-primary-500 leading-tight">
-          Exploring <span className="text-secondary-500">The Nexus</span>{" "}
-          of Artificial Intelligence
+          Exploring <span className="text-secondary-500">The Nexus</span> of
+          Artificial Intelligence
         </h1>
         <p className="py-6"></p>
         <p className="text-p-white font-sans text-lg">
@@ -23,16 +24,59 @@ const HeroSection = () => {
           </Link>
         </div>
       </div>
-      <div className="hero-right">
+      <div className="hero-right w-[90%]">
+        <img className="" src={heroImg} alt="" />
       </div>
       <div className="absolute right-0 translate-y-1/4 uppercase text-background z-[0]">
         <ul className="flex flex-col gap-1">
-          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>Bachelor</Link></li>
-          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>Master</Link></li>
-          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>Mba</Link></li>
-          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>Phd</Link></li>
-          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>Programs</Link></li>
-          <li><Link className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block" to='/'>International</Link></li>
+          <li>
+            <Link
+              className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block"
+              to="/"
+            >
+              Bachelor
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block"
+              to="/"
+            >
+              Master
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block"
+              to="/"
+            >
+              Mba
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block"
+              to="/"
+            >
+              Phd
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block"
+              to="/"
+            >
+              Programs
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="px-5 py-2 bg-secondary-500 transition hover:bg-secondary-600 hover:text-p-white w-full block"
+              to="/"
+            >
+              International
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
