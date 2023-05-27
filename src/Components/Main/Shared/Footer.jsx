@@ -1,6 +1,4 @@
 import logo from "../../../assets/Navbar/graduated-removebg-preview.png";
-import { HiLocationMarker } from "react-icons/hi";
-
 const Footer = () => {
   return (
     <div className="border-t-[1px] border-accent-500 py-10 bg-background-500 px-20 grid grid-cols-4 gap-20 text-p-white">
