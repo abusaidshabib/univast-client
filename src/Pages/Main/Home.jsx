@@ -8,7 +8,7 @@ import Futures from "../../Components/Main/Home/Futures";
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-background-500">
       <HeroSection></HeroSection>
       <Services></Services>
       <About></About>

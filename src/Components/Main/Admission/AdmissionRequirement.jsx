@@ -30,9 +30,8 @@ const AdmissionRequirement = () => {
           Ready to start your application process? You can find all the
           information below :-
         </p>
-        {FAQ.map((data, index) => 
-        (
-          <FaqSection key={data.id} index={index+1} data={data}></FaqSection>
+        {FAQ.map((data, index) => (
+          <FaqSection key={data.id} index={index + 1} data={data}></FaqSection>
         ))}
       </div>
       <div className="col-span-4 bg-primary-200 py-20 pl-10">
@@ -51,7 +50,10 @@ const AdmissionRequirement = () => {
           </Link>
         </div>
         <div className="pt-10">
-          <Link to="/admission/online" className="bg-primary-600 px-16 py-4 text-p-white uppercase font-semibold tracking-wider hover:bg-primary-700 rounded-sm">
+          <Link
+            to="/admission/online"
+            className="bg-primary-600 px-16 py-4 text-p-white uppercase font-semibold tracking-wider hover:bg-primary-700 rounded-sm"
+          >
             Apply Online
           </Link>
         </div>
