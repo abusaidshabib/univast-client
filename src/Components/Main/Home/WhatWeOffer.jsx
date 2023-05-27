@@ -10,7 +10,7 @@ const WhatWeOffer = () => {
       <div className="col-span-7 text-p-white p-20">
         <h1 className="text-5xl text-primary-500 font-serif leading-relaxed mb-10">
           What We{" "}
-          <span className="underline-offset-2 border-b-4 border-accent-500 text-p-white">
+          <span className="underline-offset-2 border-b-4 border-secondary-500 text-p-white">
             Offer
           </span>
         </h1>

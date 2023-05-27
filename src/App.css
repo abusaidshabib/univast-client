@@ -4,13 +4,19 @@
   padding: 0;
 }
 
-.hero-right{
+/* .hero-right{
 background-image: url("./assets/Home/Graduation with girl.jpg"), radial-gradient(circle, transparent, #080f0f 70%);
 background-repeat: no-repeat;
 background-position: center;
 background-size: cover;
 background-blend-mode: darken;
 border-radius: 50%;
+} */
+
+.hero-right{
+  -webkit-mask-image: url(data:image/svg+xml;base64,PCEtLT94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/LS0+CiAgICAgICAgICAgICAgPHN2ZyBpZD0ic3ctanMtYmxvYi1zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSI+CiAgICAgICAgICAgICAgICAgICAgPGRlZnM+IAogICAgICAgICAgICAgICAgICAgICAgICA8bGluZWFyR3JhZGllbnQgaWQ9InN3LWdyYWRpZW50IiB4MT0iMCIgeDI9IjEiIHkxPSIxIiB5Mj0iMCI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3RvcCBpZD0ic3RvcDEiIHN0b3AtY29sb3I9InJnYmEoMjQ4LCAxMTcsIDU1LCAxKSIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHN0b3AgaWQ9InN0b3AyIiBzdG9wLWNvbG9yPSJyZ2JhKDI1MSwgMTY4LCAzMSwgMSkiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgICAgICAgICAgICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgICAgICAgICAgICAgICAgIDwvZGVmcz4KICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9InVybCgjc3ctZ3JhZGllbnQpIiBkPSJNMTguMywtMzMuNkMyMi42LC0yOS4zLDI0LjEsLTIyLDI3LjksLTE1LjlDMzEuNywtOS44LDM3LjgsLTQuOSwzOC45LDAuN0M0MCw2LjIsMzYuMiwxMi41LDMzLDE5LjVDMjkuNywyNi41LDI3LDM0LjMsMjEuNiwzOS40QzE2LjIsNDQuNSw4LjEsNDYuOCwxLDQ1Qy02LjEsNDMuMywtMTIuMSwzNy40LC0xOS4yLDMzLjJDLTI2LjIsMjkuMSwtMzQuMywyNi44LC0zNi42LDIxLjVDLTM5LDE2LjMsLTM1LjgsOC4xLC0zNC43LDAuNkMtMzMuNiwtNi45LC0zNC44LC0xMy44LC0zMi44LC0xOS44Qy0zMC45LC0yNS45LC0yNS45LC0zMSwtMTkuOSwtMzQuM0MtMTMuOSwtMzcuNywtNi45LC0zOS4yLDAsLTM5LjNDNywtMzkuNCwxNCwtMzcuOSwxOC4zLC0zMy42WiIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTAgNTApIiBzdHJva2Utd2lkdGg9IjAiIHN0eWxlPSJ0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlIDBzOyIgc3Ryb2tlPSJ1cmwoI3N3LWdyYWRpZW50KSI+PC9wYXRoPgogICAgICAgICAgICAgIDwvc3ZnPg==);
+  -webkit-mask-position: top;
+  -webkit-mask-repeat: no-repeat;
 }
 
 .campus-image{
@@ -46,4 +52,32 @@ border-radius: 50%;
   background-image: url('./assets/offer//free-time-students-bachelor-s-campus-life-rhythm-five-friendly-students-are-walking.jpg');
   background-size: cover;
   background-position: center;
+}
+
+.about-right{
+  background: url('./assets//about//view-stanford-university-palo-alto-silicon-valley-california-usa_479694-3092.jpg');
+  background-repeat: no-repeat;
+}
+
+.play-btn::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #ffbd42bb;
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  animation: ping 1s ease-in-out infinite;
+}
+
+@keyframes ping {
+  0%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1.4);
+    opacity: 0;
+  }
 }
