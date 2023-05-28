@@ -4,7 +4,7 @@ import Home from "../../Pages/Main/Home";
 import Admission from "../../Pages/Main/Admission";
 import AdmissionForm from "../../Components/Main/Admission/AdmissionForm";
 import StudentDashbaord from "../../Layouts/StudentDashbaord";
-import Profile from "../../Pages/StudentDashboard/Profile";
+import Shome from "../../Pages/StudentDashboard/Shome";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +34,8 @@ const router = createBrowserRouter([
     element: <StudentDashbaord></StudentDashbaord>,
     children: [
       {
-        path: "/student/profile",
-        element: <Profile></Profile>
+        path: "/student",
+        element: <Shome></Shome>
       }
     ]
   }

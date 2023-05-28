@@ -5,7 +5,7 @@ import { FiMail, FiSettings } from "react-icons/fi";
 
 const Menu = () => {
   return (
-    <div className="bg-primary-900 grid grid-rows-3 gap-20">
+    <div className="bg-primary-800 grid grid-rows-3 gap-20">
       <div className="p-5">
         <Link to="/" className="font-primary cursor-pointer">
           <div className="cursor-pointer">
