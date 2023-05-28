@@ -6,17 +6,19 @@ const TopMenu = () => {
   return (
     <div className="flex justify-between h-16 items-center px-5">
       <div></div>
-      <ul className="text-2xl text-p-white flex">
-        <li></li>
+      <ul className="text-2xl text-p-white flex gap-4">
         <li>
-          <Link>
+          <Link className="relative">
             <HiOutlineMail className="" />
+            <span className="absolute animate-ping w-3 h-3 bg-secondary-500 rounded-full -top-1 -right-1"></span>
+            <span className="absolute w-3 h-3 bg-secondary-500 rounded-full -top-1 -right-1"></span>
           </Link>
         </li>
-        <li className="pl-5">
-          <Link className="relative flex">
-            <IoNotificationsSharp className="inline-flex w-full" />
-            <span className="text-xs bg-secondary-500 rounded-full w-5 h-5 font-medium grid place-content-center">2</span>
+        <li className="">
+          <Link className="relative">
+            <IoNotificationsSharp className="" />
+            <span className="absolute animate-ping w-3 h-3 bg-secondary-500 rounded-full -top-1 -right-1"></span>
+            <span className="absolute w-3 h-3 bg-secondary-500 rounded-full -top-1 -right-1"></span>
           </Link>
         </li>
       </ul>
