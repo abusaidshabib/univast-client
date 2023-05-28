@@ -271,7 +271,7 @@ const AdmissionForm = () => {
             <br />
             <select
               className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-              {...register("religion", { required: true })}
+              {...register("marital", { required: true })}
             >
               <option className="text-p-white">Select Type...</option>
               <option className="text-p-white" value="Single">
