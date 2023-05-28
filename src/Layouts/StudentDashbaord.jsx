@@ -4,7 +4,7 @@ import TopMenu from "../Components/StudentDashboard/Shared/TopMenu";
 
 const StudentDashbaord = () => {
   return (
-    <div className="bg-gray-200 min-h-screen min-w-screen flex pr-10">
+    <div className="bg-white min-h-screen max-w-screen flex">
       <Menu></Menu>
       <div className="w-full">
         <TopMenu></TopMenu>

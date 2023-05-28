@@ -6,7 +6,7 @@ import { HiOutlineAcademicCap } from "react-icons/hi";
 
 const Menu = () => {
   return (
-    <div className="bg-p-white grid grid-rows-3 gap-20 text-gray-900">
+    <div className="bg-white grid grid-rows-3 gap-20 text-gray-900">
       <div className="p-5">
         <Link to="/" className="font-primary cursor-pointer">
           <div className="cursor-pointer">

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const TopMenu = () => {
   return (
-    <div className="flex justify-between h-16 items-center text-gray-900">
+    <div className="flex px-12 justify-between h-20 items-center text-gray-900">
       <div></div>
-      <ul className="text-2xl flex gap-4">
+      <ul className="text-2xl flex gap-6">
         <li>
           <Link className="relative">
             <HiOutlineMail className="" />
