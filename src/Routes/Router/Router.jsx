@@ -3,6 +3,8 @@ import Main from "../../Layouts/Main";
 import Home from "../../Pages/Main/Home";
 import Admission from "../../Pages/Main/Admission";
 import AdmissionForm from "../../Components/Main/Admission/AdmissionForm";
+import StudentDashbaord from "../../Layouts/StudentDashbaord";
+import Profile from "../../Pages/StudentDashboard/Profile";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,16 @@ const router = createBrowserRouter([
       {
         path: "/admission/online",
         element: <AdmissionForm></AdmissionForm>
+      }
+    ]
+  },
+  {
+    path: "/student",
+    element: <StudentDashbaord></StudentDashbaord>,
+    children: [
+      {
+        path: "/student/profile",
+        element: <Profile></Profile>
       }
     ]
   }
