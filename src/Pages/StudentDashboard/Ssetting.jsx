@@ -11,72 +11,55 @@ const Ssetting = () => {
   const onSubmit = (data) => console.log(data);
   console.log(errors);
 
-  const [status, setState] = useState(true)
+  const [status, setStatus] = useState(true);
+ 
 
   return (
     <div className="bg-gray-200 w-full min-h-screen p-5 font-semibold">
-      <div className="flex justify-between items-center pb-5 text-gray-900">
+      <div className="flex justify-between items-center text-gray-900">
         <div>
           <p className="text-4xl pb-5 font-semibold">Apply Information</p>
         </div>
         <div>
-          <AiFillEdit className="text-2xl" />
+          <AiFillEdit
+            onClick={() => setStatus(!status)}
+            className={`text-2xl ${!status ? "text-blue-600" : ""} `}
+          />
         </div>
       </div>
       <form
-        className="bg-white p-5 grid grid-cols-3"
+        className="bg-white p-10 grid gap-5"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div>
-          <label className="text-2xl leading-loose">
-            First Name
+        <div className="grid grid-cols-3 items-center border-b">
+          <label className="text-2xl col-span-1" htmlFor="firstname">
+            Name
           </label>
-          <br />
           <input
-            className="w-full bg-gray-200 outline-none py-5 px-5 text-xl font-normal rounded-md"
-            placeholder="First Name"
+            className={`w-full outline-none py-5 text-xl font-normal rounded-md col-span-2 ${
+              status ? "bg-transparent" : "bg-gray-200 px-5"
+            }`}
             type="text"
+            disabled={status}
+            defaultValue="Golam"
+            {...register("firstname", { required: true })}
+          />
+        </div>
+        <div>
+          <label className="text-2xl" htmlFor="firstname">
+            Last Name
+          </label>
+          <input
+            className={`w-full outline-none py-5 text-xl font-normal rounded-md ${
+              status ? "bg-transparent" : "bg-gray-200 px-5"
+            }`}
+            type="text"
+            disabled={status}
+            defaultValue="Mehedi"
             {...register("firstname", { required: true })}
           />
           <br />
         </div>
-        <input
-          type="text"
-          placeholder="Last name"
-          {...register("Last name", { required: true, maxLength: 100 })}
-        />
-        <input
-          type="text"
-          placeholder="Email"
-          {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
-        />
-        <input
-          type="tel"
-          placeholder="Mobile number"
-          {...register("Mobile number", {
-            required: true,
-            minLength: 6,
-            maxLength: 12,
-          })}
-        />
-        <select {...register("Title", { required: true })}>
-          <option value="Mr">Mr</option>
-          <option value="Mrs">Mrs</option>
-          <option value="Miss">Miss</option>
-          <option value="Dr">Dr</option>
-        </select>
-
-        <input
-          {...register("Developer", { required: true })}
-          type="radio"
-          value="Yes"
-        />
-        <input
-          {...register("Developer", { required: true })}
-          type="radio"
-          value="No"
-        />
-
         <input type="submit" />
       </form>
     </div>
