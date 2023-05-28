@@ -534,7 +534,7 @@ const AdmissionForm = () => {
           <div>
             <div>
               <p className="font-serif text-2xl text-p-white py-5">
-                Present address
+                Permanent address
               </p>
               <div>
                 <label className="text-p-white font-serif text-2xl leading-loose">
@@ -636,206 +636,306 @@ const AdmissionForm = () => {
         </div>
 
         {/* Address */}
-        <p className="font-serif text-4xl text-p-white py-5">Address</p>
+        <p className="font-serif text-4xl text-p-white py-5">
+          Family Information
+        </p>
         <hr className="pb-5" />
         <div className="grid grid-cols-2 gap-10 pb-10">
           <div>
             <p className="font-serif text-2xl text-p-white py-5">
-              Present address
+              Father&apos;s Information
             </p>
-            <div>
-              <label className="text-p-white font-serif text-2xl leading-loose">
-                Country
-              </label>
-              <br />
-              <select
-                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                {...register("p-Country", { required: true })}
-              >
-                <option className="text-p-white">Select Type...</option>
-                <option className="text-p-white" value="Bangladesh">
-                  Bangladesh
-                </option>
-                <option className="text-p-white" value="Indian">
-                  Indian
-                </option>
-                <option className="text-p-white" value="Others">
-                  Others
-                </option>
-              </select>{" "}
-              <br />
-            </div>
-            <div>
-              <label className="text-p-white font-serif text-2xl leading-loose">
-                State/Division
-              </label>
-              <br />
-              <input
-                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                placeholder="Enter Your State/Division"
-                type="text"
-                {...register("p-state-division", { required: true })}
-              />
-              <br />
-            </div>
-            <div>
-              <label className="text-p-white font-serif text-2xl leading-loose">
-                Police Station/Thana
-              </label>
-              <br />
-              <input
-                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                placeholder="Enter Your Police Station/Thana"
-                type="text"
-                {...register("p-thana", { required: true })}
-              />
-              <br />
-            </div>
-            <div>
-              <label className="text-p-white font-serif text-2xl leading-loose">
-                City
-              </label>
-              <br />
-              <input
-                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                placeholder="Enter Your City"
-                type="text"
-                {...register("p-city", { required: true })}
-              />
-              <br />
-            </div>
-            <div>
-              <label className="text-p-white font-serif text-2xl leading-loose">
-                Zip Code/Post Code/Post Office Name
-              </label>
-              <br />
-              <input
-                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                placeholder="Enter Your Zip Code"
-                type="number"
-                {...register("p-zip-code", { required: true })}
-              />
-              <br />
-            </div>
-            <div>
-              <label className="text-p-white font-serif text-2xl leading-loose">
-                Flat/Apt/Street/House No./Area/Village
-              </label>
-              <br />
-              <input
-                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                placeholder="Street1"
-                type="text"
-                {...register("p-street1", { required: true })}
-              />
-              <br />
-              <br />
-              <input
-                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                placeholder="Street2"
-                type="text"
-                {...register("p-street2", { required: true })}
-              />
-              <br />
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Father name
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Father Name"
+                  type="text"
+                  {...register("father-name", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Mobile No.
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Father's Mobile No. Ex. +8801123456789"
+                  type="text"
+                  {...register("father-mobile", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Email
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Father's email"
+                  type="email"
+                  {...register("father-email", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  National ID
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Father's NID"
+                  type="text"
+                  {...register("father-nid", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Passport No
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Father's Passport No"
+                  type="text"
+                  {...register("father-passport", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Date of Birth
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder=""
+                  type="date"
+                  {...register("father-dob", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Age
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Father's Age in Years"
+                  type="text"
+                  {...register("father-age", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Occupation
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Father's Occupation"
+                  type="text"
+                  {...register("father-occupation", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Name of Company
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Father's Name of Company"
+                  type="text"
+                  {...register("father-company", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Designation
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Father's Designation"
+                  type="text"
+                  {...register("father-designation", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Annual Income
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Father's Annual Income"
+                  type="text"
+                  {...register("father-income", { required: true })}
+                />
+                <br />
+              </div>
             </div>
           </div>
           <div>
-            <div>
-              <p className="font-serif text-2xl text-p-white py-5">
-                Present address
-              </p>
+            <p className="font-serif text-2xl text-p-white py-5">
+              Mother&apos;s Information
+            </p>
+            <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="text-p-white font-serif text-2xl leading-loose">
-                  Country
-                </label>
-                <br />
-                <select
-                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                  {...register("country", { required: true })}
-                >
-                  <option className="text-p-white">Select Type...</option>
-                  <option className="text-p-white" value="Bangladesh">
-                    Bangladesh
-                  </option>
-                  <option className="text-p-white" value="Indian">
-                    Indian
-                  </option>
-                  <option className="text-p-white" value="Others">
-                    Others
-                  </option>
-                </select>{" "}
-                <br />
-              </div>
-              <div>
-                <label className="text-p-white font-serif text-2xl leading-loose">
-                  State/Division
+                  Mother name
                 </label>
                 <br />
                 <input
                   className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                  placeholder="Enter Your State/Division"
+                  placeholder="Mother Name"
                   type="text"
-                  {...register("state-division", { required: true })}
+                  {...register("mother-name", { required: true })}
                 />
                 <br />
               </div>
               <div>
                 <label className="text-p-white font-serif text-2xl leading-loose">
-                  Police Station/Thana
+                  Mobile No.
                 </label>
                 <br />
                 <input
                   className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                  placeholder="Enter Your Police Station/Thana"
+                  placeholder="Mother's Mobile No. Ex. +8801123456789"
                   type="text"
-                  {...register("thana", { required: true })}
+                  {...register("mother-mobile", { required: true })}
                 />
                 <br />
               </div>
               <div>
                 <label className="text-p-white font-serif text-2xl leading-loose">
-                  City
+                  Email
                 </label>
                 <br />
                 <input
                   className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                  placeholder="Enter Your City"
-                  type="text"
-                  {...register("city", { required: true })}
+                  placeholder="Mother's email"
+                  type="email"
+                  {...register("mother-email", { required: true })}
                 />
                 <br />
               </div>
               <div>
                 <label className="text-p-white font-serif text-2xl leading-loose">
-                  Zip Code/Post Code/Post Office Name
+                  National ID
                 </label>
                 <br />
                 <input
                   className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                  placeholder="Enter Your Zip Code"
-                  type="number"
-                  {...register("zip-code", { required: true })}
+                  placeholder="Mother's NID"
+                  type="text"
+                  {...register("mother-nid", { required: true })}
                 />
                 <br />
               </div>
               <div>
                 <label className="text-p-white font-serif text-2xl leading-loose">
-                  Flat/Apt/Street/House No./Area/Village
+                  Passport No
                 </label>
                 <br />
                 <input
                   className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                  placeholder="Street1"
+                  placeholder="Mother's Passport No"
                   type="text"
-                  {...register("street1", { required: true })}
+                  {...register("mother-passport", { required: true })}
                 />
                 <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Date of Birth
+                </label>
                 <br />
                 <input
                   className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
-                  placeholder="Street2"
+                  placeholder=""
+                  type="date"
+                  {...register("mother-dob", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Age
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Mother's Age in Years"
                   type="text"
-                  {...register("street2", { required: true })}
+                  {...register("mother-age", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Occupation
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Mother's Occupation"
+                  type="text"
+                  {...register("mother-occupation", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Name of Company
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Mother's Name of Company"
+                  type="text"
+                  {...register("mother-company", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Designation
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Mother's Designation"
+                  type="text"
+                  {...register("mother-designation", { required: true })}
+                />
+                <br />
+              </div>
+              <div>
+                <label className="text-p-white font-serif text-2xl leading-loose">
+                  Annual Income
+                </label>
+                <br />
+                <input
+                  className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                  placeholder="Mother's Annual Income"
+                  type="text"
+                  {...register("mother-income", { required: true })}
                 />
                 <br />
               </div>
