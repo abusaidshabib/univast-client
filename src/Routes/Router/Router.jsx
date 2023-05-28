@@ -6,6 +6,7 @@ import AdmissionForm from "../../Components/Main/Admission/AdmissionForm";
 import StudentDashbaord from "../../Layouts/StudentDashbaord";
 import Shome from "../../Pages/StudentDashboard/Shome";
 import Ssetting from "../../Pages/StudentDashboard/Ssetting";
+import Spayment from "../../Pages/StudentDashboard/Spayment";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/student/setting",
         element: <Ssetting></Ssetting>
+      },
+      {
+        path: "/student/payment",
+        element: <Spayment></Spayment>
       }
     ]
   }
