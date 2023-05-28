@@ -2,10 +2,11 @@ import { BsPerson } from "react-icons/bs";
 
 const Shome = () => {
   return (
-    <div className="grid grid-cols-4 text-gray-900">
-      <div className="col-span-3"></div>
-      <div className="col-span-1 w-full h-full bg-p-white rounded-lg p-10">
-        <div className="flex justify-between items-center ">
+    <div className="grid grid-cols-4 rounded-tl-lg bg-gray-200 min-h-[calc(100vh-80px)] text-gray-900">
+      <div className="col-span-3">
+      </div>
+      <div className="col-span-1 p-5 bg-white m-5 rounded-lg">
+        {/* <div className="flex rounded-lg justify-between items-center ">
           <div>
             <p className="">Hello,</p>
             <p className="text-2xl font-semibold">Mehedi Pulok</p>
@@ -15,12 +16,8 @@ const Shome = () => {
               <BsPerson className="text-4xl" />
             </div>
           </div>
-        </div>
-        <div>
-          
-        </div>
+        </div> */}
       </div>
-
     </div>
   );
 };
