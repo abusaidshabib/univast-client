@@ -1,6 +1,8 @@
 import cover from "../../assets/Student-dashboard/cover.jpg";
 import profile from "../../assets/Student-dashboard/Profile.png";
-import { MdOutlineAssignment } from 'react-icons/md'
+import { MdOutlineAssignment } from 'react-icons/md';
+import { AiOutlineNotification } from 'react-icons/ai';
+
 
 const SProfileCard = () => {
   return (
@@ -56,11 +58,11 @@ const SProfileCard = () => {
             </div>
           </div>
           <div className="assignments mt-5">
-            <h1 className="text-left font-semibold text-lg text-green-600 mb-3">
-              Assignments
+            <h1 className="text-left font-semibold text-lg text-green-600 mb-5">
+              Due Assignments
             </h1>
-            <div className="assignments-container grid gap-5">
-              <div className="assignment-card flex items-start gap-2 text-left">
+            <div className="assignments-container grid gap-3">
+              <div className="assignment-card px-3 flex items-start gap-3 text-left">
                 <div className="bg-blue-500 p-2 flex items-center justify-center rounded-full">
                   <MdOutlineAssignment className="text-white text-2xl"/>
                 </div>
@@ -69,7 +71,8 @@ const SProfileCard = () => {
                   <p className="text-sm text-gray-600">CSE-4204 [System Analysis & Design]</p>
                 </div>
               </div>
-              <div className="assignment-card flex items-start gap-2 text-left">
+              <hr/>
+              <div className="assignment-card px-3 flex items-start gap-3 text-left">
                 <div className="bg-blue-500 p-2 flex items-center justify-center rounded-full">
                   <MdOutlineAssignment className="text-white text-2xl"/>
                 </div>
@@ -78,9 +81,46 @@ const SProfileCard = () => {
                   <p className="text-sm text-gray-600">CSE-4204 [Accounting, Introduction to Finance & International Trade]</p>
                 </div>
               </div>
-              <div className="assignment-card flex items-start gap-2 text-left">
+              <hr/>
+              <div className="assignment-card px-3 flex items-start gap-3 text-left">
                 <div className="bg-blue-500 p-2 flex items-center justify-center rounded-full">
                   <MdOutlineAssignment className="text-white text-2xl"/>
+                </div>
+                <div>
+                  <h1 className="font-semibold">Initial Investigation report </h1>
+                  <p className="text-sm text-gray-600">CSE-4204 [System Analysis & Design]</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="notices mt-5">
+            <h1 className="text-left font-semibold text-lg text-red-500 mb-5">
+              Important Notices
+            </h1>
+            <div className="notices-container grid gap-3">
+              <div className="notice-card px-3 flex items-start gap-3 text-left">
+                <div className="bg-red-500 p-2 flex items-center justify-center rounded-full">
+                  <AiOutlineNotification className="text-white text-2xl"/>
+                </div>
+                <div>
+                  <h1 className="font-semibold">Initial Investigation report</h1>
+                  <p className="text-sm text-gray-600">CSE-4204 [System Analysis & Design]</p>
+                </div>
+              </div>
+              <hr/>
+              <div className="notice-card px-3 flex items-start gap-3 text-left">
+                <div className="bg-red-500 p-2 flex items-center justify-center rounded-full">
+                  <AiOutlineNotification className="text-white text-2xl"/>
+                </div>
+                <div>
+                  <h1 className="font-semibold">Assessment for mid-term</h1>
+                  <p className="text-sm text-gray-600">CSE-4204 [Accounting, Introduction to Finance & International Trade]</p>
+                </div>
+              </div>
+              <hr/>
+              <div className="notice-card px-3 flex items-start gap-3 text-left">
+                <div className="bg-red-500 p-2 flex items-center justify-center rounded-full">
+                  <AiOutlineNotification className="text-white text-2xl"/>
                 </div>
                 <div>
                   <h1 className="font-semibold">Initial Investigation report </h1>

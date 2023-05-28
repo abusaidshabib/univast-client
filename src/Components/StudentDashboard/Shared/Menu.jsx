@@ -6,7 +6,7 @@ import { HiOutlineAcademicCap, HiOutlinePresentationChartLine } from "react-icon
 
 const Menu = () => {
   return (
-    <div className="bg-white grid gap-20 text-gray-900 max-h-screen">
+    <div className="bg-white grid gap-20 text-gray-900 h-screen sticky left-0 top-0">
       <div className="p-5">
         <Link to="/" className="font-primary cursor-pointer">
           <div className="cursor-pointer">

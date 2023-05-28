@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const TopMenu = () => {
   return (
-    <div className="flex px-12 justify-between h-20 items-center text-gray-900">
+    <div className="flex bg-white z-50 px-12 justify-between h-20 sticky top-0 left-0 items-center text-gray-900">
       <div></div>
       <ul className="text-2xl flex gap-6">
         <li>
