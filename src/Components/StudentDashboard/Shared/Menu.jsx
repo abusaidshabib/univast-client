@@ -32,7 +32,7 @@ const Menu = () => {
             </Link>
           </li>
           <li className="pb-6">
-            <Link className="">
+            <Link to="/student/setting" className="">
               <MdOutlineSettings className="text-2xl" />
             </Link>
           </li>

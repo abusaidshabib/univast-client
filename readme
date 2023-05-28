@@ -1,1 +1,8 @@
-profile(picture, cover-photo, name,id,email,address),
+profile(picture, cover-photo, name,id,email,address, shift(day or night)),
+
+profile, Sills on, Assignment submit date last to first,
+Analysis of result sequential.
+
+edit profile on settings like phone, Email, password
+
+//extra google keeps.---
