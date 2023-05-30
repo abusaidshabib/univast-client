@@ -6,7 +6,7 @@ import SsemesterResult from "../../Components/StudentDashboard/Home/SsemesterRes
 
 const Shome = () => {
   return (
-    <div className="grid grid-cols-4 gap-8 p-5 rounded-tl-lg bg-gray-200 min-h-[calc(100vh-80px)] text-gray-900">
+    <div className="grid grid-cols-4 gap-5 p-5 bg-gray-200 min-h-[calc(100vh-80px)] text-gray-900">
       <div className="col-span-3 grid gap-5">
         <SExamRutine></SExamRutine>
         <SClassRoutine></SClassRoutine>

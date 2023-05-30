@@ -32,6 +32,10 @@ const SProfileCard = () => {
               <h1 className="text-xl font-semibold mb-1">December 15, 2019</h1>
               <p className="text-xs text-gray-600">Addmission Date</p>
             </div>
+            <div className="bg-gray-100 rounded-lg p-3 mt-3 text-left">
+              <h1 className="text-xl font-semibold mb-1">B.Sc in CSE</h1>
+              <p className="text-xs text-gray-600">Enrolled in</p>
+            </div>
             <div className="grid grid-cols-3 gap-3 my-3">
               <div className="bg-gray-100 rounded-lg p-3 text-left">
                 <h1 className="text-xl font-semibold mb-1">CSE</h1>

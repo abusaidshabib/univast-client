@@ -10,12 +10,12 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-      {
-        /* fields
+{
+  /* fields
         Total Attendance,
         Total points on specific semester
          */
-      }
+}
 
 const data = [
   {
@@ -58,18 +58,20 @@ const data = [
 const SsemesterResult = () => {
   return (
     <div className="bg-white rounded-md p-10">
-
-      <p className="text-4xl font-semibold py-5">Results and important overview</p>
-      {/* <ResponsiveContainer width="100%" height="100%"> */}
+      <p className="text-4xl font-semibold py-5">
+        Results and important overview
+      </p>
+      <div className="w-full h-full grid place-content-center">
+        {/* <ResponsiveContainer width="100%" height="100%"> */}
         <LineChart
-          width={1260}
+          width={1100}
           height={500}
           data={data}
           margin={{
             top: 20,
             right: 5,
             left: 5,
-            bottom: 0,
+            bottom: 10,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
@@ -85,7 +87,8 @@ const SsemesterResult = () => {
           />
           <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
         </LineChart>
-      {/* </ResponsiveContainer> */}
+        {/* </ResponsiveContainer> */}
+      </div>
     </div>
   );
 };
