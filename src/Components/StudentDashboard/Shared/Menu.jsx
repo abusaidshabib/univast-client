@@ -56,6 +56,12 @@ const Menu = () => {
               <p>Payments</p>
             </NavLink>
           </li>
+          <li className="">
+            <NavLink to="/student/payments" className="flex gap-3">
+              <FaRegMoneyBillAlt className="text-2xl" />
+              <p>Admit Card</p>
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className="flex gap-3">
