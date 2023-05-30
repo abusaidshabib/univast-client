@@ -1,4 +1,3 @@
-import CgpaLineChart from "../../Components/StudentDashboard/Home/CgpaLineChart";
 import SProfileCard from "../../Components/StudentDashboard/Home/SProfileCard";
 
 
