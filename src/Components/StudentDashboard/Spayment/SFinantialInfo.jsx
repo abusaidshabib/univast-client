@@ -1,6 +1,6 @@
 import { MdDownload } from "react-icons/md";
 
-const FinatialInfo = () => {
+const SFinantialInfo = () => {
   return (
     <div className="bg-white p-10 rounded-lg">
       <div className="flex justify-between items-center text-gray-900 col-span-3">
@@ -62,4 +62,4 @@ const FinatialInfo = () => {
   );
 };
 
-export default FinatialInfo;
+export default SFinantialInfo;
