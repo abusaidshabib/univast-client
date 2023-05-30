@@ -90,7 +90,7 @@ const Navbar = () => {
                 About
               </li>
               <li className="cursor-pointer hover:underline underline-offset-[12px] transition">
-                <Link to="/student/profile">student Portal</Link>
+                <Link to="/student/home">student Portal</Link>
               </li>
             </ul>
           </div>

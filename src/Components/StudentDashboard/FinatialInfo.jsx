@@ -15,34 +15,46 @@ const FinatialInfo = () => {
       <table className="border-collapse border border-slate-400 w-full text-lg">
         <thead>
           <tr>
-            <th className="border border-gray-400 p-3 ">State</th>
-            <th className="border border-gray-400 p-3 ">City</th>
-            <th className="border border-gray-400 p-3 ">City</th>
-            <th className="border border-gray-400 p-3 ">City</th>
-            <th className="border border-gray-400 p-3 ">City</th>
+            <th className="border border-gray-400 p-2 ">Ref no</th>
+            <th className="border border-gray-400 p-2 ">Semester</th>
+            <th className="border border-gray-400 p-2 ">Session Year</th>
+            <th className="border border-gray-400 p-2 ">Payment Date</th>
+            <th className="border border-gray-400 p-2 ">Amount</th>
+            <th className="border border-gray-400 p-2 ">Medium</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td className="border border-gray-400 p-3 ">Indiana</td>
-            <td className="border border-gray-400 p-3 ">Indianapolis</td>
-            <td className="border border-gray-400 p-3 ">Indianapolis</td>
-            <td className="border border-gray-400 p-3 ">Indianapolis</td>
-            <td className="border border-gray-400 p-3 ">Indianapolis</td>
+            <td className="border border-gray-400 p-2 ">579162</td>
+            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
+            <td className="border border-gray-400 p-2 ">2020</td>
+            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
+            <td className="border border-gray-400 p-2 ">11521</td>
+            <td className="border border-gray-400 p-2 ">UCBL</td>
           </tr>
           <tr>
-            <td className="border border-gray-400 p-3 ">Ohio</td>
-            <td className="border border-gray-400 p-3 ">Columbus</td>
-            <td className="border border-gray-400 p-3 ">Ohio</td>
-            <td className="border border-gray-400 p-3 ">Columbus</td>
-            <td className="border border-gray-400 p-3 ">Columbus</td>
+            <td className="border border-gray-400 p-2 ">579162</td>
+            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
+            <td className="border border-gray-400 p-2 ">2020</td>
+            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
+            <td className="border border-gray-400 p-2 ">11521</td>
+            <td className="border border-gray-400 p-2 ">UCBL</td>
           </tr>
           <tr>
-            <td className="border border-gray-400 p-3 ">Michigan</td>
-            <td className="border border-gray-400 p-3 ">Detroit</td>
-            <td className="border border-gray-400 p-3 ">Detroit</td>
-            <td className="border border-gray-400 p-3 ">Detroit</td>
-            <td className="border border-gray-400 p-3 ">Detroit</td>
+            <td className="border border-gray-400 p-2 ">579162</td>
+            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
+            <td className="border border-gray-400 p-2 ">2020</td>
+            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
+            <td className="border border-gray-400 p-2 ">11521</td>
+            <td className="border border-gray-400 p-2 ">UCBL</td>
+          </tr>
+          <tr>
+            <td className="border border-gray-400 p-2 ">579162</td>
+            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
+            <td className="border border-gray-400 p-2 ">2020</td>
+            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
+            <td className="border border-gray-400 p-2 ">11521</td>
+            <td className="border border-gray-400 p-2 ">UCBL</td>
           </tr>
         </tbody>
       </table>
