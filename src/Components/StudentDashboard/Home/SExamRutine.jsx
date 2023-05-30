@@ -2,7 +2,7 @@ import { MdDownload } from "react-icons/md";
 
 const SExamRutine = () => {
   return (
-    <div className="bg-white p-10 rounded-lg">
+    <div className="bg-white p-10 mb-5 rounded-lg">
       <div className="flex justify-between items-center text-gray-900 col-span-3">
         <div>
           <p className="text-4xl font-semibold">Exam Routine</p>
