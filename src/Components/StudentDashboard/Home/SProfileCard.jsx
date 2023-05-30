@@ -1,12 +1,12 @@
-import cover from "../../assets/Student-dashboard/cover.jpg";
-import profile from "../../assets/Student-dashboard/Profile.png";
+import cover from "../../../assets/Student-dashboard/cover.jpg";
+import profile from "../../../assets/Student-dashboard/Profile.png";
 import { MdOutlineAssignment } from 'react-icons/md';
 import { AiOutlineNotification } from 'react-icons/ai';
 
 
 const SProfileCard = () => {
   return (
-    <div className="col-span-1 p-3 bg-white m-5 rounded-lg">
+    <div className="col-span-1 p-3 bg-white rounded-lg">
       <div className="profile-card relative">
         <div className="cover-photo">
           <img
