@@ -16,9 +16,9 @@ const SFinantialInfo = () => {
         <thead>
           <tr>
             <th className="border border-gray-400 p-2 ">Ref no</th>
-            <th className="border border-gray-400 p-2 ">Semester</th>
+            <th className="border border-gray-400 p-2 ">Transaction Type</th>
             <th className="border border-gray-400 p-2 ">Session Year</th>
-            <th className="border border-gray-400 p-2 ">Payment Date</th>
+            <th className="border border-gray-400 p-2 ">Transaction Date</th>
             <th className="border border-gray-400 p-2 ">Amount</th>
             <th className="border border-gray-400 p-2 ">Medium</th>
           </tr>
