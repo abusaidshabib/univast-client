@@ -1,6 +1,7 @@
 import SClassRoutine from "../../Components/StudentDashboard/Home/SClassRoutine";
 import SExamRutine from "../../Components/StudentDashboard/Home/SExamRutine";
 import SProfileCard from "../../Components/StudentDashboard/Home/SProfileCard";
+import SsemesterResult from "../../Components/StudentDashboard/Home/SsemesterResult";
 
 const Shome = () => {
   return (
@@ -9,6 +10,7 @@ const Shome = () => {
         <div>
           <SExamRutine></SExamRutine>
           <SClassRoutine></SClassRoutine>
+          <SsemesterResult></SsemesterResult>
         </div>
       </div>
       <SProfileCard></SProfileCard>
