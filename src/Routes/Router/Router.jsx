@@ -44,13 +44,25 @@ const router = createBrowserRouter([
         element: <Shome></Shome>
       },
       {
-        path: "/student/setting",
+        path: "/student/profile",
         element: <Ssetting></Ssetting>
       },
       {
-        path: "/student/payment",
+        path: "/student/courses",
         element: <Spayment></Spayment>
-      }
+      },
+      {
+        path: "/student/attendance",
+        element: <Spayment></Spayment>
+      },
+      {
+        path: "/student/grades",
+        element: <Spayment></Spayment>
+      },
+      {
+        path: "/student/payments",
+        element: <Spayment></Spayment>
+      },
     ]
   }
 ])
