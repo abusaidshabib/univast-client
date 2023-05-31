@@ -8,6 +8,8 @@ import Shome from "../../Pages/StudentPortal/StudentHomePage/Main/Shome";
 import SProfile from "../../Pages/StudentPortal/StudentProfilePage/Main/SProfile";
 import Spayment from "../../Pages/StudentPortal/StudentPaymentPage/Main/Spayment";
 import SAttendance from "../../Pages/StudentPortal/StudentAttendancePage/Main/SAttendance";
+import SGeneralInfo from "../../Pages/StudentPortal/StudentProfilePage/Sections/SGeneralInfo/SGeneralInfo";
+import SPersonalInfo from "../../Pages/StudentPortal/StudentProfilePage/Sections/SPersonalInfo/SPersonalInfo";
 
 const router = createBrowserRouter([
   {
@@ -43,7 +45,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/student/profile",
-        element: <SProfile></SProfile>
+        element: <SProfile></SProfile>,
+        children: [
+          {
+            path: "/student/profile",
+            element: <SGeneralInfo></SGeneralInfo>
+          },
+          {
+            path: "/student/profile/general_information",
+            element: <SGeneralInfo></SGeneralInfo>
+          },
+          {
+            path: "/student/profile/personal_information_&_parent_information",
+            element: <SPersonalInfo></SPersonalInfo>
+          }
+        ]
       },
       {
         path: "/student/courses",

@@ -1,0 +1,5 @@
+.student-profile nav .active{
+    color: #ffbc42;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
