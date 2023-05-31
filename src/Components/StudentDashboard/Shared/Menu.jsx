@@ -27,7 +27,7 @@ const Menu = () => {
             </NavLink>
           </li>
           <li className="">
-            <NavLink to="/student/profile" className="flex gap-3">
+            <NavLink to="/student/profile/general_information" className="flex gap-3">
               <BiUser className="text-2xl" />
               <p>Profile</p>
             </NavLink>
