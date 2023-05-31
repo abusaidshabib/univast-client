@@ -7,6 +7,7 @@ import StudentDashbaord from "../../Layouts/StudentDashbaord";
 import Shome from "../../Pages/StudentPortal/StudentHomePage/Main/Shome";
 import SProfile from "../../Pages/StudentPortal/StudentProfilePage/Main/SProfile";
 import Spayment from "../../Pages/StudentPortal/StudentPaymentPage/Main/Spayment";
+import SAttendance from "../../Pages/StudentPortal/StudentAttendancePage/Main/SAttendance";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/student/attendance",
-        element: <Spayment></Spayment>
+        element: <SAttendance></SAttendance>
       },
       {
         path: "/student/grades",
