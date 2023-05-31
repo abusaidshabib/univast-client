@@ -1,5 +1,6 @@
-import AdmissionMain from "../../Components/Main/Admission/AdmissionMain";
-import AdmissionRequirement from "../../Components/Main/Admission/AdmissionRequirement";
+import AdmissionMain from "../Sections/AdmissionMain/AdmissionMain";
+import AdmissionRequirement from "../Sections/AdmissionRequirement/AdmissionRequirement";
+
 
 const Admission = () => {
   return (

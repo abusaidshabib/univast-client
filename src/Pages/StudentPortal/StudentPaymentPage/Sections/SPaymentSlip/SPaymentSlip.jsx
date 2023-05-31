@@ -1,4 +1,4 @@
-import logo from "../../../assets/Navbar/graduated-removebg-preview.png"
+import logo from "../../../../../assets/Navbar/graduated-removebg-preview.png";
 
 const SPaymentSlip = () => {
   return (

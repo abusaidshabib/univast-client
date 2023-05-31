@@ -1,4 +1,4 @@
-import campus from "../../../assets/about/view-stanford-university-palo-alto-silicon-valley-california-usa_479694-3092.jpg";
+import campus from "../../../../../assets/about/view-stanford-university-palo-alto-silicon-valley-california-usa_479694-3092.jpg";
 import { BsPlayCircleFill } from "react-icons/bs";
 
 const About = () => {

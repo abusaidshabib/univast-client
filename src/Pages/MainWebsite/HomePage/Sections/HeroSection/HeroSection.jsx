@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import heroImg from "../../../assets/Home/Graduation with girl.jpg";
+import heroImg from "../../../../../assets/Home/Library with girl.jpg";
 
 const HeroSection = () => {
   return (

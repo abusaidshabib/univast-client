@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEdit } from "react-icons/ai";
 
-const EditForm = () => {
+const SProfileEditForm = () => {
   const {
     register,
     handleSubmit,
@@ -185,4 +185,4 @@ const EditForm = () => {
   );
 };
 
-export default EditForm;
+export default SProfileEditForm;

@@ -1,7 +1,6 @@
-import SFinantialInfo from "../../Components/StudentDashboard/Spayment/SFinantialInfo";
-import SPaymentForm from "../../Components/StudentDashboard/Spayment/SPaymentForm";
-import SPaymentSlip from "../../Components/StudentDashboard/Spayment/SPaymentSlip";
-
+import SFinantialInfo from "../Sections/SFinancialInfo/SFinantialInfo";
+import SPaymentForm from "../Sections/SPaymentForm/SPaymentForm";
+import SPaymentSlip from "../Sections/SPaymentSlip/SPaymentSlip";
 
 
 const Spayment = () => {

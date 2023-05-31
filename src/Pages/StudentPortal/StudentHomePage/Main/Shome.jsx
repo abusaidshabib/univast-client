@@ -1,7 +1,7 @@
-import SClassRoutine from "../../Components/StudentDashboard/Home/SClassRoutine";
-import SExamRutine from "../../Components/StudentDashboard/Home/SExamRutine";
-import SProfileCard from "../../Components/StudentDashboard/Home/SProfileCard";
-import SsemesterResult from "../../Components/StudentDashboard/Home/SsemesterResult";
+import SClassRoutine from "../Sections/SClassRoutine/SClassRoutine";
+import SExamRutine from "../Sections/SExamRoutine/SExamRutine";
+import SProfileCard from "../Sections/SProfileCard/SProfileCard";
+import SsemesterResult from "../Sections/SSemesterResult/SsemesterResult";
 
 const Shome = () => {
   return (

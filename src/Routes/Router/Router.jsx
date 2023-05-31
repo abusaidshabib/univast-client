@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layouts/Main";
-import Home from "../../Pages/Main/Home";
-import Admission from "../../Pages/Main/Admission";
-import AdmissionForm from "../../Components/Main/Admission/AdmissionForm";
+import Home from "../../Pages/MainWebsite/HomePage/Main/Home";
+import Admission from "../../Pages/MainWebsite/AdmissionPage/Main/Admission";
+import AdmissionForm from "../../Pages/MainWebsite/AdmissionPage/Sections/AdmissionForm/AdmissionForm";
 import StudentDashbaord from "../../Layouts/StudentDashbaord";
-import Shome from "../../Pages/StudentDashboard/Shome";
-import Ssetting from "../../Pages/StudentDashboard/Ssetting";
-import Spayment from "../../Pages/StudentDashboard/Spayment";
+import Shome from "../../Pages/StudentPortal/StudentHomePage/Main/Shome";
+import SProfile from "../../Pages/StudentPortal/StudentProfilePage/Main/SProfile";
+import Spayment from "../../Pages/StudentPortal/StudentPaymentPage/Main/Spayment";
 
 const router = createBrowserRouter([
   {
@@ -35,17 +35,14 @@ const router = createBrowserRouter([
     path: "/student",
     element: <StudentDashbaord></StudentDashbaord>,
     children: [
-      {
-        path: "/student",
-        element: <Shome></Shome>
-      },
+
       {
         path: "/student/home",
         element: <Shome></Shome>
       },
       {
         path: "/student/profile",
-        element: <Ssetting></Ssetting>
+        element: <SProfile></SProfile>
       },
       {
         path: "/student/courses",

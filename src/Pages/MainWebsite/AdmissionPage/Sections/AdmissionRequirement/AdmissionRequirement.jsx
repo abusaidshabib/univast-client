@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import FaqSection from "../FaqSection";
+import FaqSection from "./FaqSection";
 
 const AdmissionRequirement = () => {
   const FAQ = [

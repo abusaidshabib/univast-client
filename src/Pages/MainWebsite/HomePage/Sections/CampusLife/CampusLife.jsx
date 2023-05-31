@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import graduates from "../../../assets/Home/meetGraduates.jpg"
+import graduates from "../../../../../assets/Home/meetGraduates.jpg"
 
 const CampusLife = () => {
   return (
