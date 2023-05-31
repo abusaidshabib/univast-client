@@ -8,6 +8,7 @@ import Shome from "../../Pages/StudentPortal/StudentHomePage/Main/Shome";
 import SProfile from "../../Pages/StudentPortal/StudentProfilePage/Main/SProfile";
 import Spayment from "../../Pages/StudentPortal/StudentPaymentPage/Main/Spayment";
 import SAttendance from "../../Pages/StudentPortal/StudentAttendancePage/Main/SAttendance";
+import AttendSinglePage from "../../Pages/StudentPortal/StudentAttendancePage/StudentAttendSinglePage/AttendSinglePage";
 
 const router = createBrowserRouter([
   {
@@ -16,53 +17,56 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/home",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/admission",
-        element: <Admission></Admission>
+        element: <Admission></Admission>,
       },
       {
         path: "/admission/online",
-        element: <AdmissionForm></AdmissionForm>
-      }
-    ]
+        element: <AdmissionForm></AdmissionForm>,
+      },
+    ],
   },
   {
     path: "/student",
     element: <StudentDashbaord></StudentDashbaord>,
     children: [
-
       {
         path: "/student/home",
-        element: <Shome></Shome>
+        element: <Shome></Shome>,
       },
       {
         path: "/student/profile",
-        element: <SProfile></SProfile>
+        element: <SProfile></SProfile>,
       },
       {
         path: "/student/courses",
-        element: <Spayment></Spayment>
+        element: <Spayment></Spayment>,
       },
       {
         path: "/student/attendance",
-        element: <SAttendance></SAttendance>
+        element: <SAttendance></SAttendance>,
+      },
+      {
+        path: "/student/attendance/singlePage",
+        element: <AttendSinglePage></AttendSinglePage>
       },
       {
         path: "/student/grades",
-        element: <Spayment></Spayment>
+        element: <Spayment></Spayment>,
       },
       {
         path: "/student/payments",
-        element: <Spayment></Spayment>
+        element: <Spayment></Spayment>,
       },
-    ]
-  }
-])
+    ],
+  },
+]);
 
 export default router;
