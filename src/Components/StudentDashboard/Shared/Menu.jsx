@@ -3,7 +3,7 @@ import logo from "../../../assets/Navbar/graduated-removebg-preview.png";
 import { AiOutlineLogout } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
 import { GoBook } from "react-icons/go";
-import { BsCalendar2Check } from "react-icons/bs";
+import { BsCalendar2Check, BsCardText } from "react-icons/bs";
 import { TfiCup } from "react-icons/tfi";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import {  MdOutlineDashboardCustomize, } from "react-icons/md";
@@ -45,7 +45,7 @@ const Menu = () => {
             </NavLink>
           </li>
           <li className="">
-            <NavLink to="/student/grades"  className="flex gap-3">
+            <NavLink to="/student/grades" className="flex gap-3">
               <TfiCup className="text-2xl" />
               <p>Grades</p>
             </NavLink>
@@ -58,7 +58,7 @@ const Menu = () => {
           </li>
           <li className="">
             <NavLink to="/student/payments" className="flex gap-3">
-              <FaRegMoneyBillAlt className="text-2xl" />
+              <BsCardText className="text-2xl" />
               <p>Admit Card</p>
             </NavLink>
           </li>
