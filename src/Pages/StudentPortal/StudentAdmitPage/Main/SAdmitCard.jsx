@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
 const SAdmitCard = () => {
-
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -19,7 +18,7 @@ const SAdmitCard = () => {
             <p className="text-4xl font-semibold">Download admit card</p>
           </div>
           <div>
-            <button onClick={()=> handlePrint()}>
+            <button onClick={() => handlePrint(componentRef)}>
               <MdDownload className="text-2xl" />
             </button>
           </div>
