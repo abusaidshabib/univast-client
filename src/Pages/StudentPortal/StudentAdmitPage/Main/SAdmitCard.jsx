@@ -1,11 +1,37 @@
+import { MdDownload } from "react-icons/md";
 import logo from "../../../../assets/Navbar/graduated-removebg-preview.png"
+import { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 
 const SAdmitCard = () => {
-
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "emp-data",
+  });
   
   return (
-    <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5">
-      <div className="bg-p-white p-10">
+    <div className="grid gap-5 min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5">
+      <div className="bg-white p-10">
+        <div className="flex justify-between items-center text-gray-900 col-span-3">
+          <div>
+            <p className="text-4xl font-semibold">Download admit card</p>
+          </div>
+          <div>
+            <button onClick={() => handlePrint(componentRef)}>
+              <MdDownload className="text-2xl" />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        ref={componentRef}
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
+        className="bg-p-white p-10"
+      >
         <div
           to="/"
           className="flex items-center font-primary cursor-pointer justify-center"
@@ -75,16 +101,23 @@ const SAdmitCard = () => {
           </tbody>
         </table>
         <div className="">
-          <p className="py-5 text-xl font-bold">Terms and condition</p>
+          <p className="pt-5 text-xl font-bold">Terms and condition</p>
           <div>
             <ul className="list-disc pl-5">
               <li>You cannot sleep on Exam hall</li>
               <li>You cannot eat on exam hall</li>
               <li>You must have to eat milk before exam</li>
               <li>Cook a new food before examination</li>
-              <li>Please do not go washroom more than 0 before examination. You must have to go washroom in examination time more than 10.</li>
+              <li>
+                Please do not go washroom more than 0 before examination. You
+                must have to go washroom in examination time more than 10.
+              </li>
             </ul>
           </div>
+        </div>
+        <div className="flex place-content-end pt-10">
+          <div className="w-28 border-b-2 border-dashed border-gray-900"></div>
+          &nbsp; <p> Vice Principle</p>
         </div>
       </div>
     </div>
