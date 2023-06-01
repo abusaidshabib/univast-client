@@ -13,6 +13,7 @@ import SPersonalInfo from "../../Pages/StudentPortal/StudentProfilePage/Sections
 import AttendSinglePage from "../../Pages/StudentPortal/StudentAttendancePage/StudentAttendSinglePage/AttendSinglePage";
 import SGrades from "../../Pages/StudentPortal/StudentGradesPage/Main/SGrades";
 import SAdmitCard from "../../Pages/StudentPortal/StudentAdmitPage/Main/SAdmitCard";
+import SCourse from "../../Pages/StudentPortal/StudentCoursePage/Main/SCourse";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
     element: <StudentDashbaord></StudentDashbaord>,
     children: [
       {
+        path: "/student",
+        element: <Shome></Shome>,
+      },
+      {
         path: "/student/home",
         element: <Shome></Shome>,
       },
@@ -65,7 +70,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/student/courses",
-        element: <Spayment></Spayment>,
+        element: <SCourse></SCourse>
       },
       {
         path: "/student/attendance",
