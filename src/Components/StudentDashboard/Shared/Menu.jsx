@@ -57,7 +57,7 @@ const Menu = () => {
             </NavLink>
           </li>
           <li className="">
-            <NavLink to="/student/payments" className="flex gap-3">
+            <NavLink to="/student/admit-card" className="flex gap-3">
               <BsCardText className="text-2xl" />
               <p>Admit Card</p>
             </NavLink>
