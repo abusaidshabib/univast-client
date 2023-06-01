@@ -12,6 +12,7 @@ import SGeneralInfo from "../../Pages/StudentPortal/StudentProfilePage/Sections/
 import SPersonalInfo from "../../Pages/StudentPortal/StudentProfilePage/Sections/SPersonalInfo/SPersonalInfo";
 import AttendSinglePage from "../../Pages/StudentPortal/StudentAttendancePage/StudentAttendSinglePage/AttendSinglePage";
 import SGrades from "../../Pages/StudentPortal/StudentGradesPage/Main/SGrades";
+import SAdmitCard from "../../Pages/StudentPortal/StudentAdmitPage/Main/SAdmitCard";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
         path: "/student/payments",
         element: <Spayment></Spayment>,
       },
+      {
+        path: "/student/admit-card",
+        element: <SAdmitCard></SAdmitCard>
+      }
     ],
   },
 ]);
