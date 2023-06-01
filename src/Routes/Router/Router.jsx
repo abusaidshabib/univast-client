@@ -9,6 +9,7 @@ import SProfile from "../../Pages/StudentPortal/StudentProfilePage/Main/SProfile
 import Spayment from "../../Pages/StudentPortal/StudentPaymentPage/Main/Spayment";
 import SAttendance from "../../Pages/StudentPortal/StudentAttendancePage/Main/SAttendance";
 import AttendSinglePage from "../../Pages/StudentPortal/StudentAttendancePage/StudentAttendSinglePage/AttendSinglePage";
+import SGrades from "../../Pages/StudentPortal/StudentGradesPage/Main/SGrades";
 
 const router = createBrowserRouter([
   {
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/student/grades",
-        element: <Spayment></Spayment>,
+        element: <SGrades></SGrades>,
       },
       {
         path: "/student/payments",
