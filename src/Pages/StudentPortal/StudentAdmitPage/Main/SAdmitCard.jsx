@@ -1,22 +1,38 @@
 import { MdDownload } from "react-icons/md";
 import logo from "../../../../assets/Navbar/graduated-removebg-preview.png"
+import { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 
 const SAdmitCard = () => {
 
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "emp-data",
+  });
   
   return (
     <div className="grid gap-5 min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5">
-      <div className="bg-p-white p-10">
+      <div className="bg-white p-10">
         <div className="flex justify-between items-center text-gray-900 col-span-3">
           <div>
             <p className="text-4xl font-semibold">Download admit card</p>
           </div>
           <div>
-            <MdDownload className="text-2xl" />
+            <button onClick={()=> handlePrint()}>
+              <MdDownload className="text-2xl" />
+            </button>
           </div>
         </div>
       </div>
-      <div className="bg-p-white p-10">
+      <div
+        ref={componentRef}
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
+        className="bg-p-white p-10"
+      >
         <div
           to="/"
           className="flex items-center font-primary cursor-pointer justify-center"
