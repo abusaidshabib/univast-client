@@ -1,4 +1,4 @@
-.student-profile nav .active{
+.student-profile nav .active, .student-course-details nav .active{
     color: #ffbc42;
     text-decoration: underline;
     text-decoration-thickness: 2px;

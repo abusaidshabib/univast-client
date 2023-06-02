@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const SCourse = () => {
     return (
         <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5">
@@ -41,23 +43,22 @@ const SCourse = () => {
               <td className="border border-gray-400 p-2 ">English</td>
               <td className="border border-gray-400 p-2 ">50</td>
               <td className="border border-gray-400 p-2">Ketu</td>
-              <td className="border border-gray-400 p-2 text-center"><button className="bg-primary-500 px-5 py-2 text-p-white font-semibold">View Details</button></td>
+              <td className="border border-gray-400 p-2 text-center"><Link to="details/outline" className="bg-primary-500 px-5 py-2 text-p-white font-semibold">View Details</Link></td>
             </tr>
             <tr>
               <td className="border border-gray-400 p-2 ">CSE-4201</td>
               <td className="border border-gray-400 p-2 ">English</td>
               <td className="border border-gray-400 p-2 ">50</td>
               <td className="border border-gray-400 p-2">kito</td>
-              <td className="border border-gray-400 p-2 text-center"><button className="bg-primary-500 px-5 py-2 text-p-white font-semibold">View Details</button></td>
+              <td className="border border-gray-400 p-2 text-center"><Link to="details/outline" className="bg-primary-500 px-5 py-2 text-p-white font-semibold">View Details</Link></td>
             </tr>
             <tr>
               <td className="border border-gray-400 p-2 ">CSE-4201</td>
               <td className="border border-gray-400 p-2 ">English</td>
               <td className="border border-gray-400 p-2 ">50</td>
               <td className="border border-gray-400 p-2">kandu</td>
-              <td className="border border-gray-400 p-2 text-center"><button className="bg-primary-500 px-5 py-2 text-p-white font-semibold">View Details</button></td>
+              <td className="border border-gray-400 p-2 text-center"><Link to="details/outline" className="bg-primary-500 px-5 py-2 text-p-white font-semibold">View Details</Link></td>
             </tr>
-            
           </tbody>
         </table>
       </div>

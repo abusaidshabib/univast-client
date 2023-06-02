@@ -14,6 +14,11 @@ import AttendSinglePage from "../../Pages/StudentPortal/StudentAttendancePage/St
 import SGrades from "../../Pages/StudentPortal/StudentGradesPage/Main/SGrades";
 import SAdmitCard from "../../Pages/StudentPortal/StudentAdmitPage/Main/SAdmitCard";
 import SCourse from "../../Pages/StudentPortal/StudentCoursePage/Main/SCourse";
+import SCourseDetails from "../../Pages/StudentPortal/StudentCoursePage/SCourseDetailsPage/Main/SCourseDetails";
+import ScourseOutline from "../../Pages/StudentPortal/StudentCoursePage/SCourseDetailsPage/Sections/ScourseOutline";
+import SCourseLectures from "../../Pages/StudentPortal/StudentCoursePage/SCourseDetailsPage/Sections/SCourseLectures";
+import SCourseClasswork from "../../Pages/StudentPortal/StudentCoursePage/SCourseDetailsPage/Sections/SCourseClasswork";
+import SCourseNotice from "../../Pages/StudentPortal/StudentCoursePage/SCourseDetailsPage/Sections/SCourseNotice";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +76,32 @@ const router = createBrowserRouter([
       {
         path: "/student/courses",
         element: <SCourse></SCourse>
+      },
+      {
+        path: "/student/courses/details",
+        element: <SCourseDetails></SCourseDetails>,
+        children: [
+          {
+            path: '/student/courses/details',
+            element: <ScourseOutline></ScourseOutline>
+          },
+          {
+            path: '/student/courses/details/outline',
+            element: <ScourseOutline></ScourseOutline>
+          },
+          {
+            path: '/student/courses/details/lectures',
+            element: <SCourseLectures></SCourseLectures>
+          },
+          {
+            path: '/student/courses/details/classwork',
+            element: <SCourseClasswork></SCourseClasswork>
+          },
+          {
+            path: '/student/courses/details/notice',
+            element: <SCourseNotice></SCourseNotice>
+          },
+        ]
       },
       {
         path: "/student/attendance",

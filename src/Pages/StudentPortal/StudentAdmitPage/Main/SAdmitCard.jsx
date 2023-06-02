@@ -1,5 +1,5 @@
 import { MdDownload } from "react-icons/md";
-import logo from "../../../../assets/Navbar/graduated-removebg-preview.png"
+import logo from "../../../../assets/Navbar/graduated-removebg-preview.png";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
