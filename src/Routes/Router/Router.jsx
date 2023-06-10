@@ -19,6 +19,19 @@ import ScourseOutline from "../../Pages/StudentPortal/StudentCoursePage/SCourseD
 import SCourseLectures from "../../Pages/StudentPortal/StudentCoursePage/SCourseDetailsPage/Sections/SCourseLectures";
 import SCourseClasswork from "../../Pages/StudentPortal/StudentCoursePage/SCourseDetailsPage/Sections/SCourseClasswork";
 import SCourseNotice from "../../Pages/StudentPortal/StudentCoursePage/SCourseDetailsPage/Sections/SCourseNotice";
+import TeacherDashboard from "../../Layouts/TeacherDashboard";
+import Thome from "../../Pages/TeacherPortal/TeacherHomePage/Main/Thome";
+import TProfile from "../../Pages/TeacherPortal/TeacherProfilePage/Main/TProfile";
+import TPersonalInfo from "../../Pages/TeacherPortal/TeacherProfilePage/Section/TPersonalInfo/TPersonalInfo";
+import TGeneralInfo from "../../Pages/TeacherPortal/TeacherProfilePage/Section/TGeneralInfo/TGeneralInfo";
+import TCourse from "../../Pages/TeacherPortal/TeacherCoursePage/Main/TCourse";
+import TCourseDetails from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Main/TCourseDetails";
+import TCourseOutline from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Sections/TcourseOutline";
+import TCourseLectures from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Sections/TCourseLectures";
+import TCourseClasswork from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Sections/TCourseClasswork";
+import TCourseNotice from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Sections/TCourseNotice";
+import TCourseResults from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Sections/TCourseResults";
+import TAttendance from "../../Pages/TeacherPortal/TeacherAttendancePage/Main/TAttendance";
 
 const router = createBrowserRouter([
   {
@@ -123,6 +136,80 @@ const router = createBrowserRouter([
         path: "/student/admit-card",
         element: <SAdmitCard></SAdmitCard>
       }
+    ],
+  },
+  {
+    path: "/teacher",
+    element: <TeacherDashboard></TeacherDashboard>,
+    children: [
+      {
+        path: "/teacher",
+        element: <Thome></Thome>,
+      },
+      {
+        path: "/teacher/home",
+        element: <Thome></Thome>,
+      },
+      {
+        path: "/teacher/profile",
+        element: <TProfile></TProfile>,
+        children: [
+          {
+            path: "/teacher/profile",
+            element: <TGeneralInfo></TGeneralInfo>
+          },
+          {
+            path: "/teacher/profile/general_information",
+            element: <TGeneralInfo></TGeneralInfo>
+          },
+          {
+            path: "/teacher/profile/personal_information_&_parent_information",
+            element: <TPersonalInfo></TPersonalInfo>
+          }
+        ]
+      },
+      {
+        path: "/teacher/courses",
+        element: <TCourse></TCourse>
+      },
+      {
+        path: "/teacher/courses/details",
+        element: <TCourseDetails></TCourseDetails>,
+        children: [
+          {
+            path: '/teacher/courses/details',
+            element: <TCourseOutline></TCourseOutline>
+          },
+          {
+            path: '/teacher/courses/details/outline',
+            element: <TCourseOutline></TCourseOutline>
+          },
+          {
+            path: '/teacher/courses/details/lectures',
+            element: <TCourseLectures></TCourseLectures>
+          },
+          {
+            path: '/teacher/courses/details/classwork',
+            element: <TCourseClasswork></TCourseClasswork>
+          },
+          {
+            path: '/teacher/courses/details/results',
+            element: <TCourseResults></TCourseResults>
+          },
+          {
+            path: '/teacher/courses/details/notice',
+            element: <TCourseNotice></TCourseNotice>
+          },
+        ]
+      },
+      {
+        path: "/teacher/attendance",
+        element: <TAttendance></TAttendance>,
+      },
+      {
+        path: "/teacher/payments",
+        element: <Spayment></Spayment>,
+      },
     ],
   },
 ]);

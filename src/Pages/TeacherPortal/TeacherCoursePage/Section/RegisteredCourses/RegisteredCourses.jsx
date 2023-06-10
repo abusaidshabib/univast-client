@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 
-const SCourse = () => {
-  return (
-    <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5">
-      <div className="bg-p-white p-10 rounded-lg">
+const RegisteredCourses = () => {
+    return (
+        <div className="bg-p-white p-10 rounded-lg">
         <div className="flex justify-between items-center text-gray-900 col-span-3">
           <div>
             <p className="text-4xl font-semibold">Registered Courses</p>
@@ -83,8 +82,7 @@ const SCourse = () => {
           </tbody>
         </table>
       </div>
-    </div>
-  );
+    );
 };
 
-export default SCourse;
+export default RegisteredCourses;

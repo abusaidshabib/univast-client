@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-const SCourseDetails = () => {
+const TCourseDetails = () => {
   return (
     <div className="student-course-details bg-gray-200 w-full min-h-[calc(100vh-80px)] p-5">
       <div className="bg-white p-10 min-h-[calc(100vh-100px)]">
@@ -25,6 +25,12 @@ const SCourseDetails = () => {
           </NavLink>
           <NavLink
             className="underline-offset-8"
+            to="results"
+          >
+            Result
+          </NavLink>
+          <NavLink
+            className="underline-offset-8"
             to="notice"
           >
             Notice
@@ -38,4 +44,4 @@ const SCourseDetails = () => {
   );
 };
 
-export default SCourseDetails;
+export default TCourseDetails;

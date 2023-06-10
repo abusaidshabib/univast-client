@@ -1,9 +1,8 @@
 import { Outlet } from "react-router-dom";
-import TopMenu from "../Pages/StudentPortal/Shared/TopMenu";
-import Menu from "../Pages/StudentPortal/Shared/Menu";
+import Menu from "../Pages/TeacherPortal/Shared/Menu";
+import TopMenu from "../Pages/TeacherPortal/Shared/TopMenu";
 
-
-const StudentDashbaord = () => {
+const TeacherDashboard = () => {
   return (
     <div className="bg-white min-h-screen min-w-screen flex">
       <Menu></Menu>
@@ -15,4 +14,4 @@ const StudentDashbaord = () => {
   );
 };
 
-export default StudentDashbaord;
+export default TeacherDashboard;

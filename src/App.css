@@ -76,6 +76,12 @@ border-radius: 50%;
   color: #ffbc42;
 }
 
+.navigation-tab .active{
+  color: #ffbc42;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
 @keyframes ping {
   0%{
     transform: scale(1);
