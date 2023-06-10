@@ -32,6 +32,7 @@ import TCourseClasswork from "../../Pages/TeacherPortal/TeacherCoursePage/TCours
 import TCourseNotice from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Sections/TCourseNotice";
 import TCourseResults from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Sections/TCourseResults";
 import TAttendance from "../../Pages/TeacherPortal/TeacherAttendancePage/Main/TAttendance";
+import TFinance from "../../Pages/TeacherPortal/TeacherFinancePage/Main/TFinance";
 
 const router = createBrowserRouter([
   {
@@ -207,8 +208,8 @@ const router = createBrowserRouter([
         element: <TAttendance></TAttendance>,
       },
       {
-        path: "/teacher/payments",
-        element: <Spayment></Spayment>,
+        path: "/teacher/finance",
+        element: <TFinance></TFinance>,
       },
     ],
   },

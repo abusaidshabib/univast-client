@@ -44,7 +44,7 @@ const Menu = () => {
             </NavLink>
           </li>
           <li className="">
-            <NavLink to="/teacher/payments" className="flex gap-3">
+            <NavLink to="/teacher/finance" className="flex gap-3">
               <FaRegMoneyBillAlt className="text-2xl" />
               <p>Financial</p>
             </NavLink>
