@@ -25,6 +25,7 @@ const FamilyInfo = ({ register, errors }) => {
                                 {...register("father_name", { required: false })}
                             />
                             <br />
+                            {errors.father_name && <p className="text-red-500 mt-2">This field is required</p>}
                         </div>
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
@@ -38,6 +39,7 @@ const FamilyInfo = ({ register, errors }) => {
                                 {...register("father_mobile", { required: false })}
                             />
                             <br />
+                            {errors.father_mobile && <p className="text-red-500 mt-2">This field is required</p>}
                         </div>
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
@@ -175,6 +177,7 @@ const FamilyInfo = ({ register, errors }) => {
                                 {...register("mother_name", { required: false })}
                             />
                             <br />
+                            {errors.mother_name && <p className="text-red-500 mt-2">This field is required</p>}
                         </div>
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
@@ -188,6 +191,7 @@ const FamilyInfo = ({ register, errors }) => {
                                 {...register("mother_mobile", { required: false })}
                             />
                             <br />
+                            {errors.mother_mobile && <p className="text-red-500 mt-2">This field is required</p>}
                         </div>
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">

@@ -54,25 +54,34 @@ const OtherInfo = ({ register, errors }) => {
                     </div>
                 </div>
 
-                <div className="flex gap-3 items-center mb-8">
-                    <input
-                        type="checkbox"
-                        id="accept_declaration"
-                        {...register("accept_declaration", { required: false })}
-                    />
-                    <label className="text-p-white font-serif text-xl" htmlFor="accept_declaration">I declare that the information provided by me in
-                        this system is true and correct to the best of my knowledge.</label>
+                <div className="mb-8">
+                    <div className="flex items-center gap-3">
+                        <input
+                            type="checkbox"
+                            id="accept_declaration"
+                            {...register("accept_declaration", { required: false })}
+                        />
+                        <label className="text-p-white font-serif text-xl" htmlFor="accept_declaration">I declare that the information provided by me in
+                            this system is true and correct to the best of my knowledge.</label>
+                    </div>
+
+                    {errors.accept_declaration && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
 
                 <div className="flex gap-3 items-center">
-                    <input
-                        type="checkbox"
-                        id="accept_terms"
-                        {...register("accept_terms", { required: false })}
-                    />
-                    <label className="text-p-white font-serif text-xl" htmlFor="accept_terms">
-                        I have read all the <Link to="#" className="text-primary-300"> Rules and Regulations</Link> of Bangladesh University (DIU),and having understood that if I am admitted into DIU, I will abide by the rules and regulations of this university.If I do any misconduct that violates the rules of DIU, I shall accept any decision taken by DIU authority.
+
+                    <div className="flex items-center gap-3">
+                        <input
+                            type="checkbox"
+                            id="accept_terms"
+                            {...register("accept_terms", { required: false })}
+                        />
+                        <label className="text-p-white font-serif text-xl" htmlFor="accept_terms">
+                            I have read all the <Link to="#" className="text-primary-300"> Rules and Regulations</Link> of Bangladesh University (DIU),and having understood that if I am admitted into DIU, I will abide by the rules and regulations of this university.If I do any misconduct that violates the rules of DIU, I shall accept any decision taken by DIU authority.
                         </label>
+                    </div>
+
+                    {errors.accept_terms && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
 
                 <br />

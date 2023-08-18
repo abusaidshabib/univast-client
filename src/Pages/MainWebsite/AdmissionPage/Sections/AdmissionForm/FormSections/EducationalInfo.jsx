@@ -54,6 +54,7 @@ const EducationalInfo = ({ register, errors }) => {
                         </option>
                     </select>{" "}
                     <br />
+                    {errors.exam && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
@@ -67,6 +68,7 @@ const EducationalInfo = ({ register, errors }) => {
                         {...register("institution_name", { required: false })}
                     />
                     <br />
+                    {errors.institution_name && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
 
                 <div>
@@ -126,6 +128,7 @@ const EducationalInfo = ({ register, errors }) => {
                         </option>
                     </select>{" "}
                     <br />
+                    {errors.board && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
 
                 <div>
@@ -153,6 +156,7 @@ const EducationalInfo = ({ register, errors }) => {
                         </option>
                     </select>{" "}
                     <br />
+                    {errors.group_major && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
 
                 <div>
@@ -167,6 +171,7 @@ const EducationalInfo = ({ register, errors }) => {
                         {...register("result", { required: false })}
                     />
                     <br />
+                    {errors.result && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
 
                 <div>
@@ -181,6 +186,7 @@ const EducationalInfo = ({ register, errors }) => {
                         {...register("passing_year", { required: false })}
                     />
                     <br />
+                    {errors.passing_year && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
 
                 <div className="col-span-4">
@@ -195,6 +201,7 @@ const EducationalInfo = ({ register, errors }) => {
                         {...register("certificates", { required: false })}
                     />
                     <br />
+                    {errors.certificates && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
             </div>
         </div>

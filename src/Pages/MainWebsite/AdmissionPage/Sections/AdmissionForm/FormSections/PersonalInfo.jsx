@@ -346,6 +346,7 @@ const PersonalInfo = ({ register, errors }) => {
                             Flat/Apt/Street/House No./Area/Village
                         </label>
                         <br />
+                        
                         <input
                             className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
                             placeholder="Street1"
@@ -353,6 +354,7 @@ const PersonalInfo = ({ register, errors }) => {
                             {...register("present_street1", { required: false })}
                         />
                         <br />
+                        {errors.present_street1 && <p className="text-red-500 mt-2">This field is required</p>}
                         <br />
                         <input
                             className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
@@ -454,6 +456,7 @@ const PersonalInfo = ({ register, errors }) => {
                                 {...register("permanent_street1", { required: false })}
                             />
                             <br />
+                            {errors.permanent_street1 && <p className="text-red-500 mt-2">This field is required</p>}
                             <br />
                             <input
                                 className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
