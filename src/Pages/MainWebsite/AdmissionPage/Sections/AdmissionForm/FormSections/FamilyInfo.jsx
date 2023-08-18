@@ -16,6 +16,7 @@ const FamilyInfo = ({ register, errors }) => {
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
                                 Father name
+                                <span className="text-red-500 pl-2">*</span>
                             </label>
                             <br />
                             <input
@@ -30,6 +31,7 @@ const FamilyInfo = ({ register, errors }) => {
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
                                 Mobile No.
+                                <span className="text-red-500 pl-2">*</span>
                             </label>
                             <br />
                             <input
@@ -57,6 +59,7 @@ const FamilyInfo = ({ register, errors }) => {
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
                                 National ID
+                                <span className="text-red-500 pl-2">*</span>
                             </label>
                             <br />
                             <input
@@ -92,6 +95,7 @@ const FamilyInfo = ({ register, errors }) => {
                                 {...register("father_dob", { required: false })}
                             />
                             <br />
+                            {errors.father_dob && <p className="text-red-500 mt-2">This field is required</p>}
                         </div>
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
@@ -168,6 +172,7 @@ const FamilyInfo = ({ register, errors }) => {
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
                                 Mother name
+                                <span className="text-red-500 pl-2">*</span>
                             </label>
                             <br />
                             <input
@@ -182,6 +187,7 @@ const FamilyInfo = ({ register, errors }) => {
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
                                 Mobile No.
+                                <span className="text-red-500 pl-2">*</span>
                             </label>
                             <br />
                             <input
@@ -209,6 +215,7 @@ const FamilyInfo = ({ register, errors }) => {
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
                                 National ID
+                                <span className="text-red-500 pl-2">*</span>
                             </label>
                             <br />
                             <input
@@ -244,6 +251,7 @@ const FamilyInfo = ({ register, errors }) => {
                                 {...register("mother_dob", { required: false })}
                             />
                             <br />
+                            {errors.mother_dob && <p className="text-red-500 mt-2">This field is required</p>}
                         </div>
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">

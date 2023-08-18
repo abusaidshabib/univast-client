@@ -10,6 +10,7 @@ const PersonalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         First Name
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -24,6 +25,7 @@ const PersonalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Last Name
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -38,6 +40,7 @@ const PersonalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Gender
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -52,6 +55,7 @@ const PersonalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Date of Birth
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -66,6 +70,7 @@ const PersonalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Religion
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
@@ -136,6 +141,7 @@ const PersonalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Email
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -150,6 +156,7 @@ const PersonalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Mobile Number
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -164,6 +171,7 @@ const PersonalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         National ID / Birth Certificate No.
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -191,6 +199,7 @@ const PersonalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Nationality
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -205,6 +214,7 @@ const PersonalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Country
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -231,7 +241,8 @@ const PersonalInfo = ({ register, errors }) => {
                 </div>
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
-                        Enter Your Image
+                        Upload Applicant Photo (Recent and Formal)
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -245,7 +256,8 @@ const PersonalInfo = ({ register, errors }) => {
                 </div>
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
-                        Enter Your Signature
+                        Upload Applicant Signature
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -344,6 +356,7 @@ const PersonalInfo = ({ register, errors }) => {
                     <div>
                         <label className="text-p-white font-serif text-2xl leading-loose">
                             Flat/Apt/Street/House No./Area/Village
+                            <span className="text-red-500 pl-2">*</span>
                         </label>
                         <br />
                         
@@ -447,6 +460,7 @@ const PersonalInfo = ({ register, errors }) => {
                         <div>
                             <label className="text-p-white font-serif text-2xl leading-loose">
                                 Flat/Apt/Street/House No./Area/Village
+                                <span className="text-red-500 pl-2">*</span>
                             </label>
                             <br />
                             <input

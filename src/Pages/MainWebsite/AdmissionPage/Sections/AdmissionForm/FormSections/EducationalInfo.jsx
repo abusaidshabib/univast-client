@@ -12,6 +12,7 @@ const EducationalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Exam
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
@@ -59,6 +60,7 @@ const EducationalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Institution Name
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -74,6 +76,7 @@ const EducationalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Board
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
@@ -134,6 +137,7 @@ const EducationalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Group / Major
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
@@ -162,6 +166,7 @@ const EducationalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         GPA / CGPA
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -177,6 +182,7 @@ const EducationalInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Passing Year
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
@@ -192,6 +198,7 @@ const EducationalInfo = ({ register, errors }) => {
                 <div className="col-span-4">
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Certificate & All Transcripts / Marksheets in a combined PDF Format
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input

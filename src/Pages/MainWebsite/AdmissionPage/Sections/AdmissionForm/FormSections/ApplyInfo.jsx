@@ -12,6 +12,7 @@ const ApplyInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Applicant Type
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
@@ -35,6 +36,7 @@ const ApplyInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Program Type
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
@@ -55,6 +57,7 @@ const ApplyInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Last Completed Degree Type
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
@@ -90,6 +93,7 @@ const ApplyInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Program
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
@@ -110,6 +114,7 @@ const ApplyInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Medium
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
@@ -130,6 +135,7 @@ const ApplyInfo = ({ register, errors }) => {
                 <div>
                     <label className="text-p-white font-serif text-2xl leading-loose">
                         Education Shift
+                        <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
