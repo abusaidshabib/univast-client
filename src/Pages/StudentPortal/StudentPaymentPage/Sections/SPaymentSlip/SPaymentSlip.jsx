@@ -14,8 +14,8 @@ const SPaymentSlip = () => {
               </div>
               <p className="text-center text-white cursor-pointer">
                 <span className="text-3xl tracking-wider font-medium leading-none cursor-pointer">
-                  <span className="text-primary-500 cursor-pointer">UNI</span>
-                  <span className="text-secondary-500 cursor-pointer">
+                  <span className="text-secondary-blue cursor-pointer">UNI</span>
+                  <span className="text-secondary-orange cursor-pointer">
                     VAST
                   </span>
                 </span>
@@ -40,8 +40,8 @@ const SPaymentSlip = () => {
               </div>
               <p className="text-center text-white cursor-pointer">
                 <span className="text-3xl tracking-wider font-medium leading-none cursor-pointer">
-                  <span className="text-primary-500 cursor-pointer">UNI</span>
-                  <span className="text-secondary-500 cursor-pointer">
+                  <span className="text-secondary-blue cursor-pointer">UNI</span>
+                  <span className="text-secondary-orange cursor-pointer">
                     VAST
                   </span>
                 </span>
@@ -66,8 +66,8 @@ const SPaymentSlip = () => {
               </div>
               <p className="text-center text-white cursor-pointer">
                 <span className="text-3xl tracking-wider font-medium leading-none cursor-pointer">
-                  <span className="text-primary-500 cursor-pointer">UNI</span>
-                  <span className="text-secondary-500 cursor-pointer">
+                  <span className="text-secondary-blue cursor-pointer">UNI</span>
+                  <span className="text-secondary-orange cursor-pointer">
                     VAST
                   </span>
                 </span>

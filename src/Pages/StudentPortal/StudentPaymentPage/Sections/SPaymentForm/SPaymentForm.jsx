@@ -9,7 +9,7 @@ const SPaymentForm = () => {
             Semester Name:{" "}
           </label>
           <select
-            className="p-3 w-1/2 bg-transparent border-b-2 border-primary-700 outline-none"
+            className="p-3 w-1/2 bg-transparent border-b-2 border-secondary-blue outline-none"
             name=""
           >
             <option className="" value="" selected>
@@ -25,7 +25,7 @@ const SPaymentForm = () => {
             Payment Type:{" "}
           </label>
           <select
-            className="p-3 w-1/2 bg-transparent border-b-2 border-primary-700 outline-none col-span-2"
+            className="p-3 w-1/2 bg-transparent border-b-2 border-secondary-blue outline-none col-span-2"
             name=""
           >
             <option className="" value="" selected>
@@ -41,7 +41,7 @@ const SPaymentForm = () => {
             Purpose of Payment:{" "}
           </label>
           <select
-            className="p-3 w-1/2 bg-transparent border-b-2 border-primary-700 outline-none col-span-2"
+            className="p-3 w-1/2 bg-transparent border-b-2 border-secondary-blue outline-none col-span-2"
             name=""
           >
             <option className="" value="" selected>
@@ -57,7 +57,7 @@ const SPaymentForm = () => {
             Full or Half Payment:{" "}
           </label>
           <select
-            className="p-3 w-1/2 bg-transparent border-b-2 border-primary-700 outline-none col-span-2"
+            className="p-3 w-1/2 bg-transparent border-b-2 border-secondary-blue outline-none col-span-2"
             name=""
           >
             <option className="" value="" selected>
@@ -73,7 +73,7 @@ const SPaymentForm = () => {
             Amount:{" "}
           </label>
           <select
-            className="p-3 w-1/2 bg-transparent border-b-2 border-primary-700 outline-none col-span-2"
+            className="p-3 w-1/2 bg-transparent border-b-2 border-secondary-blue outline-none col-span-2"
             name=""
           >
             <option className="" value="" selected>

@@ -15,7 +15,7 @@ const SExamRutine = () => {
       <table className="border-collapse border border-slate-400 w-full text-lg">
         <thead>
           <tr className="">
-            <th colSpan={6} className="border border-gray-400 p-2 bg-primary-600 text-white">Mid term - Spring 2023</th>
+            <th colSpan={6} className="border border-gray-400 p-2 bg-secondary-blue text-white">Mid term - Spring 2023</th>
           </tr>
         </thead>
         <thead>

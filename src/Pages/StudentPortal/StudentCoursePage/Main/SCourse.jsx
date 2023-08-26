@@ -46,7 +46,7 @@ const SCourse = () => {
               <td className="border border-gray-400 p-2 text-center">
                 <Link
                   to="details/outline"
-                  className="bg-primary-500 px-5 py-2 text-p-white font-semibold"
+                  className="bg-secondary-blue px-5 py-2 text-p-white font-semibold"
                 >
                   View Details
                 </Link>
@@ -60,7 +60,7 @@ const SCourse = () => {
               <td className="border border-gray-400 p-2 text-center">
                 <Link
                   to="details/outline"
-                  className="bg-primary-500 px-5 py-2 text-p-white font-semibold"
+                  className="bg-secondary-blue px-5 py-2 text-p-white font-semibold"
                 >
                   View Details
                 </Link>
@@ -74,7 +74,7 @@ const SCourse = () => {
               <td className="border border-gray-400 p-2 text-center">
                 <Link
                   to="details/outline"
-                  className="bg-primary-500 px-5 py-2 text-p-white font-semibold"
+                  className="bg-secondary-blue px-5 py-2 text-p-white font-semibold"
                 >
                   View Details
                 </Link>

@@ -73,11 +73,11 @@ border-radius: 50%;
 }
 
 .d-side-bar li .active{
-  color: #ffbc42;
+  color: #38bdf8;
 }
 
 .navigation-tab .active{
-  color: #ffbc42;
+  color: #38bdf8;
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }

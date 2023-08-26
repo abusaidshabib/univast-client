@@ -1,7 +1,7 @@
 import { MdDownload } from "react-icons/md";
-import logo from "../../../../assets/Navbar/graduated-removebg-preview.png";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
+import { Link } from "react-router-dom";
 
 const SAdmitCard = () => {
   const componentRef = useRef();
@@ -9,7 +9,7 @@ const SAdmitCard = () => {
     content: () => componentRef.current,
     documentTitle: "emp-data",
   });
-  
+
   return (
     <div className="grid gap-5 min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5">
       <div className="bg-white p-10">
@@ -19,7 +19,7 @@ const SAdmitCard = () => {
           </div>
           <div>
             <button onClick={() => handlePrint(componentRef)}>
-              <MdDownload className="text-2xl" />
+              <MdDownload className="text-2xl text-accent-blue" />
             </button>
           </div>
         </div>
@@ -36,19 +36,20 @@ const SAdmitCard = () => {
           to="/"
           className="flex items-center font-primary cursor-pointer justify-center"
         >
-          <div className="cursor-pointer">
-            <img className="w-16 f-16" src={logo} alt="" />
-          </div>
-          <p className="text-center text-white cursor-pointer">
-            <span className="text-3xl tracking-wider font-medium leading-none cursor-pointer">
-              <span className="text-primary-500 cursor-pointer">UNI</span>
-              <span className="text-secondary-500 cursor-pointer">VAST</span>
+          <Link to="/" className="flex items-center cursor-pointer">
+            <span className="text-primary-blue cursor-pointer text-4xl font-bold pr-1">
+              UNI
             </span>
-            <br />
-            <span className="text-xs tracking-widest leading-none text-gray-800">
-              UNIVERSITY
+            <span className="border-l-2 border-primary-orange pl-1">
+              <span className="text-accent-blue cursor-pointer font-semibold text-lg leading-none">
+                VAST
+              </span>{" "}
+              <br />
+              <span className="text-primary-gray cursor-pointer leading-none text-base">
+                University
+              </span>
             </span>
-          </p>
+          </Link>
         </div>
         <div className="flex justify-between pt-5">
           <div className="text-base">

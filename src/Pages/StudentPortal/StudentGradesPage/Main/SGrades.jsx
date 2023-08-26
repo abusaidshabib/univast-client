@@ -12,7 +12,7 @@ const SGrades = () => {
             </label>{" "}
             &nbsp;
             <select
-              className="border-b-2 border-primary-700 outline-none bg-transparent"
+              className="border-b-2 border-secondary-blue outline-none bg-transparent"
               name="semester"
               id="semester"
               form="carform"

@@ -57,7 +57,6 @@ export default {
           800: "#5c2726",
           900: "#2e1413",
         },
-        background: {},
         "p-white": "#FAF9F6",
         info: "#3ABFF8",
         success: "#36D399",
