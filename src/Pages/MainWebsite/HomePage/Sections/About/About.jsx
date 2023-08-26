@@ -3,12 +3,12 @@ import { BsPlayCircleFill } from "react-icons/bs";
 
 const About = () => {
   return (
-    <div className="p-20 grid grid-cols-2 gap-10">
+    <div className="p-20 grid grid-cols-2 gap-10 font-sans">
       <div className="">
-        <h1 className="text-5xl text-secondary-500 font-serif leading-relaxed mb-10">
+        <h1 className="text-6xl font-extrabold uppercase leading-tight text-primary-gray mb-10">
           Univast International University
         </h1>
-        <p className="text-p-white font-sans text-xl leading-loose">
+        <p className="text-primary-gray font-serif text-lg leading-loose">
           Being established in 2002, Univast International University has become
           a prominent private university in Bangladesh. Our 150 Acre campus is
           full of life and positive energy, fostering education and innovation
@@ -18,7 +18,7 @@ const About = () => {
         </p>
       </div>
       <div>
-        <div className="relative">
+        <div className="relative border-secondary-blue border-8">
           <img className="w-full" src={campus} alt="" />
           <div className="play-btn absolute cursor-pointer top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <BsPlayCircleFill className="text-8xl text-p-white bg-secondary-500 rounded-full" />

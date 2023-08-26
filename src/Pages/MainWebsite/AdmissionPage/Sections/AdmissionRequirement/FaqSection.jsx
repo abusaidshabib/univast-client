@@ -30,7 +30,7 @@ const FaqSection = ({index,data}) => {
 
         {number === index ? <AiFillCaretUp /> : <AiFillCaretDown />}
       </span>
-      {number === index ? <p>= {answer}</p> : <></>}
+      {number === index ? <p className="text-lg font-serif">= {answer}</p> : <></>}
     </div>
   );
 };

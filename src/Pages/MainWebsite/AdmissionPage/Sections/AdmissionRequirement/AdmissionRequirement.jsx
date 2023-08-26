@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import FaqSection from "./FaqSection";
+import UnderlinedLInk from "../../../../../Components/Buttons/UnderlinedLInk";
+import FilledButton from "../../../../../Components/Buttons/FilledButton";
 
 const AdmissionRequirement = () => {
   const FAQ = [
@@ -24,9 +25,9 @@ const AdmissionRequirement = () => {
   ];
 
   return (
-    <div className="grid grid-cols-12 gap-10">
+    <div className="grid grid-cols-12 gap-10 font-sans">
       <div className="col-span-8 pl-20 py-20">
-        <p className="font-serif text-4xl leading-normal">
+        <p className="text-4xl font-semibold leading-normal">
           Ready to start your application process? You can find all the
           information below :-
         </p>
@@ -34,28 +35,21 @@ const AdmissionRequirement = () => {
           <FaqSection key={data.id} index={index + 1} data={data}></FaqSection>
         ))}
       </div>
-      <div className="col-span-4 bg-primary-200 py-20 pl-10">
-        <p className="font-serif text-4xl leading-normal text-primary-800">
+      <div className="col-span-4 py-20 pl-10 bg-neural-blue">
+        <p className="text-4xl leading-normal font-semibold uppercase text-primary-800">
           Contact
         </p>
-        <p className="text-xl text-primary-700 font-semibold">
+        <p className="text-xl text-secondary-blue font-semibold font-serif">
           Naomi Flipse & Donna Tancev
         </p>
-        <p className="text-xl text-primary-700">Program advisor</p>
+        <p className="text-lg font-serif text-primary-700">Program advisor</p>
         <br />
         <p className="text-xl text-primary-700">+12 345 678 912</p>
         <div className="pt-10">
-          <Link className="underline decoration-primary-800 hover:no-underline">
-            Check tuition fees
-          </Link>
+          <UnderlinedLInk link="" text="Check tuition fees" icon="" />
         </div>
         <div className="pt-10">
-          <Link
-            to="/admission/online"
-            className="bg-primary-600 px-16 py-4 text-p-white uppercase font-semibold tracking-wider hover:bg-primary-700 rounded-sm"
-          >
-            Apply Online
-          </Link>
+          <FilledButton link="/admission/online" text="Apply Online" icon="" />
         </div>
       </div>
     </div>

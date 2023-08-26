@@ -163,13 +163,13 @@ const AdmissionForm = () => {
   const CurrentStepComponent = steps[currentStep];
 
   return (
-    <div className="px-20 py-5 bg-background-500">
+    <div className="px-20 py-5 bg-primary-blue">
       <div className="py-10 grid grid-cols-5 gap-5">
         {steps.map((step, index) => (
           <button
             key={index}
-            className={`${currentStep === index ? "bg-primary-500" : "bg-primary-700"
-              } py-5 rounded-md text-2xl text-p-white`}
+            className={`${currentStep === index ? "bg-primary-white" : "bg-secondary-blue text-primary-white"
+              } py-5 rounded-md text-2xl font-semibold text-primary-gray`}
             onClick={() => setCurrentStep(index)}
           >
             {step.title}
@@ -185,7 +185,7 @@ const AdmissionForm = () => {
         <div className="py-10">
           {currentStep > 0 && (
             <button
-              className="bg-primary-800 py-3 rounded-md text-lg text-p-white border-b-6 border-primary-900 px-10"
+              className="bg-tertiary-blue py-3 rounded-md text-lg text-primary-white border-b-6 px-10"
               type="button"
               onClick={handlePrev}
             >
@@ -195,7 +195,7 @@ const AdmissionForm = () => {
           <span className="px-5"></span>
           {currentStep < steps.length - 1 ? (
             <button
-              className="bg-primary-800 py-3 px-10 rounded-md text-lg text-p-white border-b-6 border-primary-900"
+              className="bg-tertiary-blue py-3 px-10 rounded-md text-lg text-primary-white border-b-6"
               type="button"
               onClick={handleNext}
             >
@@ -203,7 +203,7 @@ const AdmissionForm = () => {
             </button>
           ) : (
             <input
-              className="bg-primary-800 py-3 px-10 rounded-md text-lg text-p-white border-b-6 border-primary-900 cursor-pointer"
+              className="bg-tertiary-blue py-3 px-10 rounded-md text-lg text-primary-white border-b-6 cursor-pointer"
               type="submit"
               value="Submit"
             />

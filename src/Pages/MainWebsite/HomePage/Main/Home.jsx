@@ -8,7 +8,7 @@ import WhatWeOffer from "../Sections/WhatWeOffer/WhatWeOffer";
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="bg-primary-white">
       <HeroSection></HeroSection>
       <Services></Services>
       <About></About>

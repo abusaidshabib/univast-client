@@ -2,19 +2,19 @@
 const PersonalInfo = ({ register, errors }) => {
 
     return (
-        <div>
+        <div className="font-sans text-primary-white">
             {/* Application */}
-            <p className="font-serif text-4xl text-p-white py-5">Applicant</p>
+            <p className=" text-4xl  py-5">Applicant</p>
             <hr className="pb-5" />
             <div className="grid grid-cols-3 gap-10 pb-10">
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         First Name
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your first-Name"
                         type="text"
                         {...register("firstName", { required: false })}
@@ -23,13 +23,13 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.firstName && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Last Name
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your last-Name"
                         type="text"
                         {...register("lastName", { required: false })}
@@ -38,13 +38,13 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.lastName && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Gender
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your Gender"
                         type="text"
                         {...register("gender", { required: false })}
@@ -53,13 +53,13 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.gender && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Date of Birth
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your Birth-Date"
                         type="date"
                         {...register("birth_date", { required: false })}
@@ -68,26 +68,26 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.birth_date && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Religion
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <select
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         {...register("religion", { required: false })}
                     >
-                        <option className="text-p-white">Select Type...</option>
-                        <option className="text-p-white" value="Islam">
+                        <option className="">Select Type...</option>
+                        <option className="" value="Islam">
                             Islam
                         </option>
-                        <option className="text-p-white" value="Hinduism">
+                        <option className="" value="Hinduism">
                             Hinduism
                         </option>
-                        <option className="text-p-white" value="Christianity">
+                        <option className="" value="Christianity">
                             Christianity
                         </option>
-                        <option className="text-p-white" value="Buddhism">
+                        <option className="" value="Buddhism">
                             Buddhism
                         </option>
                     </select>{" "}
@@ -95,57 +95,57 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.religion && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Marital Status
                     </label>
                     <br />
                     <select
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         {...register("marital", { required: false })}
                     >
-                        <option className="text-p-white">Select Type...</option>
-                        <option className="text-p-white" value="Single">
+                        <option className="">Select Type...</option>
+                        <option className="" value="Single">
                             Single
                         </option>
-                        <option className="text-p-white" value="Married">
+                        <option className="" value="Married">
                             Married
                         </option>
-                        <option className="text-p-white" value="Divorced">
+                        <option className="" value="Divorced">
                             Divorced
                         </option>
-                        <option className="text-p-white" value="Widowed">
+                        <option className="" value="Widowed">
                             Widowed
                         </option>
                     </select>{" "}
                     <br />
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Blood Group
                     </label>
                     <br />
                     <select
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         {...register("religion", { required: false })}
                     >
-                        <option className="text-p-white">Select Type...</option>
-                        <option className="text-p-white" value="A+ve">
+                        <option className="">Select Type...</option>
+                        <option className="" value="A+ve">
                             A+ve
                         </option>
-                        <option className="text-p-white" value="B+ve">
+                        <option className="" value="B+ve">
                             B+ve
                         </option>
                     </select>{" "}
                     <br />
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Email
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your Email"
                         type="email"
                         {...register("email", { required: false })}
@@ -154,13 +154,13 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.email && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Mobile Number
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Mobile Number"
                         type="tel"
                         {...register("mobile", { required: false })}
@@ -169,13 +169,13 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.mobile && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         National ID / Birth Certificate No.
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter National Id /Birth"
                         type="number"
                         {...register("nid_Birth_certificate", { required: false })}
@@ -184,12 +184,12 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.nid_Birth_certificate && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Passport No.
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your passport Number"
                         type="number"
                         {...register("passport")}
@@ -197,13 +197,13 @@ const PersonalInfo = ({ register, errors }) => {
                     <br />
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Nationality
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your Nationality"
                         type="text"
                         {...register("nationality", { required: false })}
@@ -212,13 +212,13 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.nationality && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Country
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your country"
                         type="text"
                         {...register("country", { required: false })}
@@ -227,12 +227,12 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.country && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Social Media Id
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your Social media"
                         type="url"
                         {...register("social_media", { required: false })}
@@ -240,13 +240,13 @@ const PersonalInfo = ({ register, errors }) => {
                     <br />
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Upload Applicant Photo (Recent and Formal)
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         type="file"
                         accept="image/*"
                         {...register("image", { required: false })}
@@ -255,13 +255,13 @@ const PersonalInfo = ({ register, errors }) => {
                     {errors.image && <p className="text-red-500 mt-2">This field is required</p>}
                 </div>
                 <div>
-                    <label className="text-p-white font-serif text-2xl leading-loose">
+                    <label className="  text-2xl leading-loose">
                         Upload Applicant Signature
                         <span className="text-red-500 pl-2">*</span>
                     </label>
                     <br />
                     <input
-                        className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                        className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         type="file"
                         accept="image/*"
                         {...register("signature", { required: false })}
@@ -272,42 +272,42 @@ const PersonalInfo = ({ register, errors }) => {
             </div>
 
             {/* Address */}
-            <p className="font-serif text-4xl text-p-white py-5">Address</p>
+            <p className=" text-4xl  py-5">Address</p>
             <hr className="pb-5" />
             <div className="grid grid-cols-2 gap-10 pb-10">
                 <div>
-                    <p className="font-serif text-2xl text-p-white py-5">
+                    <p className=" text-2xl  py-5">
                         Present address
                     </p>
                     <div>
-                        <label className="text-p-white font-serif text-2xl leading-loose">
+                        <label className="  text-2xl leading-loose">
                             Country
                         </label>
                         <br />
                         <select
-                            className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                            className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                             {...register("present_country", { required: false })}
                         >
-                            <option className="text-p-white">Select Type...</option>
-                            <option className="text-p-white" value="Bangladesh">
+                            <option className="">Select Type...</option>
+                            <option className="" value="Bangladesh">
                                 Bangladesh
                             </option>
-                            <option className="text-p-white" value="Indian">
+                            <option className="" value="Indian">
                                 Indian
                             </option>
-                            <option className="text-p-white" value="Others">
+                            <option className="" value="Others">
                                 Others
                             </option>
                         </select>{" "}
                         <br />
                     </div>
                     <div>
-                        <label className="text-p-white font-serif text-2xl leading-loose">
+                        <label className="  text-2xl leading-loose">
                             State/Division
                         </label>
                         <br />
                         <input
-                            className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                            className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                             placeholder="Enter Your State/Division"
                             type="text"
                             {...register("present_state_division", { required: false })}
@@ -315,12 +315,12 @@ const PersonalInfo = ({ register, errors }) => {
                         <br />
                     </div>
                     <div>
-                        <label className="text-p-white font-serif text-2xl leading-loose">
+                        <label className="  text-2xl leading-loose">
                             Police Station/Thana
                         </label>
                         <br />
                         <input
-                            className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                            className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                             placeholder="Enter Your Police Station/Thana"
                             type="text"
                             {...register("present_thana", { required: false })}
@@ -328,12 +328,12 @@ const PersonalInfo = ({ register, errors }) => {
                         <br />
                     </div>
                     <div>
-                        <label className="text-p-white font-serif text-2xl leading-loose">
+                        <label className="  text-2xl leading-loose">
                             City
                         </label>
                         <br />
                         <input
-                            className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                            className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                             placeholder="Enter Your City"
                             type="text"
                             {...register("present_city", { required: false })}
@@ -341,12 +341,12 @@ const PersonalInfo = ({ register, errors }) => {
                         <br />
                     </div>
                     <div>
-                        <label className="text-p-white font-serif text-2xl leading-loose">
+                        <label className="  text-2xl leading-loose">
                             Zip Code/Post Code/Post Office Name
                         </label>
                         <br />
                         <input
-                            className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                            className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                             placeholder="Enter Your Zip Code"
                             type="number"
                             {...register("present_zip_code", { required: false })}
@@ -354,14 +354,14 @@ const PersonalInfo = ({ register, errors }) => {
                         <br />
                     </div>
                     <div>
-                        <label className="text-p-white font-serif text-2xl leading-loose">
+                        <label className="  text-2xl leading-loose">
                             Flat/Apt/Street/House No./Area/Village
                             <span className="text-red-500 pl-2">*</span>
                         </label>
                         <br />
                         
                         <input
-                            className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                            className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                             placeholder="Street1"
                             type="text"
                             {...register("present_street1", { required: false })}
@@ -370,7 +370,7 @@ const PersonalInfo = ({ register, errors }) => {
                         {errors.present_street1 && <p className="text-red-500 mt-2">This field is required</p>}
                         <br />
                         <input
-                            className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                            className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                             placeholder="Street2"
                             type="text"
                             {...register("present_street2", { required: false })}
@@ -380,38 +380,38 @@ const PersonalInfo = ({ register, errors }) => {
                 </div>
                 <div>
                     <div>
-                        <p className="font-serif text-2xl text-p-white py-5">
+                        <p className=" text-2xl  py-5">
                             Permanent address
                         </p>
                         <div>
-                            <label className="text-p-white font-serif text-2xl leading-loose">
+                            <label className="  text-2xl leading-loose">
                                 Country
                             </label>
                             <br />
                             <select
-                                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                                className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                                 {...register("permanent_country", { required: false })}
                             >
-                                <option className="text-p-white">Select Type...</option>
-                                <option className="text-p-white" value="Bangladesh">
+                                <option className="">Select Type...</option>
+                                <option className="" value="Bangladesh">
                                     Bangladesh
                                 </option>
-                                <option className="text-p-white" value="Indian">
+                                <option className="" value="Indian">
                                     Indian
                                 </option>
-                                <option className="text-p-white" value="Others">
+                                <option className="" value="Others">
                                     Others
                                 </option>
                             </select>{" "}
                             <br />
                         </div>
                         <div>
-                            <label className="text-p-white font-serif text-2xl leading-loose">
+                            <label className="  text-2xl leading-loose">
                                 State/Division
                             </label>
                             <br />
                             <input
-                                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                                className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                                 placeholder="Enter Your State/Division"
                                 type="text"
                                 {...register("permanent_state_division", { required: false })}
@@ -419,12 +419,12 @@ const PersonalInfo = ({ register, errors }) => {
                             <br />
                         </div>
                         <div>
-                            <label className="text-p-white font-serif text-2xl leading-loose">
+                            <label className="  text-2xl leading-loose">
                                 Police Station/Thana
                             </label>
                             <br />
                             <input
-                                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                                className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                                 placeholder="Enter Your Police Station/Thana"
                                 type="text"
                                 {...register("permanent_thana", { required: false })}
@@ -432,12 +432,12 @@ const PersonalInfo = ({ register, errors }) => {
                             <br />
                         </div>
                         <div>
-                            <label className="text-p-white font-serif text-2xl leading-loose">
+                            <label className="  text-2xl leading-loose">
                                 City
                             </label>
                             <br />
                             <input
-                                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                                className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                                 placeholder="Enter Your City"
                                 type="text"
                                 {...register("permanent_city", { required: false })}
@@ -445,12 +445,12 @@ const PersonalInfo = ({ register, errors }) => {
                             <br />
                         </div>
                         <div>
-                            <label className="text-p-white font-serif text-2xl leading-loose">
+                            <label className="  text-2xl leading-loose">
                                 Zip Code/Post Code/Post Office Name
                             </label>
                             <br />
                             <input
-                                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                                className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                                 placeholder="Enter Your Zip Code"
                                 type="number"
                                 {...register("permanent_zip_code", { required: false })}
@@ -458,13 +458,13 @@ const PersonalInfo = ({ register, errors }) => {
                             <br />
                         </div>
                         <div>
-                            <label className="text-p-white font-serif text-2xl leading-loose">
+                            <label className="  text-2xl leading-loose">
                                 Flat/Apt/Street/House No./Area/Village
                                 <span className="text-red-500 pl-2">*</span>
                             </label>
                             <br />
                             <input
-                                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                                className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                                 placeholder="Street1"
                                 type="text"
                                 {...register("permanent_street1", { required: false })}
@@ -473,7 +473,7 @@ const PersonalInfo = ({ register, errors }) => {
                             {errors.permanent_street1 && <p className="text-red-500 mt-2">This field is required</p>}
                             <br />
                             <input
-                                className="w-full bg-primary-800/50 text-p-white py-5 px-5 text-xl rounded-md"
+                                className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                                 placeholder="Street2"
                                 type="text"
                                 {...register("permanent_street2", { required: false })}

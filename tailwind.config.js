@@ -4,12 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        "primary-white": "#FAF9F6",
         "primary-blue": "#020033",
-        "primary-gray": "#333333",
-        "primary-orange": "#F15025",
         "secondary-blue": "#00338D",
         "accent-blue": "#38bdf8",
+        "neural-blue": "#9CC0FF",
+        "tertiary-blue": "#00195A",
+        "primary-orange": "#F15025",
+        "secondary-orange": "#ffbc42",
+        "primary-white": "#FAF9F6",
+        "primary-gray": "#333333",
         primary: {
           100: "#e5e6ff",
           200: "#cbcdff",

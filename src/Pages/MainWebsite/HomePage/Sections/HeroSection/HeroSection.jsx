@@ -11,7 +11,7 @@ const HeroSection = () => {
             Exploring The Nexus of Artificial Intelligence
           </h1>
           <p className="py-6"></p>
-          <p className="text-p-white font-serif text-2xl font-light italic">
+          <p className="text-p-white font-serif text-xl font-light italic">
             This research study aims to delve into the complex relationship
             between artificial intelligence (AI) and ethical decision making. As
             AI systems continue to advance in their capabilities and integration

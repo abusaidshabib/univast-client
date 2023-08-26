@@ -1,24 +1,23 @@
-import { Link } from "react-router-dom";
+import SecondaryButton from "../../../../../Components/Buttons/SecondaryButton";
+import SecondarySmall from "../../../../../Components/Buttons/SecondarySmall";
 
 const EventNews = () => {
   return (
-    <div className="bg-background-500 px-20 text-center py-28">
-      <p className="text-5xl text-primary-500 font-serif leading-relaxed">
+    <div className="px-20 text-center py-28 text-primary-gray font-sans">
+      <p className="text-6xl leading-relaxed">
         News &{" "}
-        <span className="underline-offset-2 border-b-4 border-accent-500 text-p-white">
+        <span className="underline-offset-2 border-b-4 border-secondary-blue">
           Events
         </span>
       </p>
       <div className="grid grid-cols-12 gap-20">
         <div className="col-span-8">
-          <p className="font-serif text-3xl text-p-white font-semibold text-left pt-5">
-            Recent notice
-          </p>
-          <div className="grid text-left py-5 font-sans text-p-white">
-            <p className="font-semibold text-lg">
+          <p className="text-3xl font-semibold text-left pt-5">Recent notice</p>
+          <div className="grid text-left py-5">
+            <p className="font-bold text-xl">
               Admission notice (2022-23) (M.Sc. in Meteorology)
             </p>
-            <p className="text-sm py-2">
+            <p className="text-lg py-2 font-serif">
               Our esteemed faculty members are at the heart of Univast
               University academic community. They are accomplished experts in
               their fields, dedicated to delivering high-quality education and
@@ -26,21 +25,18 @@ const EventNews = () => {
               cutting-edge research, engage in thought-provoking discussions,
               and receive personalized attention...
             </p>
-            <p className="pb-2 text-accent-400">Published: 14 May, 2023</p>
+            <p className="pb-2 text-secondary-blue font-semibold">
+              Published: 14 May, 2023
+            </p>
             <div className="py-5">
-              <Link
-                className="border-2 border-p-white py-3 px-10 hover:border-none hover:bg-accent-500 hover:text-background-500"
-                to=""
-              >
-                Read More
-              </Link>
+              <SecondaryButton link="" text="Read More" icon="" />
             </div>
           </div>
-          <div className="grid text-left py-5 font-sans text-p-white">
-            <p className="font-semibold text-lg">
+          <div className="grid text-left py-5">
+            <p className="font-bold text-xl">
               Admission notice (2022-23) (M.Sc. in Meteorology)
             </p>
-            <p className="text-sm py-2">
+            <p className="text-lg py-2 font-serif">
               Our esteemed faculty members are at the heart of Univast
               University academic community. They are accomplished experts in
               their fields, dedicated to delivering high-quality education and
@@ -48,21 +44,18 @@ const EventNews = () => {
               cutting-edge research, engage in thought-provoking discussions,
               and receive personalized attention...
             </p>
-            <p className="pb-2 text-accent-400">Published: 14 May, 2023</p>
+            <p className="pb-2 text-secondary-blue font-semibold">
+              Published: 14 May, 2023
+            </p>
             <div className="py-5">
-              <Link
-                className="border-2 border-p-white py-3 px-10 hover:border-none hover:bg-accent-500 hover:text-background-500"
-                to=""
-              >
-                Read More
-              </Link>
+              <SecondaryButton link="" text="Read More" icon="" />
             </div>
           </div>
-          <div className="grid text-left py-5 font-sans text-p-white">
-            <p className="font-semibold text-lg">
+          <div className="grid text-left py-5">
+            <p className="font-bold text-xl">
               Admission notice (2022-23) (M.Sc. in Meteorology)
             </p>
-            <p className="text-sm py-2">
+            <p className="text-lg py-2 font-serif">
               Our esteemed faculty members are at the heart of Univast
               University academic community. They are accomplished experts in
               their fields, dedicated to delivering high-quality education and
@@ -70,33 +63,25 @@ const EventNews = () => {
               cutting-edge research, engage in thought-provoking discussions,
               and receive personalized attention...
             </p>
-            <p className="pb-2 text-accent-400">Published: 14 May, 2023</p>
+            <p className="pb-2 text-secondary-blue font-semibold">
+              Published: 14 May, 2023
+            </p>
             <div className="py-5">
-              <Link
-                className="border-2 border-p-white py-3 px-10 hover:border-none hover:bg-accent-500 hover:text-background-500"
-                to=""
-              >
-                Read More
-              </Link>
+              <SecondaryButton link="" text="Read More" icon="" />
             </div>
           </div>
         </div>
         <div className="col-span-4">
-          <p className="font-serif text-2xl text-p-white font-semibold text-left pt-5">
-            All notice
-          </p>
-          <div className="grid text-left py-5 font-sans text-p-white">
-            <p className="font-semibold text-lg">
+          <p className="text-2xl font-semibold text-left pt-5">All notice</p>
+          <div className="grid text-left py-5">
+            <p className="font-bold text-lg">
               Admission notice (2022-23) (M.Sc. in Meteorology)
             </p>
-            <p className="pb-2 text-accent-400">Published: 14 May, 2023</p>
-            <div className="py-5">
-              <Link
-                className="border-2 border-p-white py-1 px-4 hover:border-none hover:bg-accent-500 hover:text-background-500"
-                to=""
-              >
-                Read More
-              </Link>
+            <p className="pb-2 text-secondary-blue font-semibold text-base">
+              Published: 14 May, 2023
+            </p>
+            <div className="py-2">
+              <SecondarySmall link="" text="Read More" icon="" />
             </div>
           </div>
         </div>
