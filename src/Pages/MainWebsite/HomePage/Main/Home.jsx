@@ -8,7 +8,7 @@ import WhatWeOffer from "../Sections/WhatWeOffer/WhatWeOffer";
 
 const Home = () => {
   return (
-    <div className="bg-background-500">
+    <div className="">
       <HeroSection></HeroSection>
       <Services></Services>
       <About></About>
