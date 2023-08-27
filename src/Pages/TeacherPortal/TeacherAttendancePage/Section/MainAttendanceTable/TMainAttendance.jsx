@@ -9,7 +9,7 @@ const TMainAttendance = () => {
         </div>
         <div>
           <label className="text-lg" htmlFor="semester">Please select the semester :</label> &nbsp;
-          <select className="border-b-2 border-primary-700 outline-none bg-transparent" name="semester" id="semester" form="carform">
+          <select className="border-b-2 border-secondary-blue outline-none bg-transparent" name="semester" id="semester" form="carform">
             <option value="volvo">Spring 2020</option>
             <option value="saab">Saab</option>
             <option value="opel">Opel</option>
@@ -34,7 +34,7 @@ const TMainAttendance = () => {
             <td className="border border-gray-400 p-2 ">2020</td>
             <td className="grid border border-gray-400">
               <Link
-                className="p-2 w-full h-full bg-primary-700 hover:bg-primary-800 border border-primary-600 text-center text-p-white"
+                className="p-2 w-full h-full bg-secondary-blue hover:bg-primary-blue border border-secondary-blue text-center text-p-white"
                 to=""
               >
                 Check Attendance of English

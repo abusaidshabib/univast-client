@@ -13,7 +13,7 @@ const RegisteredCourses = () => {
             </label>{" "}
             &nbsp;
             <select
-              className="border-b-2 border-primary-700 outline-none bg-transparent"
+              className="border-b-2 border-secondary-blue outline-none bg-transparent"
               name="semester"
               id="semester"
               form="carform"
@@ -45,7 +45,7 @@ const RegisteredCourses = () => {
               <td className="border border-gray-400 p-2 text-center">
                 <Link
                   to="details/outline"
-                  className="bg-primary-500 px-5 py-2 text-p-white font-semibold"
+                  className="bg-primary-blue px-5 py-2 text-p-white font-semibold"
                 >
                   View Details
                 </Link>
@@ -59,7 +59,7 @@ const RegisteredCourses = () => {
               <td className="border border-gray-400 p-2 text-center">
                 <Link
                   to="details/outline"
-                  className="bg-primary-500 px-5 py-2 text-p-white font-semibold"
+                  className="bg-primary-blue px-5 py-2 text-p-white font-semibold"
                 >
                   View Details
                 </Link>
@@ -73,7 +73,7 @@ const RegisteredCourses = () => {
               <td className="border border-gray-400 p-2 text-center">
                 <Link
                   to="details/outline"
-                  className="bg-primary-500 px-5 py-2 text-p-white font-semibold"
+                  className="bg-primary-blue px-5 py-2 text-p-white font-semibold"
                 >
                   View Details
                 </Link>
