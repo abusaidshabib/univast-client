@@ -34,11 +34,10 @@ const AdmissionForm = () => {
         program_type: data.program_type || "",
         last_complete_degree_type: data.last_complete_degree_type || "",
         program: data.program || "",
-        medium: data.medium || "",
         education_shift: data.education_shift || "",
         admission_test_venue: data.admission_test_venue || "",
       },
-      "personal": {
+      personal: {
         firstName: data.firstName || "",
         lastName: data.lastName || "",
         gender: data.gender || "",
