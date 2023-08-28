@@ -1,9 +1,8 @@
-import { selectProgram, selectProgramType } from "../../../../../../features/application/applicationSlice";
 import { useDispatch } from "react-redux";
+import { admissionFormInput } from "../../../../../../features/application/applicationSlice";
 
 /* eslint-disable react/prop-types */
 const ApplyInfo = ({
-  register,
   errors,
   programTypes,
   programs,
@@ -12,6 +11,11 @@ const ApplyInfo = ({
   const dispatch = useDispatch();
 
   console.log(programs);
+
+  const handleInput = (data) => {
+    // console.log(data)
+    dispatch(admissionFormInput(data))
+  }
 
   return (
     <div className="font-sans">
@@ -28,6 +32,9 @@ const ApplyInfo = ({
           </label>
           <br />
           <select
+            onChange={(e) =>
+              handleInput({ value: e.target.value, name: "general.applicant_type" })
+            }
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
             <option className="text-primary-white">Select Type...</option>
@@ -57,9 +64,6 @@ const ApplyInfo = ({
           <br />
           <select
             required
-            onChange={(e) => {
-              dispatch(selectProgramType(e.target.value));
-            }}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5
             text-xl rounded-md"
           >
@@ -83,9 +87,7 @@ const ApplyInfo = ({
             <span className="text-red-500 pl-2">*</span>
           </label>
           <br />
-          <select
-            className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-          >
+          <select className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md">
             <option className="text-primary-white">Select Type...</option>
             <option className="text-primary-white" value="HSC/Alim">
               HSC/Alim
@@ -122,9 +124,6 @@ const ApplyInfo = ({
           <br />
           <select
             required
-            onChange={(e) => {
-              dispatch(selectProgram(e.target.value));
-            }}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
             <option className="text-primary-white">Select Type...</option>
@@ -171,9 +170,7 @@ const ApplyInfo = ({
             <span className="text-red-500 pl-2">*</span>
           </label>
           <br />
-          <select
-            className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-          >
+          <select className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md">
             <option className="text-primary-white">Select Type...</option>
             {shifts?.map((shift, index) => (
               <option key={index} className="text-primary-white" value={shift}>

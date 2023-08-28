@@ -101,15 +101,13 @@ const applicationSlice = createSlice({
   name: "application",
   initialState,
   reducers: {
-    selectProgramType: (state, action) =>{
-      state.selectedProgramType = action.payload;
+    admissionFormInput: (state, action) =>{
+      console.log(action.payload)
+      // [state.admissionData.action.payload.name] : action.payload.value
     },
-    selectProgram: (state, action) => {
-      state.selectedProgram = action.payload
-    }
   }
 });
 
-export const { selectProgramType, selectProgram } = applicationSlice.actions;
+export const { admissionFormInput } = applicationSlice.actions;
 
 export default applicationSlice.reducer
