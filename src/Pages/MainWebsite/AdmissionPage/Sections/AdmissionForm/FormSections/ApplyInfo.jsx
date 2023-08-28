@@ -1,21 +1,17 @@
-import { useState } from "react";
-import {
-  useGetProgramsByTypeQuery,
-  useGetProgramsQuery,
-} from "../../../../../../features/programs/programApi";
+import { selectProgram, selectProgramType } from "../../../../../../features/application/applicationSlice";
+import { useDispatch } from "react-redux";
 
 /* eslint-disable react/prop-types */
-const ApplyInfo = ({ register, errors }) => {
-    const [selectedProgram, setSelectedProgram] = useState('Bachelor');
-  let allprograms = useGetProgramsQuery();
-  allprograms = allprograms?.data?.data?.data;
-  const programTypes = Array.from(
-    new Set(allprograms?.map((item) => item.programType))
-  );
+const ApplyInfo = ({
+  register,
+  errors,
+  programTypes,
+  programs,
+  shifts
+}) => {
+  const dispatch = useDispatch();
 
-  const {data} = useGetProgramsByTypeQuery(selectedProgram)
-  console.log(data?.data.data)
-
+  console.log(programs);
 
   return (
     <div className="font-sans">
@@ -33,7 +29,6 @@ const ApplyInfo = ({ register, errors }) => {
           <br />
           <select
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-            {...register("applicant_type", { required: false })}
           >
             <option className="text-primary-white">Select Type...</option>
             <option
@@ -61,13 +56,16 @@ const ApplyInfo = ({ register, errors }) => {
           </label>
           <br />
           <select
-            value={selectedProgram}
-            onChange={(e) => {setSelectedProgram(e.target.value); console.log(selectedProgram)}}
+            required
+            onChange={(e) => {
+              dispatch(selectProgramType(e.target.value));
+            }}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5
             text-xl rounded-md"
-            {...register("program_type", { required: false })}
           >
-            <option value="" className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">
+              Select Type...
+            </option>
             {programTypes?.map((p, index) => (
               <option key={index} className="text-primary-white" value={p}>
                 {p}
@@ -87,7 +85,6 @@ const ApplyInfo = ({ register, errors }) => {
           <br />
           <select
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-            {...register("last_completed_degree", { required: false })}
           >
             <option className="text-primary-white">Select Type...</option>
             <option className="text-primary-white" value="HSC/Alim">
@@ -124,24 +121,29 @@ const ApplyInfo = ({ register, errors }) => {
           </label>
           <br />
           <select
+            required
+            onChange={(e) => {
+              dispatch(selectProgram(e.target.value));
+            }}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-            {...register("program", { required: false })}
           >
             <option className="text-primary-white">Select Type...</option>
-
-            <option className="text-primary-white" value="B.Sc. in CSE">
-              B.Sc. in CSE
-            </option>
-            <option className="text-primary-white" value="LL.B.">
-              LL.B.
-            </option>
+            {programs?.map((program) => (
+              <option
+                key={program._id}
+                className="text-primary-white"
+                value={program.programName}
+              >
+                {program.programName}
+              </option>
+            ))}
           </select>{" "}
           <br />
           {errors.program && (
             <p className="text-red-500 mt-2">This field is required</p>
           )}
         </div>
-        <div>
+        {/* <div>
           <label className="text-primary-white text-2xl leading-loose">
             Medium
             <span className="text-red-500 pl-2">*</span>
@@ -149,7 +151,6 @@ const ApplyInfo = ({ register, errors }) => {
           <br />
           <select
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-            {...register("medium", { required: false })}
           >
             <option className="text-primary-white">Select Type...</option>
             <option className="text-primary-white" value="English">
@@ -163,7 +164,7 @@ const ApplyInfo = ({ register, errors }) => {
           {errors.medium && (
             <p className="text-red-500 mt-2">This field is required</p>
           )}
-        </div>
+        </div> */}
         <div>
           <label className="text-primary-white text-2xl leading-loose">
             Education Shift
@@ -172,22 +173,20 @@ const ApplyInfo = ({ register, errors }) => {
           <br />
           <select
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-            {...register("education_shift", { required: false })}
           >
             <option className="text-primary-white">Select Type...</option>
-            <option className="text-primary-white" value="Day Shift">
-              Day Shift
-            </option>
-            <option className="text-primary-white" value="Night Shift">
-              Night Shift
-            </option>
+            {shifts?.map((shift, index) => (
+              <option key={index} className="text-primary-white" value={shift}>
+                {shift}
+              </option>
+            ))}
           </select>{" "}
           <br />
           {errors.education_shift && (
             <p className="text-red-500 mt-2">This field is required</p>
           )}
         </div>
-        <div>
+        {/* <div>
           <label className="text-primary-white text-2xl leading-loose">
             Admission Test Venue
           </label>
@@ -202,7 +201,7 @@ const ApplyInfo = ({ register, errors }) => {
             </option>
           </select>{" "}
           <br />
-        </div>
+        </div> */}
       </div>
     </div>
   );

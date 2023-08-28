@@ -17,7 +17,7 @@ const PersonalInfo = ({ register, errors }) => {
                         className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your first-Name"
                         type="text"
-                        {...register("firstName", { required: false })}
+                        {...register("firstName", { required: true })}
                     />
                     <br />
                     {errors.firstName && <p className="text-red-500 mt-2">This field is required</p>}
@@ -32,7 +32,7 @@ const PersonalInfo = ({ register, errors }) => {
                         className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your last-Name"
                         type="text"
-                        {...register("lastName", { required: false })}
+                        {...register("lastName", { required: true })}
                     />
                     <br />
                     {errors.lastName && <p className="text-red-500 mt-2">This field is required</p>}
@@ -148,7 +148,7 @@ const PersonalInfo = ({ register, errors }) => {
                         className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter Your Email"
                         type="email"
-                        {...register("email", { required: false })}
+                        {...register("email", { required: true })}
                     />
                     <br />
                     {errors.email && <p className="text-red-500 mt-2">This field is required</p>}
@@ -178,7 +178,7 @@ const PersonalInfo = ({ register, errors }) => {
                         className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                         placeholder="Enter National Id /Birth"
                         type="number"
-                        {...register("nid_Birth_certificate", { required: false })}
+                        {...register("nid_Birth_certificate", { required: true })}
                     />
                     <br />
                     {errors.nid_Birth_certificate && <p className="text-red-500 mt-2">This field is required</p>}
