@@ -5,7 +5,7 @@ import { GoBook } from "react-icons/go";
 import { BsCalendar2Check, BsCardText } from "react-icons/bs";
 import { TfiCup } from "react-icons/tfi";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
-import {  MdOutlineDashboardCustomize, } from "react-icons/md";
+import { MdOutlineDashboardCustomize } from "react-icons/md";
 
 const Menu = () => {
   return (
@@ -35,12 +35,9 @@ const Menu = () => {
             </NavLink>
           </li>
           <li className="">
-            <NavLink
-              to="/student/profile/general_information"
-              className="flex gap-3"
-            >
+            <NavLink to="/enroll/acceptAdmission" className="flex gap-3">
               <BiUser className="text-2xl" />
-              <p className="font-semibold">Profile</p>
+              <p className="font-semibold">Applications</p>
             </NavLink>
           </li>
           <li className="">
