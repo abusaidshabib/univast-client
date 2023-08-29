@@ -43,10 +43,6 @@ const AdmissionForm = () => {
   let programs = useGetProgramsByTypeQuery(admissionData?.general.program_type);
   programs = programs?.data?.data?.data;
 
-  const shifts = programs?.find(
-    (program) => program.programName === admissionData?.general.program
-  );
-
   const [postApplication, { isLoading, isError, error, isSuccess }] =
     usePostApplicationMutation();
 
@@ -200,7 +196,7 @@ const AdmissionForm = () => {
           errors,
           programTypes,
           programs,
-          shifts
+          admissionData
         })}
 
         <div className="py-10 flex gap-8 items-center">

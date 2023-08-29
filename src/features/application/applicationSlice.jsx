@@ -101,13 +101,25 @@ const applicationSlice = createSlice({
   name: "application",
   initialState,
   reducers: {
-    admissionFormInput: (state, action) =>{
-      console.log(action.payload)
-      // [state.admissionData.action.payload.name] : action.payload.value
+    admissionFormInput: (state, action) => {
+      const { fieldName, value } = action.payload;
+      const fieldNames = fieldName.split(".");
+      let obj = state.admissionData;
+
+      fieldNames.forEach((key, index) => {
+        if (index === fieldNames.length - 1) {
+          obj[key] = value;
+        } else {
+          if (!obj[key]) {
+            obj[key] = {};
+          }
+          obj = obj[key];
+        }
+      });
     },
-  }
+  },
 });
 
 export const { admissionFormInput } = applicationSlice.actions;
 
-export default applicationSlice.reducer
+export default applicationSlice.reducer;
