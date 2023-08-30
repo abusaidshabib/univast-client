@@ -1,8 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
 import { AiOutlineLogout } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
-import { GoBook } from "react-icons/go";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { Link, NavLink } from "react-router-dom";
 
 const Menu = () => {
   return (
@@ -26,21 +25,15 @@ const Menu = () => {
       <div className="">
         <ul className="grid d-side-bar gap-6 place-content-center">
           <li className="">
-            <NavLink to="/enroll/home" className="flex gap-3">
+            <NavLink to="/admin/home" className="flex gap-3">
               <MdOutlineDashboardCustomize className="text-2xl" />
               <p className="font-semibold">Home</p>
             </NavLink>
           </li>
           <li className="">
-            <NavLink to="/enroll/studentEnroll" className="flex gap-3">
+            <NavLink to="/admin/Application" className="flex gap-3">
               <BiUser className="text-2xl" />
               <p className="font-semibold">Applications</p>
-            </NavLink>
-          </li>
-          <li className="">
-            <NavLink to="/enroll/teacherEnroll" className="flex gap-3">
-              <GoBook className="text-2xl" />
-              <p className="font-semibold">Add Teacher</p>
             </NavLink>
           </li>
         </ul>

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-const AdmissionAcceptance = () => {
+const StudentEnroll = () => {
   return (
     <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5">
-      <div className="bg-p-white p-10 rounded-lg">
+      <div className="bg-white p-10 rounded-lg">
         <div className="flex justify-between items-center text-gray-900 col-span-3">
           <div>
             <p className="text-4xl font-semibold">Registered Courses</p>
@@ -27,7 +27,7 @@ const AdmissionAcceptance = () => {
           </div>
         </div>
         <p className="py-5"></p>
-        <table className="border-collapse border border-slate-400 w-full text-lg bg-p-white">
+        <table className="border-collapse border border-slate-400 w-full text-lg">
           <thead>
             <tr>
               <th className="border border-gray-400 p-2 ">Applicant</th>
@@ -88,4 +88,4 @@ const AdmissionAcceptance = () => {
   );
 };
 
-export default AdmissionAcceptance;
+export default StudentEnroll;

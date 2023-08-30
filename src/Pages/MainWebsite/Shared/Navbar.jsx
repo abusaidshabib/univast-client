@@ -94,6 +94,15 @@ const Navbar = () => {
               <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
                 <Link to="/teacher/home">Teacher Portal</Link>
               </li>
+              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
+                <Link to="/enroll/home">Enroll Portal</Link>
+              </li>
+              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
+                <Link to="/admin">Admin Portal</Link>
+              </li>
+              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
+                <Link to="/course">Course Portal</Link>
+              </li>
             </ul>
           </div>
         </div>

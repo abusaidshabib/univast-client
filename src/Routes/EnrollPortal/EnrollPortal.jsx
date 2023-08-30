@@ -1,6 +1,7 @@
 import EnrollmentDashboard from "../../Layouts/EnrollmentDashboard";
-import AdmissionAcceptance from "../../Pages/EnrollPortal/AdmissionAcceptance/Main/AdmissionAcceptance";
 import EnrollHome from "../../Pages/EnrollPortal/EnrollHome/Main/EnrollHome";
+import StudentEnroll from "../../Pages/EnrollPortal/StudentEnroll/Main/StudentEnroll";
+import TeachersEnroll from "../../Pages/EnrollPortal/TeachersEnroll/Main/TeachersEnroll";
 
 const EnrollPortal = [
   {
@@ -12,8 +13,16 @@ const EnrollPortal = [
         element: <EnrollHome />,
       },
       {
-        path: "/enroll/acceptAdmission",
-        element: <AdmissionAcceptance />,
+        path: "/enroll/home",
+        element: <EnrollHome />,
+      },
+      {
+        path: "/enroll/studentEnroll",
+        element: <StudentEnroll />,
+      },
+      {
+        path: "/enroll/teacherEnroll",
+        element: <TeachersEnroll/>
       },
     ],
   },
