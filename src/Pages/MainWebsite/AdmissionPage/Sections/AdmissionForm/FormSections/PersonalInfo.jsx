@@ -1,12 +1,126 @@
-import { useDispatch } from "react-redux";
-import { admissionFormInput } from "../../../../../../features/application/applicationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setPersonalInfo } from "../../../../../../features/application/applicationSlice";
+import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const PersonalInfo = () => {
+  const {
+    firstName,
+    lastName,
+    gender,
+    birth_date,
+    religion,
+    marital,
+    blood_group,
+    email,
+    mobile,
+    nid_Birth_certificate,
+    passport,
+    nationality,
+    country,
+    social_media,
+    address,
+  } = useSelector((state) => state.application.personal);
+
+  const {present_country,
+        present_state_division,
+        present_thana,
+        present_city,
+        present_zip_code,
+        present_street1,
+        present_street2,} = address.present_address;
+
+  const {permanent_country,
+        permanent_state_division,
+        permanent_thana,
+        permanent_city,
+        permanent_zip_code,
+        permanent_street1,
+        permanent_street2,} = address.permanent_address;
+
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const form = e.target;
+
+      const firstName = form.firstName.value;
+      const lastName = form.lastName.value;
+      const gender = form.gender.value;
+      const birth_date = form.birth_date.value;
+      const religion = form.religion.value;
+      const marital = form.marital.value;
+      const blood_group = form.blood_group.value;
+      const email = form.email.value;
+      const mobile = form.mobile.value;
+      const nid_Birth_certificate = form.nid_Birth_certificate.value;
+      const passport = form.passport.value;
+      const nationality = form.nationality.value;
+      const country = form.country.value;
+      const social_media = form.social_media.value;
+      const image = form.image.value;
+      const signature = form.signature.value;
+      const present_country = form.present_country.value;
+      const present_state_division = form.present_state_division.value;
+      const present_thana = form.present_thana.value;
+      const present_city = form.present_city.value;
+      const present_zip_code = form.present_zip_code.value;
+      const present_street1 = form.present_street1.value;
+      const present_street2 = form.present_street2.value;
+      const permanent_country = form.permanent_country.value;
+      const permanent_state_division = form.permanent_state_division.value;
+      const permanent_thana = form.permanent_thana.value;
+      const permanent_city = form.permanent_city.value;
+      const permanent_zip_code = form.permanent_zip_code.value;
+      const permanent_street1 = form.permanent_street1.value;
+      const permanent_street2 = form.permanent_street2.value;
+
+      const data = {
+        firstName,
+        lastName,
+        gender,
+        birth_date,
+        religion,
+        marital,
+        blood_group,
+        email,
+        mobile,
+        nid_Birth_certificate,
+        passport,
+        nationality,
+        country,
+        social_media,
+        image,
+        signature,
+        address: {
+          present_address: {
+            present_country,
+            present_state_division,
+            present_thana,
+            present_city,
+            present_zip_code,
+            present_street1,
+            present_street2,
+          },
+          permanent_address: {
+            permanent_country,
+            permanent_state_division,
+            permanent_thana,
+            permanent_city,
+            permanent_zip_code,
+            permanent_street1,
+            permanent_street2,
+          },
+        },
+      };
+
+      dispatch(setPersonalInfo(data))
+      navigate("/admission/online/family");
+    }
 
     return (
-      <div className="font-sans text-primary-white">
+      <form onSubmit={handleSubmit} className="font-sans text-primary-white">
         {/* Application */}
         <p className=" text-4xl  py-5">Applicant</p>
         <hr className="pb-5" />
@@ -18,14 +132,10 @@ const PersonalInfo = () => {
             </label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.firstName",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="firstName"
+              id="firstName"
+              required
+              defaultValue={firstName}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Enter Your first-Name"
               type="text"
@@ -42,14 +152,10 @@ const PersonalInfo = () => {
             </label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.lastName",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="lastName"
+              id="lastName"
+              required
+              defaultValue={lastName}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Enter Your last-Name"
               type="text"
@@ -66,17 +172,15 @@ const PersonalInfo = () => {
             </label>
             <br />
             <select
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.gender",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="gender"
+              id="gender"
+              required
+              defaultValue={gender}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
             >
-              <option className="">Select Type...</option>
+              <option value="" className="">
+                Select Type...
+              </option>
               <option className="" value="Islam">
                 Male
               </option>
@@ -86,7 +190,7 @@ const PersonalInfo = () => {
               <option className="" value="Christianity">
                 Other
               </option>
-            </select>{" "}
+            </select>
             <br />
             {/* {errors.gender && (
               <p className="text-red-500 mt-2">This field is required</p>
@@ -99,14 +203,10 @@ const PersonalInfo = () => {
             </label>
             <br />
             <input
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.birth_date",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="birth_date"
+              id="birth_date"
+              required
+              defaultValue={birth_date}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Enter Your Birth-Date"
               type="date"
@@ -123,17 +223,15 @@ const PersonalInfo = () => {
             </label>
             <br />
             <select
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.religion",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="religion"
+              id="religion"
+              required
+              defaultValue={religion}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
             >
-              <option className="">Select Type...</option>
+              <option value="" className="">
+                Select Type...
+              </option>
               <option className="" value="Islam">
                 Islam
               </option>
@@ -146,7 +244,7 @@ const PersonalInfo = () => {
               <option className="" value="Buddhism">
                 Buddhism
               </option>
-            </select>{" "}
+            </select>
             <br />
             {/* {errors.religion && (
               <p className="text-red-500 mt-2">This field is required</p>
@@ -156,17 +254,14 @@ const PersonalInfo = () => {
             <label className="  text-2xl leading-loose">Marital Status</label>
             <br />
             <select
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.marital",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="marital"
+              id="marital"
+              defaultValue={marital}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
             >
-              <option className="">Select Type...</option>
+              <option value="" className="">
+                Select Type...
+              </option>
               <option className="" value="Single">
                 Single
               </option>
@@ -179,31 +274,28 @@ const PersonalInfo = () => {
               <option className="" value="Widowed">
                 Widowed
               </option>
-            </select>{" "}
+            </select>
             <br />
           </div>
           <div>
             <label className="  text-2xl leading-loose">Blood Group</label>
             <br />
             <select
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.bloodGroup",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="blood_group"
+              id="blood_group"
+              defaultValue={blood_group}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
             >
-              <option className="">Select Type...</option>
+              <option value="" className="">
+                Select Type...
+              </option>
               <option className="" value="A+ve">
                 A+ve
               </option>
               <option className="" value="B+ve">
                 B+ve
               </option>
-            </select>{" "}
+            </select>
             <br />
           </div>
           <div>
@@ -213,14 +305,10 @@ const PersonalInfo = () => {
             </label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.email",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="email"
+              id="email"
+              required
+              defaultValue={email}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Enter Your Email"
               type="email"
@@ -237,14 +325,10 @@ const PersonalInfo = () => {
             </label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.mobile",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="mobile"
+              id="mobile"
+              required
+              defaultValue={mobile}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Enter Mobile Number"
               type="tel"
@@ -261,14 +345,10 @@ const PersonalInfo = () => {
             </label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.nid_Birth_certificate",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="nid_Birth_certificate"
+              id="nid_Birth_certificate"
+              required
+              defaultValue={nid_Birth_certificate}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Enter National Id /Birth"
               type="number"
@@ -282,14 +362,9 @@ const PersonalInfo = () => {
             <label className="  text-2xl leading-loose">Passport No.</label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.passport",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="passport"
+              id="passport"
+              defaultValue={passport}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Enter Your passport Number"
               type="number"
@@ -303,14 +378,10 @@ const PersonalInfo = () => {
             </label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.nationality",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="nationality"
+              id="nationality"
+              required
+              defaultValue={nationality}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Enter Your Nationality"
               type="text"
@@ -327,14 +398,10 @@ const PersonalInfo = () => {
             </label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.country",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="country"
+              id="country"
+              required
+              defaultValue={country}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Enter Your country"
               type="text"
@@ -348,14 +415,9 @@ const PersonalInfo = () => {
             <label className="  text-2xl leading-loose">Social Media Id</label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.social_media",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="social_media"
+              id="social_media"
+              defaultValue={social_media}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Enter Your Social media"
               type="url"
@@ -369,14 +431,9 @@ const PersonalInfo = () => {
             </label>
             <br />
             <input
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.image",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="image"
+              id="image"
+              required
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               type="file"
               accept="image/*"
@@ -393,14 +450,9 @@ const PersonalInfo = () => {
             </label>
             <br />
             <input
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "personal.signature",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="signature"
+              id="signature"
+              required
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               type="file"
               accept="image/*"
@@ -422,17 +474,14 @@ const PersonalInfo = () => {
               <label className="  text-2xl leading-loose">Country</label>
               <br />
               <select
-                onChange={(e) =>
-                  dispatch(
-                    admissionFormInput({
-                      fieldName: "personal.present_country",
-                      value: e.target.value,
-                    })
-                  )
-                }
+                name="present_country"
+                id="present_country"
+                defaultValue={present_country}
                 className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               >
-                <option className="">Select Type...</option>
+                <option value="" className="">
+                  Select Type...
+                </option>
                 <option className="" value="Bangladesh">
                   Bangladesh
                 </option>
@@ -449,14 +498,9 @@ const PersonalInfo = () => {
               <label className="  text-2xl leading-loose">State/Division</label>
               <br />
               <input
-                onBlur={(e) =>
-                  dispatch(
-                    admissionFormInput({
-                      fieldName: "personal.present_state_division",
-                      value: e.target.value,
-                    })
-                  )
-                }
+                name="present_state_division"
+                id="present_state_division"
+                defaultValue={present_state_division}
                 className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                 placeholder="Enter Your State/Division"
                 type="text"
@@ -469,14 +513,9 @@ const PersonalInfo = () => {
               </label>
               <br />
               <input
-                onBlur={(e) =>
-                  dispatch(
-                    admissionFormInput({
-                      fieldName: "personal.present_thana",
-                      value: e.target.value,
-                    })
-                  )
-                }
+                name="present_thana"
+                id="present_thana"
+                defaultValue={present_thana}
                 className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                 placeholder="Enter Your Police Station/Thana"
                 type="text"
@@ -487,14 +526,9 @@ const PersonalInfo = () => {
               <label className="  text-2xl leading-loose">City</label>
               <br />
               <input
-                onBlur={(e) =>
-                  dispatch(
-                    admissionFormInput({
-                      fieldName: "personal.present_city",
-                      value: e.target.value,
-                    })
-                  )
-                }
+                name="present_city"
+                id="present_city"
+                defaultValue={present_city}
                 className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                 placeholder="Enter Your City"
                 type="text"
@@ -507,14 +541,9 @@ const PersonalInfo = () => {
               </label>
               <br />
               <input
-                onBlur={(e) =>
-                  dispatch(
-                    admissionFormInput({
-                      fieldName: "personal.present_zip_code",
-                      value: e.target.value,
-                    })
-                  )
-                }
+                name="present_zip_code"
+                id="present_zip_code"
+                defaultValue={present_zip_code}
                 className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                 placeholder="Enter Your Zip Code"
                 type="number"
@@ -529,14 +558,10 @@ const PersonalInfo = () => {
               <br />
 
               <input
-                onBlur={(e) =>
-                  dispatch(
-                    admissionFormInput({
-                      fieldName: "personal.present_street1",
-                      value: e.target.value,
-                    })
-                  )
-                }
+                name="present_street1"
+                id="present_street1"
+                required
+                defaultValue={present_street1}
                 className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                 placeholder="Street1"
                 type="text"
@@ -547,14 +572,9 @@ const PersonalInfo = () => {
               )} */}
               <br />
               <input
-                onBlur={(e) =>
-                  dispatch(
-                    admissionFormInput({
-                      fieldName: "personal.present_street2",
-                      value: e.target.value,
-                    })
-                  )
-                }
+                name="present_street2"
+                id="present_street2"
+                defaultValue={present_street2}
                 className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                 placeholder="Street2"
                 type="text"
@@ -569,17 +589,14 @@ const PersonalInfo = () => {
                 <label className="  text-2xl leading-loose">Country</label>
                 <br />
                 <select
-                  onChange={(e) =>
-                    dispatch(
-                      admissionFormInput({
-                        fieldName: "personal.permanent_country",
-                        value: e.target.value,
-                      })
-                    )
-                  }
+                  name="permanent_country"
+                  id="permanent_country"
+                  defaultValue={permanent_country}
                   className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                 >
-                  <option className="">Select Type...</option>
+                  <option value="" className="">
+                    Select Type...
+                  </option>
                   <option className="" value="Bangladesh">
                     Bangladesh
                   </option>
@@ -598,14 +615,9 @@ const PersonalInfo = () => {
                 </label>
                 <br />
                 <input
-                  onBlur={(e) =>
-                    dispatch(
-                      admissionFormInput({
-                        fieldName: "personal.permanent_state_division",
-                        value: e.target.value,
-                      })
-                    )
-                  }
+                  name="permanent_state_division"
+                  id="permanent_state_division"
+                  defaultValue={permanent_state_division}
                   className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                   placeholder="Enter Your State/Division"
                   type="text"
@@ -618,14 +630,9 @@ const PersonalInfo = () => {
                 </label>
                 <br />
                 <input
-                  onBlur={(e) =>
-                    dispatch(
-                      admissionFormInput({
-                        fieldName: "personal.permanent_thana",
-                        value: e.target.value,
-                      })
-                    )
-                  }
+                  name="permanent_thana"
+                  id="permanent_thana"
+                  defaultValue={permanent_thana}
                   className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                   placeholder="Enter Your Police Station/Thana"
                   type="text"
@@ -636,14 +643,9 @@ const PersonalInfo = () => {
                 <label className="  text-2xl leading-loose">City</label>
                 <br />
                 <input
-                  onBlur={(e) =>
-                    dispatch(
-                      admissionFormInput({
-                        fieldName: "personal.permanent_city",
-                        value: e.target.value,
-                      })
-                    )
-                  }
+                  name="permanent_city"
+                  id="permanent_city"
+                  defaultValue={permanent_city}
                   className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                   placeholder="Enter Your City"
                   type="text"
@@ -656,14 +658,9 @@ const PersonalInfo = () => {
                 </label>
                 <br />
                 <input
-                  onBlur={(e) =>
-                    dispatch(
-                      admissionFormInput({
-                        fieldName: "personal.permanent_zip_code",
-                        value: e.target.value,
-                      })
-                    )
-                  }
+                  name="permanent_zip_code"
+                  id="permanent_zip_code"
+                  defaultValue={permanent_zip_code}
                   className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                   placeholder="Enter Your Zip Code"
                   type="number"
@@ -677,14 +674,10 @@ const PersonalInfo = () => {
                 </label>
                 <br />
                 <input
-                  onBlur={(e) =>
-                    dispatch(
-                      admissionFormInput({
-                        fieldName: "personal.permanent_street1",
-                        value: e.target.value,
-                      })
-                    )
-                  }
+                  name="permanent_street1"
+                  id="permanent_street1"
+                  required
+                  defaultValue={permanent_street1}
                   className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                   placeholder="Street1"
                   type="text"
@@ -695,14 +688,9 @@ const PersonalInfo = () => {
                 )} */}
                 <br />
                 <input
-                  onBlur={(e) =>
-                    dispatch(
-                      admissionFormInput({
-                        fieldName: "personal.permanent_street2",
-                        value: e.target.value,
-                      })
-                    )
-                  }
+                  name="permanent_street2"
+                  id="permanent_street2"
+                  defaultValue={permanent_street2}
                   className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
                   placeholder="Street2"
                   type="text"
@@ -713,8 +701,22 @@ const PersonalInfo = () => {
           </div>
         </div>
 
-        {/* Address */}
-      </div>
+        <div className="py-10 flex gap-8 items-center">
+          <button
+            className="bg-tertiary-blue py-3 px-10 rounded-md text-lg text-primary-white border-b-6"
+            type="button"
+            onClick={() => navigate("/admission/online/general")}
+          >
+            Prev
+          </button>
+          <button
+            className="bg-tertiary-blue py-3 px-10 rounded-md text-lg text-primary-white border-b-6"
+            type="submit"
+          >
+            Next
+          </button>
+        </div>
+      </form>
     );
 };
 

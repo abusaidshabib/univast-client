@@ -1,12 +1,23 @@
-import { useDispatch } from "react-redux";
-import { admissionFormInput } from "../../../../../../features/application/applicationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setEducationInfo } from "../../../../../../features/application/applicationSlice";
+import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const EducationalInfo = () => {
-    const dispatch = useDispatch()
+  const { education } = useSelector((state) => state.application);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const data = {}
+      dispatch(setEducationInfo(data))
+    }
 
     return (
-      <div className="font-sans text-primary-white">
+      <form onSubmit={handleSubmit} className="font-sans text-primary-white">
         <p className="text-4xl font-semibold  pb-5">Academic Info</p>
         <hr className="pb-5" />
 
@@ -18,17 +29,15 @@ const EducationalInfo = () => {
             </label>
             <br />
             <select
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "education.exam",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="exam"
+              id="exam"
+              required
+              // defaultValue={exam}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
             >
-              <option className="">Select Type...</option>
+              <option value="" className="">
+                Select Type...
+              </option>
               <option className="" value="ssc">
                 SSC
               </option>
@@ -72,14 +81,10 @@ const EducationalInfo = () => {
             </label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "education.institution_name",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="institution_name"
+              id="institution_name"
+              required
+              // defaultValue={institution_name}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Institution Name"
               type="text"
@@ -97,17 +102,15 @@ const EducationalInfo = () => {
             </label>
             <br />
             <select
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "education.board",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="board"
+              id="board"
+              required
+              // defaultValue={board}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
             >
-              <option className="">Select Type...</option>
+              <option value="" className="">
+                Select Type...
+              </option>
               <option className="" value="dhaka">
                 Dhaka
               </option>
@@ -164,17 +167,15 @@ const EducationalInfo = () => {
             </label>
             <br />
             <select
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "education.group_major",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="group_major"
+              id="group_major"
+              required
+              // defaultValue={group_major}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
             >
-              <option className="">Select Type...</option>
+              <option value="" className="">
+                Select Type...
+              </option>
               <option className="" value="science">
                 Science
               </option>
@@ -199,14 +200,10 @@ const EducationalInfo = () => {
             </label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "education.result",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="result"
+              id="result"
+              required
+              // defaultValue={result}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="GPA / CGPA"
               type="text"
@@ -224,14 +221,10 @@ const EducationalInfo = () => {
             </label>
             <br />
             <input
-              onBlur={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "education.passing_year",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="passing_year"
+              id="passing_year"
+              required
+              // defaultValue={passing_year}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               placeholder="Year"
               type="text"
@@ -250,14 +243,10 @@ const EducationalInfo = () => {
             </label>
             <br />
             <input
-              onChange={(e) =>
-                dispatch(
-                  admissionFormInput({
-                    fieldName: "education.certificates",
-                    value: e.target.value,
-                  })
-                )
-              }
+              name="certificates"
+              id="certificates"
+              required
+              // defaultValue={certificates}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               type="file"
               accept="application/pdf"
@@ -268,7 +257,23 @@ const EducationalInfo = () => {
             )} */}
           </div>
         </div>
-      </div>
+
+        <div className="py-10 flex gap-8 items-center">
+          <button
+            className="bg-tertiary-blue py-3 px-10 rounded-md text-lg text-primary-white border-b-6"
+            type="button"
+            onClick={() => navigate("/admission/online/family")}
+          >
+            Prev
+          </button>
+          <button
+            className="bg-tertiary-blue py-3 px-10 rounded-md text-lg text-primary-white border-b-6"
+            type="submit"
+          >
+            Next
+          </button>
+        </div>
+      </form>
     );
 };
 

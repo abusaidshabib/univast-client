@@ -5,58 +5,64 @@ import PersonalInfo from "./FormSections/PersonalInfo";
 import FamilyInfo from "./FormSections/FamilyInfo";
 import EducationalInfo from "./FormSections/EducationalInfo";
 import OtherInfo from "./FormSections/OtherInfo";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   useGetProgramsByTypeQuery,
   useGetProgramsQuery,
 } from "../../../../../features/programs/programApi";
 import { usePostApplicationMutation } from "../../../../../features/application/applicationApi";
 import { toast } from "react-hot-toast";
-
-const steps = [
-  { component: ApplyInfo, title: "General" },
-  { component: PersonalInfo, title: "Personal" },
-  { component: FamilyInfo, title: "Family" },
-  { component: EducationalInfo, title: "Educational" },
-  { component: OtherInfo, title: "Others" },
-];
+import { setCurrentStep } from "../../../../../features/application/applicationSlice";
+import { NavLink, Outlet } from "react-router-dom";
 
 const AdmissionForm = () => {
-  const [currentStep, setCurrentStep] = useState(0);
+  // const dispatch = useDispatch()
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    trigger
-  } = useForm();
+  // const  steps = [
+  //   { component: ApplyInfo, title: "General" },
+  //   { component: PersonalInfo, title: "Personal" },
+  //   { component: FamilyInfo, title: "Family" },
+  //   { component: EducationalInfo, title: "Educational" },
+  //   { component: OtherInfo, title: "Others" },
+  // ]
 
-  const { admissionData } = useSelector((state) => state.application);
+  const steps = ["General", "Personal", "Family", "Educational", "Others"];
 
-  let allprograms = useGetProgramsQuery();
-  allprograms = allprograms?.data?.data?.data;
-  const programTypes = Array.from(
-    new Set(allprograms?.map((item) => item.programType))
-  );
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  //   trigger
+  // } = useForm();
 
-  let programs = useGetProgramsByTypeQuery(admissionData?.general.program_type);
-  programs = programs?.data?.data?.data;
+  // const { admissionData, currentStep } = useSelector(
+  //   (state) => state.application
+  // );
 
-  const [postApplication, { isLoading, isError, error, isSuccess }] =
-    usePostApplicationMutation();
+  // let allprograms = useGetProgramsQuery();
+  // allprograms = allprograms?.data?.data?.data;
+  // const programTypes = Array.from(
+  //   new Set(allprograms?.map((item) => item.programType))
+  // );
 
-  useEffect(() => {
-    if (isSuccess) {
-      toast.success("Successfully Applied");
-    }
+  // let programs = useGetProgramsByTypeQuery(admissionData?.general.program_type);
+  // programs = programs?.data?.data?.data;
 
-    if (isError) {
-      toast.error(error.data.message._message);
-    }
-  }, [error, isError, isSuccess]);
+  // const [postApplication, { isLoading, isError, error, isSuccess }] =
+  //   usePostApplicationMutation();
 
-  const handleSave = async (data) => {
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     toast.success("Successfully Applied");
+  //   }
+
+  //   if (isError) {
+  //     toast.error(error.data.message._message);
+  //   }
+  // }, [error, isError, isSuccess]);
+
+  // const handleSave = async (data) => {
     // const admissionData = {
     //   general: {
     //     applicant_type: data.applicant_type || "",
@@ -151,52 +157,41 @@ const AdmissionForm = () => {
     //   },
     // };
 
-    console.log(admissionData);
+    // console.log(admissionData);
 
-    postApplication(admissionData);
-  };
+    // postApplication(admissionData);
+  // };
 
-  const handlePrev = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
+  // const handlePrev = () => {
+  //   dispatch(setCurrentStep({type: "PREVIOUS", payload: steps}));
+  // };
 
-  const handleNext = async () => {
-    const isValid = await trigger();
-    if (isValid) {
-      if (currentStep < steps.length - 1) {
-        setCurrentStep(currentStep + 1);
-      }
-    }
-  };
+  // const handleNext = async () => {
+  //   dispatch(setCurrentStep({ type: "NEXT", payload: steps }));
+  // };
 
-  const CurrentStepComponent = steps[currentStep];
+  // const CurrentStepComponent = steps[currentStep];
 
   return (
     <div className="px-20 py-5 bg-primary-blue">
-      <div className="py-10 grid grid-cols-5 gap-5">
+      <div className="py-10 grid grid-cols-5 gap-5 admission-steps">
         {steps.map((step, index) => (
-          <button
+          <NavLink
+          to={step.toLowerCase()}
             key={index}
-            className={`${
-              currentStep === index
-                ? "bg-primary-white"
-                : "bg-secondary-blue text-primary-white"
-            } py-5 rounded-md text-2xl font-semibold text-primary-gray`}
-            onClick={() => setCurrentStep(index)}
+            className="bg-secondary-blue text-primary-white py-5 rounded-md text-2xl font-semibold text-center"
           >
-            {step.title}
-          </button>
+            {step}
+          </NavLink>
         ))}
       </div>
-      <form className="pb-10" onSubmit={handleSubmit(handleSave)}>
+      <Outlet/>
+      {/* <form className="pb-10" onSubmit={handleSubmit(handleSave)}>
         {steps[currentStep].component({
           register,
           errors,
           programTypes,
-          programs,
-          admissionData
+          programs
         })}
 
         <div className="py-10 flex gap-8 items-center">
@@ -249,7 +244,7 @@ const AdmissionForm = () => {
             </button>
           )}
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };

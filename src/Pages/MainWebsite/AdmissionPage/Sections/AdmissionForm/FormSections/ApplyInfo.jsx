@@ -1,12 +1,60 @@
-import { useDispatch } from "react-redux";
-import { admissionFormInput } from "../../../../../../features/application/applicationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useGetProgramsByTypeQuery, useGetProgramsQuery } from "../../../../../../features/programs/programApi";
+import { useState } from "react";
+import { setGeneralInfo } from "../../../../../../features/application/applicationSlice";
+import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-const ApplyInfo = ({ programTypes, programs, admissionData }) => {
+const ApplyInfo = () => {
+  const {
+    applicant_type,
+    program_type,
+    last_complete_degree_type,
+    program,
+    education_shift,
+  } = useSelector((state) => state.application.general);
+  
+  const [selectedProgramType, setSelectedProgramType] = useState(program_type);
+  const [selectedProgram, setSelectedProgram] = useState(program);
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  let allprograms = useGetProgramsQuery();
+  allprograms = allprograms?.data?.data?.data;
+  const programTypes = Array.from(
+    new Set(allprograms?.map((item) => item.programType))
+  );
+
+  let programs = useGetProgramsByTypeQuery(selectedProgramType);
+  programs = programs?.data?.data?.data;
+
+
+  const handleSubmit =(e) =>{
+    e.preventDefault()
+    const form = e.target;
+    console.log(form)
+
+    const applicant_type = form.applicant_type.value;
+    const program_type = form.program_type.value;
+    const last_complete_degree_type = form.last_complete_degree_type.value;
+    const program = form.program.value;
+    const education_shift = form.education_shift.value;
+
+    const data = {
+      applicant_type,
+      program_type,
+      last_complete_degree_type,
+      program,
+      education_shift
+    };
+
+    dispatch(setGeneralInfo(data));
+    navigate("/admission/online/personal");
+  }
 
   return (
-    <div className="font-sans">
+    <form onSubmit={handleSubmit} className="font-sans">
       <p className="text-4xl font-semibold text-primary-white pb-5">
         Apply Information
       </p>
@@ -20,17 +68,13 @@ const ApplyInfo = ({ programTypes, programs, admissionData }) => {
           </label>
           <br />
           <select
-            onChange={(e) =>
-              dispatch(
-                admissionFormInput({
-                  fieldName: "general.applicant_type",
-                  value: e.target.value,
-                })
-              )
-            }
+            name="applicant_type"
+            id="applicant_type"
+            required
+            defaultValue={applicant_type}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
-            <option className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">Select Type...</option>
             <option
               className="text-primary-white"
               value="Local student (Bangladeshi)"
@@ -43,7 +87,7 @@ const ApplyInfo = ({ programTypes, programs, admissionData }) => {
             >
               International student
             </option>
-          </select>{" "}
+          </select>
           <br />
           {/* {errors.applicant_type && (
             <p className="text-red-500 mt-2">This field is required</p>
@@ -56,25 +100,21 @@ const ApplyInfo = ({ programTypes, programs, admissionData }) => {
           </label>
           <br />
           <select
-            onChange={(e) =>
-              dispatch(
-                admissionFormInput({
-                  fieldName: "general.program_type",
-                  value: e.target.value,
-                })
-              )
-            }
+            name="program_type"
+            id="program_type"
             required
+            defaultValue={program_type}
+            onChange={(e) => setSelectedProgramType(e.target.value)}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5
             text-xl rounded-md"
           >
-            <option className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">Select Type...</option>
             {programTypes?.map((p, index) => (
               <option key={index} className="text-primary-white" value={p}>
                 {p}
               </option>
             ))}
-          </select>{" "}
+          </select>
           <br />
           {/* {errors.program_type && (
             <p className="text-red-500 mt-2">This field is required</p>
@@ -87,17 +127,13 @@ const ApplyInfo = ({ programTypes, programs, admissionData }) => {
           </label>
           <br />
           <select
+            name="last_complete_degree_type"
+            id="last_complete_degree_type"
+            required
+            defaultValue={last_complete_degree_type}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-            onChange={(e) =>
-              dispatch(
-                admissionFormInput({
-                  fieldName: "general.last_complete_degree_type",
-                  value: e.target.value,
-                })
-              )
-            }
           >
-            <option className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">Select Type...</option>
             <option className="text-primary-white" value="HSC/Alim">
               HSC/Alim
             </option>
@@ -132,18 +168,14 @@ const ApplyInfo = ({ programTypes, programs, admissionData }) => {
           </label>
           <br />
           <select
-            onChange={(e) =>
-              dispatch(
-                admissionFormInput({
-                  fieldName: "general.program",
-                  value: e.target.value,
-                })
-              )
-            }
+            name="program"
+            id="program"
             required
+            defaultValue={program}
+            onChange={(e) => setSelectedProgram(e.target.value)}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
-            <option className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">Select Type...</option>
             {programs?.map((program) => (
               <option
                 key={program._id}
@@ -159,28 +191,6 @@ const ApplyInfo = ({ programTypes, programs, admissionData }) => {
             <p className="text-red-500 mt-2">This field is required</p>
           )} */}
         </div>
-        {/* <div>
-          <label className="text-primary-white text-2xl leading-loose">
-            Medium
-            <span className="text-red-500 pl-2">*</span>
-          </label>
-          <br />
-          <select
-            className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-          >
-            <option className="text-primary-white">Select Type...</option>
-            <option className="text-primary-white" value="English">
-              English
-            </option>
-            <option className="text-primary-white" value="General">
-              General
-            </option>
-          </select>{" "}
-          <br />
-          {errors.medium && (
-            <p className="text-red-500 mt-2">This field is required</p>
-          )}
-        </div> */}
         <div>
           <label className="text-primary-white text-2xl leading-loose">
             Education Shift
@@ -188,22 +198,15 @@ const ApplyInfo = ({ programTypes, programs, admissionData }) => {
           </label>
           <br />
           <select
+            name="education_shift"
+            id="education_shift"
+            required
+            defaultValue={education_shift}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-            onChange={(e) =>
-              dispatch(
-                admissionFormInput({
-                  fieldName: "general.education_shift",
-                  value: e.target.value,
-                })
-              )
-            }
           >
-            <option className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">Select Type...</option>
             {programs
-              ?.find(
-                (program) =>
-                  program.programName === admissionData?.general.program
-              )
+              ?.find((program) => program.programName === selectedProgram)
               ?.shifts?.map((shift, index) => (
                 <option
                   key={index}
@@ -219,24 +222,16 @@ const ApplyInfo = ({ programTypes, programs, admissionData }) => {
             <p className="text-red-500 mt-2">This field is required</p>
           )} */}
         </div>
-        {/* <div>
-          <label className="text-primary-white text-2xl leading-loose">
-            Admission Test Venue
-          </label>
-          <br />
-          <select
-            className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
-            {...register("admission_test_venue", { required: false })}
-          >
-            <option className="text-primary-white">Select Type...</option>
-            <option className="text-primary-white" value="Univast Smart City">
-              Univast Smart City
-            </option>
-          </select>{" "}
-          <br />
-        </div> */}
       </div>
-    </div>
+      <div className="py-10 flex gap-8 items-center">
+        <button
+          className="bg-tertiary-blue py-3 px-10 rounded-md text-lg text-primary-white border-b-6"
+          type="submit"
+        >
+          Next
+        </button>
+      </div>
+    </form>
   );
 };
 
