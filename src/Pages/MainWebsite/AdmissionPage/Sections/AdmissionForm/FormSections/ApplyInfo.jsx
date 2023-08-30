@@ -2,20 +2,8 @@ import { useDispatch } from "react-redux";
 import { admissionFormInput } from "../../../../../../features/application/applicationSlice";
 
 /* eslint-disable react/prop-types */
-const ApplyInfo = ({
-  errors,
-  programTypes,
-  programs,
-  shifts
-}) => {
+const ApplyInfo = ({ programTypes, programs, admissionData }) => {
   const dispatch = useDispatch();
-
-  console.log(programs);
-
-  const handleInput = (data) => {
-    // console.log(data)
-    dispatch(admissionFormInput(data))
-  }
 
   return (
     <div className="font-sans">
@@ -33,7 +21,12 @@ const ApplyInfo = ({
           <br />
           <select
             onChange={(e) =>
-              handleInput({ value: e.target.value, name: "general.applicant_type" })
+              dispatch(
+                admissionFormInput({
+                  fieldName: "general.applicant_type",
+                  value: e.target.value,
+                })
+              )
             }
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
@@ -52,9 +45,9 @@ const ApplyInfo = ({
             </option>
           </select>{" "}
           <br />
-          {errors.applicant_type && (
+          {/* {errors.applicant_type && (
             <p className="text-red-500 mt-2">This field is required</p>
-          )}
+          )} */}
         </div>
         <div>
           <label className="text-primary-white text-2xl leading-loose">
@@ -63,13 +56,19 @@ const ApplyInfo = ({
           </label>
           <br />
           <select
+            onChange={(e) =>
+              dispatch(
+                admissionFormInput({
+                  fieldName: "general.program_type",
+                  value: e.target.value,
+                })
+              )
+            }
             required
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5
             text-xl rounded-md"
           >
-            <option value="" className="text-primary-white">
-              Select Type...
-            </option>
+            <option className="text-primary-white">Select Type...</option>
             {programTypes?.map((p, index) => (
               <option key={index} className="text-primary-white" value={p}>
                 {p}
@@ -77,9 +76,9 @@ const ApplyInfo = ({
             ))}
           </select>{" "}
           <br />
-          {errors.program_type && (
+          {/* {errors.program_type && (
             <p className="text-red-500 mt-2">This field is required</p>
-          )}
+          )} */}
         </div>
         <div>
           <label className="text-primary-white text-2xl leading-loose">
@@ -87,7 +86,17 @@ const ApplyInfo = ({
             <span className="text-red-500 pl-2">*</span>
           </label>
           <br />
-          <select className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md">
+          <select
+            className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
+            onChange={(e) =>
+              dispatch(
+                admissionFormInput({
+                  fieldName: "general.last_complete_degree_type",
+                  value: e.target.value,
+                })
+              )
+            }
+          >
             <option className="text-primary-white">Select Type...</option>
             <option className="text-primary-white" value="HSC/Alim">
               HSC/Alim
@@ -103,9 +112,9 @@ const ApplyInfo = ({
             </option>
           </select>{" "}
           <br />
-          {errors.last_completed_degree && (
+          {/* {errors.last_completed_degree && (
             <p className="text-red-500 mt-2">This field is required</p>
-          )}
+          )} */}
         </div>
       </div>
 
@@ -123,6 +132,14 @@ const ApplyInfo = ({
           </label>
           <br />
           <select
+            onChange={(e) =>
+              dispatch(
+                admissionFormInput({
+                  fieldName: "general.program",
+                  value: e.target.value,
+                })
+              )
+            }
             required
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
@@ -138,9 +155,9 @@ const ApplyInfo = ({
             ))}
           </select>{" "}
           <br />
-          {errors.program && (
+          {/* {errors.program && (
             <p className="text-red-500 mt-2">This field is required</p>
-          )}
+          )} */}
         </div>
         {/* <div>
           <label className="text-primary-white text-2xl leading-loose">
@@ -170,18 +187,37 @@ const ApplyInfo = ({
             <span className="text-red-500 pl-2">*</span>
           </label>
           <br />
-          <select className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md">
+          <select
+            className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
+            onChange={(e) =>
+              dispatch(
+                admissionFormInput({
+                  fieldName: "general.education_shift",
+                  value: e.target.value,
+                })
+              )
+            }
+          >
             <option className="text-primary-white">Select Type...</option>
-            {shifts?.map((shift, index) => (
-              <option key={index} className="text-primary-white" value={shift}>
-                {shift}
-              </option>
-            ))}
+            {programs
+              ?.find(
+                (program) =>
+                  program.programName === admissionData?.general.program
+              )
+              ?.shifts?.map((shift, index) => (
+                <option
+                  key={index}
+                  className="text-primary-white"
+                  value={shift}
+                >
+                  {shift}
+                </option>
+              ))}
           </select>{" "}
           <br />
-          {errors.education_shift && (
+          {/* {errors.education_shift && (
             <p className="text-red-500 mt-2">This field is required</p>
-          )}
+          )} */}
         </div>
         {/* <div>
           <label className="text-primary-white text-2xl leading-loose">
