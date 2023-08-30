@@ -26,15 +26,15 @@ const Menu = () => {
       <div className="">
         <ul className="grid d-side-bar gap-6 place-content-center">
           <li className="">
-            <NavLink to="/enroll/home" className="flex gap-3">
+            <NavLink to="/course/home" className="flex gap-3">
               <MdOutlineDashboardCustomize className="text-2xl" />
               <p className="font-semibold">Home</p>
             </NavLink>
           </li>
           <li className="">
-            <NavLink to="/enroll/studentEnroll" className="flex gap-3">
+            <NavLink to="/course/createCourse" className="flex gap-3">
               <BiUser className="text-2xl" />
-              <p className="font-semibold">Applications</p>
+              <p className="font-semibold">Create Course</p>
             </NavLink>
           </li>
           <li className="">
