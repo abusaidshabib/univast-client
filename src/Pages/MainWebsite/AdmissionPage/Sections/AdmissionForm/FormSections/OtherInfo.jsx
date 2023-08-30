@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { setOthersInfo } from "../../../../../../features/application/applicationSlice";
 
 const OtherInfo = () => {
     const {
@@ -9,7 +10,7 @@ const OtherInfo = () => {
       is_physical_disorder,
       is_first_division_player,
       accept_declaration,
-      accept_terms
+      accept_terms,
     } = useSelector((state) => state.application.others);
 
   const dispatch = useDispatch();
@@ -18,6 +19,24 @@ const OtherInfo = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target;
+
+        const is_parents_freedom_fighter = form.is_parents_freedom_fighter.value;
+        const is_tribal = form.is_tribal.value;
+        const is_physical_disorder = form.is_physical_disorder.value;
+        const is_first_division_player = form.is_first_division_player.value;
+        const accept_declaration = form.accept_declaration.value;
+        const accept_terms = form.accept_terms.value;
+
+        const data = {
+            is_parents_freedom_fighter,
+            is_tribal,
+            is_physical_disorder,
+            is_first_division_player,
+            accept_declaration,
+            accept_terms,
+        }
+
+        dispatch(setOthersInfo(data))
     }
   return (
     <form onSubmit={handleSubmit} className="font-sans text-primary-white">

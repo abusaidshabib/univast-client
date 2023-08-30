@@ -14,6 +14,7 @@ const EducationalInfo = () => {
       const form = e.target;
       const data = {}
       dispatch(setEducationInfo(data))
+      navigate("/admission/online/others");
     }
 
     return (
