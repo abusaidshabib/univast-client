@@ -17,7 +17,7 @@ export const applicationApi = createApi({
         method: "POST",
         body: data,
       }),
-    }),
+    })
   }),
 });
 

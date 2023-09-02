@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const PersonalInfo = () => {
+
   const {
     firstName,
     lastName,
@@ -43,7 +44,7 @@ const PersonalInfo = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       const form = e.target;
 
@@ -61,8 +62,8 @@ const PersonalInfo = () => {
       const nationality = form.nationality.value;
       const country = form.country.value;
       const social_media = form.social_media.value;
-      const image = form.image.files[0].name;
-      const signature = form.signature.files[0].name;
+      const image = form.image.files[0];
+      const signature = form.signature.files[0];
       const present_country = form.present_country.value;
       const present_state_division = form.present_state_division.value;
       const present_thana = form.present_thana.value;
@@ -77,6 +78,9 @@ const PersonalInfo = () => {
       const permanent_zip_code = form.permanent_zip_code.value;
       const permanent_street1 = form.permanent_street1.value;
       const permanent_street2 = form.permanent_street2.value;
+
+
+      //PostImage/files Function
 
       const data = {
         firstName,
@@ -116,8 +120,6 @@ const PersonalInfo = () => {
           },
         },
       };
-
-      // console.log(form.image.files[0])
 
       dispatch(setPersonalInfo(data))
       navigate("/admission/online/family");
@@ -438,7 +440,7 @@ const PersonalInfo = () => {
               name="image"
               id="image"
               required
-              defaultValue={image}
+              defaultValue={image?.name}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               type="file"
               accept="image/*"
@@ -458,7 +460,7 @@ const PersonalInfo = () => {
               name="signature"
               id="signature"
               required
-              defaultValue={signature}
+              defaultValue={signature?.name}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               type="file"
               accept="image/*"
