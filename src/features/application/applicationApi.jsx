@@ -6,6 +6,11 @@ export const applicationApi = createApi({
     baseUrl: "http://localhost:8000/api/v1",
   }),
   endpoints: (builder) => ({
+    getApplications: builder.query({
+      query: () => ({
+        url: "/admission",
+      }),
+    }),
     postApplication: builder.mutation({
       query: (data) => ({
         url: "/admission",
@@ -16,4 +21,4 @@ export const applicationApi = createApi({
   }),
 });
 
-export const {usePostApplicationMutation} = applicationApi;
+export const {usePostApplicationMutation, useGetApplicationsQuery} = applicationApi;

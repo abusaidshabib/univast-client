@@ -37,7 +37,7 @@ const EducationalInfo = () => {
         group_major: e.target[`group_major_${i}`].value,
         result: e.target[`result_${i}`].value,
         passing_year: e.target[`passing_year_${i}`].value,
-        certificates: e.target[`certificates_${i}`].value,
+        certificates: e.target[`certificates_${i}`].files[0].name,
       };
       updatedEducationData.push(sectionData);
     }
@@ -53,6 +53,7 @@ const EducationalInfo = () => {
       <hr className="pb-5" />
       {Array.from({ length: educationSectionCount }, (_, index) => (
         <div key={index} className="grid grid-cols-5 gap-10 pb-10">
+        {index > 0 && <hr className="col-span-5"/>}
           <div>
             <label className=" text-2xl leading-loose">
               Exam
@@ -277,6 +278,7 @@ const EducationalInfo = () => {
               name={`certificates_${index}`}
               id={`certificates_${index}`}
               required
+              multiple
               // defaultValue={education[index]?.certificates}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               type="file"
@@ -289,13 +291,15 @@ const EducationalInfo = () => {
           </div>
 
           {index > 0 && (
-            <button
-              className="text-red-500"
-              type="button"
-              onClick={() => removeSection(index)}
-            >
-              Remove
-            </button>
+            <div>
+              <button
+                className="bg-red-600 flex items-center gap-2 py-1 px-5 rounded-md text-md text-primary-white border-b-6"
+                type="button"
+                onClick={() => removeSection(index)}
+              >
+                Remove
+              </button>
+            </div>
           )}
         </div>
       ))}

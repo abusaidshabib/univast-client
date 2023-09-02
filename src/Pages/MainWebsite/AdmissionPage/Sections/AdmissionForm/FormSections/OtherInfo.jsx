@@ -29,12 +29,12 @@ const OtherInfo = () => {
     e.preventDefault();
     const form = e.target;
 
-    const is_parents_freedom_fighter = form.is_parents_freedom_fighter.value;
-    const is_tribal = form.is_tribal.value;
-    const is_physical_disorder = form.is_physical_disorder.value;
-    const is_first_division_player = form.is_first_division_player.value;
-    const accept_declaration = form.accept_declaration.value;
-    const accept_terms = form.accept_terms.value;
+    const is_parents_freedom_fighter = form.is_parents_freedom_fighter.checked;
+    const is_tribal = form.is_tribal.checked;
+    const is_physical_disorder = form.is_physical_disorder.checked;
+    const is_first_division_player = form.is_first_division_player.checked;
+    const accept_declaration = form.accept_declaration.checked;
+    const accept_terms = form.accept_terms.checked;
 
     const data = {
       is_parents_freedom_fighter,
@@ -44,6 +44,8 @@ const OtherInfo = () => {
       accept_declaration,
       accept_terms,
     };
+
+    console.log(data)
 
     await dispatch(setOthersInfo(data));
 
