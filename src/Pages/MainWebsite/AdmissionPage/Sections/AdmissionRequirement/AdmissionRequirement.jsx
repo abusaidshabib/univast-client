@@ -49,7 +49,7 @@ const AdmissionRequirement = () => {
           <UnderlinedLInk link="" text="Check tuition fees" icon="" />
         </div>
         <div className="pt-10">
-          <FilledButton link="/admission/online" text="Apply Online" icon="" />
+          <FilledButton link="/admission/online/general" text="Apply Online" icon="" />
         </div>
       </div>
     </div>

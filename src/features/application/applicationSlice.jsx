@@ -97,6 +97,8 @@ const initialState = {
     accept_declaration: false,
     accept_terms: false,
   },
+
+  educationSectionCount: 1,
 };
 
 const applicationSlice = createSlice({
@@ -150,6 +152,14 @@ const applicationSlice = createSlice({
     setOthersInfo: (state, action) => {
       state.others = action.payload;
     },
+    manageEducationCount: (state, action) => {
+      if(action.payload === "ADD"){
+        state.educationSectionCount += 1
+      }
+      else if (action.payload === "REMOVE") {
+        state.educationSectionCount -= 1;
+      }
+    }
   },
 });
 
@@ -161,6 +171,7 @@ export const {
   setFamilyInfo,
   setEducationInfo,
   setOthersInfo,
+  manageEducationCount,
 } = applicationSlice.actions;
 
 export default applicationSlice.reducer;

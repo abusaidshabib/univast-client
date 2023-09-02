@@ -19,6 +19,8 @@ const PersonalInfo = () => {
     nationality,
     country,
     social_media,
+    image,
+    signature,
     address,
   } = useSelector((state) => state.application.personal);
 
@@ -59,8 +61,8 @@ const PersonalInfo = () => {
       const nationality = form.nationality.value;
       const country = form.country.value;
       const social_media = form.social_media.value;
-      const image = form.image.value;
-      const signature = form.signature.value;
+      const image = form.image.files[0].name;
+      const signature = form.signature.files[0].name;
       const present_country = form.present_country.value;
       const present_state_division = form.present_state_division.value;
       const present_thana = form.present_thana.value;
@@ -114,6 +116,8 @@ const PersonalInfo = () => {
           },
         },
       };
+
+      // console.log(form.image.files[0])
 
       dispatch(setPersonalInfo(data))
       navigate("/admission/online/family");
@@ -434,6 +438,7 @@ const PersonalInfo = () => {
               name="image"
               id="image"
               required
+              defaultValue={image}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               type="file"
               accept="image/*"
@@ -453,6 +458,7 @@ const PersonalInfo = () => {
               name="signature"
               id="signature"
               required
+              defaultValue={signature}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               type="file"
               accept="image/*"
