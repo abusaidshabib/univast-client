@@ -17,8 +17,13 @@ export const applicationApi = createApi({
         method: "POST",
         body: data,
       }),
-    })
+    }),
+    getApplicationByEmail: builder.query({
+      query: (email) => ({
+        url: `/admission?email=${email}`,
+      }),
+    }),
   }),
 });
 
-export const {usePostApplicationMutation, useGetApplicationsQuery} = applicationApi;
+export const {usePostApplicationMutation, useGetApplicationsQuery, useGetApplicationByEmailQuery} = applicationApi;
