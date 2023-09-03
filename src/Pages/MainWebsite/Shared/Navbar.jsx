@@ -88,8 +88,8 @@ const Navbar = () => {
               <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
                 About
               </li>
-              <li className="cursor-pointer hover:underline hover:text-primary-white u4nderline-offset-[12px] transition">
-                Online Portal
+              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
+                <Link to="/control-panel">Control Panel</Link>
               </li>
               <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
                 <Link to="/student">Student Portal</Link>
@@ -113,7 +113,7 @@ const Navbar = () => {
                 <Link to="/financial">Financial Portal</Link>
               </li>
               <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/online-portal/resource">Resource Portal</Link>
+                <Link to="/resource">Resource Portal</Link>
               </li>
             </ul>
           </div>
