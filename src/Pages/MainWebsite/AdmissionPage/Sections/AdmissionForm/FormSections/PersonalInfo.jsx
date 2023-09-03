@@ -2,9 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPersonalInfo } from "../../../../../../features/application/applicationSlice";
 import { useNavigate } from "react-router-dom";
 import { uploadFileToFirebase } from "../../../../../../firebase/firebase.config";
+import { useState } from "react";
 
 /* eslint-disable react/prop-types */
 const PersonalInfo = () => {
+  const [profileImage, setProfileImage] = useState();
+  const [applicantSignature, setApplicantSignature] = useState();
+  
+  console.log(profileImage, applicantSignature)
   const {
     firstName,
     lastName,
@@ -48,11 +53,15 @@ const PersonalInfo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleUpload = (selectedFile) => {
+  const handleUpload = (selectedFile, propertyName) => {
     uploadFileToFirebase(selectedFile)
       .then((downloadUrls) => {
         console.log(downloadUrls);
-        return downloadUrls;
+        if (propertyName === "profile") {
+          setProfileImage(downloadUrls);
+        } else if (propertyName === "signature") {
+          setApplicantSignature(downloadUrls);
+        }
       })
       .catch((err) => {
         console.log(err.message);
@@ -78,8 +87,6 @@ const PersonalInfo = () => {
       const nationality = form.nationality.value;
       const country = form.country.value;
       const social_media = form.social_media.value;
-      const image = await handleUpload(form.image.files[0]);
-      const signature = await handleUpload(form.signature.files[0]);
       const present_country = form.present_country.value;
       const present_state_division = form.present_state_division.value;
       const present_thana = form.present_thana.value;
@@ -94,16 +101,6 @@ const PersonalInfo = () => {
       const permanent_zip_code = form.permanent_zip_code.value;
       const permanent_street1 = form.permanent_street1.value;
       const permanent_street2 = form.permanent_street2.value;
-
-      //PostImage/files Function
-      // image = handleUpload(image);
-
-      // signature = handleUpload(signature);
-
-      const [imageDownloadUrl, signatureDownloadUrl] = await Promise.all([
-        handleUpload(image),
-        handleUpload(signature),
-      ]);
 
       const data = {
         firstName,
@@ -120,8 +117,8 @@ const PersonalInfo = () => {
         nationality,
         country,
         social_media,
-        image: imageDownloadUrl,
-        signature: signatureDownloadUrl,
+        image: profileImage,
+        signature: applicantSignature,
         address: {
           present_address: {
             present_country,
@@ -468,6 +465,9 @@ const PersonalInfo = () => {
             id="image"
             required
             defaultValue={image?.name}
+            onChange={(e) => {
+              handleUpload(e.target.files[0], "profile")
+            }}
             className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
             type="file"
             accept="image/*"
@@ -488,6 +488,9 @@ const PersonalInfo = () => {
             id="signature"
             required
             defaultValue={signature?.name}
+            onChange={ (e) => {
+              handleUpload(e.target.files[0], "signature")
+              }}
             className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
             type="file"
             accept="image/*"
