@@ -8,9 +8,9 @@ import { BsCashCoin, BsQuestionDiamond } from "react-icons/bs";
 
 const ControlPanel = () => {
   return (
-    <div className="bg-gray-200 p-24">
+    <div className="bg-gray-200 p-24 min-h-screen">
       <p className="text-4xl font-semibold text-center pb-14">Applications</p>
-      <div className="grid grid-cols-4 min-h-screen text-gray-900 font-sans max-w-2xl mx-auto">
+      <div className="grid grid-cols-4 gap-10 text-gray-900 font-sans max-w-2xl mx-auto">
         <Link className="w-full" to="/student">
           <p className="text-5xl grid place-content-center text-p-white">
             <span className="bg-secondary-blue hover:bg-primary-blue p-3 rounded-full">
