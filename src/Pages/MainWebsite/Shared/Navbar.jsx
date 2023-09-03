@@ -113,7 +113,7 @@ const Navbar = () => {
                 <Link to="/financial">Financial Portal</Link>
               </li>
               <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/resource">Resource Portal</Link>
+                <Link to="/online-portal/resource">Resource Portal</Link>
               </li>
             </ul>
           </div>

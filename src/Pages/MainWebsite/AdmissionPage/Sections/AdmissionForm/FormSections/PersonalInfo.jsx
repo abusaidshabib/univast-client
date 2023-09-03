@@ -96,9 +96,9 @@ const PersonalInfo = () => {
       const permanent_street2 = form.permanent_street2.value;
 
       //PostImage/files Function
-      image = handleUpload(image);
+      // image = handleUpload(image);
 
-      signature = handleUpload(signature);
+      // signature = handleUpload(signature);
 
       const [imageDownloadUrl, signatureDownloadUrl] = await Promise.all([
         handleUpload(image),
