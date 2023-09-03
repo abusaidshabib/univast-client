@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setPersonalInfo } from "../../../../../../features/application/applicationSlice";
 import { useNavigate } from "react-router-dom";
+import { uploadFileToFirebase } from "../../../../../../firebase/firebase.config";
 
 /* eslint-disable react/prop-types */
 const PersonalInfo = () => {
@@ -44,6 +45,17 @@ const PersonalInfo = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
+      const handleUpload = (selectedFile) => {
+        uploadFileToFirebase(selectedFile)
+          .then((downloadUrls) => {
+            console.log(downloadUrls)
+            return downloadUrls;
+          })
+          .catch((err) => {
+            console.log(err.message)
+          });
+      };
+
     const handleSubmit = async (e) => {
       e.preventDefault();
       const form = e.target;
@@ -62,8 +74,8 @@ const PersonalInfo = () => {
       const nationality = form.nationality.value;
       const country = form.country.value;
       const social_media = form.social_media.value;
-      const image = form.image.files[0];
-      const signature = form.signature.files[0];
+      let image = form.image.files[0];
+      let signature = form.signature.files[0];
       const present_country = form.present_country.value;
       const present_state_division = form.present_state_division.value;
       const present_thana = form.present_thana.value;
@@ -79,6 +91,20 @@ const PersonalInfo = () => {
       const permanent_street1 = form.permanent_street1.value;
       const permanent_street2 = form.permanent_street2.value;
 
+
+      //PostImage/files Function
+      handleUpload(image)
+        .then((downloadUrls) => {
+          console.log(downloadUrls);
+          return downloadUrls;
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+
+      
+      signature = handleUpload(signature);
+      
       const data = {
         firstName,
         lastName,
@@ -118,8 +144,10 @@ const PersonalInfo = () => {
         },
       };
 
-      dispatch(setPersonalInfo(data))
-      navigate("/admission/online/family");
+      console.log(data)
+
+      // dispatch(setPersonalInfo(data))
+      // navigate("/admission/online/family");
     }
 
     return (
