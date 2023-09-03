@@ -79,9 +79,6 @@ const PersonalInfo = () => {
       const permanent_street1 = form.permanent_street1.value;
       const permanent_street2 = form.permanent_street2.value;
 
-
-      //PostImage/files Function
-
       const data = {
         firstName,
         lastName,

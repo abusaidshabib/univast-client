@@ -5,6 +5,9 @@ import StudentRoutes from "../StudentRoutes/StudentRoutes";
 import EnrollPortal from "../EnrollPortal/EnrollPortal";
 import AdminRoutes from "../AdminRoutes/AdminRoutes";
 import CourseRoutes from "../CourseRoutes/CourseRoutes";
+import FinantialRoutes from "../FinantialRoutes/FinantialRoutes";
+import ExamRoutes from "../ExamRoutes/ExamRoutes";
+import ResourceRoutes from "../ResourceRoutes/ResourceRoutes";
 
 const allRoutes = [
   ...MainWebsite,
@@ -13,6 +16,9 @@ const allRoutes = [
   ...EnrollPortal,
   ...AdminRoutes,
   ...CourseRoutes,
+  ...FinantialRoutes,
+  ...ExamRoutes,
+  ...ResourceRoutes,
 ];
 
 const router = createBrowserRouter(allRoutes);
