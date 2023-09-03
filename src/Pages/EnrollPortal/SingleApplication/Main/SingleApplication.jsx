@@ -4,6 +4,7 @@ import PersonalInfo from "../Sections/PersonalInfo/PersonalInfo";
 
 const SingleApplication = () => {
   const {email} = useParams()
+  console.log(email);
   let application = useGetApplicationByEmailQuery(email);
   application = application?.data?.data?.data;
   console.log(application)
