@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
 import { useGetApplicationsQuery } from "../../../../features/application/applicationApi";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { AiOutlineEye } from "react-icons/ai";
+import { IoMdCheckmark } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const StudentEnroll = () => {
   const { data } = useGetApplicationsQuery();
@@ -7,94 +10,10 @@ const StudentEnroll = () => {
   console.log(applications);
 
   return (
-    <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5">
-      {/* <div className="bg-white p-10 rounded-lg">
-        <div className="flex justify-between items-center text-gray-900 col-span-3">
-          <div>
-            <p className="text-4xl font-semibold">Registered Courses</p>
-          </div>
-          <div>
-            <label className="text-lg" htmlFor="semester">
-              Please select the semester :
-            </label>{" "}
-            &nbsp;
-            <select
-              className="border-b-2 border-primary-700 outline-none bg-transparent"
-              name="semester"
-              id="semester"
-              form="carform"
-            >
-              <option value="volvo">Spring 2020</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
-            </select>
-          </div>
-        </div>
-        <p className="py-5"></p>
-        <table className="border-collapse border border-slate-400 w-full text-lg">
-          <thead>
-            <tr>
-              <th className="border border-gray-400 p-2 ">Applicant</th>
-              <th className="border border-gray-400 p-2 ">NID Number</th>
-              <th className="border border-gray-400 p-2 ">SSC result</th>
-              <th className="border border-gray-400 p-2 ">HSC result</th>
-              <th className="border border-gray-400 p-2 ">Action</th>
-              <th className="border border-gray-400 p-2 ">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="border border-gray-400 p-2 ">CSE-4201</td>
-              <td className="border border-gray-400 p-2 ">English</td>
-              <td className="border border-gray-400 p-2 ">50</td>
-              <td className="border border-gray-400 p-2">Ketu</td>
-              <td className="border border-gray-400 p-2 text-center">
-                <Link
-                  to="details/outline"
-                  className="bg-secondary-blue px-5 py-2 text-p-white font-semibold"
-                >
-                  View Details
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td className="border border-gray-400 p-2 ">CSE-4201</td>
-              <td className="border border-gray-400 p-2 ">English</td>
-              <td className="border border-gray-400 p-2 ">50</td>
-              <td className="border border-gray-400 p-2">kito</td>
-              <td className="border border-gray-400 p-2 text-center">
-                <Link
-                  to="details/outline"
-                  className="bg-secondary-blue px-5 py-2 text-p-white font-semibold"
-                >
-                  View Details
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td className="border border-gray-400 p-2 ">CSE-4201</td>
-              <td className="border border-gray-400 p-2 ">English</td>
-              <td className="border border-gray-400 p-2 ">50</td>
-              <td className="border border-gray-400 p-2">kandu</td>
-              <td className="border border-gray-400 p-2 text-center">
-                <Link
-                  to="details/outline"
-                  className="bg-secondary-blue px-5 py-2 text-p-white font-semibold"
-                >
-                  View Details
-                </Link>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div> */}
-
-      <section className="container px-4 mx-auto">
+    <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5 font-sans">
+      <div className="p-10 bg-white">
         <div className="flex items-center gap-x-3">
-          <h2 className="text-lg font-medium text-gray-800 dark:text-white">
-            Team members
-          </h2>
+          <h2 className="text-4xl font-semibold">Student Applied</h2>
 
           <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
             100 users
@@ -105,12 +24,12 @@ const StudentEnroll = () => {
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
               <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                  <thead className="bg-gray-50 dark:bg-gray-800">
+                <table className="min-w-full border-collapse w-full text-lg bg-p-white">
+                  <thead className="bg-gray-50 dark:bg-gray-800 text-sm uppercase font-normal tracking-wider">
                     <tr>
                       <th
                         scope="col"
-                        className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="py-3.5 px-4 text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
                         <div className="flex items-center gap-x-3">
                           <input
@@ -123,34 +42,30 @@ const StudentEnroll = () => {
 
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-12 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
-                        <button className="flex items-center gap-x-2">
-                          <span>Status</span>
-                        </button>
+                        Program Type
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
-                        <button className="flex items-center gap-x-2">
-                          <span>Role</span>
-                        </button>
+                        Program
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
                         Email address
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
-                        Teams
+                        Results
                       </th>
 
                       <th scope="col" className="relative py-3.5 px-4">
@@ -176,81 +91,47 @@ const StudentEnroll = () => {
                               />
                               <div>
                                 <h2 className="font-medium text-gray-800 dark:text-white ">
-                                {
-                                  app.personal.firstName + " " + app.personal.lastName
-                                }
-                                  
+                                  {app.personal.firstName +
+                                    " " +
+                                    app.personal.lastName}
                                 </h2>
                                 <p className="text-sm font-normal text-gray-600 dark:text-gray-400">
-                                Id: { app._id}
-                                  {/* @authurmelo */}
+                                  Id: {app._id}
                                 </p>
                               </div>
                             </div>
                           </div>
                         </td>
-                        <td className="px-12 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                          <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
-                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-
-                            <h2 className="text-sm font-normal text-emerald-500">
-                              Active
-                            </h2>
-                          </div>
+                        <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                          {app.general.program_type}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          Design Director
+                          {app.general.program}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          authurmelo@example.com
+                          {app.personal.email}
                         </td>
-                        <td className="px-4 py-4 text-sm whitespace-nowrap">
-                          <div className="flex items-center gap-x-2">
-                            <p className="px-3 py-1 text-xs text-indigo-500 rounded-full dark:bg-gray-800 bg-indigo-100/60">
-                              Design
+                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                          {app.education.map((edu, index) => (
+                            <p key={index}>
+                              <span>{edu.exam}</span> : &nbsp;
+                              <span>{edu.result}</span>
                             </p>
-                            <p className="px-3 py-1 text-xs text-blue-500 rounded-full dark:bg-gray-800 bg-blue-100/60">
-                              Product
-                            </p>
-                            <p className="px-3 py-1 text-xs text-pink-500 rounded-full dark:bg-gray-800 bg-pink-100/60">
-                              Marketing
-                            </p>
-                          </div>
+                          ))}
                         </td>
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <div className="flex items-center gap-x-6">
-                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                className="w-5 h-5"
-                              >
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                                />
-                              </svg>
+                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
+                              <RiDeleteBin6Line />
                             </button>
-
-                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                className="w-5 h-5"
-                              >
-                                <path
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
-                                />
-                              </svg>
+                            <Link
+                              to={`/enroll/studentEnroll/${app.personal.email}`}
+                              className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl"
+                            >
+                              <AiOutlineEye />
+                            </Link>
+                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
+                              <IoMdCheckmark />
                             </button>
                           </div>
                         </td>
@@ -272,13 +153,13 @@ const StudentEnroll = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="w-5 h-5 rtl:-scale-x-100"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
               />
             </svg>
@@ -341,19 +222,19 @@ const StudentEnroll = () => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               className="w-5 h-5 rtl:-scale-x-100"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
               />
             </svg>
           </a>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

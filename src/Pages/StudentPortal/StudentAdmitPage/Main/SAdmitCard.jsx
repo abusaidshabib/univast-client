@@ -67,7 +67,7 @@ const SAdmitCard = () => {
           </div>
         </div>
         <p className="py-5"></p>
-        <table className="border-collapse border border-slate-400 w-full text-lg bg-p-white">
+        <table className="min-w-full border-collapse border border-slate-400 w-full text-lg bg-p-white">
           <thead>
             <tr>
               <th className="border border-gray-400 p-2 ">Subject</th>

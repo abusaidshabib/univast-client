@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setPersonalInfo } from "../../../../../../features/application/applicationSlice";
 import { useNavigate } from "react-router-dom";
-import { uploadFilesToFirebase } from "../../../../../../firebase/firebase.config";
+import { uploadFileToFirebase } from "../../../../../../firebase/firebase.config";
 
 /* eslint-disable react/prop-types */
 const PersonalInfo = () => {
@@ -45,10 +45,11 @@ const PersonalInfo = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-      const handleUpload = (selectedFiles) => {
-        uploadFilesToFirebase(selectedFiles)
+      const handleUpload = (selectedFile) => {
+        uploadFileToFirebase(selectedFile)
           .then((downloadUrls) => {
-            console.log(downloadUrls);
+            console.log(downloadUrls)
+            return downloadUrls;
           })
           .catch((err) => {
             console.log(err.message)
@@ -73,8 +74,8 @@ const PersonalInfo = () => {
       const nationality = form.nationality.value;
       const country = form.country.value;
       const social_media = form.social_media.value;
-      const image = form.image.files;
-      const signature = form.signature.files;
+      let image = form.image.files[0];
+      let signature = form.signature.files[0];
       const present_country = form.present_country.value;
       const present_state_division = form.present_state_division.value;
       const present_thana = form.present_thana.value;
@@ -93,7 +94,17 @@ const PersonalInfo = () => {
 
       //PostImage/files Function
       handleUpload(image)
+        .then((downloadUrls) => {
+          console.log(downloadUrls);
+          return downloadUrls;
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
 
+      
+      signature = handleUpload(signature);
+      
       const data = {
         firstName,
         lastName,
@@ -132,6 +143,8 @@ const PersonalInfo = () => {
           },
         },
       };
+
+      console.log(data)
 
       // dispatch(setPersonalInfo(data))
       // navigate("/admission/online/family");
