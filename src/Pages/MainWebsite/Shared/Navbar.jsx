@@ -89,31 +89,7 @@ const Navbar = () => {
                 About
               </li>
               <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/control-panel">Control Panel</Link>
-              </li>
-              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/student">Student Portal</Link>
-              </li>
-              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/teacher">Teacher Portal</Link>
-              </li>
-              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/enroll">Enroll Portal</Link>
-              </li>
-              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/admin">Admin Portal</Link>
-              </li>
-              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/course">Course Portal</Link>
-              </li>
-              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/exam">Exam Portal</Link>
-              </li>
-              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/financial">Financial Portal</Link>
-              </li>
-              <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link to="/resource">Resource Portal</Link>
+                <Link to="/control-panel">C-Panel</Link>
               </li>
             </ul>
           </div>
