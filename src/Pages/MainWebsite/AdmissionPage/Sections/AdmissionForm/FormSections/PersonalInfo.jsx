@@ -74,8 +74,8 @@ const PersonalInfo = () => {
       const nationality = form.nationality.value;
       const country = form.country.value;
       const social_media = form.social_media.value;
-      let image = form.image.files[0];
-      let signature = form.signature.files[0];
+      const image = await handleUpload(form.image.files[0]);
+      const signature = await handleUpload(form.signature.files[0]);
       const present_country = form.present_country.value;
       const present_state_division = form.present_state_division.value;
       const present_thana = form.present_thana.value;
@@ -93,17 +93,17 @@ const PersonalInfo = () => {
 
 
       //PostImage/files Function
-      handleUpload(image)
-        .then((downloadUrls) => {
-          console.log(downloadUrls);
-          return downloadUrls;
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
+      // handleUpload(image)
+      //   .then((downloadUrls) => {
+      //     console.log(downloadUrls);
+      //     return downloadUrls;
+      //   })
+      //   .catch((err) => {
+      //     console.log(err.message);
+      //   });
 
       
-      signature = handleUpload(signature);
+      // signature = handleUpload(signature);
       
       const data = {
         firstName,
