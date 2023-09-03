@@ -3,15 +3,14 @@ import { useGetApplicationByEmailQuery } from "../../../../features/application/
 import PersonalInfo from "../Sections/PersonalInfo/PersonalInfo";
 
 const SingleApplication = () => {
-  const {email} = useParams()
-  console.log(email);
-  let application = useGetApplicationByEmailQuery(email);
+  const { id } = useParams();
+  let application = useGetApplicationByEmailQuery(id);
   application = application?.data?.data?.data;
-  console.log(application)
+  console.log(application);
   return (
     <div className="grid grid-cols-4 gap-5 p-5 bg-gray-200 min-h-[calc(100vh-80px)] text-gray-900">
       <div className="col-span-3">
-        <PersonalInfo />
+        <PersonalInfo data={application.personal} />
       </div>
     </div>
   );

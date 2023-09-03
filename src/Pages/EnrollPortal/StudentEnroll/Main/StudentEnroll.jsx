@@ -125,7 +125,7 @@ const StudentEnroll = () => {
                               <RiDeleteBin6Line />
                             </button>
                             <Link
-                              to={`/enroll/studentEnroll/${app.personal.email}`}
+                              to={`/enroll/studentEnroll/${app._id}`}
                               className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl"
                             >
                               <AiOutlineEye />
