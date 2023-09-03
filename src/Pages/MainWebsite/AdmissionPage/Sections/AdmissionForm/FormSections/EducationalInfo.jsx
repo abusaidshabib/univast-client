@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { manageEducationCount, setEducationInfo } from "../../../../../../features/application/applicationSlice";
 import { useNavigate } from "react-router-dom";
 import { AiOutlinePlus } from "react-icons/ai";
+import { useState } from "react";
+import { uploadFileToFirebase } from "../../../../../../firebase/firebase.config";
 
 /* eslint-disable react/prop-types */
 const EducationalInfo = () => {
@@ -9,8 +11,22 @@ const EducationalInfo = () => {
     (state) => state.application
   );
 
+  const [certificateURL, setCertificateURL] = useState()
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+
+    const handleUpload = (selectedFile) => {
+      uploadFileToFirebase(selectedFile)
+        .then((downloadUrls) => {
+          console.log(downloadUrls);
+            setCertificateURL(downloadUrls);
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    };
 
 
   const removeSection = (indexToRemove) => {
@@ -37,7 +53,7 @@ const EducationalInfo = () => {
         group_major: e.target[`group_major_${i}`].value,
         result: e.target[`result_${i}`].value,
         passing_year: e.target[`passing_year_${i}`].value,
-        certificates: e.target[`certificates_${i}`].files[0].name,
+        certificates: certificateURL,
       };
       updatedEducationData.push(sectionData);
     }
@@ -53,7 +69,7 @@ const EducationalInfo = () => {
       <hr className="pb-5" />
       {Array.from({ length: educationSectionCount }, (_, index) => (
         <div key={index} className="grid grid-cols-5 gap-10 pb-10">
-        {index > 0 && <hr className="col-span-5"/>}
+          {index > 0 && <hr className="col-span-5" />}
           <div>
             <label className=" text-2xl leading-loose">
               Exam
@@ -278,7 +294,9 @@ const EducationalInfo = () => {
               name={`certificates_${index}`}
               id={`certificates_${index}`}
               required
-              multiple
+              onChange={(e) => {
+                handleUpload(e.target.files[0]);
+              }}
               // defaultValue={education[index]?.certificates}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               type="file"

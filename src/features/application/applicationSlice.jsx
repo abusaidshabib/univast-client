@@ -24,8 +24,8 @@ const initialState = {
     nationality: "",
     country: "",
     social_media: "",
-    image: [],
-    signature: [],
+    image: "",
+    signature: "",
     address: {
       present_address: {
         present_country: "",
