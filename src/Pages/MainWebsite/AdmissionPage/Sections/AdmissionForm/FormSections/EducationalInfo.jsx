@@ -11,17 +11,20 @@ const EducationalInfo = () => {
     (state) => state.application
   );
 
-  const [certificateURL, setCertificateURL] = useState()
+  const [certificateURLs, setCertificateURLs] = useState()
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
 
-    const handleUpload = (selectedFile) => {
+    const handleUpload = (selectedFile, propertyName) => {
       uploadFileToFirebase(selectedFile)
-        .then((downloadUrls) => {
+        .then(async (downloadUrls) => {
           console.log(downloadUrls);
-            setCertificateURL(downloadUrls);
+          const urls = {...certificateURLs, [propertyName] : downloadUrls}
+            await setCertificateURLs(urls);
+            console.log(urls)
+            console.log(certificateURLs);
         })
         .catch((err) => {
           console.log(err.message);
@@ -53,7 +56,7 @@ const EducationalInfo = () => {
         group_major: e.target[`group_major_${i}`].value,
         result: e.target[`result_${i}`].value,
         passing_year: e.target[`passing_year_${i}`].value,
-        certificates: certificateURL,
+        certificates: certificateURLs[`certificates_${i}`],
       };
       updatedEducationData.push(sectionData);
     }
@@ -295,13 +298,18 @@ const EducationalInfo = () => {
               id={`certificates_${index}`}
               required
               onChange={(e) => {
-                handleUpload(e.target.files[0]);
+                handleUpload(e.target.files[0], e.target.name);
               }}
               // defaultValue={education[index]?.certificates}
               className="w-full bg-tertiary-blue  py-5 px-5 text-xl rounded-md"
               type="file"
               accept="application/pdf"
             />
+            {certificateURLs && (
+              <div>
+                <p>Uploaded URL: {certificateURLs[`certificates_${index}`]}</p>
+              </div>
+            )}
             <br />
             {/* {errors.certificates && (
               <p className="text-red-500 mt-2">This field is required</p>
