@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useGetApplicationByEmailQuery } from "../../../../features/application/applicationApi";
 import PersonalInfo from "../Sections/PersonalInfo/PersonalInfo";
 import FamilyInfo from "../Sections/FamilyInfo/FamilyInfo";
@@ -6,9 +6,15 @@ import EducationInfo from "../Sections/EducationInfo/EducationInfo";
 import OtherInfo from "../Sections/OtherInfo/OtherInfo";
 
 const SingleApplication = () => {
-  const { id } = useParams();
-  let { isSuccess, data } = useGetApplicationByEmailQuery(id);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+
+  // Access individual query parameters
+  const email = searchParams.get("email");
+  let { isSuccess, data } = useGetApplicationByEmailQuery(email);
   data = data?.data?.data;
+
+  console.log(email);
 
   if (isSuccess) {
     return (

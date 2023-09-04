@@ -16,7 +16,7 @@ const StudentEnroll = () => {
           <h2 className="text-4xl font-semibold">Student Applied</h2>
 
           <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
-            100 users
+            {applications?.length} Student
           </span>
         </div>
 
@@ -125,7 +125,7 @@ const StudentEnroll = () => {
                               <RiDeleteBin6Line />
                             </button>
                             <Link
-                              to={`/enroll/studentEnroll/${app._id}`}
+                              to={`/enroll/studentEnroll/query?email=${app.personal.email}`}
                               className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl"
                             >
                               <AiOutlineEye />
