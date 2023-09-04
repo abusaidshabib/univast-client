@@ -19,8 +19,8 @@ export const applicationApi = createApi({
       }),
     }),
     getApplicationByEmail: builder.query({
-      query: (id) => ({
-        url: `/admission?_id=${id}`,
+      query: (email) => ({
+        url: `/admission?email=${email}`,
       }),
     }),
   }),

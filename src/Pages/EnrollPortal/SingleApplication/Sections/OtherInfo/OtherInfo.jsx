@@ -1,14 +1,15 @@
 // eslint-disable-next-line react/prop-types
 const OtherInfo = ({ data }) => {
   const {
+    // eslint-disable-next-line react/prop-types
     is_parents_freedom_fighter,
+    // eslint-disable-next-line react/prop-types
     is_tribal,
+    // eslint-disable-next-line react/prop-types
     is_physical_disorder,
+    // eslint-disable-next-line react/prop-types
     is_first_division_player,
   } = data;
-
-  // eslint-disable-next-line react/prop-types
-  console.log(data?.is_parents_freedom_fighter);
 
   return (
     <div className="bg-white p-5">
