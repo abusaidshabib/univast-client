@@ -6,11 +6,12 @@ const SingleApplication = () => {
   const { id } = useParams();
   let application = useGetApplicationByEmailQuery(id);
   application = application?.data?.data?.data;
-  console.log(application);
+  console.log("Personal", application?.personal);
+
   return (
-    <div className="grid grid-cols-4 gap-5 p-5 bg-gray-200 min-h-[calc(100vh-80px)] text-gray-900">
-      <div className="col-span-3">
-        <PersonalInfo data={application.personal} />
+    <div className="bg-gray-200 min-h-[calc(100vh-80px)] text-gray-900 p-5">
+      <div className="bg-white p-24">
+        <PersonalInfo data={application?.personal} />
       </div>
     </div>
   );
