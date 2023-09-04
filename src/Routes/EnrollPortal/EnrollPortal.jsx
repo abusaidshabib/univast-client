@@ -22,7 +22,7 @@ const EnrollPortal = [
         element: <StudentEnroll />,
       },
       {
-        path: "/enroll/studentEnroll/:email",
+        path: "/enroll/studentEnroll/:id",
         element: <SingleApplication />,
       },
       {
