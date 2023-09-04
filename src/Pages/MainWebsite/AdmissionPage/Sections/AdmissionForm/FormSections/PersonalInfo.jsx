@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setPersonalInfo } from "../../../../../../features/application/applicationSlice";
 import { useNavigate } from "react-router-dom";
-import { uploadFileToFirebase } from "../../../../../../firebase/firebase.config";
+import { uploadImageToFirebase } from "../../../../../../firebase/firebase.config";
 import { useState } from "react";
 
 /* eslint-disable react/prop-types */
@@ -54,7 +54,7 @@ const PersonalInfo = () => {
   const navigate = useNavigate();
 
   const handleUpload = (selectedFile, propertyName) => {
-    uploadFileToFirebase(selectedFile)
+    uploadImageToFirebase(selectedFile)
       .then((downloadUrls) => {
         console.log(downloadUrls);
         if (propertyName === "profile") {

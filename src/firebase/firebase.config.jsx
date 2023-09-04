@@ -45,9 +45,21 @@ export default app;
 // };
 
 // Function to upload a single file to Firebase Storage
+export const uploadImageToFirebase = async (file) => {
+  try {
+    const storageRef = ref(storage, `images/${file.name}`);
+    await uploadBytes(storageRef, file);
+
+    const downloadURL = await getDownloadURL(storageRef);
+    return downloadURL;
+  } catch (error) {
+    throw new Error("Error uploading file: " + error.message);
+  }
+};
+
 export const uploadFileToFirebase = async (file) => {
   try {
-    const storageRef = ref(storage, `images/student/${file.name}`);
+    const storageRef = ref(storage, `files/${file.name}`);
     await uploadBytes(storageRef, file);
 
     const downloadURL = await getDownloadURL(storageRef);
