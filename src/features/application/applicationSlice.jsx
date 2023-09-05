@@ -5,7 +5,7 @@ const initialState = {
     applicant_type: "",
     program_type: "",
     last_complete_degree_type: "",
-    program: "",
+    programCode: "",
     education_shift: "",
   },
 

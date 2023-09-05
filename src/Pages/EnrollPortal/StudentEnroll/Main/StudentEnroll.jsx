@@ -3,14 +3,47 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineEye } from "react-icons/ai";
 import { IoMdCheckmark } from "react-icons/io";
 import { Link } from "react-router-dom";
+import ConfirmationModal from "./ConfirmationModal";
+import { usePostStudentMutation } from "../../../../features/student/studentApi";
+import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 
 const StudentEnroll = () => {
   const { data } = useGetApplicationsQuery();
+  const [ postStudent, {isLoading, isError, error, isSuccess} ] = usePostStudentMutation();
   const applications = data?.data?.data;
   console.log(applications);
 
+  const handleApprove = (data) => {
+    const studentData = {
+      programCode: data.general.programCode,
+      general: data.general,
+      personal: data.personal,
+      family: data.family,
+      education: data.education,
+      others: data.others
+    }
+    console.log(studentData);
+    const confirmation = window.confirm("Are you sure?")
+    if(confirmation){
+      postStudent(studentData);
+    }
+
+  }
+
+    useEffect(() => {
+      if (isSuccess) {
+        toast.success("Successfully Added");
+      }
+
+      if (isError) {
+        toast.error(error.data.message._message);
+      }
+    }, [error, isError, isSuccess]);
+
   return (
     <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5 font-sans">
+    {/* <ConfirmationModal/> */}
       <div className="p-10 bg-white">
         <div className="flex items-center gap-x-3">
           <h2 className="text-4xl font-semibold">Student Applied</h2>
@@ -86,7 +119,7 @@ const StudentEnroll = () => {
                             <div className="flex items-center gap-x-2">
                               <img
                                 className="object-cover w-10 h-10 rounded-full"
-                                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                                src={app.personal.image}
                                 alt=""
                               />
                               <div>
@@ -106,7 +139,7 @@ const StudentEnroll = () => {
                           {app.general.program_type}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {app.general.program}
+                          {app.general.programName}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                           {app.personal.email}
@@ -130,7 +163,7 @@ const StudentEnroll = () => {
                             >
                               <AiOutlineEye />
                             </Link>
-                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
+                            <button onClick={() => handleApprove(app)} className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
                               <IoMdCheckmark />
                             </button>
                           </div>

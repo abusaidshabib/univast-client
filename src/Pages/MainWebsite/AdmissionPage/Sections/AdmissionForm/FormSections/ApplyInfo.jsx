@@ -10,12 +10,12 @@ const ApplyInfo = () => {
     applicant_type,
     program_type,
     last_complete_degree_type,
-    program,
+    programCode,
     education_shift,
   } = useSelector((state) => state.application.general);
   
   const [selectedProgramType, setSelectedProgramType] = useState(program_type);
-  const [selectedProgram, setSelectedProgram] = useState(program);
+  const [selectedProgram, setSelectedProgram] = useState(programCode);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,6 +28,7 @@ const ApplyInfo = () => {
 
   let programs = useGetProgramsByTypeQuery(selectedProgramType);
   programs = programs?.data?.data?.data;
+  console.log(programs)
 
 
   const handleSubmit =(e) =>{
@@ -38,15 +39,15 @@ const ApplyInfo = () => {
     const applicant_type = form.applicant_type.value;
     const program_type = form.program_type.value;
     const last_complete_degree_type = form.last_complete_degree_type.value;
-    const program = form.program.value;
+    const programCode = form.programCode.value;
     const education_shift = form.education_shift.value;
 
     const data = {
       applicant_type,
       program_type,
       last_complete_degree_type,
-      program,
-      education_shift
+      programCode,
+      education_shift,
     };
 
     dispatch(setGeneralInfo(data));
@@ -168,10 +169,10 @@ const ApplyInfo = () => {
           </label>
           <br />
           <select
-            name="program"
-            id="program"
+            name="programCode"
+            id="programCode"
             required
-            defaultValue={program}
+            defaultValue={programCode}
             onChange={(e) => setSelectedProgram(e.target.value)}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
@@ -180,7 +181,7 @@ const ApplyInfo = () => {
               <option
                 key={program._id}
                 className="text-primary-white"
-                value={program.programName}
+                value={program.programCode}
               >
                 {program.programName}
               </option>
@@ -206,7 +207,7 @@ const ApplyInfo = () => {
           >
             <option value="" className="text-primary-white">Select Type...</option>
             {programs
-              ?.find((program) => program.programName === selectedProgram)
+              ?.find((program) => program.programCode === selectedProgram)
               ?.shifts?.map((shift, index) => (
                 <option
                   key={index}

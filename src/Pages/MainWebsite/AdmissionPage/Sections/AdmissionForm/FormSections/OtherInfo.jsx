@@ -48,6 +48,7 @@ const OtherInfo = () => {
     console.log(data)
 
     await dispatch(setOthersInfo(data));
+    console.log({ general, personal, family, education, others });
 
     postApplication({ general, personal, family, education, others });
   };
