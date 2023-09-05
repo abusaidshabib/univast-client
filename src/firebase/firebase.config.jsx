@@ -1,23 +1,25 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBk605lo34yeYvib9eXRduPtDIGh3cniZ8",
-  authDomain: "univast-2023.firebaseapp.com",
-  projectId: "univast-2023",
-  storageBucket: "univast-2023.appspot.com",
-  messagingSenderId: "656971017298",
-  appId: "1:656971017298:web:9391d7decf1a95afab838b",
+  apiKey: import.meta.env.VITE_REACT_APP_apiKey,
+  authDomain: import.meta.env.VITE_REACT_APP_authDomain,
+  projectId: import.meta.env.VITE_REACT_APP_projectId,
+  storageBucket: import.meta.env.VITE_REACT_APP_storageBucket,
+  messagingSenderId: import.meta.env.VITE_REACT_APP_messagingSenderId,
+  appId: import.meta.env.VITE_REACT_APP_appId,
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
-export default app;
+const auth = getAuth(app);
+export default auth;
 
 // Function to upload multiple files to Firebase Storage
 // export const uploadFilesToFirebase = async (files) => {
