@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import { loginUser } from "../../features/firebase/authenticationSlice";
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -10,7 +9,7 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log({email, password})
-        dispatch(loginUser({ email, password }));
+        // dispatch(loginUser({ email, password }));
 
     }
 

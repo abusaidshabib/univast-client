@@ -1,19 +1,24 @@
-import { useDeleteApplicationMutation, useGetApplicationsQuery } from "../../../../features/application/applicationApi";
+import {
+  useDeleteApplicationMutation,
+  useGetApplicationsQuery,
+} from "../../../../features/application/applicationApi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineEye } from "react-icons/ai";
 import { IoMdCheckmark } from "react-icons/io";
 import { Link } from "react-router-dom";
-import ConfirmationModal from "./ConfirmationModal";
 import { usePostStudentMutation } from "../../../../features/student/studentApi";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { createUser } from "../../../../features/firebase/authenticationSlice";
+import { AuthContext } from "../../../../../Context/userContext";
+import { generatePassword } from "../../../../utils/CreactePass";
 
 const StudentEnroll = () => {
+  const { createUser } = useContext(AuthContext);
   const { data } = useGetApplicationsQuery();
-  const [ postStudent, {isLoading, isError, error, isSuccess} ] = usePostStudentMutation();
-  const [ deleteApplication ] = useDeleteApplicationMutation();
+  const [postStudent, { isLoading, isError, error, isSuccess }] =
+    usePostStudentMutation();
+  const [deleteApplication] = useDeleteApplicationMutation();
   const applications = data?.data?.data;
   console.log(applications);
   const dispatch = useDispatch();
@@ -25,35 +30,40 @@ const StudentEnroll = () => {
       personal: data.personal,
       family: data.family,
       education: data.education,
-      others: data.others
-    }
-    console.log(studentData)
-    const confirmation = window.confirm("Are you sure?")
+      others: data.others,
+    };
+    const confirmation = window.confirm("Are you sure?");
 
-    if(confirmation){
+    if (confirmation) {
       const data = await postStudent(studentData);
-      console.log(data)
       if (data?.data?.status) {
         const email = data?.data?.data?.data?.personal.email;
-        dispatch(createUser({email, password: "student123"}))
+        const programCode = data?.data?.data?.general.programCode;
+        const password = generatePassword(email, programCode);
+        createUser(email, password)
+          .then((result) => {
+            console.log(result);
+          })
+          .catch((error) => console.log(error));
+
         deleteApplication(email);
       }
     }
-  }
+  };
 
-    useEffect(() => {
-      if (isLoading) {
-        toast.loading("Saving data", {id: "saveApplication"});
-      }
-      if (isSuccess) {
-        toast.success("Successfully Added", { id: "saveApplication" });
-      }
+  useEffect(() => {
+    if (isLoading) {
+      toast.loading("Saving data", { id: "saveApplication" });
+    }
+    if (isSuccess) {
+      toast.success("Successfully Added", { id: "saveApplication" });
+    }
 
-      if (isError) {
-        console.log(error.data);
-        toast.error(error.data.message, { id: "saveApplication" });
-      }
-    }, [error, isError, isLoading, isSuccess]);
+    if (isError) {
+      console.log(error.data);
+      toast.error(error.data.message, { id: "saveApplication" });
+    }
+  }, [error, isError, isLoading, isSuccess]);
 
   return (
     <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5 font-sans">
