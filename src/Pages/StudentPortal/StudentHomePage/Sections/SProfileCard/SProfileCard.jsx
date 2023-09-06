@@ -1,12 +1,14 @@
 import cover from "../../../../../assets/Student-dashboard/cover.jpg";
-import profile from "../../../../../assets/Student-dashboard/Profile.png";
 import { MdOutlineAssignment } from 'react-icons/md';
 import { AiOutlineNotification } from 'react-icons/ai';
 import { useGetStudentByEmailQuery } from "../../../../../features/student/studentApi";
+import { useContext } from "react";
+import { AuthContext } from "../../../../../Context/UserContext";
 
 
 const SProfileCard = () => {
-  const { data } = useGetStudentByEmailQuery("elizabeth69@gmial.com");
+  const { user } = useContext(AuthContext);
+  const { data } = useGetStudentByEmailQuery(user?.email);
   const studentData = data?.data;
   console.log(studentData)
   return (

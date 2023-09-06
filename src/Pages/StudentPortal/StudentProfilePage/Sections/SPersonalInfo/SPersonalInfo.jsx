@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { useGetStudentByEmailQuery } from "../../../../../features/student/studentApi";
+import { AuthContext } from "../../../../../Context/UserContext";
 
 const SPersonalInfo = () => {
-  const { data } = useGetStudentByEmailQuery("elizabeth69@gmial.com");
+  const { user } = useContext(AuthContext);
+  const { data } = useGetStudentByEmailQuery(user?.email);
   const studentData = data?.data;
   console.log(studentData)
   return (

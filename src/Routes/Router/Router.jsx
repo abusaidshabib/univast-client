@@ -9,6 +9,7 @@ import FinantialRoutes from "../FinantialRoutes/FinantialRoutes";
 import ExamRoutes from "../ExamRoutes/ExamRoutes";
 import ResourceRoutes from "../ResourceRoutes/ResourceRoutes";
 import ControlPanel from "../../Pages/ControlPanel/Main/ControlPanel";
+import AdminRoute from "../PrivateRoutes/AdminRoute";
 
 const allRoutes = [
   ...MainWebsite,
@@ -22,7 +23,11 @@ const allRoutes = [
   ...ResourceRoutes,
   {
     path: "/control-panel",
-    element: <ControlPanel />,
+    element: (
+      <AdminRoute>
+        <ControlPanel />
+      </AdminRoute>
+    ),
   },
 ];
 

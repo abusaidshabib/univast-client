@@ -1,7 +1,24 @@
-import { useDispatch } from "react-redux";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/UserContext";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
-    const dispatch = useDispatch()
+  const {logIn, user} = useContext(AuthContext)
+  const navigate = useNavigate();
+
+  
+  if (user && user?.role === "student") {
+      navigate(`/${user?.role}/home`);
+  }
+  else if (user && user?.role === "admin") {
+      navigate('/control-panel');
+  }
+  else{
+      navigate('/');
+  }
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -9,7 +26,11 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log({email, password})
-        // dispatch(loginUser({ email, password }));
+        logIn(email, password)
+        .then(() => {
+          form.reset();
+        })
+        .catch((error) => toast.error(error.message))
 
     }
 

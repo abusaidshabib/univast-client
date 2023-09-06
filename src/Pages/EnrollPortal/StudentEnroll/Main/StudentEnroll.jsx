@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import { usePostStudentMutation } from "../../../../features/student/studentApi";
 import { useContext, useEffect } from "react";
 import { toast } from "react-hot-toast";
-import { useDispatch } from "react-redux";
 import { usePostUserMutation } from "../../../../features/user/userApi";
 import { AuthContext } from "../../../../Context/UserContext";
 
@@ -22,7 +21,6 @@ const StudentEnroll = () => {
   const [postUser] = usePostUserMutation();
   const applications = data?.data;
   console.log(applications);
-  const dispatch = useDispatch();
 
   const handleApprove = async (data) => {
     const studentData = {

@@ -11,37 +11,35 @@ import auth from "../firebase/firebase.config";
 
 export const AuthContext = createContext();
 
+
 // eslint-disable-next-line react/prop-types
 const UserContext = ({ children }) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [oldUser, setOldUser] = useState(null);
-  console.log(oldUser)
   const [user, setUser] = useState(null);
-
-  // const {data: userData} = useGetUserByFirebaseIdQuery(user?.uid)
-  // console.log(userData);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [loading, setLoading] = useState(true);
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setOldUser(currentUser);
-      setLoading(false);
+      if (currentUser?.uid) {
+        console.log(currentUser?.uid);
+        const firebaseId = currentUser?.uid;
+
+        fetch(`http://localhost:8000/api/v1/users?firebaseId=${firebaseId}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data.data.user.role);
+            setUser(data.data.user);
+            setLoading(false);
+          })
+          .catch((error) => setLoading(false));
+      } else {
+        // User is logged out, set loading to false
+        setLoading(false);
+        setUser(null)
+      }
     });
-    if (oldUser?.uid) {
-      console.log(oldUser?.uid);
-      const firebaseId = oldUser?.uid;
-  
-      fetch(`http://localhost:8000/api/v1/users?firebaseId=${firebaseId}`)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data.data.user.role);
-          setUser(data.data.user)
-        });
-    }
     return () => unSubscribe();
-  }, [oldUser]);
+  }, []);
 
 
   console.log(user);

@@ -14,11 +14,16 @@ import Spayment from "../../Pages/StudentPortal/StudentPaymentPage/Main/Spayment
 import SProfile from "../../Pages/StudentPortal/StudentProfilePage/Main/SProfile";
 import SGeneralInfo from "../../Pages/StudentPortal/StudentProfilePage/Sections/SGeneralInfo/SGeneralInfo";
 import SPersonalInfo from "../../Pages/StudentPortal/StudentProfilePage/Sections/SPersonalInfo/SPersonalInfo";
+import StudentRoute from "../PrivateRoutes/StudentRoute";
 
 const StudentRoutes = [
   {
     path: "/student",
-    element: <StudentDashbaord></StudentDashbaord>,
+    element: (
+      <StudentRoute>
+        <StudentDashbaord></StudentDashbaord>
+      </StudentRoute>
+    ),
     children: [
       {
         path: "/student",
