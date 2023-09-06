@@ -319,11 +319,29 @@ const PersonalInfo = () => {
             <option value="" className="">
               Select Type...
             </option>
-            <option className="" value="A+ve">
-              A+ve
+            <option className="" value="A+">
+              A+
             </option>
-            <option className="" value="B+ve">
-              B+ve
+            <option className="" value="A-">
+              A-
+            </option>
+            <option className="" value="B+">
+              B+
+            </option>
+            <option className="" value="B-">
+              B-
+            </option>
+            <option className="" value="AB+">
+              AB+
+            </option>
+            <option className="" value="AB-">
+              AB-
+            </option>
+            <option className="" value="O+">
+              O+
+            </option>
+            <option className="" value="O-">
+              O-
             </option>
           </select>
           <br />

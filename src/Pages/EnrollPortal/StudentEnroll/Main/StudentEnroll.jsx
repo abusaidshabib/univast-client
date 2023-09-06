@@ -1,4 +1,4 @@
-import { useGetApplicationsQuery } from "../../../../features/application/applicationApi";
+import { useDeleteApplicationMutation, useGetApplicationsQuery } from "../../../../features/application/applicationApi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineEye } from "react-icons/ai";
 import { IoMdCheckmark } from "react-icons/io";
@@ -7,14 +7,18 @@ import ConfirmationModal from "./ConfirmationModal";
 import { usePostStudentMutation } from "../../../../features/student/studentApi";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { createUser } from "../../../../features/firebase/authenticationSlice";
 
 const StudentEnroll = () => {
   const { data } = useGetApplicationsQuery();
   const [ postStudent, {isLoading, isError, error, isSuccess} ] = usePostStudentMutation();
+  const [ deleteApplication ] = useDeleteApplicationMutation();
   const applications = data?.data?.data;
   console.log(applications);
+  const dispatch = useDispatch();
 
-  const handleApprove = (data) => {
+  const handleApprove = async (data) => {
     const studentData = {
       programCode: data.general.programCode,
       general: data.general,
@@ -23,27 +27,37 @@ const StudentEnroll = () => {
       education: data.education,
       others: data.others
     }
-    console.log(studentData);
+    console.log(studentData)
     const confirmation = window.confirm("Are you sure?")
-    if(confirmation){
-      postStudent(studentData);
-    }
 
+    if(confirmation){
+      const data = await postStudent(studentData);
+      console.log(data)
+      if (data?.data?.status) {
+        const email = data?.data?.data?.data?.personal.email;
+        dispatch(createUser({email, password: "student123"}))
+        deleteApplication(email);
+      }
+    }
   }
 
     useEffect(() => {
+      if (isLoading) {
+        toast.loading("Saving data", {id: "saveApplication"});
+      }
       if (isSuccess) {
-        toast.success("Successfully Added");
+        toast.success("Successfully Added", { id: "saveApplication" });
       }
 
       if (isError) {
-        toast.error(error.data.message._message);
+        console.log(error.data);
+        toast.error(error.data.message, { id: "saveApplication" });
       }
-    }, [error, isError, isSuccess]);
+    }, [error, isError, isLoading, isSuccess]);
 
   return (
     <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5 font-sans">
-    {/* <ConfirmationModal/> */}
+      {/* <ConfirmationModal/> */}
       <div className="p-10 bg-white">
         <div className="flex items-center gap-x-3">
           <h2 className="text-4xl font-semibold">Student Applied</h2>
@@ -154,7 +168,12 @@ const StudentEnroll = () => {
                         </td>
                         <td className="px-4 py-4 text-sm whitespace-nowrap">
                           <div className="flex items-center gap-x-6">
-                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
+                            <button
+                              onClick={() =>
+                                deleteApplication(app.personal.email)
+                              }
+                              className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl"
+                            >
                               <RiDeleteBin6Line />
                             </button>
                             <Link
@@ -163,7 +182,10 @@ const StudentEnroll = () => {
                             >
                               <AiOutlineEye />
                             </Link>
-                            <button onClick={() => handleApprove(app)} className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
+                            <button
+                              onClick={() => handleApprove(app)}
+                              className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl"
+                            >
                               <IoMdCheckmark />
                             </button>
                           </div>

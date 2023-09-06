@@ -8,8 +8,6 @@ import CourseRoutes from "../CourseRoutes/CourseRoutes";
 import FinantialRoutes from "../FinantialRoutes/FinantialRoutes";
 import ExamRoutes from "../ExamRoutes/ExamRoutes";
 import ResourceRoutes from "../ResourceRoutes/ResourceRoutes";
-import Login from "../../Pages/Login/Login";
-import Registration from "../../Pages/Registration/Registration";
 import ControlPanel from "../../Pages/ControlPanel/Main/ControlPanel";
 
 const allRoutes = [
@@ -25,14 +23,6 @@ const allRoutes = [
   {
     path: "/control-panel",
     element: <ControlPanel />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Registration />,
   },
 ];
 

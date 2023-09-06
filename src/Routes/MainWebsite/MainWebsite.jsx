@@ -1,4 +1,5 @@
 import Main from "../../Layouts/Main";
+import Login from "../../Pages/Login/Login";
 import Admission from "../../Pages/MainWebsite/AdmissionPage/Main/Admission";
 import AdmissionForm from "../../Pages/MainWebsite/AdmissionPage/Sections/AdmissionForm/AdmissionForm";
 import ApplyInfo from "../../Pages/MainWebsite/AdmissionPage/Sections/AdmissionForm/FormSections/ApplyInfo";
@@ -24,6 +25,10 @@ const MainWebsite = [
       {
         path: "/admission",
         element: <Admission></Admission>,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
       {
         path: "/admission/online",
