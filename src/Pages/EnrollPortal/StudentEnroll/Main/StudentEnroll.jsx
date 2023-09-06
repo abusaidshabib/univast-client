@@ -40,13 +40,22 @@ const StudentEnroll = () => {
         const email = data?.data?.data?.data?.personal.email;
         const programCode = data?.data?.data?.general.programCode;
         const password = generatePassword(email, programCode);
+        const firstName = data?.data?.data?.data?.personal.firstName;
+        const lastName = data?.data?.data?.data?.personal.lastName;
+        const role = "student"
+
         createUser(email, password)
           .then((result) => {
             console.log(result);
+            const userData = {
+              firstName, lastName, role, email, firebaseId: result.uid
+            }
+            console.log(userData)
+
           })
           .catch((error) => console.log(error));
 
-        deleteApplication(email);
+        // deleteApplication(email);
       }
     }
   };

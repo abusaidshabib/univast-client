@@ -3,7 +3,7 @@ import { useGetStudentByEmailQuery } from "../../../../../features/student/stude
 const SGeneralInfo = () => {
   const { data } = useGetStudentByEmailQuery("elizabeth69@gmial.com");
   const studentData = data?.data;
-  console.log(data.data);
+  console.log(data?.data);
   return (
     <div className="flex gap-10">
       <div>

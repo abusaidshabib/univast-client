@@ -21,12 +21,13 @@ const ApplyInfo = () => {
   const navigate = useNavigate();
 
   let allprograms = useGetProgramsQuery();
-  allprograms = allprograms?.data?.data?.data;
+  allprograms = allprograms?.data?.data;
   const programTypes = Array.from(
     new Set(allprograms?.map((item) => item.programType))
   );
 
   let programs = useGetProgramsByTypeQuery(selectedProgramType);
+  console.log(programs)
   programs = programs?.data?.data?.data;
   console.log(programs)
 
