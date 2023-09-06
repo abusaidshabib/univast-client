@@ -27,10 +27,7 @@ const ApplyInfo = () => {
   );
 
   let programs = useGetProgramsByTypeQuery(selectedProgramType);
-  console.log(programs)
-  programs = programs?.data?.data?.data;
-  console.log(programs)
-
+  programs = programs?.data?.data;
 
   const handleSubmit =(e) =>{
     e.preventDefault()

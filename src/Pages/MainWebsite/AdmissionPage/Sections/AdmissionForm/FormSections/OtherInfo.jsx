@@ -59,6 +59,7 @@ const OtherInfo = () => {
     }
 
     if (isError) {
+      console.log(error)
       toast.error(error.data.message._message);
     }
   }, [error, isError, isSuccess]);

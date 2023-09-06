@@ -12,7 +12,7 @@ const SingleApplication = () => {
   // Access individual query parameters
   const email = searchParams.get("email");
   let { isSuccess, data } = useGetApplicationByEmailQuery(email);
-  data = data?.data?.data;
+  data = data?.data;
 
   console.log(email);
 

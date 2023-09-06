@@ -1,4 +1,5 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
+
 
 export const userApi = createApi({
   reducerPath: "userApi",
@@ -26,4 +27,4 @@ export const userApi = createApi({
   }),
 });
 
-export const {} = userApi;
+export const {useGetUserByFirebaseIdQuery, useGetUsersQuery, usePostUserMutation} = userApi;

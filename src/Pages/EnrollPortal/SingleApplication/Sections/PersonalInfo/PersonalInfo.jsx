@@ -4,6 +4,7 @@ import moment from "moment/moment";
 const PersonalInfo = ({ data, data1 }) => {
   let personal = data;
   let general = data1;
+  console.log(personal)
 
   // eslint-disable-next-line react/prop-types, no-unsafe-optional-chaining
   const {
@@ -15,7 +16,7 @@ const PersonalInfo = ({ data, data1 }) => {
     marital,
     email,
     mobile,
-    nid_Birth_certification,
+    nid_Birth_certificate,
     passport,
     nationality,
     country,
@@ -23,15 +24,14 @@ const PersonalInfo = ({ data, data1 }) => {
     image,
     signature,
   } = personal;
+  console.log(email)
 
   const {
     applicant_type,
     program_type,
     last_complete_degree_type,
-    program,
-    medium,
+    programName,
     education_shift,
-    admission_test_venue,
   } = general;
 
   const {
@@ -66,7 +66,7 @@ const PersonalInfo = ({ data, data1 }) => {
           <img className="object-cover h-full w-full" src={signature} alt="" />
         </div>
       </div>
-      <div className="col-span-6 text-base font-medium">
+      <div className="col-span-5 text-base font-medium">
         <div>
           <p>
             <span className="font-semibold">Applicant Type -</span>
@@ -82,19 +82,11 @@ const PersonalInfo = ({ data, data1 }) => {
           </p>
           <p>
             <span className="font-semibold">Program -</span>
-            <span> {program}</span>
-          </p>
-          <p>
-            <span className="font-semibold">Medium -</span>
-            <span> {medium}</span>
+            <span> {programName}</span>
           </p>
           <p>
             <span className="font-semibold">Education Shift -</span>
             <span> {education_shift}</span>
-          </p>
-          <p>
-            <span className="font-semibold">Admission venue -</span>
-            <span> {admission_test_venue}</span>
           </p>
         </div>
         <br />
@@ -117,7 +109,7 @@ const PersonalInfo = ({ data, data1 }) => {
         <p>
           <span className="text-secondary-blue font-bold">Birth Date</span>
           <span className="px-3">-</span>
-          <span className="">{moment(birth_date).format("Do MMMM YYYY")}</span>
+          <span className="">{birth_date}</span>
         </p>
         <p>
           <span className="text-secondary-blue font-bold">Religion</span>
@@ -134,7 +126,7 @@ const PersonalInfo = ({ data, data1 }) => {
             Nid/Birth Certification Number
           </span>
           <span className="px-3">-</span>
-          <span className="">{nid_Birth_certification}</span>
+          <span className="">{nid_Birth_certificate}</span>
         </p>
         <p>
           <span className="text-secondary-blue font-bold">Passport Id</span>
@@ -152,7 +144,7 @@ const PersonalInfo = ({ data, data1 }) => {
           <span className="">{country}</span>
         </p>
       </div>
-      <div className="col-span-3 bg-primary-blue text-p-white p-5">
+      <div className="col-span-4 bg-primary-blue text-p-white p-5">
         <p className="text-2xl tracking-wider uppercase font-semibold text-center">
           Contact Info
         </p>

@@ -10,8 +10,8 @@ import { usePostStudentMutation } from "../../../../features/student/studentApi"
 import { useContext, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch } from "react-redux";
-import { AuthContext } from "../../../../../Context/userContext";
-import { generatePassword } from "../../../../utils/CreactePass";
+import { usePostUserMutation } from "../../../../features/user/userApi";
+import { AuthContext } from "../../../../Context/UserContext";
 
 const StudentEnroll = () => {
   const { createUser } = useContext(AuthContext);
@@ -19,7 +19,8 @@ const StudentEnroll = () => {
   const [postStudent, { isLoading, isError, error, isSuccess }] =
     usePostStudentMutation();
   const [deleteApplication] = useDeleteApplicationMutation();
-  const applications = data?.data?.data;
+  const [postUser] = usePostUserMutation();
+  const applications = data?.data;
   console.log(applications);
   const dispatch = useDispatch();
 
@@ -36,26 +37,29 @@ const StudentEnroll = () => {
 
     if (confirmation) {
       const data = await postStudent(studentData);
+      console.log(data);
       if (data?.data?.status) {
-        const email = data?.data?.data?.data?.personal.email;
-        const programCode = data?.data?.data?.general.programCode;
-        const password = generatePassword(email, programCode);
-        const firstName = data?.data?.data?.data?.personal.firstName;
-        const lastName = data?.data?.data?.data?.personal.lastName;
-        const role = "student"
+        const email = data?.data?.data?.personal.email;
+        const password = "student123";
+        const firstName = data?.data?.data?.personal.firstName;
+        const lastName = data?.data?.data?.personal.lastName;
+        const role = "student";
 
         createUser(email, password)
           .then((result) => {
             console.log(result);
             const userData = {
-              firstName, lastName, role, email, firebaseId: result.uid
-            }
-            console.log(userData)
-
+              firstName,
+              lastName,
+              role,
+              email,
+              firebaseId: result.user.uid,
+            };
+            console.log(userData);
+            postUser(userData);
+            deleteApplication(email);
           })
           .catch((error) => console.log(error));
-
-        // deleteApplication(email);
       }
     }
   };

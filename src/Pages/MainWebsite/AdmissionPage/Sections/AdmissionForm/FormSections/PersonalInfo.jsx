@@ -3,6 +3,7 @@ import { setPersonalInfo } from "../../../../../../features/application/applicat
 import { useNavigate } from "react-router-dom";
 import { uploadImageToFirebase } from "../../../../../../firebase/firebase.config";
 import { useState } from "react";
+import moment from "moment";
 
 /* eslint-disable react/prop-types */
 const PersonalInfo = () => {
@@ -76,7 +77,9 @@ const PersonalInfo = () => {
       const firstName = form.firstName.value;
       const lastName = form.lastName.value;
       const gender = form.gender.value;
-      const birth_date = form.birth_date.value;
+      const birth_date = moment(form.birth_date.value).format(
+        "MMMM Do YYYY"
+      );
       const religion = form.religion.value;
       const marital = form.marital.value;
       const blood_group = form.blood_group.value;
@@ -211,13 +214,13 @@ const PersonalInfo = () => {
             <option value="" className="">
               Select Type...
             </option>
-            <option className="" value="Islam">
+            <option className="" value="Male">
               Male
             </option>
-            <option className="" value="Hinduism">
+            <option className="" value="Female">
               Female
             </option>
-            <option className="" value="Christianity">
+            <option className="" value="Other">
               Other
             </option>
           </select>

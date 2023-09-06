@@ -6,14 +6,18 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import auth from "../src/firebase/firebase.config";
+import auth from "../firebase/firebase.config";
+import { useGetUserByFirebaseIdQuery } from "../features/user/userApi";
 
 export const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 const UserContext = ({ children }) => {
+  // const {data} = useGetUserByFirebaseIdQuery()
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [user, setUser] = useState(null);
+  console.log(user)
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [loading, setLoading] = useState(true);
 
