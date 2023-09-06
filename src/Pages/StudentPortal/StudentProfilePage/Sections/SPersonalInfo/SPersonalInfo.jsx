@@ -1,97 +1,105 @@
+import { useGetStudentByEmailQuery } from "../../../../../features/student/studentApi";
+
 const SPersonalInfo = () => {
+  const { data } = useGetStudentByEmailQuery("elizabeth69@gmial.com");
+  const studentData = data?.data;
+  console.log(studentData)
   return (
     <div>
       <div className="grid grid-cols-2 gap-5">
         <table className="text-lg">
           <tr className="p-5 border-b">
-            <td className="py-3 text-right text-primary-gray">Full Name:</td>
-            <td className="py-3 pl-5">Md Golam Mehedi</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-gray">Student ID:</td>
-            <td className="py-3 pl-5">202011056070</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-gray">Enrolled In:</td>
+            <td className="py-3 text-right text-primary-gray">
+              Present Address:
+            </td>
             <td className="py-3 pl-5">
-              Bachelor of Science in Computer Science and Engineering
+              {studentData?.personal.address.present_address.present_street1}
             </td>
           </tr>
           <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-gray">Batch:</td>
-            <td className="py-3 pl-5">56</td>
+            <td className="py-3 text-right text-primary-gray">Email:</td>
+            <td className="py-3 pl-5">{studentData?.personal.email}</td>
+          </tr>
+          <tr className="p-5 border-y">
+            <td className="py-3 text-right text-primary-gray">Gender:</td>
+            <td className="py-3 pl-5">{studentData?.personal.gender}</td>
+          </tr>
+          <tr className="p-5 border-y">
+            <td className="py-3 text-right text-primary-gray">Religion:</td>
+            <td className="py-3 pl-5">{studentData?.personal.religion}</td>
           </tr>
           <tr className="p-5 border-y">
             <td className="py-3 text-right text-primary-gray">
-              Admission Date:
+              Father&apos;s Name:
             </td>
-            <td className="py-3 pl-5">December 15, 2019</td>
+            <td className="py-3 pl-5">
+              {studentData?.family.father.father_name}
+            </td>
           </tr>
           <tr className="p-5 border-y">
             <td className="py-3 text-right text-primary-gray">
-              Student Status:
+              Father&apos;s Mobile:
             </td>
-            <td className="py-3 pl-5">Graduating</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-gray">Total Credit:</td>
-            <td className="py-3 pl-5">161</td>
+            <td className="py-3 pl-5">
+              {studentData?.family.father.father_mobile}
+            </td>
           </tr>
           <tr className="p-5 border-y">
             <td className="py-3 text-right text-primary-gray">
-              Completed Credit:
+              Father&apos;s Email:
             </td>
-            <td className="py-3 pl-5">138</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-gray">Current CGPA:</td>
-            <td className="py-3 pl-5">3.58</td>
+            <td className="py-3 pl-5">
+              {studentData?.family.father.father_email}
+            </td>
           </tr>
         </table>
         <table className="text-lg">
           <tr className="p-5 border-b">
-            <td className="py-3 text-right text-primary-gray">Full Name:</td>
-            <td className="py-3 pl-5">Md Golam Mehedi</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-gray">Student ID:</td>
-            <td className="py-3 pl-5">202011056070</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-gray">Enrolled In:</td>
+            <td className="py-3 text-right text-primary-gray">
+              Permanent Address:
+            </td>
             <td className="py-3 pl-5">
-              Bachelor of Science in Computer Science and Engineering
+              {
+                studentData?.personal.address.permanent_address
+                  .permanent_street1
+              }
             </td>
           </tr>
           <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-gray">Batch:</td>
-            <td className="py-3 pl-5">56</td>
+            <td className="py-3 text-right text-primary-gray">Phone:</td>
+            <td className="py-3 pl-5">{studentData?.personal.mobile}</td>
+          </tr>
+          <tr className="p-5 border-y">
+            <td className="py-3 text-right text-primary-gray">Nationality:</td>
+            <td className="py-3 pl-5">{studentData?.personal.nationality}</td>
+          </tr>
+          <tr className="p-5 border-y">
+            <td className="py-3 text-right text-primary-gray">Blood Group:</td>
+            <td className="py-3 pl-5">{studentData?.personal.blood_group}</td>
           </tr>
           <tr className="p-5 border-y">
             <td className="py-3 text-right text-primary-gray">
-              Admission Date:
+              Mother&apos;s Name:
             </td>
-            <td className="py-3 pl-5">December 15, 2019</td>
+            <td className="py-3 pl-5">
+              {studentData?.family.mother.mother_name}
+            </td>
           </tr>
           <tr className="p-5 border-y">
             <td className="py-3 text-right text-primary-gray">
-              Student Status:
+              Mother&apos;s Mobile:
             </td>
-            <td className="py-3 pl-5">Graduating</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-gray">Total Credit:</td>
-            <td className="py-3 pl-5">161</td>
+            <td className="py-3 pl-5">
+              {studentData?.family.mother.mother_mobile}
+            </td>
           </tr>
           <tr className="p-5 border-y">
             <td className="py-3 text-right text-primary-gray">
-              Completed Credit:
+              Mother&apos;s Email:
             </td>
-            <td className="py-3 pl-5">138</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-gray">Current CGPA:</td>
-            <td className="py-3 pl-5">3.58</td>
+            <td className="py-3 pl-5">
+              {studentData?.family.mother.mother_email}
+            </td>
           </tr>
         </table>
       </div>
