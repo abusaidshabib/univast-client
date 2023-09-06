@@ -13,7 +13,7 @@ export const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 const UserContext = ({ children }) => {
-  // const {data} = useGetUserByFirebaseIdQuery()
+  const {data} = useGetUserByFirebaseIdQuery()
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [user, setUser] = useState(null);
   console.log(user)
