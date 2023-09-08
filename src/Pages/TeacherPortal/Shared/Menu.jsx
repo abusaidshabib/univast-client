@@ -5,8 +5,12 @@ import { GoBook } from "react-icons/go";
 import { BsCalendar2Check } from "react-icons/bs";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/UserContext";
 
 const Menu = () => {
+  const { logOut } = useContext(AuthContext);
+
   return (
     <div className="bg-white px-10 grid justify-center gap-20 text-gray-900 h-screen sticky left-0 top-0">
       <div className="p-5">
@@ -62,9 +66,9 @@ const Menu = () => {
           </li>
         </ul>
       </div>
-      <div className="flex gap-3">
+      <div className="flex items-center gap-3">
         <AiOutlineLogout className="text-2xl" />
-        <p>Sign out</p>
+        <button onClick={logOut}>Sign out</button>
       </div>
     </div>
   );

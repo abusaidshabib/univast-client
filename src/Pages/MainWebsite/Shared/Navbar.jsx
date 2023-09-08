@@ -96,7 +96,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link onClick={() => setMenu(false)} to={`/${user?.role}/home`}>
+                <Link onClick={() => setMenu(false)} to={user ? `/${user?.role}/home`: '/login'}>
                   Online Portal
                 </Link>
               </li>
