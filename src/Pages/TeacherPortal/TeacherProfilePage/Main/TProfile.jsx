@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 const TProfile = () => {
+  
     return (
         <div className="teacher-profile bg-gray-200 w-full min-h-[calc(100vh-80px)] p-5">
       <div className="bg-white p-10 min-h-[calc(100vh-100px)]">

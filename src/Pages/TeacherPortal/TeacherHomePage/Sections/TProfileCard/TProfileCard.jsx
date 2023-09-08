@@ -1,10 +1,17 @@
 import cover from "../../../../../assets/Student-dashboard/cover.jpg";
 import profile from "../../../../../assets/Student-dashboard/teacher.png";
-import { MdOutlineAssignment } from 'react-icons/md';
-import { AiOutlineNotification } from 'react-icons/ai';
-
+import { MdOutlineAssignment } from "react-icons/md";
+import { AiOutlineNotification } from "react-icons/ai";
+import { useContext } from "react";
+import { AuthContext } from "../../../../../Context/UserContext";
+import { useGetTeacherByEmailQuery } from "../../../../../features/teacher/teacherApi";
 
 const TProfileCard = () => {
+  const { user } = useContext(AuthContext);
+  const { data } = useGetTeacherByEmailQuery(user?.email);
+  const teacherData = data?.data;
+  console.log(teacherData);
+
   return (
     <div className="col-span-1 p-3 bg-white rounded-lg">
       <div className="profile-card relative">
@@ -23,10 +30,18 @@ const TProfileCard = () => {
           />
         </div>
         <div className="text-center pt-16">
-          <h2 className="text-lg font-semibold">Md Golam Mehedi</h2>
-          <p className="text-gray-600">Id: 202011056070 (Day)</p>
-          <p>mdpulokhasan@gmail.com</p>
-          <p>Dhaka, Bangladesh</p>
+          <h2 className="text-lg font-semibold">
+            {teacherData?.personal?.firstName} {teacherData?.personal?.lastName}
+          </h2>
+          <p className="text-gray-600">Id: {teacherData?.teacherId}</p>
+          <p>{teacherData?.personal?.email}</p>
+          <p>
+            {teacherData?.personal?.address?.permanent_address?.permanent_city},{" "}
+            {
+              teacherData?.personal?.address?.permanent_address
+                ?.permanent_country
+            }
+          </p>
           <div>
             <div className="bg-gray-100 rounded-lg p-3 mt-3 text-left">
               <h1 className="text-xl font-semibold mb-1">December 15, 2019</h1>
@@ -68,31 +83,42 @@ const TProfileCard = () => {
             <div className="assignments-container grid gap-3">
               <div className="assignment-card px-3 flex items-start gap-3 text-left">
                 <div className="bg-blue-500 p-2 flex items-center justify-center rounded-full">
-                  <MdOutlineAssignment className="text-white text-2xl"/>
+                  <MdOutlineAssignment className="text-white text-2xl" />
                 </div>
                 <div>
-                  <h1 className="font-semibold">Initial Investigation report </h1>
-                  <p className="text-sm text-gray-600">CSE-4204 [System Analysis & Design]</p>
+                  <h1 className="font-semibold">
+                    Initial Investigation report{" "}
+                  </h1>
+                  <p className="text-sm text-gray-600">
+                    CSE-4204 [System Analysis & Design]
+                  </p>
                 </div>
               </div>
-              <hr/>
+              <hr />
               <div className="assignment-card px-3 flex items-start gap-3 text-left">
                 <div className="bg-blue-500 p-2 flex items-center justify-center rounded-full">
-                  <MdOutlineAssignment className="text-white text-2xl"/>
+                  <MdOutlineAssignment className="text-white text-2xl" />
                 </div>
                 <div>
                   <h1 className="font-semibold">Assessment for mid-term</h1>
-                  <p className="text-sm text-gray-600">CSE-4204 [Accounting, Introduction to Finance & International Trade]</p>
+                  <p className="text-sm text-gray-600">
+                    CSE-4204 [Accounting, Introduction to Finance &
+                    International Trade]
+                  </p>
                 </div>
               </div>
-              <hr/>
+              <hr />
               <div className="assignment-card px-3 flex items-start gap-3 text-left">
                 <div className="bg-blue-500 p-2 flex items-center justify-center rounded-full">
-                  <MdOutlineAssignment className="text-white text-2xl"/>
+                  <MdOutlineAssignment className="text-white text-2xl" />
                 </div>
                 <div>
-                  <h1 className="font-semibold">Initial Investigation report </h1>
-                  <p className="text-sm text-gray-600">CSE-4204 [System Analysis & Design]</p>
+                  <h1 className="font-semibold">
+                    Initial Investigation report{" "}
+                  </h1>
+                  <p className="text-sm text-gray-600">
+                    CSE-4204 [System Analysis & Design]
+                  </p>
                 </div>
               </div>
             </div>
@@ -104,31 +130,42 @@ const TProfileCard = () => {
             <div className="notices-container grid gap-3">
               <div className="notice-card px-3 flex items-start gap-3 text-left">
                 <div className="bg-red-500 p-2 flex items-center justify-center rounded-full">
-                  <AiOutlineNotification className="text-white text-2xl"/>
+                  <AiOutlineNotification className="text-white text-2xl" />
                 </div>
                 <div>
-                  <h1 className="font-semibold">Initial Investigation report</h1>
-                  <p className="text-sm text-gray-600">CSE-4204 [System Analysis & Design]</p>
+                  <h1 className="font-semibold">
+                    Initial Investigation report
+                  </h1>
+                  <p className="text-sm text-gray-600">
+                    CSE-4204 [System Analysis & Design]
+                  </p>
                 </div>
               </div>
-              <hr/>
+              <hr />
               <div className="notice-card px-3 flex items-start gap-3 text-left">
                 <div className="bg-red-500 p-2 flex items-center justify-center rounded-full">
-                  <AiOutlineNotification className="text-white text-2xl"/>
+                  <AiOutlineNotification className="text-white text-2xl" />
                 </div>
                 <div>
                   <h1 className="font-semibold">Assessment for mid-term</h1>
-                  <p className="text-sm text-gray-600">CSE-4204 [Accounting, Introduction to Finance & International Trade]</p>
+                  <p className="text-sm text-gray-600">
+                    CSE-4204 [Accounting, Introduction to Finance &
+                    International Trade]
+                  </p>
                 </div>
               </div>
-              <hr/>
+              <hr />
               <div className="notice-card px-3 flex items-start gap-3 text-left">
                 <div className="bg-red-500 p-2 flex items-center justify-center rounded-full">
-                  <AiOutlineNotification className="text-white text-2xl"/>
+                  <AiOutlineNotification className="text-white text-2xl" />
                 </div>
                 <div>
-                  <h1 className="font-semibold">Initial Investigation report </h1>
-                  <p className="text-sm text-gray-600">CSE-4204 [System Analysis & Design]</p>
+                  <h1 className="font-semibold">
+                    Initial Investigation report{" "}
+                  </h1>
+                  <p className="text-sm text-gray-600">
+                    CSE-4204 [System Analysis & Design]
+                  </p>
                 </div>
               </div>
             </div>
