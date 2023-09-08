@@ -8,6 +8,12 @@ import FamilyInfo from "../../Pages/MainWebsite/AdmissionPage/Sections/Admission
 import OtherInfo from "../../Pages/MainWebsite/AdmissionPage/Sections/AdmissionForm/FormSections/OtherInfo";
 import PersonalInfo from "../../Pages/MainWebsite/AdmissionPage/Sections/AdmissionForm/FormSections/PersonalInfo";
 import Home from "../../Pages/MainWebsite/HomePage/Main/Home";
+import LecturerApplicationForm from "../../Pages/MainWebsite/LecturerApplication/Main/LecturerApplicationForm";
+import LecturerEducationalInfo from "../../Pages/MainWebsite/LecturerApplication/Sections/LecturerEducationalInfo";
+import LecturerExperienceInfo from "../../Pages/MainWebsite/LecturerApplication/Sections/LecturerExperienceInfo";
+import LecturerOtherInfo from "../../Pages/MainWebsite/LecturerApplication/Sections/LecturerOtherInfo";
+import LecturerPersonalInfo from "../../Pages/MainWebsite/LecturerApplication/Sections/LecturerPersonalInfo";
+import LecturerPublicationInfo from "../../Pages/MainWebsite/LecturerApplication/Sections/LecturerPublicationInfo";
 
 const MainWebsite = [
   {
@@ -57,6 +63,36 @@ const MainWebsite = [
           {
             path: "/admission/online/others",
             element: <OtherInfo></OtherInfo>,
+          },
+        ],
+      },
+      {
+        path: "/applyforlecturer/online",
+        element: <LecturerApplicationForm></LecturerApplicationForm>,
+        children: [
+          {
+            path: "/applyforlecturer/online",
+            element: <LecturerPersonalInfo></LecturerPersonalInfo>,
+          },
+          {
+            path: "/applyforlecturer/online/personal",
+            element: <LecturerPersonalInfo></LecturerPersonalInfo>,
+          },
+          {
+            path: "/applyforlecturer/online/educational",
+            element: <LecturerEducationalInfo></LecturerEducationalInfo>,
+          },
+          {
+            path: "/applyforlecturer/online/experiences",
+            element: <LecturerExperienceInfo></LecturerExperienceInfo>,
+          },
+          {
+            path: "/applyforlecturer/online/publications",
+            element: <LecturerPublicationInfo></LecturerPublicationInfo>,
+          },
+          {
+            path: "/applyforlecturer/online/others",
+            element: <LecturerOtherInfo></LecturerOtherInfo>,
           },
         ],
       },

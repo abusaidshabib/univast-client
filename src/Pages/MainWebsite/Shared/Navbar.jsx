@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/UserContext";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
+  const { user } = useContext(AuthContext);
   return (
     <div className="grid grid-cols-2 bg-secondary-blue h-20 px-20 sticky top-0 z-50 font-sans">
       <Link to="/" className="flex items-center cursor-pointer">
@@ -94,7 +96,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="cursor-pointer hover:underline hover:text-primary-white underline-offset-[12px] transition">
-                <Link onClick={() => setMenu(false)} to="/login">
+                <Link onClick={() => setMenu(false)} to={`/${user?.role}/home`}>
                   Online Portal
                 </Link>
               </li>

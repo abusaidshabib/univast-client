@@ -1,18 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  general: {
-    applicant_type: "",
-    program_type: "",
-    last_complete_degree_type: "",
-    programCode: "",
-    education_shift: "",
-  },
-
   personal: {
     firstName: "",
     lastName: "",
     gender: "",
+    father_name: "",
+    mother_name: "",
     birth_date: "",
     religion: "",
     marital: "",
@@ -48,35 +42,6 @@ const initialState = {
     },
   },
 
-  family: {
-    father: {
-      father_name: "",
-      father_mobile: "",
-      father_email: "",
-      father_nid: "",
-      father_passport: "",
-      father_dob: "",
-      father_age: 0,
-      father_occupation: "",
-      father_company: "",
-      father_designation: "",
-      father_income: 0,
-    },
-    mother: {
-      mother_name: "",
-      mother_mobile: "",
-      mother_email: "",
-      mother_nid: "",
-      mother_passport: "",
-      mother_dob: "",
-      mother_age: 0,
-      mother_occupation: "",
-      mother_company: "",
-      mother_designation: "",
-      mother_income: 0,
-    },
-  },
-
   education: [
     {
       exam: "",
@@ -89,6 +54,10 @@ const initialState = {
     },
   ],
 
+  experience: [],
+
+  publication: [],
+
   others: {
     is_parents_freedom_fighter: false,
     is_tribal: false,
@@ -99,47 +68,62 @@ const initialState = {
   },
 
   educationSectionCount: 1,
+  experienceSectionCount: 1,
+  publicationSectionCount: 1,
 };
 
-const applicationSlice = createSlice({
+const lecturerApplicationSlice = createSlice({
   name: "application",
   initialState,
   reducers: {
-    setGeneralInfo: (state, action) => {
-      state.general = action.payload;
-    },
     setPersonalInfo: (state, action) => {
       state.personal = action.payload;
     },
-    setFamilyInfo: (state, action) => {
-      state.family = action.payload;
-    },
     setEducationInfo: (state, action) => {
       state.education = action.payload;
+    },
+    setExperienceInfo: (state, action) => {
+      state.experience = action.payload;
+    },
+    setPublicationInfo: (state, action) => {
+      state.publication = action.payload;
     },
     setOthersInfo: (state, action) => {
       state.others = action.payload;
     },
     manageEducationCount: (state, action) => {
-      if(action.payload === "ADD"){
-        state.educationSectionCount += 1
-      }
-      else if (action.payload === "REMOVE") {
+      if (action.payload === "ADD") {
+        state.educationSectionCount += 1;
+      } else if (action.payload === "REMOVE") {
         state.educationSectionCount -= 1;
       }
-    }
+    },
+    manageExperienceCount: (state, action) => {
+      if (action.payload === "ADD") {
+        state.experienceSectionCount += 1;
+      } else if (action.payload === "REMOVE") {
+        state.experienceSectionCount -= 1;
+      }
+    },
+    managePublicationCount: (state, action) => {
+      if (action.payload === "ADD") {
+        state.publicationSectionCount += 1;
+      } else if (action.payload === "REMOVE") {
+        state.publicationSectionCount -= 1;
+      }
+    },
   },
 });
 
 export const {
-  admissionFormInput,
-  setCurrentStep,
-  setGeneralInfo,
   setPersonalInfo,
-  setFamilyInfo,
   setEducationInfo,
+  setExperienceInfo,
+  setPublicationInfo,
   setOthersInfo,
   manageEducationCount,
-} = applicationSlice.actions;
+  manageExperienceCount,
+  managePublicationCount,
+} = lecturerApplicationSlice.actions;
 
-export default applicationSlice.reducer;
+export default lecturerApplicationSlice.reducer;

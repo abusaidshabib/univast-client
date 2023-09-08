@@ -37,7 +37,7 @@ const Footer = () => {
         <p className="text-xl uppercase font-semibold text-left">Contact</p>
         <p className="text-base text-primary-white pt-3">
           {" "}
-           190 NE 12th St, Moore, Oklahoma, United States
+          190 NE 12th St, Moore, Oklahoma, United States
         </p>
         <p className="text-base text-primary-white"> +12 346 29 1211</p>
         <p className="text-base text-primary-white"> univast@gmail.com</p>
@@ -48,6 +48,9 @@ const Footer = () => {
           <li className="hover:text-accent-500">- Home</li>
           <li className="hover:text-accent-500">- About</li>
           <li className="hover:text-accent-500">- Contact</li>
+          <li className="hover:text-accent-500">
+            <Link to='/applyforlecturer/online/personal'>- Become A Lecturer</Link>
+          </li>
         </ul>
       </div>
     </div>

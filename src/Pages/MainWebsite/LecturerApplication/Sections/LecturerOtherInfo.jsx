@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { setOthersInfo } from "../../../../../../features/application/applicationSlice";
-import { usePostApplicationMutation } from "../../../../../../features/application/applicationApi";
 import { useEffect } from "react";
 import { toast } from "react-hot-toast";
+import { setOthersInfo } from "../../../../features/application/lecturerApplicationSlice";
+import { usePostLecturerApplicationMutation } from "../../../../features/application/lecturerApplicationApi";
 
-const OtherInfo = () => {
+const LecturerOtherInfo = () => {
   const [postApplication, { isLoading, isError, error, isSuccess }] =
-    usePostApplicationMutation();
+    usePostLecturerApplicationMutation();
 
-  const { general, personal, family, education, others } = useSelector(
-    (state) => state.application
+  const { personal, education, experience, publication, others } = useSelector(
+    (state) => state.lecturerApplication
   );
   const {
     is_parents_freedom_fighter,
@@ -20,7 +20,7 @@ const OtherInfo = () => {
     is_first_division_player,
     accept_declaration,
     accept_terms,
-  } = useSelector((state) => state.application.others);
+  } = useSelector((state) => state.lecturerApplication.others);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -48,9 +48,9 @@ const OtherInfo = () => {
     console.log(data);
 
     await dispatch(setOthersInfo(data));
-    console.log({ general, personal, family, education, others });
+    console.log({ personal, education, experience, publication, others });
 
-    postApplication({ general, personal, family, education, others });
+    postApplication({ personal, education, experience, publication, others });
   };
 
   useEffect(() => {
@@ -177,7 +177,7 @@ const OtherInfo = () => {
         <button
           className="bg-tertiary-blue py-3 px-10 rounded-md text-lg text-primary-white border-b-6"
           type="button"
-          onClick={() => navigate("/admission/online/educational")}
+          onClick={() => navigate("/applyforlecturer/online/publications")}
         >
           Prev
         </button>
@@ -215,4 +215,4 @@ const OtherInfo = () => {
   );
 };
 
-export default OtherInfo;
+export default LecturerOtherInfo;

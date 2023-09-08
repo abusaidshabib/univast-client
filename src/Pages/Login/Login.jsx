@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   
-  if (user && user?.role === "student") {
+  if (user && (user?.role === "student" || user?.role === "teacher")) {
       navigate(`/${user?.role}/home`);
   }
   else if (user && user?.role === "admin") {

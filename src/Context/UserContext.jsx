@@ -31,7 +31,7 @@ const UserContext = ({ children }) => {
             setUser(data.data.user);
             setLoading(false);
           })
-          .catch((error) => setLoading(false));
+          .catch(() => setLoading(false));
       } else {
         // User is logged out, set loading to false
         setLoading(false);

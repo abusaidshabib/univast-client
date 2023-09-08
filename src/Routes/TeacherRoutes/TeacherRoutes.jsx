@@ -12,11 +12,16 @@ import Thome from "../../Pages/TeacherPortal/TeacherHomePage/Main/Thome";
 import TProfile from "../../Pages/TeacherPortal/TeacherProfilePage/Main/TProfile";
 import TGeneralInfo from "../../Pages/TeacherPortal/TeacherProfilePage/Section/TGeneralInfo/TGeneralInfo";
 import TPersonalInfo from "../../Pages/TeacherPortal/TeacherProfilePage/Section/TPersonalInfo/TPersonalInfo";
+import TeacherRoute from "../PrivateRoutes/TeacherRoute";
 
 const TeacherRoutes = [
   {
     path: "/teacher",
-    element: <TeacherDashboard></TeacherDashboard>,
+    element: (
+      <TeacherRoute>
+        <TeacherDashboard></TeacherDashboard>
+      </TeacherRoute>
+    ),
     children: [
       {
         path: "/teacher",
