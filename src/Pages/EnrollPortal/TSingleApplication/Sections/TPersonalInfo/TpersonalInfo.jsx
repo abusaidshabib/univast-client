@@ -1,4 +1,53 @@
-{/*         
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unescaped-entities */
+// eslint-disable-next-line react/prop-types
+const TpersonalInfo = ({ data, data1 }) => {
+  let personal = data;
+  // eslint-disable-next-line react/prop-types, no-unsafe-optional-chaining
+  const {
+    firstName,
+    lastName,
+    gender,
+    birth_date,
+    religion,
+    marital,
+    email,
+    mobile,
+    nid_Birth_certificate,
+    passport,
+    nationality,
+    country,
+    social_media,
+    image,
+    signature,
+    father_name,
+    mother_name,
+  } = personal;
+  console.log(email);
+
+  const {
+    present_country,
+    present_state_division,
+    present_thana,
+    present_city,
+    present_zip_code,
+    present_street1,
+    present_street2,
+    // eslint-disable-next-line no-unsafe-optional-chaining
+  } = personal?.address?.present_address;
+
+  const {
+    permanent_country,
+    permanent_state_division,
+    permanent_thana,
+    permanent_city,
+    permanent_zip_code,
+    permanent_street1,
+    permanent_street2,
+    // eslint-disable-next-line no-unsafe-optional-chaining
+  } = personal?.address?.permanent_address;
+  return (
+    <div className="bg-white grid grid-cols-12 gap-5 p-5">
       <div className="col-span-3 h-[500px] border-4 border-secondary-blue">
         <div className="h-3/4">
           <img className="object-cover h-full w-full" src={image} alt="" />
@@ -8,29 +57,6 @@
         </div>
       </div>
       <div className="col-span-5 text-base font-medium">
-        <div>
-          <p>
-            <span className="font-semibold">Applicant Type -</span>
-            <span> applicant_type</span>
-          </p>
-          <p>
-            <span className="font-semibold">Program Type -</span>
-            <span> program_type</span>
-          </p>
-          <p>
-            <span className="font-semibold">Last Completed Degree -</span>
-            <span> last_complete_degree_type</span>
-          </p>
-          <p>
-            <span className="font-semibold">Program -</span>
-            <span> programName</span>
-          </p>
-          <p>
-            <span className="font-semibold">Education Shift -</span>
-            <span> education_shift</span>
-          </p>
-        </div>
-        <br />
         <p className="text-2xl tracking-wider uppercase font-semibold text-center">
           Personal Info
         </p>
@@ -41,6 +67,16 @@
           <span className="">
             {firstName} {lastName}
           </span>
+        </p>
+        <p>
+          <span className="text-secondary-blue font-bold">Father's Name</span>
+          <span className="px-3">-</span>
+          <span className="">{father_name}</span>
+        </p>
+        <p>
+          <span className="text-secondary-blue font-bold">Mother's Name</span>
+          <span className="px-3">-</span>
+          <span className="">{mother_name}</span>
         </p>
         <p>
           <span className="text-secondary-blue font-bold">Gender</span>
@@ -83,6 +119,11 @@
           <span className="text-secondary-blue font-bold">Country</span>
           <span className="px-3">-</span>
           <span className="">{country}</span>
+        </p>
+        <p>
+          <span className="text-secondary-blue font-bold">Total publication</span>
+          <span className="px-3">-</span>
+          <span className="">{data1?.publication.length}</span>
         </p>
       </div>
       <div className="col-span-4 bg-primary-blue text-p-white p-5">
@@ -175,4 +216,9 @@
           <span className="">{permanent_street1}</span>
           <span className="">{permanent_street2}</span>
         </p>
-      </div> */}
+      </div>
+    </div>
+  );
+};
+
+export default TpersonalInfo;

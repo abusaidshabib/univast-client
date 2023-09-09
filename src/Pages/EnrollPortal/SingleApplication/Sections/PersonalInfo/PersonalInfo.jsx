@@ -1,10 +1,7 @@
-import moment from "moment/moment";
-
 // eslint-disable-next-line react/prop-types
 const PersonalInfo = ({ data, data1 }) => {
   let personal = data;
   let general = data1;
-  console.log(personal)
 
   // eslint-disable-next-line react/prop-types, no-unsafe-optional-chaining
   const {
