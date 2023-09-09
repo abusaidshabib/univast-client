@@ -11,6 +11,7 @@ import { useContext, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { usePostUserMutation } from "../../../../features/user/userApi";
 import { AuthContext } from "../../../../Context/UserContext";
+import { useSendEmailMutation } from "../../../../features/sendEmail/sendEmailApi";
 
 const StudentEnroll = () => {
   const { createUser } = useContext(AuthContext);
@@ -21,6 +22,8 @@ const StudentEnroll = () => {
   const [postUser] = usePostUserMutation();
   const applications = data?.data;
   console.log(applications);
+
+  const [sendEmail] = useSendEmailMutation();
 
   const handleApprove = async (data) => {
     const studentData = {
@@ -43,52 +46,70 @@ const StudentEnroll = () => {
         const lastName = data?.data?.data?.personal.lastName;
         const role = "student";
 
-        const emailSubject = `Congrats! ${firstName} + "" + ${lastName}. Now you are a official student of Our Univarsity`;
-        const emailBody = 
-            <section className="max-w-2xl px-6 py-8 mx-auto bg-white dark:bg-gray-900">
-                <header>
-                    <a href="#">
-                        <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/full-logo.svg" alt=""/>
-                    </a>
-                    
-                    <nav className="flex items-center mt-6 gap-x-6 sm:gap-x-8">
-                        <a href="#" className="text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Home </a>            
-                        <a href="#" className="text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Blog </a>        
-                        <a href="#" className="text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Tutorials </a>
-                        <a href="#" className="text-sm text-gray-600 transition-colors duration-300 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400" aria-label="Reddit"> Support </a>
-                    </nav>
-                </header>
+        const subject = `Congrats! ${firstName} + "" + ${lastName}. Now you are a official student of Our Univarsity`;
+        const html = `<section className="max-w-2xl px-6 py-8 mx-auto bg-white dark:bg-gray-900">
+            <header>
+              <Link
+                to="http://localhost:3000/"
+                className="flex items-center cursor-pointer"
+              >
+                <span className="text-primary-blue cursor-pointer text-4xl font-bold pr-1">
+                  UNI
+                </span>
+                <span className="border-l-2 border-primary-orange pl-1">
+                  <span className="text-accent-blue cursor-pointer font-semibold text-lg leading-none">
+                    VAST
+                  </span>{" "}
+                  <br />
+                  <span className="text-primary-gray cursor-pointer leading-none text-base">
+                    University
+                  </span>
+                </span>
+              </Link>
+            </header>
 
-                  <main className="mt-8">
-                      <h2 className="text-gray-700 dark:text-gray-200">Hi Olivia,</h2>
+            <main className="mt-8">
+              <h2 className="text-gray-700 dark:text-gray-200">
+                Hi ${lastName},
+              </h2>
 
-                      <p className="mt-2 leading-loose text-gray-600 dark:text-gray-300">
-                          We’re glad to have you onboard! You’re already on your way to 
-                          creating beautiful visual products.
-                          Whether you’re here for your brand, for a cause, or just for fun — 
-                          welcome! If there’s anything you need, we’ll be here every step of the way.
-                      </p>
-                      
-                      <p className="mt-2 text-gray-600 dark:text-gray-300">
-                          Thanks, <br/>
-                          Meraki UI team
-                      </p>
-                      
-                      <button className="px-6 py-2 mt-8 text-sm font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-                          Login
-                      </button>
-                  </main>
-        
+              <p className="mt-2 leading-loose text-gray-600 dark:text-gray-300">
+                I hope this email finds you in good health and high spirits. We
+                are delighted to extend our warmest congratulations to you on
+                being selected to join our University! Your exceptional academic
+                achievements and dedication have truly set you apart, and we
+                believe that you will thrive in our vibrant and diverse academic
+                community. Univast is known for its commitment to academic
+                excellence, innovation, and a supportive learning environment,
+                and we are confident that you will contribute positively to our
+                community.
+              </p>
 
-                  <footer className="mt-8">
-                      <p className="text-gray-500 dark:text-gray-400">
-                          This email was sent to <a href="#" className="text-blue-600 hover:underline dark:text-blue-400" target="_blank">contact@merakiui.com</a>. 
-                          If you'd rather not receive this kind of email, you can <a href="#" className="text-blue-600 hover:underline dark:text-blue-400">unsubscribe</a> or <a href="#" className="text-blue-600 hover:underline dark:text-blue-400">manage your email preferences</a>.
-                      </p>
+              <p className="mt-2 text-gray-600 dark:text-gray-300">
+                Your online portal Login credentials:
+                <br />
+                Email: ${email}
+                <br />
+                Password: ${password}
+                <br />
+              </p>
 
-                      {/* <p className="mt-3 text-gray-500 dark:text-gray-400">© {{ new Date().getFullYear() }} Meraki UI. All Rights Reserved.</p> */}
-                  </footer>
-            </section>
+              <a href="http://localhost:3000/login" className="px-6 py-2 mt-8 text-sm font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                Login
+              </a>
+            </main>
+
+            <footer className="mt-8">
+              <p className="text-gray-500 dark:text-gray-400">
+                Best regards, <br/>
+                Univast Univarsity 
+                Email: univast@gmail.com
+                Contact: 0123456798
+              </p>
+            </footer>
+          </section>`;
+
+        const emailData = { email, subject, html };
 
         createUser(email, password)
           .then((result) => {
@@ -103,6 +124,7 @@ const StudentEnroll = () => {
             console.log(userData);
             postUser(userData);
             deleteApplication(email);
+            sendEmail(emailData)
           })
           .catch((error) => console.log(error));
       }
