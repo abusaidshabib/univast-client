@@ -41,7 +41,7 @@ const TeacherRoutes = [
             element: <TPersonalInfo />,
           },
           {
-            path: "/teacher/profile/general_info",
+            path: "/teacher/profile/personal",
             element: <TPersonalInfo />,
           },
           {

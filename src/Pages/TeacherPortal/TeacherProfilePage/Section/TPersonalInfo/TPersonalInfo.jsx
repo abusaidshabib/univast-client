@@ -10,7 +10,6 @@ const TPersonalInfo = () => {
 
   if (isSuccess) {
     const teacherData = data?.data;
-    // console.log(teacherData);
 
     // eslint-disable-next-line no-unsafe-optional-chaining
     const {
@@ -106,6 +105,18 @@ const TPersonalInfo = () => {
             <tr className="p-5 border-y">
               <td className="py-3 text-right text-primary-blue">Country:</td>
               <td className="py-3 pl-5">{country}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">
+                Research Interest:
+              </td>
+              <td className="py-3 pl-5 text-sm">
+                {teacherData?.research_interests?.map((res, index) => (
+                  <span className="" key={index}>
+                    res ,
+                  </span>
+                ))}
+              </td>
             </tr>
           </table>
         </div>

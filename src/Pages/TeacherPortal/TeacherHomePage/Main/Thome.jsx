@@ -1,3 +1,4 @@
+import TClassRoutine from "../Sections/TClassRoutine/TClassRoutine";
 import TProfileCard from "../Sections/TProfileCard/TProfileCard";
 
 const Thome = () => {
@@ -5,7 +6,7 @@ const Thome = () => {
     <div className="grid grid-cols-4 gap-5 p-5 bg-gray-200 min-h-[calc(100vh-80px)] text-gray-900">
       <div className="col-span-3 grid gap-5">
         <div>
-
+          <TClassRoutine />
         </div>
       </div>
       <TProfileCard></TProfileCard>
