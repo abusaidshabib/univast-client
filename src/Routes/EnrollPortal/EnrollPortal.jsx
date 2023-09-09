@@ -2,6 +2,7 @@ import EnrollmentDashboard from "../../Layouts/EnrollmentDashboard";
 import EnrollHome from "../../Pages/EnrollPortal/EnrollHome/Main/EnrollHome";
 import SingleApplication from "../../Pages/EnrollPortal/SingleApplication/Main/SingleApplication";
 import StudentEnroll from "../../Pages/EnrollPortal/StudentEnroll/Main/StudentEnroll";
+import TSingleApplication from "../../Pages/EnrollPortal/TSingleApplication/Main/TSingleApplication";
 import TeachersEnroll from "../../Pages/EnrollPortal/TeachersEnroll/Main/TeachersEnroll";
 
 const EnrollPortal = [
@@ -28,6 +29,10 @@ const EnrollPortal = [
       {
         path: "/enroll/teacherEnroll",
         element: <TeachersEnroll />,
+      },
+      {
+        path: "/enroll/teacherEnroll/query",
+        element: <TSingleApplication/>
       },
     ],
   },
