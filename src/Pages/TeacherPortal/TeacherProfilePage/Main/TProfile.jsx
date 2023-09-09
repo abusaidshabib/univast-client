@@ -9,26 +9,14 @@ const TProfile = () => {
           contact with the registar&apos;s office. ***
         </p>
         <nav className="navigation-tab flex gap-5 font-semibold text-lg mb-10">
-          <NavLink className="underline-offset-8" to="general_information">
-            General Info
+          <NavLink className="underline-offset-8" to="personal">
+            Personal Info
           </NavLink>
-          <NavLink
-            className="underline-offset-8"
-            to="personal_information_&_parent_information"
-          >
-            Personal & Parent Information
+          <NavLink className="underline-offset-8" to="address">
+            Address
           </NavLink>
-          <NavLink
-            className="underline-offset-8"
-            to="publication"
-          >
+          <NavLink className="underline-offset-8" to="publication">
             Publication
-          </NavLink>
-          <NavLink
-            className="underline-offset-8"
-            to="personal_information_&_parent_information"
-          >
-            Personal & Parent Information
           </NavLink>
         </nav>
         <div>

@@ -21,7 +21,7 @@ const HeroSection = () => {
           <p className="py-6"></p>
           <div>
             <PrimaryButton
-              link="/"
+              link="/admission"
               text="Apply Now"
               icon={<MdOutlineStart className="text-xl" />}
             />
