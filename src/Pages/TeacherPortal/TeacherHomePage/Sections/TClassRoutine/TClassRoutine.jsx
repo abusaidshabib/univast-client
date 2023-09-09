@@ -1,6 +1,14 @@
+import { useRef } from "react";
 import { MdDownload } from "react-icons/md";
+import { useReactToPrint } from "react-to-print";
 
 const TClassRoutine = () => {
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "emp-data",
+  });
+
   const classSchedule = [
     {
       day: 0,
@@ -68,13 +76,22 @@ const TClassRoutine = () => {
   );
 
   return (
-    <div className="bg-white p-10 mb-5 rounded-lg">
+    <div
+      ref={componentRef}
+      style={{
+        width: "100%",
+        height: "100%",
+      }}
+      className="bg-white p-10 mb-5 rounded-lg"
+    >
       <div className="flex justify-between items-center text-gray-900 col-span-3">
         <div>
           <p className="text-4xl font-semibold">Class Routine</p>
         </div>
         <div>
-          <MdDownload className="text-2xl" />
+          <button onClick={() => handlePrint(componentRef)}>
+            <MdDownload className="text-2xl text-accent-blue" />
+          </button>
         </div>
       </div>
       <p className="py-5"></p>
@@ -103,7 +120,9 @@ const TClassRoutine = () => {
                 >
                   <span>{data?.className}</span>
                   <br />
-                  <span className="text-base text-primary-orange">{data?.startTime}</span>
+                  <span className="text-base text-primary-orange">
+                    {data?.startTime}
+                  </span>
                 </td>
               ))}
               {/* <td>{classData.startTime}</td>
