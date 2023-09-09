@@ -47,6 +47,18 @@ const TeacherRoutes = [
             path: "/teacher/profile/personal_information_&_parent_information",
             element: <TPersonalInfo></TPersonalInfo>,
           },
+          {
+            path: "/teacher/profile/publication",
+            element: <TPersonalInfo></TPersonalInfo>,
+          },
+          {
+            path: "/teacher/profile/publication",
+            element: <TPersonalInfo></TPersonalInfo>,
+          },
+          {
+            path: "/teacher/profile/course_taught",
+            element: <TPersonalInfo></TPersonalInfo>,
+          },
         ],
       },
       {
