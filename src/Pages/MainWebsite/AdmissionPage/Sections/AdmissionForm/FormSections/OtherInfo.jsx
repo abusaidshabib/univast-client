@@ -184,6 +184,7 @@ const OtherInfo = () => {
         <button
           className="bg-tertiary-blue py-3 px-10 flex items-center gap-3 rounded-md text-lg text-primary-white border-b-6"
           type="submit"
+          disabled={isLoading}
         >
           {isLoading ? (
             <>

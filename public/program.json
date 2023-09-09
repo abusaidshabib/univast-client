@@ -1,0 +1,255 @@
+[
+  {
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-11101",
+    "programName": "Bachelor of Medicine",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "5 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-102",
+    "programCode": "PRO-12101",
+    "programName": "Bachelor of Surgery",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "5 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-201",
+    "programCode": "PRO-21101",
+    "programName": "Bachelor of Computer Science",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day", "Evening"]
+  },
+  {
+    "departmentCode": "DEP-201",
+    "programCode": "PRO-21102",
+    "programName": "Bachelor of Information Technology",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day", "Evening"]
+  },
+  {
+    "departmentCode": "DEP-201",
+    "programCode": "PRO-21103",
+    "programName": "Bachelor of Computer Programming",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-201",
+    "programCode": "PRO-21104",
+    "programName": "Bachelor of Software Engineering",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-202",
+    "programCode": "PRO-22101",
+    "programName": "Bachelor of Artificial Intelligence",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-202",
+    "programCode": "PRO-22102",
+    "programName": "Bachelor of Machine Learning",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-301",
+    "programCode": "PRO-31101",
+    "programName": "Bachelor of Environmental Science",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-302",
+    "programCode": "PRO-32101",
+    "programName": "Bachelor of Ecology",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-401",
+    "programCode": "PRO-41101",
+    "programName": "Bachelor of Music Composition",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-402",
+    "programCode": "PRO-42101",
+    "programName": "Bachelor of Theater Arts",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-501",
+    "programCode": "PRO-51101",
+    "programName": "Bachelor of Criminal Justice",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-501",
+    "programCode": "PRO-51102",
+    "programName": "Bachelor of Criminal Law",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-501",
+    "programCode": "PRO-51103",
+    "programName": "Bachelor of International Criminal Law",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-502",
+    "programCode": "PRO-52101",
+    "programName": "Bachelor of Corporate Law",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-502",
+    "programCode": "PRO-52102",
+    "programName": "Bachelor of Tax Law",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-601",
+    "programCode": "PRO-61101",
+    "programName": "Bachelor of Crop Science",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-601",
+    "programCode": "PRO-61102",
+    "programName": "Bachelor of Soil Science",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-602",
+    "programCode": "PRO-62101",
+    "programName": "Bachelor of Livestock Management",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-801",
+    "programCode": "PRO-81101",
+    "programName": "Bachelor of Finance",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-801",
+    "programCode": "PRO-81102",
+    "programName": "Bachelor of Banking and Financial Management",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-802",
+    "programCode": "PRO-82101",
+    "programName": "Bachelor of Economics",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-802",
+    "programCode": "PRO-82102",
+    "programName": "Bachelor of Economic Policy Analysis",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-1001",
+    "programCode": "PRO-101101",
+    "programName": "Bachelor of English Linguistics",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-1001",
+    "programCode": "PRO-101102",
+    "programName": "Bachelor of Applied Linguistics",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  },
+  {
+    "departmentCode": "DEP-1002",
+    "programCode": "PRO-102101",
+    "programName": "Bachelor of Foreign Languages",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Day"]
+  },
+  {
+    "departmentCode": "DEP-1002",
+    "programCode": "PRO-102102",
+    "programName": "Bachelor of Translation Studies",
+    "programType": "Bachelor",
+    "programLevel": "Undergraduate",
+    "programDuration": "4 years",
+    "shifts": ["Evening"]
+  }
+]
+

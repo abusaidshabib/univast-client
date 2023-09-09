@@ -7,6 +7,11 @@ import { userApi } from "../features/user/userApi";
 import lecturerApplicationSlice from "../features/application/lecturerApplicationSlice";
 import { lecturerApplicationApi } from "../features/application/lecturerApplicationApi";
 import { teacherApi } from "../features/teacher/teacherApi";
+import { facultyApi } from "../features/faculty/facultyApi";
+import { departmentApi } from "../features/department/department";
+import { courseApi } from "../features/course/courseApi";
+import { noticeApi } from "../features/notice/noticeApi";
+import { sendEmailApi } from "../features/sendEmail/sendEmailApi";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +21,11 @@ const store = configureStore({
     [studentApi.reducerPath]: studentApi.reducer,
     [teacherApi.reducerPath]: teacherApi.reducer,
     [userApi.reducerPath]: userApi.reducer,
+    [facultyApi.reducerPath]: facultyApi.reducer,
+    [departmentApi.reducerPath]: departmentApi.reducer,
+    [courseApi.reducerPath]: courseApi.reducer,
+    [noticeApi.reducerPath]: noticeApi.reducer,
+    [sendEmailApi.reducerPath]: noticeApi.reducer,
     application: applicationSlice,
     lecturerApplication: lecturerApplicationSlice,
   },
@@ -26,7 +36,12 @@ const store = configureStore({
       .concat(lecturerApplicationApi.middleware)
       .concat(studentApi.middleware)
       .concat(teacherApi.middleware)
-      .concat(userApi.middleware),
+      .concat(userApi.middleware)
+      .concat(facultyApi.middleware)
+      .concat(departmentApi.middleware)
+      .concat(courseApi.middleware)
+      .concat(noticeApi.middleware)
+      .concat(sendEmailApi.middleware),
 });
 
 export default store;
