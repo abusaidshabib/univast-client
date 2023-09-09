@@ -1,102 +1,117 @@
+/* eslint-disable react/no-unescaped-entities */
+import { useContext } from "react";
+import { AuthContext } from "../../../../../Context/UserContext";
+import { useGetTeacherByEmailQuery } from "../../../../../features/teacher/teacherApi";
+import { convertDate } from "../../../../../utils/ConvertDate";
+
 const TPersonalInfo = () => {
-  return (
-    <div>
-      <div className="grid grid-cols-2 gap-5">
-        <table className="text-lg">
-          <tr className="p-5 border-b">
-            <td className="py-3 text-right text-primary-900">Full Name:</td>
-            <td className="py-3 pl-5">Md Golam Mehedi</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">Student ID:</td>
-            <td className="py-3 pl-5">202011056070</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">Enrolled In:</td>
-            <td className="py-3 pl-5">
-              Bachelor of Science in Computer Science and Engineering
-            </td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">Batch:</td>
-            <td className="py-3 pl-5">56</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">
-              Admission Date:
-            </td>
-            <td className="py-3 pl-5">December 15, 2019</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">
-              Student Status:
-            </td>
-            <td className="py-3 pl-5">Graduating</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">Total Credit:</td>
-            <td className="py-3 pl-5">161</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">
-              Completed Credit:
-            </td>
-            <td className="py-3 pl-5">138</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">Current CGPA:</td>
-            <td className="py-3 pl-5">3.58</td>
-          </tr>
-        </table>
-        <table className="text-lg">
-          <tr className="p-5 border-b">
-            <td className="py-3 text-right text-primary-900">Full Name:</td>
-            <td className="py-3 pl-5">Md Golam Mehedi</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">Student ID:</td>
-            <td className="py-3 pl-5">202011056070</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">Enrolled In:</td>
-            <td className="py-3 pl-5">
-              Bachelor of Science in Computer Science and Engineering
-            </td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">Batch:</td>
-            <td className="py-3 pl-5">56</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">
-              Admission Date:
-            </td>
-            <td className="py-3 pl-5">December 15, 2019</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">
-              Student Status:
-            </td>
-            <td className="py-3 pl-5">Graduating</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">Total Credit:</td>
-            <td className="py-3 pl-5">161</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">
-              Completed Credit:
-            </td>
-            <td className="py-3 pl-5">138</td>
-          </tr>
-          <tr className="p-5 border-y">
-            <td className="py-3 text-right text-primary-900">Current CGPA:</td>
-            <td className="py-3 pl-5">3.58</td>
-          </tr>
-        </table>
+  const { user } = useContext(AuthContext);
+  const { data, isSuccess } = useGetTeacherByEmailQuery(user?.email);
+
+  if (isSuccess) {
+    const teacherData = data?.data;
+    // console.log(teacherData);
+
+    // eslint-disable-next-line no-unsafe-optional-chaining
+    const {
+      firstName,
+      lastName,
+      email,
+      image,
+      father_name,
+      mother_name,
+      enrollDate,
+      gender,
+      birth_date,
+      religion,
+      blood_group,
+      nationality,
+      country,
+      // eslint-disable-next-line no-unsafe-optional-chaining
+    } = teacherData?.personal;
+    return (
+      <div className="flex gap-10">
+        <div>
+          <img className="border-2 p-2 w-56 mb-3" src={image} alt="" />
+          <button className="w-full bg-primary-200 py-2 font-medium">
+            Reset Password
+          </button>
+        </div>
+        <div className="flex-grow">
+          <table className="text-lg">
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">Teacher ID:</td>
+              <td className="py-3 pl-5">{teacherData?.teacherId}</td>
+            </tr>
+            <tr className="p-5 border-b">
+              <td className="py-3 text-right text-primary-blue">Full Name:</td>
+              <td className="py-3 pl-5">
+                {firstName}, {lastName}
+              </td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">
+                Father's Name:
+              </td>
+              <td className="py-3 pl-5">{father_name}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">
+                Mother's Name:
+              </td>
+              <td className="py-3 pl-5">{mother_name}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">
+                Enrolled In:
+              </td>
+              <td className="py-3 pl-5">{teacherData?.departmentName}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">
+                Enroll Date:
+              </td>
+              <td className="py-3 pl-5">{convertDate(enrollDate)}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">Gender:</td>
+              <td className="py-3 pl-5">{gender}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">
+                Date of Birth:
+              </td>
+              <td className="py-3 pl-5">{birth_date}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">Religion:</td>
+              <td className="py-3 pl-5">{religion}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">Email:</td>
+              <td className="py-3 pl-5">{email}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">
+                Blood Group:
+              </td>
+              <td className="py-3 pl-5">{blood_group}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">
+                Nationality:
+              </td>
+              <td className="py-3 pl-5">{nationality}</td>
+            </tr>
+            <tr className="p-5 border-y">
+              <td className="py-3 text-right text-primary-blue">Country:</td>
+              <td className="py-3 pl-5">{country}</td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default TPersonalInfo;

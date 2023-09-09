@@ -10,8 +10,9 @@ import TCourseOutline from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseD
 import TFinance from "../../Pages/TeacherPortal/TeacherFinancePage/Main/TFinance";
 import Thome from "../../Pages/TeacherPortal/TeacherHomePage/Main/Thome";
 import TProfile from "../../Pages/TeacherPortal/TeacherProfilePage/Main/TProfile";
-import TGeneralInfo from "../../Pages/TeacherPortal/TeacherProfilePage/Section/TGeneralInfo/TGeneralInfo";
+import TAddressInfo from "../../Pages/TeacherPortal/TeacherProfilePage/Section/TAddressInfo/TAddressInfo";
 import TPersonalInfo from "../../Pages/TeacherPortal/TeacherProfilePage/Section/TPersonalInfo/TPersonalInfo";
+import TPublication from "../../Pages/TeacherPortal/TeacherProfilePage/Section/TPublication/TPublication";
 import TeacherRoute from "../PrivateRoutes/TeacherRoute";
 
 const TeacherRoutes = [
@@ -37,27 +38,19 @@ const TeacherRoutes = [
         children: [
           {
             path: "/teacher/profile",
-            element: <TGeneralInfo></TGeneralInfo>,
+            element: <TPersonalInfo />,
           },
           {
-            path: "/teacher/profile/general_information",
-            element: <TGeneralInfo></TGeneralInfo>,
+            path: "/teacher/profile/general_info",
+            element: <TPersonalInfo />,
           },
           {
-            path: "/teacher/profile/personal_information_&_parent_information",
-            element: <TPersonalInfo></TPersonalInfo>,
-          },
-          {
-            path: "/teacher/profile/publication",
-            element: <TPersonalInfo></TPersonalInfo>,
+            path: "/teacher/profile/address",
+            element: <TAddressInfo />,
           },
           {
             path: "/teacher/profile/publication",
-            element: <TPersonalInfo></TPersonalInfo>,
-          },
-          {
-            path: "/teacher/profile/course_taught",
-            element: <TPersonalInfo></TPersonalInfo>,
+            element: <TPublication />,
           },
         ],
       },

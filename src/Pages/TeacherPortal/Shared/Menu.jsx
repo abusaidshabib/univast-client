@@ -39,7 +39,7 @@ const Menu = () => {
           </li>
           <li className="">
             <NavLink
-              to="/teacher/profile/general_information"
+              to="/teacher/profile/general_info"
               className="flex gap-3"
             >
               <BiUser className="text-2xl" />
