@@ -30,10 +30,22 @@ const Menu = () => {
               <p className="font-semibold">Home</p>
             </NavLink>
           </li>
-          <li className="">
+          {/* <li className="">
             <NavLink to="/admin/Application" className="flex gap-3">
               <BiUser className="text-2xl" />
               <p className="font-semibold">Applications</p>
+            </NavLink>
+          </li> */}
+          <li className="">
+            <NavLink to="/admin/students" className="flex gap-3">
+              <BiUser className="text-2xl" />
+              <p className="font-semibold">Students</p>
+            </NavLink>
+          </li>
+          <li className="">
+            <NavLink to="/admin/teachers" className="flex gap-3">
+              <BiUser className="text-2xl" />
+              <p className="font-semibold">Teachers</p>
             </NavLink>
           </li>
         </ul>
