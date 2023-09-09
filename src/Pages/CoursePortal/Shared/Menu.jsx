@@ -38,9 +38,9 @@ const Menu = () => {
             </NavLink>
           </li>
           <li className="">
-            <NavLink to="/enroll/teacherEnroll" className="flex gap-3">
+            <NavLink to="/course/allcourses" className="flex gap-3">
               <GoBook className="text-2xl" />
-              <p className="font-semibold">Add Teacher</p>
+              <p className="font-semibold">All Courses</p>
             </NavLink>
           </li>
         </ul>

@@ -1,4 +1,5 @@
 import CourseDashboard from "../../Layouts/CourseDashboard";
+import AllCourses from "../../Pages/CoursePortal/AllCourses/AllCourses";
 import CourseCreate from "../../Pages/CoursePortal/CourseCreate/Main/CourseCreate";
 import CourseEnroll from "../../Pages/CoursePortal/CourseEnroll/Main/CourseEnroll";
 import CourseHome from "../../Pages/CoursePortal/CourseHome/Main/CourseHome";
@@ -21,6 +22,10 @@ const CourseRoutes = [
       {
         path: "/course/createCourse",
         element: <CourseCreate />,
+      },
+      {
+        path: "/course/allcourses",
+        element: <AllCourses />,
       },
       {
         path: "/course/courseEnroll",

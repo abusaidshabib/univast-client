@@ -11,7 +11,7 @@ const TopMenu = () => {
       <div className="flex justify-center">
         <p>
           <span className="text-lg uppercase tracking-widest leading-none text-secondary-blue font-bold">
-            Enroll Management
+            Course Management
           </span>
         </p>
       </div>
