@@ -4,8 +4,7 @@ import { useGetNoticesQuery } from "../../../../../features/notice/noticeApi";
 import { convertDate } from "../../../../../utils/ConvertDate";
 
 const EventNews = () => {
-
-  const {data: notices} = useGetNoticesQuery()
+  const { data: notices } = useGetNoticesQuery();
   return (
     <div className="px-20 text-center py-28 text-primary-gray font-sans">
       <p className="text-6xl leading-relaxed">
@@ -26,12 +25,16 @@ const EventNews = () => {
                 Published: Published: {convertDate(notice.date)}
               </p>
               <div className="py-5">
-                <SecondaryButton link="" text="Read More" icon="" />
+                <SecondaryButton
+                  link={`/notice/${notice?._id}`}
+                  text="Read More"
+                  icon=""
+                />
               </div>
             </div>
           ))}
         </div>
-        <div className="col-span-4 max-h-[calc(100vh-50px)] overflow-y-scroll">
+        <div className="col-span-4 max-h-[calc(100vh-10px)] overflow-y-scroll">
           <p className="text-2xl font-semibold text-left pt-5">All notice</p>
           {notices?.data?.map((notice, index) => (
             <div key={index} className="grid text-left py-5">
@@ -40,7 +43,11 @@ const EventNews = () => {
                 Published: {convertDate(notice.date)}
               </p>
               <div className="py-2">
-                <SecondarySmall link="" text="Read More" icon="" />
+                <SecondarySmall
+                  link={`/notice/${notice?._id}`}
+                  text="Read More"
+                  icon=""
+                />
               </div>
             </div>
           ))}
