@@ -46,7 +46,7 @@ const AdmissionRequirement = () => {
         <br />
         <p className="text-xl text-primary-700">+12 345 678 912</p>
         <div className="pt-10">
-          <UnderlinedLInk link="" text="Check tuition fees" icon="" />
+          <UnderlinedLInk link="/tuition-fees" text="Check tuition fees" icon="" />
         </div>
         <div className="pt-10">
           <FilledButton link="/admission/online/general" text="Apply Online" icon="" />

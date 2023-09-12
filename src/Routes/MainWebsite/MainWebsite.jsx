@@ -15,6 +15,7 @@ import LecturerOtherInfo from "../../Pages/MainWebsite/LecturerApplication/Secti
 import LecturerPersonalInfo from "../../Pages/MainWebsite/LecturerApplication/Sections/LecturerPersonalInfo";
 import LecturerPublicationInfo from "../../Pages/MainWebsite/LecturerApplication/Sections/LecturerPublicationInfo";
 import SingleNotice from "../../Pages/MainWebsite/SingleNotice/SingleNotice";
+import TuitionFees from "../../Pages/MainWebsite/TuitionFees/Main/TuitionFees";
 
 const MainWebsite = [
   {
@@ -34,12 +35,20 @@ const MainWebsite = [
         element: <Admission></Admission>,
       },
       {
+        path: "/tuition-fees",
+        element: <TuitionFees />,
+      },
+      {
         path: "/login",
         element: <Login />,
       },
       {
         path: "/notice/:id",
         element: <SingleNotice />,
+      },
+      {
+        path: "/bachelor",
+        // element: 
       },
       {
         path: "/admission/online",
