@@ -10,6 +10,7 @@ import ExamRoutes from "../ExamRoutes/ExamRoutes";
 import ResourceRoutes from "../ResourceRoutes/ResourceRoutes";
 import ControlPanel from "../../Pages/ControlPanel/Main/ControlPanel";
 import AdminRoute from "../PrivateRoutes/AdminRoute";
+import ApplicantRoutes from "../ApplicantRoutes/ApplicantRoutes";
 
 const allRoutes = [
   ...MainWebsite,
@@ -21,6 +22,7 @@ const allRoutes = [
   ...FinantialRoutes,
   ...ExamRoutes,
   ...ResourceRoutes,
+  ...ApplicantRoutes,
   {
     path: "/control-panel",
     element: (
