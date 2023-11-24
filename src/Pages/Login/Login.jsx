@@ -7,6 +7,8 @@ const Login = () => {
   const {logIn, user} = useContext(AuthContext)
   const navigate = useNavigate();
 
+  console.log(user)
+
   
   if (user && (user?.role === "student" || user?.role === "teacher")) {
       navigate(`/${user?.role}/home`);
@@ -27,7 +29,8 @@ const Login = () => {
         const password = form.password.value;
         console.log({email, password})
         logIn(email, password)
-        .then(() => {
+        .then((data) => {
+          console.log(data)
           form.reset();
         })
         .catch((error) => toast.error(error.message))

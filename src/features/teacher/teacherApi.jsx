@@ -11,6 +11,11 @@ export const teacherApi = createApi({
         url: "/teacher",
       }),
     }),
+    getFilteredTeachers: builder.query({
+      query: (teacherQuery, selectedDepartment) => ({
+        url: `/teacher?teacherQuery=pobo&email=pobonsaha001@gmail.com`,
+      }),
+    }),
     postTeacher: builder.mutation({
       query: (data) => ({
         url: "/teacher",
@@ -29,5 +34,6 @@ export const teacherApi = createApi({
 export const {
   useGetTeachersQuery,
   usePostTeacherMutation,
-  useGetTeacherByEmailQuery
+  useGetTeacherByEmailQuery,
+  useGetFilteredTeachersQuery
 } = teacherApi;

@@ -43,6 +43,12 @@ const Menu = () => {
               <p className="font-semibold">All Courses</p>
             </NavLink>
           </li>
+          <li className="">
+            <NavLink to="/course/courseEnroll" className="flex gap-3">
+              <GoBook className="text-2xl" />
+              <p className="font-semibold">Enroll</p>
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className="flex gap-3">

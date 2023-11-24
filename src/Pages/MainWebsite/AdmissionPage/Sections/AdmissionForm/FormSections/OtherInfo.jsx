@@ -3,12 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { setOthersInfo } from "../../../../../../features/application/applicationSlice";
 import { usePostApplicationMutation } from "../../../../../../features/application/applicationApi";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { toast } from "react-hot-toast";
+import { AuthContext } from "../../../../../../Context/UserContext";
+import { usePostUserMutation } from "../../../../../../features/user/userApi";
+import { useSendEmailMutation } from "../../../../../../features/sendEmail/sendEmailApi";
 
 const OtherInfo = () => {
+  const { createUser } = useContext(AuthContext);
+  const [postUser] = usePostUserMutation();
   const [postApplication, { isLoading, isError, error, isSuccess }] =
     usePostApplicationMutation();
+  const [sendEmail] = useSendEmailMutation();
 
   const { general, personal, family, education, others } = useSelector(
     (state) => state.application
@@ -50,7 +56,105 @@ const OtherInfo = () => {
     await dispatch(setOthersInfo(data));
     console.log({ general, personal, family, education, others });
 
-    postApplication({ general, personal, family, education, others });
+    const email = personal.email;
+    const password = "applicant123";
+    const firstName = personal.firstName;
+    const lastName = personal.lastName;
+    const role = "applicant";
+
+    const subject = `Hello! ${firstName} ${lastName}. Your application has been submitted.`;
+    const html = `
+            <head>
+              <script src="https://cdn.tailwindcss.com"></script>
+            </head>
+            <section className="max-w-2xl px-6 py-8 mx-auto bg-white dark:bg-gray-900">
+            <header>
+              <Link
+                to="http://localhost:3000/"
+                className="flex items-center cursor-pointer"
+              >
+                <span className="text-primary-blue cursor-pointer text-4xl font-bold pr-1">
+                  UNI
+                </span>
+                <span className="border-l-2 border-primary-orange pl-1">
+                  <span className="text-accent-blue cursor-pointer font-semibold text-lg leading-none">
+                    VAST
+                  </span>{" "}
+                  <br />
+                  <span className="text-primary-gray cursor-pointer leading-none text-base">
+                    University
+                  </span>
+                </span>
+              </Link>
+            </header>
+
+            <main className="mt-8">
+              <h2 className="text-gray-700 dark:text-gray-200">
+                Hi ${lastName},
+              </h2>
+
+              <p>I hope this message finds you well. We wanted to inform you that your application for admission to [University/Program Name] has been successfully submitted.</p>
+
+              <p>Your application details have been received, and our admissions team will now review your application thoroughly. Please rest assured that we will carefully consider your qualifications and achievements during our selection process.</p>
+
+              <p><strong>Next Steps:</strong></p>
+              <ol>
+                  <li><strong>Application Review:</strong> Our admissions committee will review all applications received, and you will be notified of the outcome via email.</li>
+                  <li><strong>Notification:</strong> You will receive an update regarding your application status within [mention a time frame, e.g., "the next 4-6 weeks"]. We will send all correspondence to this email address (<a href="mailto:[Applicant's Email Address]">[Applicant's Email Address]</a>), so please be sure to check your inbox regularly.</li>
+                  <li><strong>Contact Information:</strong> If you need to reach out to us or have any questions about your application, you can contact our admissions office at <a href="[Admissions Office Contact Information]">[Admissions Office Contact Information]</a>. Our team is here to assist you.</li>
+                  <li><strong>Check Your Spam/Junk Folder:</strong> Occasionally, emails may end up in your spam or junk folder, so be sure to check those folders as well to ensure you don't miss any important updates.</li>
+              </ol>
+
+              <p>We appreciate your interest in [University/Program Name], and we thank you for choosing us as the next step in your educational journey. We look forward to considering your application and potentially welcoming you to our community of scholars.</p>
+
+              <p>In the meantime, if you have any immediate questions or concerns, please don't hesitate to reach out. We are here to assist you throughout the application process.</p>
+
+              <p>Thank you for your application and your interest in [University/Program Name]. We wish you the best of luck with your application and hope to provide you with a positive response soon.</p>
+
+              <p className="mt-2 text-gray-600 dark:text-gray-300">
+                Your online portal Login credentials:
+                <br />
+                Email: ${email}
+                <br />
+                Password: ${password}
+                <br />
+              </p>
+
+              <a href="http://localhost:3000/login" className="px-6 py-2 mt-8 text-sm font-medium tracking-wider text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                Login
+              </a>
+            </main>
+
+            <footer className="mt-8">
+              <p className="text-gray-500 dark:text-gray-400">
+                Best regards, <br/>
+                Univast Univarsity 
+                Email: univast@gmail.com
+                Contact: 0123456798
+              </p>
+            </footer>
+          </section>`;
+
+    const emailData = { email, subject, html };
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+        const userData = {
+          firstName,
+          lastName,
+          role,
+          email,
+          firebaseId: result.user.uid,
+        };
+        console.log(userData);
+        postUser(userData);
+        postApplication({ general, personal, family, education, others });
+        sendEmail(emailData);
+      })
+      .catch((error) => {
+        toast.error(error.message)
+      });
   };
 
   useEffect(() => {

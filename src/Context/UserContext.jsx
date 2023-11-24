@@ -20,9 +20,9 @@ const UserContext = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser?.uid) {
-        console.log(currentUser?.uid);
-        const firebaseId = currentUser?.uid;
+      if (currentUser.uid) {
+        console.log(currentUser.uid);
+        const firebaseId = currentUser.uid;
 
         fetch(`http://localhost:8000/api/v1/users?firebaseId=${firebaseId}`)
           .then((res) => res.json())

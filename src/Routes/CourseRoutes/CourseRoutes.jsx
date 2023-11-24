@@ -2,6 +2,7 @@ import CourseDashboard from "../../Layouts/CourseDashboard";
 import AllCourses from "../../Pages/CoursePortal/AllCourses/AllCourses";
 import CourseCreate from "../../Pages/CoursePortal/CourseCreate/Main/CourseCreate";
 import CourseEnroll from "../../Pages/CoursePortal/CourseEnroll/Main/CourseEnroll";
+import TeacherInfo from "../../Pages/CoursePortal/CourseEnroll/Main/TeacherInfo";
 import CourseHome from "../../Pages/CoursePortal/CourseHome/Main/CourseHome";
 import CourseOutlines from "../../Pages/CoursePortal/CourseOutlines/Main/CourseOutlines";
 import CourseSheduling from "../../Pages/CoursePortal/CourseSheduling/Main/CourseSheduling";
@@ -30,6 +31,10 @@ const CourseRoutes = [
       {
         path: "/course/courseEnroll",
         element: <CourseEnroll />,
+      },
+      {
+        path: "/course/courseEnroll/:id",
+        element: <TeacherInfo />,
       },
       {
         path: "/course/courseSheduling",
