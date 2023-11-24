@@ -12,8 +12,8 @@ export const teacherApi = createApi({
       }),
     }),
     getFilteredTeachers: builder.query({
-      query: (teacherQuery, selectedDepartment) => ({
-        url: `/teacher?teacherQuery=pobo&email=pobonsaha001@gmail.com`,
+      query: ({teacherQuery, selectedDepartment}) => ({
+        url: `/teacher?teacherQuery=${teacherQuery}&department=${selectedDepartment}`,
       }),
     }),
     postTeacher: builder.mutation({
