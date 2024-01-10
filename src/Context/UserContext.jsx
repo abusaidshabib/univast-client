@@ -21,13 +21,13 @@ const UserContext = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser.uid) {
-        console.log(currentUser.uid);
+        // console.log(currentUser.uid);
         const firebaseId = currentUser.uid;
 
         fetch(`http://localhost:8000/api/v1/users?firebaseId=${firebaseId}`)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data.data.user.role);
+            // console.log(data.data.user.role);
             setUser(data.data.user);
             setLoading(false);
           })
@@ -42,7 +42,7 @@ const UserContext = ({ children }) => {
   }, []);
 
 
-  console.log(user);
+  // console.log(user);
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };

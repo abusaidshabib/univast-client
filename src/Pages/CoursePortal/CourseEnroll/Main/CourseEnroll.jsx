@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const CourseEnroll = () => {
   let { data: departments } = useGetDepartmentsQuery();
-  const [selectedDepartment, setSelectedDepartment] = useState();
+  const [selectedDepartment, setSelectedDepartment] = useState("");
   const [teacherQuery, setTeacherQuery] = useState("");
   const { data: teachers, refetch } = useGetFilteredTeachersQuery({
     teacherQuery,

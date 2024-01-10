@@ -24,7 +24,12 @@ export const teacherApi = createApi({
     }),
     getTeacherByEmail: builder.query({
       query: (email) => ({
-        url: `/teacher?email=${email}`,
+        url: `/teacher?teacherQuery=${email}`,
+      }),
+    }),
+    getTeacherById: builder.query({
+      query: (id) => ({
+        url: `/teacher?teacherQuery=${id}`,
       }),
     }),
   }),
@@ -35,4 +40,5 @@ export const {
   usePostTeacherMutation,
   useGetTeacherByEmailQuery,
   useGetFilteredTeachersQuery,
+  useGetTeacherByIdQuery
 } = teacherApi;

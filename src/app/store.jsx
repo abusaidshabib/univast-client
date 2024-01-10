@@ -12,6 +12,7 @@ import { departmentApi } from "../features/department/department";
 import { courseApi } from "../features/course/courseApi";
 import { noticeApi } from "../features/notice/noticeApi";
 import { sendEmailApi } from "../features/sendEmail/sendEmailApi";
+import { semesterApi } from "../features/semester/semesterApi";
 
 const store = configureStore({
   reducer: {
@@ -25,7 +26,8 @@ const store = configureStore({
     [departmentApi.reducerPath]: departmentApi.reducer,
     [courseApi.reducerPath]: courseApi.reducer,
     [noticeApi.reducerPath]: noticeApi.reducer,
-    [sendEmailApi.reducerPath]: noticeApi.reducer,
+    [sendEmailApi.reducerPath]: sendEmailApi.reducer,
+    [semesterApi.reducerPath]: semesterApi.reducer,
     application: applicationSlice,
     lecturerApplication: lecturerApplicationSlice,
   },
@@ -41,7 +43,8 @@ const store = configureStore({
       .concat(departmentApi.middleware)
       .concat(courseApi.middleware)
       .concat(noticeApi.middleware)
-      .concat(sendEmailApi.middleware),
+      .concat(sendEmailApi.middleware)
+      .concat(semesterApi.middleware),
 });
 
 export default store;
