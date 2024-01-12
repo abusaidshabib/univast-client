@@ -39,7 +39,24 @@ export const courseApi = createApi({
       }),
       invalidatesTags: ["course"],
     }),
+
+    teacherEnrollCourse: builder.mutation({
+      query: (data) => ({
+        url: `course/coursetake`,
+        method: "POST",
+        body: data,
+      }),
+    }),
+
+    teacherEnrollCourseDelete: builder.mutation({
+      query: (data) => ({
+        url: `course/coursetake`,
+        method: "DELETE",
+        body: data,
+      }),
+    }),
+
   }),
 });
 
-export const {useGetCoursesQuery, usePostCourseMutation, useDeleteCourseMutation, useGetFilteredCoursesQuery} = courseApi
+export const {useGetCoursesQuery, usePostCourseMutation, useDeleteCourseMutation, useGetFilteredCoursesQuery, useTeacherEnrollCourseMutation, useTeacherEnrollCourseDeleteMutation} = courseApi

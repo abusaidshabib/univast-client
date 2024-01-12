@@ -6,10 +6,9 @@ import { convertDate } from "../../../../../utils/ConvertDate";
 
 const TPersonalInfo = () => {
   const { user } = useContext(AuthContext);
-  const { data, isSuccess } = useGetTeacherByEmailQuery(user?.email);
+  const { data } = useGetTeacherByEmailQuery(user?.email);
 
-  if (isSuccess) {
-    const teacherData = data?.data;
+  const teacherData = data?.data[0]
 
     // eslint-disable-next-line no-unsafe-optional-chaining
     const {
@@ -122,7 +121,7 @@ const TPersonalInfo = () => {
         </div>
       </div>
     );
-  }
+  
 };
 
 export default TPersonalInfo;

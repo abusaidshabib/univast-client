@@ -12,7 +12,7 @@ const Menu = () => {
   const { logOut } = useContext(AuthContext);
 
   return (
-    <div className="bg-white px-10 grid justify-center gap-20 text-gray-900 h-screen sticky left-0 top-0">
+    <div className="bg-white px-10 flex flex-col justify-between text-gray-900 h-screen sticky left-0 top-0">
       <div className="p-5">
         <Link to="/" className="flex items-center cursor-pointer">
           <span className="text-primary-blue cursor-pointer text-4xl font-bold pr-1">
@@ -38,10 +38,7 @@ const Menu = () => {
             </NavLink>
           </li>
           <li className="">
-            <NavLink
-              to="/teacher/profile/personal"
-              className="flex gap-3"
-            >
+            <NavLink to="/teacher/profile/personal" className="flex gap-3">
               <BiUser className="text-2xl" />
               <p className="font-semibold">Profile</p>
             </NavLink>
@@ -66,9 +63,12 @@ const Menu = () => {
           </li>
         </ul>
       </div>
-      <div className="flex items-center gap-3">
+      <div
+        onClick={logOut}
+        className="flex items-center gap-3 mb-10 cursor-pointer hover:text-red-500"
+      >
         <AiOutlineLogout className="text-2xl" />
-        <button onClick={logOut}>Sign out</button>
+        <button>Sign out</button>
       </div>
     </div>
   );

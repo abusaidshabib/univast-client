@@ -6,11 +6,16 @@ import TeacherInfo from "../../Pages/CoursePortal/CourseEnroll/Main/TeacherInfo"
 import CourseHome from "../../Pages/CoursePortal/CourseHome/Main/CourseHome";
 import CourseOutlines from "../../Pages/CoursePortal/CourseOutlines/Main/CourseOutlines";
 import CourseSheduling from "../../Pages/CoursePortal/CourseSheduling/Main/CourseSheduling";
+import AdminRoute from "../PrivateRoutes/AdminRoute";
 
 const CourseRoutes = [
   {
     path: "/course",
-    element: <CourseDashboard />,
+    element: (
+      <AdminRoute>
+        <CourseDashboard />
+      </AdminRoute>
+    ),
     children: [
       {
         path: "/course",

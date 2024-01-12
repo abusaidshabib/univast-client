@@ -4,10 +4,9 @@ import { useGetTeacherByEmailQuery } from "../../../../../features/teacher/teach
 
 const TAddressInfo = () => {
   const { user } = useContext(AuthContext);
-  const { data, isSuccess } = useGetTeacherByEmailQuery(user?.email);
+  const { data } = useGetTeacherByEmailQuery(user?.email);
 
-  if (isSuccess) {
-    const teacherData = data?.data;
+  const teacherData = data?.data[0];
     // console.log(teacherData);
 
     // eslint-disable-next-line no-unsafe-optional-chaining
@@ -119,7 +118,7 @@ const TAddressInfo = () => {
         </table>
       </div>
     );
-  }
+  
 };
 
 export default TAddressInfo;

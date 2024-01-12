@@ -20,7 +20,7 @@ const UserContext = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser.uid) {
+      if (currentUser?.uid) {
         // console.log(currentUser.uid);
         const firebaseId = currentUser.uid;
 
