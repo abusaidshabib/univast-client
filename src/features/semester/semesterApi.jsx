@@ -14,6 +14,4 @@ export const semesterApi = createApi({
   }),
 });
 
-export const {
-    useGetSemestersQuery
-} = semesterApi;
+export const { useGetSemestersQuery } = semesterApi;

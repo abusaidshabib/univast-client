@@ -120,7 +120,7 @@ const RegisteredCourses = () => {
                       <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                         <Link
                           className="bg-primary-blue rounded-md hover:bg-gray-600 text-primary-white px-2 py-1"
-                          to="details/outline"
+                          to={`${course.courseCode}/outline`}
                         >
                           Details
                         </Link>

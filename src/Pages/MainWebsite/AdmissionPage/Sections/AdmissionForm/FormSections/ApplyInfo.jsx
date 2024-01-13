@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useGetProgramsByTypeQuery, useGetProgramsQuery } from "../../../../../../features/programs/programApi";
+import {
+  useGetProgramsByTypeQuery,
+  useGetProgramsQuery,
+} from "../../../../../../features/programs/programApi";
 import { useState } from "react";
 import { setGeneralInfo } from "../../../../../../features/application/applicationSlice";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +16,7 @@ const ApplyInfo = () => {
     programCode,
     education_shift,
   } = useSelector((state) => state.application.general);
-  
+
   const [selectedProgramType, setSelectedProgramType] = useState(program_type);
   const [selectedProgram, setSelectedProgram] = useState(programCode);
 
@@ -29,16 +32,17 @@ const ApplyInfo = () => {
   let programs = useGetProgramsByTypeQuery(selectedProgramType);
   programs = programs?.data?.data;
 
-  const handleSubmit =(e) =>{
-    e.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const form = e.target;
-    console.log(form)
+    console.log(form);
 
     const applicant_type = form.applicant_type.value;
     const program_type = form.program_type.value;
     const last_complete_degree_type = form.last_complete_degree_type.value;
     const programCode = form.programCode.value;
     const education_shift = form.education_shift.value;
+    const admission_semester = form.semester.value;
 
     const data = {
       applicant_type,
@@ -46,11 +50,12 @@ const ApplyInfo = () => {
       last_complete_degree_type,
       programCode,
       education_shift,
+      admission_semester,
     };
 
     dispatch(setGeneralInfo(data));
     navigate("/admission/online/personal");
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="font-sans">
@@ -73,7 +78,9 @@ const ApplyInfo = () => {
             defaultValue={applicant_type}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
-            <option value="" className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">
+              Select Type...
+            </option>
             <option
               className="text-primary-white"
               value="Local student (Bangladeshi)"
@@ -107,7 +114,9 @@ const ApplyInfo = () => {
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5
             text-xl rounded-md"
           >
-            <option value="" className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">
+              Select Type...
+            </option>
             {programTypes?.map((p, index) => (
               <option key={index} className="text-primary-white" value={p}>
                 {p}
@@ -132,7 +141,9 @@ const ApplyInfo = () => {
             defaultValue={last_complete_degree_type}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
-            <option value="" className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">
+              Select Type...
+            </option>
             <option className="text-primary-white" value="HSC/Alim">
               HSC/Alim
             </option>
@@ -174,7 +185,9 @@ const ApplyInfo = () => {
             onChange={(e) => setSelectedProgram(e.target.value)}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
-            <option value="" className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">
+              Select Type...
+            </option>
             {programs?.map((program) => (
               <option
                 key={program._id}
@@ -203,7 +216,9 @@ const ApplyInfo = () => {
             defaultValue={education_shift}
             className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
           >
-            <option value="" className="text-primary-white">Select Type...</option>
+            <option value="" className="text-primary-white">
+              Select Type...
+            </option>
             {programs
               ?.find((program) => program.programCode === selectedProgram)
               ?.shifts?.map((shift, index) => (
@@ -215,6 +230,37 @@ const ApplyInfo = () => {
                   {shift}
                 </option>
               ))}
+          </select>{" "}
+          <br />
+          {/* {errors.education_shift && (
+            <p className="text-red-500 mt-2">This field is required</p>
+          )} */}
+        </div>
+        <div>
+          <label className="text-primary-white text-2xl leading-loose">
+            Semester
+            <span className="text-red-500 pl-2">*</span>
+          </label>
+          <br />
+          <select
+            name="semester"
+            id="semester"
+            required
+            className="w-full bg-tertiary-blue text-primary-white py-5 px-5 text-xl rounded-md"
+          >
+            <option value="" className="text-primary-white">
+              Select Semester
+            </option>
+
+            <option className="text-primary-white" value="Spring-2024">
+              Spring-2024
+            </option>
+            <option className="text-primary-white" value="Fall-2024">
+              Fall-2024
+            </option>
+            <option className="text-primary-white" value="Summer-2024">
+              Summer-2024
+            </option>
           </select>{" "}
           <br />
           {/* {errors.education_shift && (

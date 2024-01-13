@@ -70,3 +70,15 @@ export const uploadFileToFirebase = async (file) => {
     throw new Error("Error uploading file: " + error.message);
   }
 };
+
+export const uploadCourseAsstesToFirebase = async (file, fileName) => {
+  try {
+    const storageRef = ref(storage, `course_assets/${fileName}_${file.name}`);
+    await uploadBytes(storageRef, file);
+
+    const downloadURL = await getDownloadURL(storageRef);
+    return downloadURL;
+  } catch (error) {
+    throw new Error("Error uploading file: " + error.message);
+  }
+};

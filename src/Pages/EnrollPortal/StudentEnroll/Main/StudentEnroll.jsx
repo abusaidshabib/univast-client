@@ -12,12 +12,14 @@ import { toast } from "react-hot-toast";
 import { usePostUserMutation } from "../../../../features/user/userApi";
 import { AuthContext } from "../../../../Context/UserContext";
 import { useSendEmailMutation } from "../../../../features/sendEmail/sendEmailApi";
+import { useStudentEnrollCourseMutation } from "../../../../features/course/courseApi";
 
 const StudentEnroll = () => {
   const { createUser } = useContext(AuthContext);
   const { data } = useGetApplicationsQuery();
   const [postStudent, { isLoading, isError, error, isSuccess }] =
     usePostStudentMutation();
+  const [enrollCourse] = useStudentEnrollCourseMutation();
   const [deleteApplication] = useDeleteApplicationMutation();
   const [postUser] = usePostUserMutation();
   const applications = data?.data;
@@ -25,7 +27,7 @@ const StudentEnroll = () => {
 
   const [sendEmail] = useSendEmailMutation();
 
-  const handleApprove = async (data) => {
+  const handleApprove = async (data, semester, firebaseId) => {
     const studentData = {
       programCode: data.general.programCode,
       general: data.general,
@@ -40,6 +42,8 @@ const StudentEnroll = () => {
       const data = await postStudent(studentData);
       console.log(data);
       if (data?.data?.status) {
+        const studentId = await data?.data?.data?.studentId.toString();
+        await enrollCourse({semester, studentId});
         const email = data?.data?.data?.personal.email;
         const password = "student123";
         const firstName = data?.data?.data?.personal.firstName;
@@ -110,26 +114,27 @@ const StudentEnroll = () => {
           </section>`;
 
         const emailData = { email, subject, html };
+        const userData = {
+          firstName,
+          lastName,
+          role,
+          email,
+          firebaseId,
+        };
+        console.log(userData);
+        await postUser(userData);
+        await deleteApplication(email);
+        await sendEmail(emailData);
 
-        createUser(email, password)
-          .then((result) => {
-            console.log(result);
-            const userData = {
-              firstName,
-              lastName,
-              role,
-              email,
-              firebaseId: result.user.uid,
-            };
-            console.log(userData);
-            postUser(userData);
-            deleteApplication(email);
-            sendEmail(emailData)
-          })
-          .catch((error) => console.log(error));
+        // createUser(email, password)
+        //   .then((result) => {
+        //     console.log(result);
+        //   })
+        //   .catch((error) => console.log(error));
       }
     }
   };
+
 
   useEffect(() => {
     if (isLoading) {
@@ -273,7 +278,13 @@ const StudentEnroll = () => {
                               <AiOutlineEye />
                             </Link>
                             <button
-                              onClick={() => handleApprove(app)}
+                              onClick={() =>
+                                handleApprove(
+                                  app,
+                                  app.general.admission_semester,
+                                  app?.firebaseId
+                                )
+                              }
                               className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl"
                             >
                               <IoMdCheckmark />
