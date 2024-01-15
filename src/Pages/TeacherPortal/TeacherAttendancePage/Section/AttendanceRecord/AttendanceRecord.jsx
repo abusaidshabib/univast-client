@@ -1,36 +1,33 @@
-import { DatePicker } from "@tremor/react";
-import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import {
-  useGetAttendanceDateWiseQuery,
-  usePostAttendanceMutation,
-} from "../../../../../features/teacher/teacherApi";
-import moment from "moment/moment";
+import { useGetAttendanceRecordByMonthQuery } from "../../../../../features/teacher/teacherApi";
+import { MonthPicker, MonthInput } from "react-lite-month-picker";
+import { useState } from "react";
+import moment from "moment";
 
-const TakeAttendance = () => {
+const AttendanceRecord = () => {
   const { semester, courseCode, courseTitle } = useParams();
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const { data: attendaceData } = useGetAttendanceDateWiseQuery({
-    courseCode,
-    semester,
-    date: moment(selectedDate).format("YYYY-MM-DD"),
+  const [selectedMonthData, setSelectedMonthData] = useState({
+    month: 1,
+    year: 2024,
   });
 
-  const [postAttendance] = usePostAttendanceMutation();
+  const { data: attendaceData } = useGetAttendanceRecordByMonthQuery({
+    semester,
+    courseCode,
+    month: `${selectedMonthData.month}-${selectedMonthData.year}`,
+  });
 
-  console.log(selectedDate, attendaceData);
+  const uniqueDates = [
+    ...new Set(attendaceData?.data?.map((item) => item.date)),
+  ];
+
+  console.log(attendaceData);
+  const [isPickerOpen, setIsPickerOpen] = useState(false);
   return (
     <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5">
       <div className="bg-white p-10 rounded-lg">
         <div className="flex justify-between mb-10">
           <p className="text-4xl font-semibold">Take Attendance</p>
-          <div className="w-72">
-            <DatePicker
-              onValueChange={setSelectedDate}
-              value={selectedDate}
-              className="max-w-sm mx-auto"
-            />
-          </div>
           <div className="text-right">
             <p className="text-lg">{courseTitle}</p>
             <p className="text">Course Code: {courseCode}</p>
@@ -42,20 +39,6 @@ const TakeAttendance = () => {
           <div>
             <p>Total Students: {attendaceData?.data?.length}</p>
             <p>
-              Total Present Today:{" "}
-              {
-                attendaceData?.data?.filter((item) => item.status === true)
-                  .length
-              }
-            </p>
-            <p>
-              Total Absent:{" "}
-              {
-                attendaceData?.data?.filter((item) => item.status === false)
-                  .length
-              }
-            </p>
-            <p>
               Attendace Percentage:{" "}
               {(attendaceData?.data?.filter((item) => item.status === true)
                 .length *
@@ -65,12 +48,22 @@ const TakeAttendance = () => {
             </p>
           </div>
 
-          <Link
-            className="bg-primary-blue rounded-md hover:bg-gray-600 text-primary-white px-3 py-2"
-            to={`/teacher/attendance/record/${semester}/${courseCode}/${courseTitle}`}
-          >
-            Check Record
-          </Link>
+          <div className="">
+            <MonthInput
+              selected={selectedMonthData}
+              setShowMonthPicker={setIsPickerOpen}
+              showMonthPicker={isPickerOpen}
+              size="small"
+            />
+            {isPickerOpen ? (
+              <MonthPicker
+                setIsOpen={setIsPickerOpen}
+                selected={selectedMonthData}
+                onChange={setSelectedMonthData}
+                size="small"
+              />
+            ) : null}
+          </div>
         </div>
 
         <div className="flex flex-col mt-6">
@@ -107,12 +100,15 @@ const TakeAttendance = () => {
                         Student Name
                       </th>
 
-                      <th
-                        scope="col"
-                        className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                      >
-                        Attendance
-                      </th>
+                      {uniqueDates?.map((item, i) => (
+                        <th
+                          scope="col"
+                          className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"
+                          key={i}
+                        >
+                          {moment(item).format("DD")}
+                        </th>
+                      ))}
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
@@ -132,19 +128,19 @@ const TakeAttendance = () => {
                           {item.studentId}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {item.student_name}
+                          {item.student}
                         </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap text-center">
                           <span
-                            onClick={() => {
-                              const data = {
-                                semester,
-                                studentId: item.studentId,
-                                courseCode,
-                                date: moment(selectedDate).format("YYYY-MM-DD"),
-                              };
-                              postAttendance(data);
-                            }}
+                            // onClick={() => {
+                            //   const data = {
+                            //     semester,
+                            //     studentId: item.studentId,
+                            //     courseCode,
+                            //     date: moment(selectedDate).format("YYYY-MM-DD"),
+                            //   };
+                            //   postAttendance(data);
+                            // }}
                             className={`px-3 py-1 rounded-full cursor-pointer ${
                               item.status
                                 ? "bg-green-500 text-white"
@@ -167,4 +163,6 @@ const TakeAttendance = () => {
   );
 };
 
-export default TakeAttendance;
+//localhost:8000/api/v1/student-attendance/month?courseCode=CSE-1101&semester=Spring-2024&date=01-2024
+
+export default AttendanceRecord;

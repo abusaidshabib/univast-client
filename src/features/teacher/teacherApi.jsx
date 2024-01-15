@@ -61,6 +61,12 @@ export const teacherApi = createApi({
       }),
       invalidatesTags: ["attendace"],
     }),
+    getAttendanceRecordByMonth: builder.query({
+      query: ({ semester, courseCode, month }) => ({
+        url: `/student-attendance/month?courseCode=${courseCode}&semester=${semester}&date=${month}`,
+      }),
+      invalidatesTags: ["attendace"],
+    }),
   }),
 });
 
@@ -74,4 +80,5 @@ export const {
   useGetCourseContentQuery,
   useGetAttendanceDateWiseQuery,
   usePostAttendanceMutation,
+  useGetAttendanceRecordByMonthQuery,
 } = teacherApi;

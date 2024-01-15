@@ -1,5 +1,6 @@
 import TeacherDashboard from "../../Layouts/TeacherDashboard";
 import TAttendance from "../../Pages/TeacherPortal/TeacherAttendancePage/Main/TAttendance";
+import AttendanceRecord from "../../Pages/TeacherPortal/TeacherAttendancePage/Section/AttendanceRecord/AttendanceRecord";
 import TakeAttendance from "../../Pages/TeacherPortal/TeacherAttendancePage/Section/TakeAttendance/TakeAttendance";
 import TCourse from "../../Pages/TeacherPortal/TeacherCoursePage/Main/TCourse";
 import TCourseDetails from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Main/TCourseDetails";
@@ -96,6 +97,10 @@ const TeacherRoutes = [
       {
         path: "/teacher/attendance/:semester/:courseCode/:courseTitle",
         element: <TakeAttendance></TakeAttendance>,
+      },
+      {
+        path: "/teacher/attendance/record/:semester/:courseCode/:courseTitle",
+        element: <AttendanceRecord></AttendanceRecord>,
       },
       {
         path: "/teacher/finance",

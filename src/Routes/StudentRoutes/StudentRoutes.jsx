@@ -86,7 +86,7 @@ const StudentRoutes = [
         element: <SAttendance></SAttendance>,
       },
       {
-        path: "/student/attendance/singlePage",
+        path: "/student/attendance/:semester/:courseCode/:courseName",
         element: <AttendSinglePage></AttendSinglePage>,
       },
       {
