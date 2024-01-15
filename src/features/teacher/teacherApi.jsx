@@ -5,7 +5,7 @@ export const teacherApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:8000/api/v1",
   }),
-  tagTypes: ["courseContent"],
+  tagTypes: ["courseContent", "attendace"],
   endpoints: (builder) => ({
     getTeachers: builder.query({
       query: () => ({
@@ -47,6 +47,20 @@ export const teacherApi = createApi({
       }),
       providesTags: ["courseContent"],
     }),
+    getAttendanceDateWise: builder.query({
+      query: ({ semester, courseCode, date }) => ({
+        url: `/student-attendance?courseCode=${courseCode}&semester=${semester}&date=${date}`,
+      }),
+      providesTags: ["attendace"],
+    }),
+    postAttendance: builder.mutation({
+      query: (data) => ({
+        url: "/student-attendance",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["attendace"],
+    }),
   }),
 });
 
@@ -57,5 +71,7 @@ export const {
   useGetFilteredTeachersQuery,
   useGetTeacherByIdQuery,
   useUploadCourseContentMutation,
-  useGetCourseContentQuery
+  useGetCourseContentQuery,
+  useGetAttendanceDateWiseQuery,
+  usePostAttendanceMutation,
 } = teacherApi;
