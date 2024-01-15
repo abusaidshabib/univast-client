@@ -67,11 +67,11 @@ const SAdmitCard = () => {
           </div>
         </div>
         <p className="py-5"></p>
-        <table className="min-w-full border-collapse border border-slate-400 w-full text-lg bg-p-white">
+        <table className="min-w-full text-center border-collapse border border-slate-400 w-full text-lg bg-p-white">
           <thead>
             <tr>
-              <th className="border border-gray-400 p-2 ">Subject</th>
               <th className="border border-gray-400 p-2 ">Course Code</th>
+              <th className="border border-gray-400 p-2 ">Subject</th>
               <th className="border border-gray-400 p-2 ">Time</th>
               <th className="border border-gray-400 p-2 ">Examination Date</th>
               <th className="border border-gray-400 p-2 ">Checked By</th>
@@ -81,23 +81,23 @@ const SAdmitCard = () => {
             <tr>
               <td className="border border-gray-400 p-2 ">CSE-4201</td>
               <td className="border border-gray-400 p-2 ">English</td>
-              <td className="border border-gray-400 p-2 ">50</td>
-              <td className="border border-gray-400 p-2">Ketu</td>
-              <td className="border border-gray-400 p-2">Boroloker A+</td>
+              <td className="border border-gray-400 p-2 ">3 PM</td>
+              <td className="border border-gray-400 p-2">2 January 2024</td>
+              <td className="border border-gray-400 p-2"></td>
             </tr>
             <tr>
               <td className="border border-gray-400 p-2 ">CSE-4201</td>
-              <td className="border border-gray-400 p-2 ">English</td>
-              <td className="border border-gray-400 p-2 ">50</td>
-              <td className="border border-gray-400 p-2">kito</td>
-              <td className="border border-gray-400 p-2">Goriber A+</td>
+              <td className="border border-gray-400 p-2 ">Math</td>
+              <td className="border border-gray-400 p-2 ">3 PM</td>
+              <td className="border border-gray-400 p-2">4 January 2024</td>
+              <td className="border border-gray-400 p-2"></td>
             </tr>
             <tr>
               <td className="border border-gray-400 p-2 ">CSE-4201</td>
-              <td className="border border-gray-400 p-2 ">English</td>
-              <td className="border border-gray-400 p-2 ">50</td>
-              <td className="border border-gray-400 p-2">kandu</td>
-              <td className="border border-gray-400 p-2">Moddhobitter A+</td>
+              <td className="border border-gray-400 p-2 ">DSA & Algorithm</td>
+              <td className="border border-gray-400 p-2 ">1 AM</td>
+              <td className="border border-gray-400 p-2">5 January 2024</td>
+              <td className="border border-gray-400 p-2"></td>
             </tr>
           </tbody>
         </table>
