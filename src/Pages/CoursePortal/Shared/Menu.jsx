@@ -3,10 +3,13 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
 import { GoBook } from "react-icons/go";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/UserContext";
 
 const Menu = () => {
+  const { logOut } = useContext(AuthContext);
   return (
-    <div className="bg-white px-10 grid justify-center gap-20 text-gray-900 h-screen sticky left-0 top-0 font-sans">
+    <div className="bg-white px-10 flex flex-col justify-between text-gray-900 h-screen sticky left-0 top-0 font-sans">
       <div className="py-5">
         <Link to="/" className="flex items-center cursor-pointer">
           <span className="text-primary-blue cursor-pointer text-4xl font-bold pr-1">
@@ -51,7 +54,7 @@ const Menu = () => {
           </li>
         </ul>
       </div>
-      <div className="flex gap-3">
+      <div onClick={logOut} className="flex gap-3 mb-10 cursor-pointer hover:text-red-500">
         <AiOutlineLogout className="text-2xl" />
         <p>Sign out</p>
       </div>

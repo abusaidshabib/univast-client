@@ -7,13 +7,13 @@ const Login = () => {
   const {logIn, user} = useContext(AuthContext)
   const navigate = useNavigate();
 
-  console.log(user)
+  let bearerole = user?.role;
 
   
-  if (user && (user?.role === "student" || user?.role === "teacher")) {
-      navigate(`/${user?.role}/home`);
+  if (user && (bearerole === "student" || bearerole === "teacher")) {
+      navigate(`/${bearerole}/home`);
   }
-  else if (user && user?.role === "admin") {
+  else if (user && bearerole === "admin") {
       navigate('/control-panel');
   }
   else{

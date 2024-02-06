@@ -1,5 +1,7 @@
 import TeacherDashboard from "../../Layouts/TeacherDashboard";
 import TAttendance from "../../Pages/TeacherPortal/TeacherAttendancePage/Main/TAttendance";
+import AttendanceRecord from "../../Pages/TeacherPortal/TeacherAttendancePage/Section/AttendanceRecord/AttendanceRecord";
+import TakeAttendance from "../../Pages/TeacherPortal/TeacherAttendancePage/Section/TakeAttendance/TakeAttendance";
 import TCourse from "../../Pages/TeacherPortal/TeacherCoursePage/Main/TCourse";
 import TCourseDetails from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Main/TCourseDetails";
 import TCourseClasswork from "../../Pages/TeacherPortal/TeacherCoursePage/TCourseDetailsPage/Sections/TCourseClasswork";
@@ -59,31 +61,31 @@ const TeacherRoutes = [
         element: <TCourse></TCourse>,
       },
       {
-        path: "/teacher/courses/details",
+        path: "/teacher/courses/:courseCode",
         element: <TCourseDetails></TCourseDetails>,
         children: [
           {
-            path: "/teacher/courses/details",
+            path: "/teacher/courses/:courseCode",
             element: <TCourseOutline></TCourseOutline>,
           },
           {
-            path: "/teacher/courses/details/outline",
+            path: "/teacher/courses/:courseCode/outline",
             element: <TCourseOutline></TCourseOutline>,
           },
           {
-            path: "/teacher/courses/details/lectures",
+            path: "/teacher/courses/:courseCode/lectures",
             element: <TCourseLectures></TCourseLectures>,
           },
           {
-            path: "/teacher/courses/details/classwork",
+            path: "/teacher/courses/:courseCode/classwork",
             element: <TCourseClasswork></TCourseClasswork>,
           },
           {
-            path: "/teacher/courses/details/results",
+            path: "/teacher/courses/:courseCode/results",
             element: <TCourseResults></TCourseResults>,
           },
           {
-            path: "/teacher/courses/details/notice",
+            path: "/teacher/courses/:courseCode/notice",
             element: <TCourseNotice></TCourseNotice>,
           },
         ],
@@ -91,6 +93,14 @@ const TeacherRoutes = [
       {
         path: "/teacher/attendance",
         element: <TAttendance></TAttendance>,
+      },
+      {
+        path: "/teacher/attendance/:semester/:courseCode/:courseTitle",
+        element: <TakeAttendance></TakeAttendance>,
+      },
+      {
+        path: "/teacher/attendance/record/:semester/:courseCode/:courseTitle",
+        element: <AttendanceRecord></AttendanceRecord>,
       },
       {
         path: "/teacher/finance",

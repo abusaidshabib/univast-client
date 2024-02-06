@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
-
 export const courseApi = createApi({
   reducerPath: "courseApi",
   baseQuery: fetchBaseQuery({
@@ -39,7 +38,39 @@ export const courseApi = createApi({
       }),
       invalidatesTags: ["course"],
     }),
+
+    studentEnrollCourse: builder.mutation({
+      query: (data) => ({
+        url: `course-enroll/student`,
+        method: "POST",
+        body: data,
+      }),
+    }),
+
+    teacherEnrollCourse: builder.mutation({
+      query: (data) => ({
+        url: `course/coursetake`,
+        method: "POST",
+        body: data,
+      }),
+    }),
+
+    teacherEnrollCourseDelete: builder.mutation({
+      query: (data) => ({
+        url: `course/coursetake`,
+        method: "DELETE",
+        body: data,
+      }),
+    }),
   }),
 });
 
-export const {useGetCoursesQuery, usePostCourseMutation, useDeleteCourseMutation, useGetFilteredCoursesQuery} = courseApi
+export const {
+  useGetCoursesQuery,
+  usePostCourseMutation,
+  useDeleteCourseMutation,
+  useGetFilteredCoursesQuery,
+  useStudentEnrollCourseMutation,
+  useTeacherEnrollCourseMutation,
+  useTeacherEnrollCourseDeleteMutation,
+} = courseApi;

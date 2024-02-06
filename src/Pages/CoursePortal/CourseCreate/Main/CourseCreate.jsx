@@ -14,6 +14,8 @@ const CourseCreate = () => {
   console.log(selectedDepartment)
   let { data: programs } = useGetProgramsByDepartmentCodeQuery(selectedDepartment)
 
+  const semesters = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"]
+
   const [postCourse, {isLoading, isError, error, isSuccess}] = usePostCourseMutation();
 
 
@@ -27,6 +29,7 @@ const CourseCreate = () => {
     const courseName = form.courseName.value;
     const courseCode = form.courseCode.value;
     const credit = form.credit.value;
+    const semester = form.semester.value;
 
     const data = {
         facultyCode,
@@ -34,7 +37,8 @@ const CourseCreate = () => {
         programCode,
         courseName,
         courseCode,
-        credit
+        credit,
+        semester
     }
 
     console.log(data)
@@ -127,10 +131,7 @@ const CourseCreate = () => {
               >
                 <option value="">Select Program</option>
                 {programs?.data?.map((program) => (
-                  <option
-                    key={program._id}
-                    value={program.programCode}
-                  >
+                  <option key={program._id} value={program.programCode}>
                     {program.programName}
                   </option>
                 ))}
@@ -184,10 +185,36 @@ const CourseCreate = () => {
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
             </div>
+
+            <div>
+              <label
+                className="text-gray-700 dark:text-gray-200"
+                htmlFor="semester"
+              >
+                Semster
+              </label>
+              <select
+                name="semester"
+                id="semester"
+                required
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+              >
+                <option value="">Select Semester</option>
+                {semesters?.map((semester, i) => (
+                  <option key={semester} value={i + 1}>
+                    {semester} Semester
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
           <div className="flex justify-end mt-6">
-            <button disabled={isLoading} type="submit" className="px-8 py-2.5 leading-5 text-primary-white transition-colors duration-300 transform bg-primary-blue rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+            <button
+              disabled={isLoading}
+              type="submit"
+              className="px-8 py-2.5 leading-5 text-primary-white transition-colors duration-300 transform bg-primary-blue rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+            >
               Submit
             </button>
           </div>

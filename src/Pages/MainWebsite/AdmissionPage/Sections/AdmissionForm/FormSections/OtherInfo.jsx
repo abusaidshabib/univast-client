@@ -60,7 +60,6 @@ const OtherInfo = () => {
     const password = "applicant123";
     const firstName = personal.firstName;
     const lastName = personal.lastName;
-    const role = "applicant";
 
     const subject = `Hello! ${firstName} ${lastName}. Your application has been submitted.`;
     const html = `
@@ -140,16 +139,14 @@ const OtherInfo = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result);
-        const userData = {
-          firstName,
-          lastName,
-          role,
-          email,
+        postApplication({
+          general,
+          personal,
+          family,
+          education,
+          others,
           firebaseId: result.user.uid,
-        };
-        console.log(userData);
-        postUser(userData);
-        postApplication({ general, personal, family, education, others });
+        });
         sendEmail(emailData);
       })
       .catch((error) => {

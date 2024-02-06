@@ -7,6 +7,7 @@ const initialState = {
     last_complete_degree_type: "",
     programCode: "",
     education_shift: "",
+    admission_semester: "",
   },
 
   personal: {
@@ -121,13 +122,12 @@ const applicationSlice = createSlice({
       state.others = action.payload;
     },
     manageEducationCount: (state, action) => {
-      if(action.payload === "ADD"){
-        state.educationSectionCount += 1
-      }
-      else if (action.payload === "REMOVE") {
+      if (action.payload === "ADD") {
+        state.educationSectionCount += 1;
+      } else if (action.payload === "REMOVE") {
         state.educationSectionCount -= 1;
       }
-    }
+    },
   },
 });
 

@@ -1,0 +1,587 @@
+[
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1101",
+    "courseName": "Introduction of computer Science",
+    "credit": 3,
+    "semester": 1
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1102",
+    "courseName": "Analog Electronics",
+    "credit": 3,
+    "semester": 1
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1103",
+    "courseName": "Analog Electronics (Lab)",
+    "credit": 1,
+    "semester": 1
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1104",
+    "courseName": "Math I (Differential Calculus & Co-ordinateGeom.)",
+    "credit": 3,
+    "semester": 1
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1105",
+    "courseName": "English I",
+    "credit": 3,
+    "semester": 1
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1106",
+    "courseName": "Business Organization",
+    "credit": 1,
+    "semester": 1
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1201",
+    "courseName": "Structural Programming Language",
+    "credit": 3,
+    "semester": 2
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-105",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1202",
+    "courseName": "Structural Programming Language (Lab)",
+    "credit": 1,
+    "semester": 2
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1204",
+    "courseName": "Digital Logic",
+    "credit": 3,
+    "semester": 2
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1205",
+    "courseName": "Digital Logic (Lab)",
+    "credit": 1,
+    "semester": 2
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1203",
+    "courseName": "Integral Calculus & Differential Equation",
+    "credit": 3,
+    "semester": 2
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1206",
+    "courseName": "English II",
+    "credit": 3,
+    "semester": 2
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1301",
+    "courseName": "Physics",
+    "credit": 3,
+    "semester": 3
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1302",
+    "courseName": "Physics (Lab)",
+    "credit": 1,
+    "semester": 3
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1303",
+    "courseName": "Electronic Device & Circuit",
+    "credit": 3,
+    "semester": 3
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1304",
+    "courseName": "Electronic Device & Circuit (Lab)",
+    "credit": 1,
+    "semester": 3
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1305",
+    "courseName": "Object Oriented Programming",
+    "credit": 3,
+    "semester": 3
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-1306",
+    "courseName": "Object Oriented Programming (Lab)",
+    "credit": 1,
+    "semester": 3
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2101",
+    "courseName": "Programming Language (Java)",
+    "credit": 3,
+    "semester": 4
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2102",
+    "courseName": "Programming Language (Java) (Lab)",
+    "credit": 1,
+    "semester": 4
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2103",
+    "courseName": "Data Structure",
+    "credit": 3,
+    "semester": 4
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2104",
+    "courseName": "Data Structure (Lab)",
+    "credit": 1,
+    "semester": 4
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2105",
+    "courseName": "Discrete Mathematics",
+    "credit": 3,
+    "semester": 4
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2106",
+    "courseName": "Linear Algebra, Complex Variable, Laplace Transformation",
+    "credit": 3,
+    "semester": 4
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2201",
+    "courseName": "Algorithm",
+    "credit": 3,
+    "semester": 5
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2202",
+    "courseName": "Algorithm (Lab)",
+    "credit": 1,
+    "semester": 5
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2203",
+    "courseName": "Microprocessor & Assembly Language",
+    "credit": 3,
+    "semester": 5
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2204",
+    "courseName": "Microprocessor & Assembly Language (Lab)",
+    "credit": 1,
+    "semester": 5
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2205",
+    "courseName": "Statistics & Probability",
+    "credit": 3,
+    "semester": 5
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2301",
+    "courseName": "Theory of Computation",
+    "credit": 3,
+    "semester": 6
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2302",
+    "courseName": "Data Communication",
+    "credit": 3,
+    "semester": 6
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2303",
+    "courseName": "Electrical Drives and Instrumentation",
+    "credit": 3,
+    "semester": 6
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2304",
+    "courseName": "Electrical Drives and Instrumentation (Lab)",
+    "credit": 1,
+    "semester": 6
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-2305",
+    "courseName": "Web Programming",
+    "credit": 3,
+    "semester": 6
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3101",
+    "courseName": "Database System",
+    "credit": 3,
+    "semester": 7
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3102",
+    "courseName": "Database System (Lab)",
+    "credit": 1,
+    "semester": 7
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3103",
+    "courseName": "Operating System",
+    "credit": 3,
+    "semester": 7
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3104",
+    "courseName": "Operating System (Lab)",
+    "credit": 1,
+    "semester": 7
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3105",
+    "courseName": "Accounting",
+    "credit": 3,
+    "semester": 7
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3106",
+    "courseName": "VLSI Design",
+    "credit": 3,
+    "semester": 7
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3201",
+    "courseName": "Compiler Design",
+    "credit": 3,
+    "semester": 8
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3202",
+    "courseName": "Compiler Design (Lab)",
+    "credit": 1,
+    "semester": 8
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3203",
+    "courseName": "Digital System Design",
+    "credit": 3,
+    "semester": 8
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3204",
+    "courseName": "Digital System Design (Lab)",
+    "credit": 1,
+    "semester": 8
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3205",
+    "courseName": "Digital Electronics & Pulse Technique",
+    "credit": 3,
+    "semester": 8
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3206",
+    "courseName": "Software Engineering",
+    "credit": 3,
+    "semester": 8
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3301",
+    "courseName": "Pattern Recognition",
+    "credit": 3,
+    "semester": 9
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3302",
+    "courseName": "Pattern Recognition (Lab)",
+    "credit": 1,
+    "semester": 9
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3303",
+    "courseName": "Computer Network",
+    "credit": 3,
+    "semester": 9
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3304",
+    "courseName": "Computer Network (Lab)",
+    "credit": 1,
+    "semester": 9
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-3305",
+    "courseName": "Numerical Method",
+    "credit": 3,
+    "semester": 9
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4101",
+    "courseName": "Project & Thesis I",
+    "credit": 3,
+    "semester": 10
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4102",
+    "courseName": "Artificial Intelligence",
+    "credit": 3,
+    "semester": 10
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4103",
+    "courseName": "Artificial Intelligence (Lab)",
+    "credit": 1,
+    "semester": 10
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4104",
+    "courseName": "Accounting, Introduction to Finance & International Trade",
+    "credit": 3,
+    "semester": 10
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4105",
+    "courseName": "Elective Major I (MIS)",
+    "credit": 3,
+    "semester": 10
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4201",
+    "courseName": "Project & Thesis II",
+    "credit": 3,
+    "semester": 11
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4202",
+    "courseName": "Computer Graphics",
+    "credit": 3,
+    "semester": 11
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4203",
+    "courseName": "Computer Graphics (Lab)",
+    "credit": 1,
+    "semester": 11
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4204",
+    "courseName": "System Analysis & Design",
+    "credit": 3,
+    "semester": 11
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4205",
+    "courseName": "System Analysis & Design (Lab)",
+    "credit": 1,
+    "semester": 11
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4301",
+    "courseName": "Project & Thesis III",
+    "credit": 3,
+    "semester": 12
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4302",
+    "courseName": "Elective Major II (System Programming)",
+    "credit": 3,
+    "semester": 12
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4303",
+    "courseName": "Peripheral and Interfacing",
+    "credit": 3,
+    "semester": 12
+  },
+  {
+    "facultyCode": "FAC-101",
+    "departmentCode": "DEP-101",
+    "programCode": "PRO-101",
+    "courseCode": "CSE-4304",
+    "courseName": "Computer Organization & Architecture",
+    "credit": 3,
+    "semester": 12
+  }
+]

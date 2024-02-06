@@ -56,27 +56,27 @@ const StudentRoutes = [
         element: <SCourse></SCourse>,
       },
       {
-        path: "/student/courses/details",
+        path: "/student/courses/:semester/:courseCode",
         element: <SCourseDetails></SCourseDetails>,
         children: [
           {
-            path: "/student/courses/details",
+            path: "/student/courses/:semester/:courseCode",
             element: <ScourseOutline></ScourseOutline>,
           },
           {
-            path: "/student/courses/details/outline",
+            path: "/student/courses/:semester/:courseCode/outline",
             element: <ScourseOutline></ScourseOutline>,
           },
           {
-            path: "/student/courses/details/lectures",
+            path: "/student/courses/:semester/:courseCode/lectures",
             element: <SCourseLectures></SCourseLectures>,
           },
           {
-            path: "/student/courses/details/classwork",
+            path: "/student/courses/:semester/:courseCode/classwork",
             element: <SCourseClasswork></SCourseClasswork>,
           },
           {
-            path: "/student/courses/details/notice",
+            path: "/student/courses/:semester/:courseCode/notice",
             element: <SCourseNotice></SCourseNotice>,
           },
         ],
@@ -86,7 +86,7 @@ const StudentRoutes = [
         element: <SAttendance></SAttendance>,
       },
       {
-        path: "/student/attendance/singlePage",
+        path: "/student/attendance/:semester/:courseCode/:courseName",
         element: <AttendSinglePage></AttendSinglePage>,
       },
       {

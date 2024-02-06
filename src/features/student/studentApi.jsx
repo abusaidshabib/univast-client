@@ -23,7 +23,17 @@ export const studentApi = createApi({
         url: `/student?email=${email}`,
       }),
     }),
+    getStudentAttendance: builder.query({
+      query: ({semester, courseCode, studentId}) => ({
+        url: `/student-attendance?courseCode=${courseCode}&semester=${semester}&studentId=${studentId}`,
+      }),
+    }),
   }),
 });
 
-export const {useGetStudentsQuery, usePostStudentMutation, useGetStudentByEmailQuery} = studentApi
+export const {
+  useGetStudentsQuery,
+  usePostStudentMutation,
+  useGetStudentByEmailQuery,
+  useGetStudentAttendanceQuery,
+} = studentApi;
