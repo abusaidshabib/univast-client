@@ -15,26 +15,29 @@ export const AuthContext = createContext();
 // eslint-disable-next-line react/prop-types
 const UserContext = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userRole, setUserRole] = useState(null);
   const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser?.uid) {
-        // console.log(currentUser.uid);
-        const firebaseId = currentUser.uid;
-
-        fetch(`http://localhost:8000/api/v1/users?firebaseId=${firebaseId}`)
+        fetch(
+          `http://localhost:8000/api/v1/users?firebaseId=${currentUser.uid}`
+        )
           .then((res) => res.json())
           .then((data) => {
             // console.log(data.data.user.role);
             setUser(data.data.user);
+            setUserRole(data.data.user.role);
+            console.log(data.data.user.role);
             setLoading(false);
           })
           .catch(() => setLoading(false));
       } else {
         setLoading(false);
         setUser(null)
+        setUserRole(null)
       }
     });
     return () => unSubscribe();
@@ -66,6 +69,7 @@ const UserContext = ({ children }) => {
     logIn,
     logOut,
     loading,
+    userRole
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

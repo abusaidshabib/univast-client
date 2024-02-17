@@ -4,11 +4,16 @@ import SingleApplication from "../../Pages/EnrollPortal/SingleApplication/Main/S
 import StudentEnroll from "../../Pages/EnrollPortal/StudentEnroll/Main/StudentEnroll";
 import TSingleApplication from "../../Pages/EnrollPortal/TSingleApplication/Main/TSingleApplication";
 import TeachersEnroll from "../../Pages/EnrollPortal/TeachersEnroll/Main/TeachersEnroll";
+import AdminRoute from "../PrivateRoutes/AdminRoute";
 
 const EnrollPortal = [
   {
     path: "/enroll",
-    element: <EnrollmentDashboard />,
+    element: (
+      <AdminRoute>
+        <EnrollmentDashboard />
+      </AdminRoute>
+    ),
     children: [
       {
         path: "/enroll",
@@ -32,7 +37,7 @@ const EnrollPortal = [
       },
       {
         path: "/enroll/teacherEnroll/query",
-        element: <TSingleApplication/>
+        element: <TSingleApplication />,
       },
     ],
   },

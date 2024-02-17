@@ -25,13 +25,13 @@ border-radius: 50%;
 
 @media screen and (max-width: 1480px) {
   html{
-    font-size: 85%;
+    font-size: 80%;
   }
 }
 
 @media screen and (max-width: 1280px) {
   html{
-    font-size: 80%;
+    font-size: 75%;
   }
 }
 

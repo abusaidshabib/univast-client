@@ -4,6 +4,11 @@ import { BiUser } from "react-icons/bi";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Context/UserContext";
+import { PiStudent } from "react-icons/pi";
+import { LiaChalkboardTeacherSolid } from "react-icons/lia";
+import { FaUniversity } from "react-icons/fa";
+import { GrGroup } from "react-icons/gr";
+import { SiSemanticscholar } from "react-icons/si";
 
 const Menu = () => {
   const { logOut } = useContext(AuthContext);
@@ -28,32 +33,47 @@ const Menu = () => {
       <div className="">
         <ul className="grid d-side-bar gap-6 place-content-center">
           <li className="">
-            <NavLink to="/admin/home" className="flex gap-3">
+            <NavLink to="home" className="flex gap-3">
               <MdOutlineDashboardCustomize className="text-2xl" />
               <p className="font-semibold">Home</p>
             </NavLink>
           </li>
-          {/* <li className="">
-            <NavLink to="/admin/Application" className="flex gap-3">
-              <BiUser className="text-2xl" />
-              <p className="font-semibold">Applications</p>
-            </NavLink>
-          </li> */}
           <li className="">
-            <NavLink to="/admin/students" className="flex gap-3">
-              <BiUser className="text-2xl" />
+            <NavLink to="students" className="flex gap-3">
+              <PiStudent className="text-2xl" />
               <p className="font-semibold">Students</p>
             </NavLink>
           </li>
           <li className="">
-            <NavLink to="/admin/teachers" className="flex gap-3">
-              <BiUser className="text-2xl" />
-              <p className="font-semibold">Teachers</p>
+            <NavLink to="teachers" className="flex gap-3">
+              <LiaChalkboardTeacherSolid className="text-2xl" />
+              <p className="font-semibold">Teacher</p>
+            </NavLink>
+          </li>
+          <li className="">
+            <NavLink to="faculties" className="flex gap-3">
+              <FaUniversity className="text-2xl" />
+              <p className="font-semibold">Faculties</p>
+            </NavLink>
+          </li>
+          <li className="">
+            <NavLink to="departments" className="flex gap-3">
+              <GrGroup className="text-2xl" />
+              <p className="font-semibold">Departments</p>
+            </NavLink>
+          </li>
+          <li className="">
+            <NavLink to="programs" className="flex gap-3">
+              <SiSemanticscholar className="text-2xl" />
+              <p className="font-semibold">Programs</p>
             </NavLink>
           </li>
         </ul>
       </div>
-      <div onClick={logOut} className="flex gap-3 mb-10 cursor-pointer">
+      <div
+        onClick={logOut}
+        className="flex gap-3 mb-10 cursor-pointer ml-2 font-semibold text-red-500/70 hover:text-red-500 transition-all"
+      >
         <AiOutlineLogout className="text-2xl" />
         <p>Sign out</p>
       </div>

@@ -2,30 +2,43 @@ import AdminDashboard from "../../Layouts/AdminDashboard";
 import AdminHome from "../../Pages/AdminPortal/AdminHome/Main/AdminHome";
 import AllStudents from "../../Pages/AdminPortal/AllStudents/AllStudents";
 import AllTeachers from "../../Pages/AdminPortal/AllTeachers/AllTeachers";
+import AdminRoute from "../PrivateRoutes/AdminRoute";
 
 const AdminRoutes = [
   {
     path: "/admin",
-    element: <AdminDashboard />,
+    element: (
+      <AdminRoute>
+        <AdminDashboard />
+      </AdminRoute>
+    ),
     children: [
       {
         path: "/admin",
         element: <AdminHome />,
       },
       {
-        path: "/admin/home",
+        path: "home",
         element: <AdminHome />,
       },
-      // {
-      //   path: "/admin/application",
-      //   element: <AdminApplication />,
-      // },
       {
-        path: "/admin/students",
+        path: "students",
         element: <AllStudents />,
       },
       {
-        path: "/admin/teachers",
+        path: "teachers",
+        element: <AllTeachers />,
+      },
+      {
+        path: "faculties",
+        element: <AllTeachers />,
+      },
+      {
+        path: "departments",
+        element: <AllTeachers />,
+      },
+      {
+        path: "/admin/programs",
         element: <AllTeachers />,
       },
     ],
