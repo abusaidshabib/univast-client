@@ -5,23 +5,37 @@ import { useGetProgramsByDepartmentCodeQuery } from "../../../../features/progra
 import { usePostCourseMutation } from "../../../../features/course/courseApi";
 import { toast } from "react-hot-toast";
 
-
 const CourseCreate = () => {
   const { data: faculties } = useGetFacultiesQuery();
   const [selectedFaculty, setSelectedFaculty] = useState();
-  let { data: departments } = useGetDepartmentsByFacultyCodeQuery(selectedFaculty);
+  let { data: departments } =
+    useGetDepartmentsByFacultyCodeQuery(selectedFaculty);
   const [selectedDepartment, setSelectedDepartment] = useState();
-  console.log(selectedDepartment)
-  let { data: programs } = useGetProgramsByDepartmentCodeQuery(selectedDepartment)
+  console.log(selectedDepartment);
+  let { data: programs } =
+    useGetProgramsByDepartmentCodeQuery(selectedDepartment);
 
-  const semesters = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"]
+  const semesters = [
+    "1st",
+    "2nd",
+    "3rd",
+    "4th",
+    "5th",
+    "6th",
+    "7th",
+    "8th",
+    "9th",
+    "10th",
+    "11th",
+    "12th",
+  ];
 
-  const [postCourse, {isLoading, isError, error, isSuccess}] = usePostCourseMutation();
-
+  const [postCourse, { isLoading, isError, error, isSuccess }] =
+    usePostCourseMutation();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const form = event.target
+    const form = event.target;
 
     const facultyCode = form.facultyCode.value;
     const departmentCode = form.departmentCode.value;
@@ -32,31 +46,29 @@ const CourseCreate = () => {
     const semester = form.semester.value;
 
     const data = {
-        facultyCode,
-        departmentCode,
-        programCode,
-        courseName,
-        courseCode,
-        credit,
-        semester
-    }
+      facultyCode,
+      departmentCode,
+      programCode,
+      courseName,
+      courseCode,
+      credit,
+      semester,
+    };
 
-    console.log(data)
-    postCourse(data)
-    form.reset()
-
-  }
+    console.log(data);
+    postCourse(data);
+    form.reset();
+  };
 
   useEffect(() => {
-    if(isSuccess){
-        toast.success("Course Successfully Added")
+    if (isSuccess) {
+      toast.success("Course Successfully Added");
     }
     if (isError) {
       console.log(error);
       toast.error(error.data.message._message);
     }
-  },[error, isError, isSuccess])
-
+  }, [error, isError, isSuccess]);
 
   return (
     <div className="bg-gray-200 min-h-[calc(100vh-80px)] gap-5 text-gray-900 p-5 grid place-items-center">

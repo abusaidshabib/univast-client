@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useGetTeachersQuery } from "../../../features/teacher/teacherApi";
 
 const AllTeachers = () => {
@@ -94,7 +95,14 @@ const AllTeachers = () => {
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                           {teacher.personal.email}
                         </td>
-                        
+                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                          <Link
+                            to={`details?email=${teacher.personal.email}`}
+                            className="bg-primary-blue rounded-md hover:bg-gray-600 text-primary-white px-2 py-1"
+                          >
+                            Details
+                          </Link>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
