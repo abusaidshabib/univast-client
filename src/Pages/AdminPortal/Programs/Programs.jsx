@@ -19,7 +19,7 @@ const Programs = () => {
           <div>
             <Link
               className="bg-primary-blue rounded-md hover:bg-gray-600 text-primary-white px-5 py-3 flex items-center gap-2"
-              to="/admin/createFaculty"
+              to="/admin/createProgram"
             >
               <span>
                 <FiPlus size={18} />

@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { SiHtmlacademy } from "react-icons/si";
-import { FaChalkboardTeacher } from "react-icons/fa";
 import { IoIosLogOut } from "react-icons/io";
 import { MdOutlineAddTask } from "react-icons/md";
 import { RiAdminLine } from "react-icons/ri";
@@ -54,7 +52,7 @@ const ControlPanel = () => {
             </Link>
             <Link
               className="w-80 transition-all duration-300 bg-accent-blue/70 hover:bg-secondary-blue border-2 border-secondary-blue hover:text-p-white rounded-lg flex"
-              to="/enroll"
+              to="/enroll/home"
             >
               <p className="text-5xl grid place-content-center text-p-white">
                 <span className="p-3">
@@ -68,7 +66,7 @@ const ControlPanel = () => {
 
             <Link
               className="w-80 transition-all duration-300 bg-accent-blue/70 hover:bg-secondary-blue border-2 border-secondary-blue hover:text-p-white rounded-lg flex"
-              to="/course"
+              to="/course/home"
             >
               <p className="text-5xl grid place-content-center text-p-white">
                 <span className="p-3">
