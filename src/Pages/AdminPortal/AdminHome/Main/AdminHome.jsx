@@ -7,8 +7,50 @@ import StudentByDeptBarChart from "../../../../Components/Buttons/StudentByDeptB
 import { FcBarChart } from "react-icons/fc";
 import GraduationRateLineChart from "../../../../Components/Buttons/GraduationRateLineChart";
 import { FcLineChart } from "react-icons/fc";
+import { useGetStudentsQuery } from "../../../../features/student/studentApi";
+import { useEffect } from "react";
 
 const AdminHome = () => {
+  const { data: students } = useGetStudentsQuery();
+
+  const createPredictionData = (students) => {
+    const predictionData = [];
+    students?.data.forEach((student) => {
+      const data = {
+        marital: student.personal.marital,
+        application_mode: 0,
+        application_order: 0,
+        courses_taught: student.courses_taught.length,
+        education_shift: student.general.education_shift,
+        nationality: student.personal.nationality,
+        gender: student.personal.gender,
+        scholarship_holder: 0,
+        age_at_enrollment: student.admission_date, // student.personal.birth_date
+        international: 0,
+        curricular_units_1st_sem_credited: 0,
+        curricular_units_1st_sem_enrolled: 0,
+        curricular_units_1st_sem_evaluations: 0,
+        curricular_units_1st_sem_approved: 0,
+        curricular_units_1st_sem_grade: 0,
+        curricular_units_1st_sem_without_evaluations: 0,
+        curricular_units_2nd_sem_credited: 0,
+        curricular_units_2nd_sem_enrolled: 0,
+        curricular_units_2nd_sem_evaluations: 0,
+        curricular_units_2nd_sem_approved: 0,
+        curricular_units_2nd_sem_grade: 0,
+        curricular_units_2nd_sem_without_evaluations: 0,
+      };
+      predictionData.push(data);
+    });
+
+    return predictionData;
+  };
+
+  useEffect(() => {
+    const predictionData = createPredictionData(students);
+    console.log(predictionData);
+  }, [students]);
+
   return (
     <div className="p-8 bg-[#F5F5F8] min-h-[calc(100vh-80px)] text-gray-900">
       <div className="w-full flex justify-between mb-8">
