@@ -13,6 +13,7 @@ import { courseApi } from "../features/course/courseApi";
 import { noticeApi } from "../features/notice/noticeApi";
 import { sendEmailApi } from "../features/sendEmail/sendEmailApi";
 import { semesterApi } from "../features/semester/semesterApi";
+import { predictionApi } from "../features/student/predictionApi";
 
 const store = configureStore({
   reducer: {
@@ -28,6 +29,7 @@ const store = configureStore({
     [noticeApi.reducerPath]: noticeApi.reducer,
     [sendEmailApi.reducerPath]: sendEmailApi.reducer,
     [semesterApi.reducerPath]: semesterApi.reducer,
+    [predictionApi.reducerPath]: predictionApi.reducer,
     application: applicationSlice,
     lecturerApplication: lecturerApplicationSlice,
   },
@@ -44,7 +46,8 @@ const store = configureStore({
       .concat(courseApi.middleware)
       .concat(noticeApi.middleware)
       .concat(sendEmailApi.middleware)
-      .concat(semesterApi.middleware),
+      .concat(semesterApi.middleware)
+      .concat(predictionApi.middleware),
 });
 
 export default store;

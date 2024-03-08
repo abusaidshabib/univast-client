@@ -1,9 +1,62 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import { useGetStudentsQuery } from "../../../features/student/studentApi";
+import { useGetDropoutPredictionMutation } from "../../../features/student/predictionApi";
+import { Link } from "react-router-dom";
 
 const AllStudents = () => {
   const { data: students } = useGetStudentsQuery();
-  console.log(students?.data)
+
+  console.log(students);
+
+  const [
+    getPrediction,
+    { data: prediction, isLoading, isSuccess},
+  ] = useGetDropoutPredictionMutation();
+
+  useEffect(() => {
+    const allStudentData = [];
+
+    if (students?.data?.length > 0) {
+      students.data.forEach((student) => {
+        const data = {
+          marital:
+            student.personal.marital === "Single"
+              ? 0
+              : student.personal.marital === "Married"
+              ? 1
+              : 2,
+          application_mode: 0,
+          application_order: 1,
+          courses_taught: 3,
+          education_shift: student.general === "Day" ? 0 : 1,
+          education: 2,
+          nationality: student.personal.nationality === "Bangladeshi" ? 1 : 0,
+          mothers_qualification: 2,
+          fathers_qualification: 3,
+          mother_occupation: 1,
+          father_occupation: 2,
+          displaced: 0,
+          educational_special_needs: 1,
+          debtor: 0,
+          tuition_fees_up_to_date: 1,
+          gender: student.personal.gender === "Male" ? 0 : 1,
+          scholarship_holder: 1,
+          age_at_enrollment: 20,
+          international: student.personal.nationality === "Bangladeshi" ? 0 : 1,
+        };
+        allStudentData.push(data);
+      });
+
+      getPrediction(allStudentData);
+    }
+  }, [students]);
+
+  useEffect(() => {
+    if (isSuccess) {
+      console.log(prediction);
+    }
+  }, [isSuccess]);
+
   return (
     <div className="min-h-[calc(100vh-80px)] w-full bg-gray-200 p-5 font-sans">
       {/* <ConfirmationModal/> */}
@@ -67,12 +120,18 @@ const AllStudents = () => {
                         scope="col"
                         className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
                       >
+                        Dropout Prediction
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      >
                         Action
                       </th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                    {students?.data?.map((student) => (
+                    {students?.data?.map((student, i) => (
                       <tr key={student._id}>
                         <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                           <div className="inline-flex items-center gap-x-3">
@@ -111,6 +170,18 @@ const AllStudents = () => {
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                           {student.general.education_shift}
+                        </td>
+                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                          {isLoading && <span>Loading...</span>}
+                          {isSuccess && (
+                            <span>
+                              {prediction[i] === 0
+                                ? "Dropout"
+                                : prediction[i] === 1
+                                ? "Enrolled"
+                                : "Graduate"}
+                            </span>
+                          )}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                           <Link

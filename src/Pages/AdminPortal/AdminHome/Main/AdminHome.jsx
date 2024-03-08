@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import students from "../../../../assets/admin-dashboard/student.svg";
 import teachers from "../../../../assets/admin-dashboard/teacher.webp";
 import departments from "../../../../assets/admin-dashboard/departments.svg";
 import awards from "../../../../assets/admin-dashboard/awards.png";

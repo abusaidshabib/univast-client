@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGetAttendanceRecordByMonthQuery } from "../../../../../features/teacher/teacherApi";
 import { MonthPicker, MonthInput } from "react-lite-month-picker";
 import { useState } from "react";
@@ -14,12 +14,8 @@ const AttendanceRecord = () => {
   const { data: attendaceData } = useGetAttendanceRecordByMonthQuery({
     semester,
     courseCode,
-    month: `${selectedMonthData.month}-${selectedMonthData.year}`,
+    month: `${selectedMonthData.year}-${selectedMonthData.month}`,
   });
-
-  const uniqueDates = [
-    ...new Set(attendaceData?.data?.map((item) => item.date)),
-  ];
 
   console.log(attendaceData);
   const [isPickerOpen, setIsPickerOpen] = useState(false);
@@ -37,15 +33,15 @@ const AttendanceRecord = () => {
 
         <div className="flex justify-between items-end">
           <div>
-            <p>Total Students: {attendaceData?.data?.length}</p>
-            <p>
+            <p>Total Students: {attendaceData?.tableData?.length}</p>
+            {/* <p>
               Attendace Percentage:{" "}
               {(attendaceData?.data?.filter((item) => item.status === true)
                 .length *
                 100) /
                 attendaceData?.data?.length}
               %
-            </p>
+            </p> */}
           </div>
 
           <div className="">
@@ -100,7 +96,7 @@ const AttendanceRecord = () => {
                         Student Name
                       </th>
 
-                      {uniqueDates?.map((item, i) => (
+                      {attendaceData?.tableHeadings?.map((item, i) => (
                         <th
                           scope="col"
                           className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"
@@ -112,7 +108,7 @@ const AttendanceRecord = () => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                    {attendaceData?.data?.map((item, i) => (
+                    {attendaceData?.tableData?.map((item, i) => (
                       <tr key={item._id}>
                         <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                           <div className="inline-flex items-center gap-x-3">
@@ -128,28 +124,20 @@ const AttendanceRecord = () => {
                           {item.studentId}
                         </td>
                         <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {item.student}
+                          {item.studentName}
                         </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap text-center">
-                          <span
-                            // onClick={() => {
-                            //   const data = {
-                            //     semester,
-                            //     studentId: item.studentId,
-                            //     courseCode,
-                            //     date: moment(selectedDate).format("YYYY-MM-DD"),
-                            //   };
-                            //   postAttendance(data);
-                            // }}
-                            className={`px-3 py-1 rounded-full cursor-pointer ${
-                              item.status
-                                ? "bg-green-500 text-white"
-                                : "bg-gray-400 text-black"
-                            }`}
+                        {attendaceData?.tableHeadings?.map((date, i) => (
+                          <td
+                            key={i}
+                            className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap text-center"
                           >
-                            {item.status ? "Present" : "Absent"}
-                          </span>
-                        </td>
+                            {item[date] === true ? (
+                              <span className="text-green-500">Present</span>
+                            ) : (
+                              <span className="text-red-500">Absent</span>
+                            )}
+                          </td>
+                        ))}
                       </tr>
                     ))}
                   </tbody>

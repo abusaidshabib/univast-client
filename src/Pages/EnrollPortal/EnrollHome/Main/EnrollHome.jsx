@@ -1,11 +1,11 @@
 import { FcBarChart, FcLineChart } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import StudentByDeptBarChart from "../../../../Components/Buttons/StudentByDeptBarChart";
-import GraduationRateLineChart from "../../../../Components/Buttons/GraduationRateLineChart";
 import students from "../../../../assets/admin-dashboard/student.svg";
 import teachers from "../../../../assets/admin-dashboard/teacher.webp";
 import departments from "../../../../assets/admin-dashboard/departments.svg";
 import awards from "../../../../assets/admin-dashboard/awards.png";
+import EnrolledStudentsBySemester from "../../../../Components/Buttons/EnrolledStudentsBySemester";
 
 const EnrollHome = () => {
     return (
@@ -58,8 +58,21 @@ const EnrollHome = () => {
         <div className="grid grid-cols-2 gap-8 mt-8">
           <div className="p-8 bg-white rounded-xl">
             <div className="flex justify-between">
-              <h3 className="text-xl text-primary-blue font-medium">
-                Number of Students
+              <h3 className="text-lg text-primary-blue font-medium">
+                No. of Enrolled Students By Semester
+              </h3>
+              <span className="p-2 rounded-md bg-primary-blue/10 text-3xl text-primary-blue">
+                <FcLineChart />
+              </span>
+            </div>
+            <div className="h-[300px] w-full">
+              <EnrolledStudentsBySemester />
+            </div>
+          </div>
+          <div className="p-8 bg-white rounded-xl">
+            <div className="flex justify-between">
+              <h3 className="text-lg text-primary-blue font-medium">
+                No. of Enrolled Students By Departments
               </h3>
               <span className="p-2 rounded-md bg-primary-blue/10 text-3xl text-primary-blue">
                 <FcBarChart />
@@ -67,19 +80,6 @@ const EnrollHome = () => {
             </div>
             <div className="h-[300px] w-full">
               <StudentByDeptBarChart />
-            </div>
-          </div>
-          <div className="p-8 bg-white rounded-xl">
-            <div className="flex justify-between">
-              <h3 className="text-xl text-primary-blue font-medium">
-                Graduation Rate
-              </h3>
-              <span className="p-2 rounded-md bg-primary-blue/10 text-3xl text-primary-blue">
-                <FcLineChart />
-              </span>
-            </div>
-            <div className="h-[300px] w-full">
-              <GraduationRateLineChart />
             </div>
           </div>
         </div>
