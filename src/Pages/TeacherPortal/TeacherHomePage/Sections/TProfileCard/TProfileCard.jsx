@@ -58,7 +58,7 @@ const TProfileCard = () => {
             <div className="grid grid-cols-2 gap-3 my-3">
               <div className="bg-gray-100 rounded-lg p-3 text-left">
                 <h1 className="text-xl font-semibold mb-1">
-                  {teacherData?.courses_taught?.length}
+                  {teacherData?.courses_taught[0]?.courseCode.length}
                 </h1>
                 <p className="text-xs text-gray-600">Course Taking</p>
               </div>

@@ -1,61 +1,130 @@
+import { useRef } from "react";
 import { MdDownload } from "react-icons/md";
+import { useReactToPrint } from "react-to-print";
 
 const SClassRoutine = () => {
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "emp-data",
+  });
+
+  const classSchedule = [
+    {
+      day: 1,
+      classes: [
+        { startTime: "9:00 AM", className: "Programming Language (Java)" },
+        { startTime: "10:30 AM", className: "Artificial Intelligence" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
+      ],
+    },
+    {
+      day: 2,
+      classes: [
+        { startTime: "9:00 AM", className: "Programming Language (Java)" },
+        { startTime: "10:30 AM", className: "Artificial Intelligence" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
+      ],
+    },
+    {
+      day: 3,
+      classes: [
+        {
+          startTime: "9:00 AM",
+          className: "Programming Language (Java) (Lab)",
+        },
+        { startTime: "10:30 AM", className: "Artificial Intelligence (Lab)" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
+      ],
+    },
+    {
+      day: 5,
+      classes: [
+        { startTime: "9:00 AM", className: "Programming Language (Java)" },
+        { startTime: "10:30 AM", className: "Artificial Intelligence" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
+      ],
+    },
+  ];
+
+  const days = [
+    "Saturday",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+  ];
+
+  const maxClasses = Math.max(
+    ...classSchedule.map((day) => day.classes.length)
+  );
+
   return (
-    <div className="bg-white p-10 mb-5 rounded-lg">
+    <div
+      ref={componentRef}
+      className="bg-white p-10 mb-5 rounded-lg"
+    >
       <div className="flex justify-between items-center text-gray-900 col-span-3">
         <div>
           <p className="text-4xl font-semibold">Class Routine</p>
         </div>
         <div>
-          <MdDownload className="text-2xl" />
+          <button onClick={() => handlePrint(componentRef)}>
+            <MdDownload className="text-2xl text-accent-blue" />
+          </button>
         </div>
       </div>
       <p className="py-5"></p>
       <table className="border-collapse border border-slate-400 w-full text-lg">
         <thead>
           <tr>
-            <th className="border border-gray-400 p-2 ">Day</th>
-            <th className="border border-gray-400 p-2 ">Code Code</th>
-            <th className="border border-gray-400 p-2 ">Course Title</th>
-            <th className="border border-gray-400 p-2 ">Teacher Name</th>
-            <th className="border border-gray-400 p-2 ">Start time</th>
-            <th className="border border-gray-400 p-2 ">End Time</th>
+            <th className="border border-gray-400 p-2">Day</th>
+
+            {Array.from({ length: maxClasses }, (_, index) => (
+              <th key={index} className="border border-gray-400 p-2">
+                Class {index + 1}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="border border-gray-400 p-2 ">579162</td>
-            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
-            <td className="border border-gray-400 p-2 ">2020</td>
-            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
-            <td className="border border-gray-400 p-2 ">11521</td>
-            <td className="border border-gray-400 p-2 ">UCBL</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-400 p-2 ">579162</td>
-            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
-            <td className="border border-gray-400 p-2 ">2020</td>
-            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
-            <td className="border border-gray-400 p-2 ">11521</td>
-            <td className="border border-gray-400 p-2 ">UCBL</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-400 p-2 ">579162</td>
-            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
-            <td className="border border-gray-400 p-2 ">2020</td>
-            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
-            <td className="border border-gray-400 p-2 ">11521</td>
-            <td className="border border-gray-400 p-2 ">UCBL</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-400 p-2 ">579162</td>
-            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
-            <td className="border border-gray-400 p-2 ">2020</td>
-            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
-            <td className="border border-gray-400 p-2 ">11521</td>
-            <td className="border border-gray-400 p-2 ">UCBL</td>
-          </tr>
+          {classSchedule?.map((classData, index) => (
+            <tr key={index}>
+              <td className="border border-gray-400 p-2 text-center">
+                {days?.[classData?.day]}
+              </td>
+              {classData?.classes?.map((data, index) => (
+                <td
+                  key={index}
+                  className="border border-gray-400 p-2 text-center"
+                >
+                  <span>{data?.className}</span>
+                  <br />
+                  <span className="text-base text-primary-orange">
+                    {data?.startTime}
+                  </span>
+                </td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

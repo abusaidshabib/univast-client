@@ -1,122 +1,62 @@
 import { ResponsiveLine } from "@nivo/line";
 
-
-
 const SsemesterResult = () => {
-
-
-const data = [
-  {
-    id: "japan",
-    color: "hsl(98, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 155,
-      },
-      {
-        x: "helicopter",
-        y: 229,
-      },
-      {
-        x: "boat",
-        y: 160,
-      },
-      {
-        x: "train",
-        y: 276,
-      },
-      {
-        x: "subway",
-        y: 141,
-      },
-      {
-        x: "bus",
-        y: 151,
-      },
-      {
-        x: "car",
-        y: 223,
-      },
-      {
-        x: "moto",
-        y: 191,
-      },
-      {
-        x: "bicycle",
-        y: 185,
-      },
-      {
-        x: "horse",
-        y: 117,
-      },
-      {
-        x: "skateboard",
-        y: 138,
-      },
-      {
-        x: "others",
-        y: 176,
-      },
-    ],
-  },
-  {
-    id: "france",
-    color: "hsl(316, 70%, 50%)",
-    data: [
-      {
-        x: "plane",
-        y: 0,
-      },
-      {
-        x: "helicopter",
-        y: 268,
-      },
-      {
-        x: "boat",
-        y: 55,
-      },
-      {
-        x: "train",
-        y: 35,
-      },
-      {
-        x: "subway",
-        y: 98,
-      },
-      {
-        x: "bus",
-        y: 226,
-      },
-      {
-        x: "car",
-        y: 44,
-      },
-      {
-        x: "moto",
-        y: 205,
-      },
-      {
-        x: "bicycle",
-        y: 100,
-      },
-      {
-        x: "horse",
-        y: 293,
-      },
-      {
-        x: "skateboard",
-        y: 161,
-      },
-      {
-        x: "others",
-        y: 207,
-      },
-    ],
-  }
-];
-
-
+  const data = [
+    {
+      id: "Grades",
+      color: "hsl(98, 70%, 50%)",
+      data: [
+        {
+          x: "Spring-20",
+          y: 3.77,
+        },
+        {
+          x: "Summer-20",
+          y: 3.89,
+        },
+        {
+          x: "Fall-20",
+          y: 3.75,
+        },
+        {
+          x: "Spring-21",
+          y: 3.95,
+        },
+        {
+          x: "Summer-21",
+          y: 3.25,
+        },
+        {
+          x: "Fall-21",
+          y: 3.94,
+        },
+        {
+          x: "Spring-22",
+          y: 3.46,
+        },
+        {
+          x: "Summer-22",
+          y: 2.88,
+        },
+        {
+          x: "Fall-22",
+          y: 3.13,
+        },
+        {
+          x: "Spring-23",
+          y: 3.71,
+        },
+        {
+          x: "Summer-23",
+          y: 3.46,
+        },
+        {
+          x: "Fall-23",
+          y: 2.4,
+        },
+      ],
+    },
+  ];
 
   return (
     <div className="bg-white rounded-lg p-10 w-full h-[500px]">
@@ -127,31 +67,13 @@ const data = [
         xScale={{ type: "point" }}
         yScale={{
           type: "linear",
-          min: "auto",
-          max: "auto",
+          min: 0,
+          max: 5.0,
           stacked: true,
           reverse: false,
         }}
         yFormat=" >-.2f"
         curve="natural"
-        axisTop={null}
-        axisRight={null}
-        axisBottom={{
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: "transportation",
-          legendOffset: 36,
-          legendPosition: "middle",
-        }}
-        axisLeft={{
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: "count",
-          legendOffset: -40,
-          legendPosition: "middle",
-        }}
         pointSize={10}
         pointColor={{ from: "color", modifiers: [] }}
         pointBorderWidth={2}

@@ -4,6 +4,7 @@ import { AiOutlineNotification } from 'react-icons/ai';
 import { useGetStudentByEmailQuery } from "../../../../../features/student/studentApi";
 import { useContext } from "react";
 import { AuthContext } from "../../../../../Context/UserContext";
+import { convertDate } from "../../../../../utils/ConvertDate";
 
 
 const SProfileCard = () => {
@@ -35,8 +36,8 @@ const SProfileCard = () => {
               studentData?.personal.lastName}
           </h2>
           <p className="text-gray-600">
-            Id: {studentData?.studentId} (
-            {studentData?.general.education_shift})
+            Id: {studentData?.studentId} ({studentData?.general.education_shift}
+            )
           </p>
           <p>{studentData?.personal.email}</p>
           <p>
@@ -46,7 +47,7 @@ const SProfileCard = () => {
           <div>
             <div className="bg-gray-100 rounded-lg p-3 mt-3 text-left">
               <h1 className="text-xl font-semibold mb-1">
-                {studentData?.admission_date}
+                {convertDate(studentData?.admission_date)}
               </h1>
               <p className="text-xs text-gray-600">Addmission Date</p>
             </div>

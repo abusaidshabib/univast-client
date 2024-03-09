@@ -11,52 +11,93 @@ const TClassRoutine = () => {
 
   const classSchedule = [
     {
-      day: 0,
-      classes: [
-        { startTime: "9:00 AM", className: "Math" },
-        { startTime: "11:00 AM", className: "Science" },
-      ],
-    },
-    {
       day: 1,
       classes: [
-        { startTime: "10:00 AM", className: "History" },
-        { startTime: "1:00 PM", className: "English" },
+        { startTime: "9:00 AM", className: "Programming Language (Java)" },
+        { startTime: "10:30 AM", className: "Artificial Intelligence" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
       ],
     },
     {
       day: 2,
       classes: [
-        { startTime: "8:30 AM", className: "Physics" },
-        { startTime: "10:30 AM", className: "Chemistry" },
+        { startTime: "9:00 AM", className: "Programming Language (Java)" },
+        { startTime: "10:30 AM", className: "Artificial Intelligence" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
       ],
     },
     {
       day: 3,
       classes: [
-        { startTime: "9:15 AM", className: "Biology" },
-        { startTime: "11:15 AM", className: "Geography" },
+        {
+          startTime: "9:00 AM",
+          className: "Programming Language (Java) (Lab)",
+        },
+        { startTime: "10:30 AM", className: "Artificial Intelligence (Lab)" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
       ],
     },
     {
       day: 4,
       classes: [
-        { startTime: "9:30 AM", className: "Art" },
-        { startTime: "1:30 PM", className: "Music" },
+        {
+          startTime: "9:00 AM",
+          className: "Programming Language (Java) (Lab)",
+        },
+        { startTime: "10:30 AM", className: "Artificial Intelligence (Lab)" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
       ],
     },
     {
       day: 5,
       classes: [
-        { startTime: "8:45 AM", className: "Physical Education" },
-        { startTime: "10:45 AM", className: "Health" },
+        { startTime: "9:00 AM", className: "Programming Language (Java)" },
+        { startTime: "10:30 AM", className: "Artificial Intelligence" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
       ],
     },
     {
       day: 6,
       classes: [
-        { startTime: "10:15 AM", className: "Computer Science" },
-        { startTime: "12:15 PM", className: "Programming" },
+        { startTime: "9:00 AM", className: "Programming Language (Java)" },
+        { startTime: "10:30 AM", className: "Artificial Intelligence" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
+      ],
+    },
+    {
+      day: 7,
+      classes: [
+        { startTime: "9:00 AM", className: "Programming Language (Java)" },
+        { startTime: "10:30 AM", className: "Artificial Intelligence" },
+        { startTime: "2:00 PM", className: "Introduction of computer Science" },
+        {
+          startTime: "3:30 PM",
+          className: "	Elective Major II (System Programming)",
+        },
       ],
     },
   ];
@@ -102,7 +143,7 @@ const TClassRoutine = () => {
 
             {Array.from({ length: maxClasses }, (_, index) => (
               <th key={index} className="border border-gray-400 p-2">
-                Class {index}
+                Class {index + 1}
               </th>
             ))}
           </tr>
@@ -125,48 +166,8 @@ const TClassRoutine = () => {
                   </span>
                 </td>
               ))}
-              {/* <td>{classData.startTime}</td>
-              {classSchedule.map((dayData, index) => (
-                <td key={index}>
-                  {dayData.classes[index]
-                    ? dayData.classes[index].className
-                    : ""}
-                </td>
-              ))} */}
             </tr>
           ))}
-          {/* <tr>
-            <td className="border border-gray-400 p-2 ">579162</td>
-            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
-            <td className="border border-gray-400 p-2 ">2020</td>
-            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
-            <td className="border border-gray-400 p-2 ">11521</td>
-            <td className="border border-gray-400 p-2 ">UCBL</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-400 p-2 ">579162</td>
-            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
-            <td className="border border-gray-400 p-2 ">2020</td>
-            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
-            <td className="border border-gray-400 p-2 ">11521</td>
-            <td className="border border-gray-400 p-2 ">UCBL</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-400 p-2 ">579162</td>
-            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
-            <td className="border border-gray-400 p-2 ">2020</td>
-            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
-            <td className="border border-gray-400 p-2 ">11521</td>
-            <td className="border border-gray-400 p-2 ">UCBL</td>
-          </tr>
-          <tr>
-            <td className="border border-gray-400 p-2 ">579162</td>
-            <td className="border border-gray-400 p-2 ">Mid Term - Spring</td>
-            <td className="border border-gray-400 p-2 ">2020</td>
-            <td className="border border-gray-400 p-2 ">Feb 10, 2020</td>
-            <td className="border border-gray-400 p-2 ">11521</td>
-            <td className="border border-gray-400 p-2 ">UCBL</td>
-          </tr> */}
         </tbody>
       </table>
     </div>
