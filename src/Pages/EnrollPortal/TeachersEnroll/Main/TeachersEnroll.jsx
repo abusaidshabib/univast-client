@@ -132,13 +132,6 @@ const TeacherEnroll = () => {
                         Experience
                       </th>
 
-                      <th
-                        scope="col"
-                        className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
-                      >
-                        Publication
-                      </th>
-
                       <th scope="col" className="relative py-3.5 px-4">
                         <span className="sr-only">Edit</span>
                       </th>
@@ -190,15 +183,6 @@ const TeacherEnroll = () => {
                               <span>{exp.designation}</span>
                               <br />
                               <span>{exp.institution_name}</span>
-                            </p>
-                          ))}
-                        </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {app.publication.map((pub, index) => (
-                            <p key={index}>
-                              <span>{pub.title}</span>
-                              <br />
-                              <span>{pub.publication_year}</span>
                             </p>
                           ))}
                         </td>
