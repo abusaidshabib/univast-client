@@ -1,8 +1,7 @@
-import { AiOutlineEdit } from "react-icons/ai";
 import { FiPlus } from "react-icons/fi";
-import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useGetProgramsQuery } from "../../../features/programs/programApi";
+import ProgramRow from "./ProgramRow";
 
 const Programs = () => {
   const { data: programs } = useGetProgramsQuery();
@@ -78,34 +77,8 @@ const Programs = () => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                    {programs?.data?.map((program) => (
-                      <tr key={program._id}>
-                        <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {program.programCode}
-                        </td>
-                        <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {program.programName}
-                        </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {program.programType}
-                        </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {program.programLevel}
-                        </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {program.programDuration}
-                        </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          <div className="flex items-center gap-x-6">
-                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
-                              <AiOutlineEdit />
-                            </button>
-                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
-                              <RiDeleteBin6Line />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
+                    {programs?.data?.map((program, i) => (
+                      <ProgramRow key={i} program={program}></ProgramRow>
                     ))}
                   </tbody>
                 </table>

@@ -1,8 +1,12 @@
+import { useEffect } from "react";
+import { usePostFacultyMutation } from "../../../features/faculty/facultyApi";
 import { useGetTeachersQuery } from "../../../features/teacher/teacherApi";
+import toast from "react-hot-toast";
 
 const CreateFaculty = () => {
   const { data: teachers } = useGetTeachersQuery();
-  // const [selectedDean, setSelectedDean] = useState();
+  const [postFaculty, { isLoading, isSuccess, isError, error }] =
+    usePostFacultyMutation();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,11 +25,20 @@ const CreateFaculty = () => {
       email,
       dean,
     };
-
-    console.log(data);
+    postFaculty(data);
 
     form.reset();
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Faculty successfully created");
+    } else if (isError) {
+      console.log(error);
+      toast.error(error.data.message);
+    }
+  }, [isError, isSuccess]);
+
   return (
     <div className="bg-gray-200 min-h-[calc(100vh-80px)] gap-5 text-gray-900 p-5 grid place-items-center">
       <section className="p-6 bg-white rounded-md shadow-md dark:bg-gray-800">
@@ -119,7 +132,14 @@ const CreateFaculty = () => {
               >
                 <option value="">Select Dean</option>
                 {teachers?.data?.map((teacher) => (
-                  <option key={teacher._id} value={teacher._id}>
+                  <option
+                    key={teacher._id}
+                    value={
+                      teacher.personal.firstName +
+                      " " +
+                      teacher.personal.lastName
+                    }
+                  >
                     {teacher.personal.firstName +
                       " " +
                       teacher.personal.lastName}
@@ -131,11 +151,11 @@ const CreateFaculty = () => {
 
           <div className="flex justify-end mt-6">
             <button
-              // disabled={isLoading}
+              disabled={isLoading}
               type="submit"
               className="px-8 py-2.5 leading-5 text-primary-white transition-colors duration-300 transform bg-primary-blue rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
             >
-              Submit
+              Create
             </button>
           </div>
         </form>

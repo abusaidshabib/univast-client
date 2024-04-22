@@ -1,9 +1,9 @@
-import { AiOutlineEdit } from "react-icons/ai";
-import { useGetFacultiesQuery } from "../../../features/faculty/facultyApi";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import {
+  useGetFacultiesQuery,
+} from "../../../features/faculty/facultyApi";
 import { Link } from "react-router-dom";
 import { FiPlus } from "react-icons/fi";
-
+import FacultyRow from "./FacultyRow";
 
 const Faculties = () => {
   const { data: faculties } = useGetFacultiesQuery();
@@ -74,31 +74,8 @@ const Faculties = () => {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                    {faculties?.data?.map((faculty) => (
-                      <tr key={faculty._id}>
-                        <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {faculty.facultyCode}
-                        </td>
-                        <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {faculty.facultyName}
-                        </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {faculty.contactNumber}
-                        </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          {faculty.email}
-                        </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                          <div className="flex items-center gap-x-6">
-                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
-                              <AiOutlineEdit />
-                            </button>
-                            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
-                              <RiDeleteBin6Line />
-                            </button>
-                          </div>
-                        </td>
-                      </tr>
+                    {faculties?.data?.map((faculty, i) => (
+                      <FacultyRow key={i} faculty={faculty}></FacultyRow>
                     ))}
                   </tbody>
                 </table>

@@ -1,7 +1,12 @@
+import { useEffect } from "react";
+import { usePostDepartmentMutation } from "../../../features/department/department";
 import { useGetFacultiesQuery } from "../../../features/faculty/facultyApi";
+import toast from "react-hot-toast";
 
 const CreateDepartment = () => {
   const { data: faculties } = useGetFacultiesQuery();
+  const [postDepartment, { isLoading, isSuccess, isError, error }] =
+    usePostDepartmentMutation();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,8 +23,19 @@ const CreateDepartment = () => {
     };
 
     console.log(data);
+    postDepartment(data);
     form.reset();
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Department successfully created");
+    } else if (isError) {
+      console.log(error);
+      toast.error(error.data.message);
+    }
+  }, [isError, isSuccess]);
+
   return (
     <div className="bg-gray-200 min-h-[calc(100vh-80px)] gap-5 text-gray-900 p-5 grid place-items-center">
       <section className="p-6 bg-white rounded-md shadow-md dark:bg-gray-800">
@@ -87,7 +103,7 @@ const CreateDepartment = () => {
 
           <div className="flex justify-end mt-6">
             <button
-              // disabled={isLoading}
+              disabled={isLoading}
               type="submit"
               className="px-8 py-2.5 leading-5 text-primary-white transition-colors duration-300 transform bg-primary-blue rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
             >
