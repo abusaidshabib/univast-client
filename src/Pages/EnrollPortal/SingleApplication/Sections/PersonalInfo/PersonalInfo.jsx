@@ -21,7 +21,7 @@ const PersonalInfo = ({ data, data1 }) => {
     image,
     signature,
   } = personal;
-  console.log(email)
+  console.log(email);
 
   const {
     applicant_type,
@@ -55,12 +55,18 @@ const PersonalInfo = ({ data, data1 }) => {
 
   return (
     <div className="bg-white grid grid-cols-12 gap-5 p-5">
-      <div className="col-span-3 h-[500px] border-4 border-secondary-blue">
-        <div className="h-3/4">
-          <img className="object-cover h-full w-full" src={image} alt="" />
-        </div>
-        <div className="h-1/4">
-          <img className="object-cover h-full w-full" src={signature} alt="" />
+      <div className="col-span-3">
+        <div className=" border-4 border-secondary-blue">
+          <div>
+            <img className="object-cover h-full w-full" src={image} alt="" />
+          </div>
+          <div className="h-4/5">
+            <img
+              className="object-cover h-full w-full p-5"
+              src={signature}
+              alt=""
+            />
+          </div>
         </div>
       </div>
       <div className="col-span-5 text-base font-medium">

@@ -21,7 +21,7 @@ const ProgramRow = ({ program }) => {
     if (isSuccess) {
       toast.success("Program successfully removed");
     } else if (isError) {
-      toast.error(error.data.message);
+      toast.error(error.data?.message);
     }
   }, [isError, isSuccess]);
 

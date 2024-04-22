@@ -35,7 +35,7 @@ const FaqEditModal = ({ faculty, setModal }) => {
       toast.success("Faculty successfully edited");
       setModal(false);
     } else if (isError) {
-      toast.error(error.data.message);
+      toast.error(error.data?.message);
     }
   }, [isError, isSuccess]);
 

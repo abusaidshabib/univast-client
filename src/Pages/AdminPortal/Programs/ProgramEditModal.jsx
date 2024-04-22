@@ -45,7 +45,7 @@ const ProgramEditModal = ({ program, setModal }) => {
       toast.success("Faculty successfully updated");
     } else if (isError) {
       console.log(error);
-      toast.error(error.data.message);
+      toast.error(error.data?.message);
     }
   }, [isError, isSuccess]);
 

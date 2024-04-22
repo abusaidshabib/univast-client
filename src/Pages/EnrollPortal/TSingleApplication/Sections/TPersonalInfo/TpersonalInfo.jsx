@@ -48,12 +48,18 @@ const TpersonalInfo = ({ data, data1 }) => {
   } = personal?.address?.permanent_address;
   return (
     <div className="bg-white grid grid-cols-12 gap-5 p-5">
-      <div className="col-span-3 h-[500px] border-4 border-secondary-blue">
-        <div className="h-3/4">
-          <img className="object-cover h-full w-full" src={image} alt="" />
-        </div>
-        <div className="h-1/4">
-          <img className="object-cover h-full w-full" src={signature} alt="" />
+      <div className="col-span-3">
+        <div className="border-4 border-secondary-blue">
+          <div>
+            <img className="object-cover h-full w-full" src={image} alt="" />
+          </div>
+          <div className="h-20">
+            <img
+              className="object-cover h-full w-4/5 p-5"
+              src={signature}
+              alt=""
+            />
+          </div>
         </div>
       </div>
       <div className="col-span-5 text-base font-medium">
@@ -121,7 +127,9 @@ const TpersonalInfo = ({ data, data1 }) => {
           <span className="">{country}</span>
         </p>
         <p>
-          <span className="text-secondary-blue font-bold">Total publication</span>
+          <span className="text-secondary-blue font-bold">
+            Total publication
+          </span>
           <span className="px-3">-</span>
           <span className="">{data1?.publication.length}</span>
         </p>

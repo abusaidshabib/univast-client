@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useGetTeacherByEmailQuery } from '../../../features/teacher/teacherApi';
 import TpersonalInfo from '../../EnrollPortal/TSingleApplication/Sections/TPersonalInfo/TpersonalInfo';

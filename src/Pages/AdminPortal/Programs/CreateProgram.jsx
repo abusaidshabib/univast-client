@@ -52,7 +52,7 @@ const CreateProgram = () => {
       toast.success("Department successfully created");
     } else if (isError) {
       console.log(error);
-      toast.error(error.data.message);
+      toast.error(error.data?.message);
     }
   }, [isError, isSuccess]);
 

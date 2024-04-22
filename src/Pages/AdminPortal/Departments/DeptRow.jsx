@@ -21,7 +21,7 @@ const DeptRow = ({ department }) => {
     if (isSuccess) {
       toast.success("Department successfully removed");
     } else if (isError) {
-      toast.error(error.data.message);
+      toast.error(error.data?.message);
     }
   }, [isError, isSuccess]);
 
