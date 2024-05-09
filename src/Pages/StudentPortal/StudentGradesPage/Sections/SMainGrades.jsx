@@ -1,49 +1,53 @@
 import { useContext, useEffect, useState } from "react";
-import { useGetSemestersQuery } from "../../../../../features/semester/semesterApi";
+import { useGetSemestersQuery } from "../../../../features/semester/semesterApi";
 import moment from "moment";
-import { useGetTeacherByEmailQuery } from "../../../../../features/teacher/teacherApi";
-import { AuthContext } from "../../../../../Context/UserContext";
+import { useGetStudentByEmailQuery } from "../../../../features/student/studentApi";
+import { AuthContext } from "../../../../Context/UserContext";
 
-const TCourseResults = () => {
+const SMainGrades = () => {
   const [selectedSemester, setSelectedSemester] = useState("");
-
   const { user } = useContext(AuthContext);
-  const { data } = useGetTeacherByEmailQuery(user?.email);
-
-  const teacherData = data?.data[0];
-  const enrollDate = moment(teacherData?.personal?.enrollDate).format(
-    "YYYY-MM-DD"
-  );
-
+  const { data } = useGetStudentByEmailQuery(user?.email);
+  const studentData = data?.data;
+  const enrollDate = moment(studentData?.admission_date).format("YYYY-MM-DD");
   let { data: semesters } = useGetSemestersQuery({
     startDate: enrollDate,
     endDate: moment().format("YYYY-MM-DD"),
   });
 
+  const filteredCourses = studentData?.courses_taught?.find(
+    (item) => item.semester === selectedSemester
+  );
+
   useEffect(() => {
     setSelectedSemester(semesters?.data[0]);
   }, [semesters]);
   return (
-    <div>
-      <div className="flex justify-end mb-3">
-        <select
-          name="semester"
-          id="semester"
-          onChange={(e) => {
-            setSelectedSemester(e.target.value);
-          }}
-          value={selectedSemester}
-          className="w-72 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-        >
-          <option value="">Select Semester</option>
-          {semesters?.data?.map((semester, i) => (
-            <option key={i} value={semester}>
-              {semester}
-            </option>
-          ))}
-        </select>
+    <div className="bg-p-white p-10 rounded-lg">
+      <div className="flex justify-between items-center text-gray-900 col-span-3">
+        <div>
+          <p className="text-4xl font-semibold">Check Grades</p>
+        </div>
+        <div>
+          <select
+            name="semester"
+            id="semester"
+            onChange={(e) => {
+              setSelectedSemester(e.target.value);
+              // refetch();
+            }}
+            value={selectedSemester}
+            className="w-72 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+          >
+            <option value="">Select Semester</option>
+            {semesters?.data?.map((semester, i) => (
+              <option key={i} value={semester}>
+                {semester}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-
       <div className="flex flex-col mt-6">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -64,16 +68,22 @@ const TCourseResults = () => {
                       scope="col"
                       className="px-12 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
                     >
-                      Student ID
+                      Course Code
                     </th>
 
                     <th
                       scope="col"
                       className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
                     >
-                      Student Name
+                      Course Title
                     </th>
 
+                    <th
+                      scope="col"
+                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                    >
+                      Credit
+                    </th>
                     <th
                       scope="col"
                       className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
@@ -114,23 +124,33 @@ const TCourseResults = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                  {attendaceData?.data?.map((item, i) => (
-                    <tr key={item._id}>
+                  {filteredCourses?.courses?.map((course, i) => (
+                    <tr key={course._id}>
                       <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                         <div className="inline-flex items-center gap-x-3">
                           <div className="">{i + 1}</div>
                         </div>
                       </td>
                       <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                        {item.studentId}
+                        {course.courseCode}
                       </td>
                       <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                        {item.student_name}
+                        {course.courseName}
                       </td>
+                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                        {course.credit}
+                      </td>
+                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
+                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
+                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
+                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
+                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
+                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+              <p className="text-right px-4 py-4">GPA : </p>
             </div>
           </div>
         </div>
@@ -139,4 +159,4 @@ const TCourseResults = () => {
   );
 };
 
-export default TCourseResults;
+export default SMainGrades;
