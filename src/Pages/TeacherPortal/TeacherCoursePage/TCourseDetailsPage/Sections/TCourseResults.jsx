@@ -27,7 +27,7 @@ const TCourseResults = () => {
     <div>
       <div className="flex justify-end mb-3">
         <select
-          name="semester"
+          name="semester" 
           id="semester"
           onChange={(e) => {
             setSelectedSemester(e.target.value);
@@ -114,7 +114,7 @@ const TCourseResults = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                  {attendaceData?.data?.map((item, i) => (
+                  {/* {attendaceData?.data?.map((item, i) => (
                     <tr key={item._id}>
                       <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                         <div className="inline-flex items-center gap-x-3">
@@ -128,7 +128,7 @@ const TCourseResults = () => {
                         {item.student_name}
                       </td>
                     </tr>
-                  ))}
+                  ))} */}
                 </tbody>
               </table>
             </div>
