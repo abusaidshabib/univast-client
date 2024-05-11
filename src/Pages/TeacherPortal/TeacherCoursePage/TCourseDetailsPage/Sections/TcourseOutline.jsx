@@ -1,48 +1,33 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { FiUpload } from "react-icons/fi";
 // import { MdOutlineFileDownload } from "react-icons/md";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { uploadCourseAsstesToFirebase } from "../../../../../firebase/firebase.config";
 import {
   useGetCourseContentQuery,
-  useGetTeacherByEmailQuery,
   useUploadCourseContentMutation,
 } from "../../../../../features/teacher/teacherApi";
 import toast from "react-hot-toast";
-import { useGetSemestersQuery } from "../../../../../features/semester/semesterApi";
-import moment from "moment";
-import { AuthContext } from "../../../../../Context/UserContext";
 
 const TCourseOutline = () => {
   const { courseCode } = useParams();
+  const [selectedSemester, setSelectedSemester] = useState("");
   const [loading, setLoading] = useState(false);
   const [uploadCourseContent, { isLoading, isSuccess, isError, error }] =
     useUploadCourseContentMutation();
 
-  const [selectedSemester, setSelectedSemester] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const semester = queryParams.get("semester");
+    setSelectedSemester(semester);
+  }, [location]);
+
   const { data: courseContent } = useGetCourseContentQuery({
     semester: selectedSemester,
     courseCode: courseCode,
   });
-  console.log("courseContent", courseContent);
-
-  const { user } = useContext(AuthContext);
-  const { data } = useGetTeacherByEmailQuery(user?.email);
-
-  const teacherData = data?.data[0];
-
-  const enrollDate = moment(teacherData?.personal?.enrollDate).format(
-    "YYYY-MM-DD"
-  );
-
-  let { data: semesters } = useGetSemestersQuery({
-    startDate: enrollDate,
-    endDate: moment().format("YYYY-MM-DD"),
-  });
-
-  useEffect(() => {
-    setSelectedSemester(semesters?.data[0]);
-  }, [semesters]);
 
   const handleUpload = (selectedFile, fileName) => {
     setLoading(true);
@@ -62,25 +47,25 @@ const TCourseOutline = () => {
       });
   };
 
-//   const handleDownload = async (url, title) => {
-//     try {
-//       const response = await fetch(url);
-//       const blob = await response.blob();
+  //   const handleDownload = async (url, title) => {
+  //     try {
+  //       const response = await fetch(url);
+  //       const blob = await response.blob();
 
-//       // Create a Blob URL
-//       const blobUrl = URL.createObjectURL(blob);
+  //       // Create a Blob URL
+  //       const blobUrl = URL.createObjectURL(blob);
 
-//       // Create an anchor element
-//       const a = document.createElement("a");
-//       a.href = blobUrl;
-//       a.download = title; // Set the desired filename
-//       document.body.appendChild(a); // Append the anchor to the document
-//       a.click();
-//       document.body.removeChild(a);
-//     } catch (error) {
-//       console.error("Error downloading the file", error);
-//     }
-//   };
+  //       // Create an anchor element
+  //       const a = document.createElement("a");
+  //       a.href = blobUrl;
+  //       a.download = title; // Set the desired filename
+  //       document.body.appendChild(a); // Append the anchor to the document
+  //       a.click();
+  //       document.body.removeChild(a);
+  //     } catch (error) {
+  //       console.error("Error downloading the file", error);
+  //     }
+  //   };
 
   useEffect(() => {
     if (loading) {
@@ -96,25 +81,7 @@ const TCourseOutline = () => {
 
   return (
     <div>
-      <div className="flex justify-end mb-3">
-        <select
-          name="semester"
-          id="semester"
-          onChange={(e) => {
-            setSelectedSemester(e.target.value);
-          }}
-          value={selectedSemester}
-          className="w-72 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
-        >
-          <option value="">Select Semester</option>
-          {semesters?.data?.map((semester, i) => (
-            <option key={i} value={semester}>
-              {semester}
-            </option>
-          ))}
-        </select>
-      </div>
-      <form className="flex justify-end">
+      <form className="flex justify-end my-5">
         <label
           htmlFor={`${isLoading || loading ? "" : "uploadFiles"}`}
           className="flex items-center gap-1 bg-primary-blue text-primary-white px-4 py-2 rounded-md cursor-pointer"

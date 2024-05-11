@@ -16,13 +16,15 @@ const RegisteredCourses = () => {
     startDate: enrollDate,
     endDate: moment().format("YYYY-MM-DD"),
   });
+  
   const filteredCourses = teacher?.courses_taught?.find(
     (item) => item.semester === selectedSemester
   );
 
   useEffect(() => {
-    setSelectedSemester(semesters?.data[0]);
+      setSelectedSemester(semesters?.data[0]);
   }, [semesters]);
+
 
   return (
     <div className="bg-p-white p-10 rounded-lg">
@@ -120,7 +122,7 @@ const RegisteredCourses = () => {
                       <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                         <Link
                           className="bg-primary-blue rounded-md hover:bg-gray-600 text-primary-white px-2 py-1"
-                          to={`${course.courseCode}/outline`}
+                          to={`${course.courseCode}/outline?semester=${selectedSemester}`}
                         >
                           Details
                         </Link>
