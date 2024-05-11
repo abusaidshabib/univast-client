@@ -1,12 +1,25 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useGetStudentByCourseQuery } from "../../../../../features/student/studentApi";
+import SingleStudentRow from "./SingleStudentRow";
+import { useEffect, useState } from "react";
 
 const TCourseResults = () => {
+  
   const { courseCode } = useParams();
   const { data: students } = useGetStudentByCourseQuery(courseCode);
-  console.log(students);
+
+  const location = useLocation();
+  const [selectedSemester, setSelectedSemester] = useState("");
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const semester = queryParams.get("semester");
+    setSelectedSemester(semester);
+  }, [location]);
+
   return (
     <div>
+
       <div className="flex flex-col mt-6">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -39,78 +52,57 @@ const TCourseResults = () => {
 
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"
                     >
                       Mid
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"
                     >
                       Final
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"
                     >
                       Attendance
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"
                     >
                       Assesments/ Presentation
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"
                     >
                       Total
                     </th>
 
-                    <th
+                    {/* <th
                       scope="col"
-                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"
                     >
                       Grades
+                    </th> */}
+                    <th
+                      scope="col"
+                      className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"
+                    >
+                      Action
                     </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                   {students?.data?.map((item, i) => (
-                    <tr key={item._id}>
-                      <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                        <div className="inline-flex items-center gap-x-3">
-                          <div className="">{i + 1}</div>
-                        </div>
-                      </td>
-                      <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                        {item.studentId}
-                      </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                        {item?.personal.firstName +
-                          " " +
-                          item?.personal.lastName}
-                      </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-
-                      </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-
-                      </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-
-                      </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-
-                      </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-
-                      </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-
-                      </td>
-                    </tr>
+                    <SingleStudentRow
+                      key={i}
+                      item={item}
+                      i={i}
+                      selectedSemester={selectedSemester}
+                    ></SingleStudentRow>
                   ))}
                 </tbody>
               </table>

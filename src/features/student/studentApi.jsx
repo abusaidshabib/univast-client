@@ -33,12 +33,28 @@ export const studentApi = createApi({
         url: `/student-attendance?courseCode=${courseCode}&semester=${semester}&studentId=${studentId}`,
       }),
     }),
+    putResult: builder.mutation({
+      query: ({ studentId, data }) => ({
+        url: `/results/${studentId}`,
+        method: "PUT",
+        body: data,
+      }),
+    }),
+    postResult: builder.mutation({
+      query: ({ studentId, data }) => ({
+        url: `/results/${studentId}`,
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
 export const {
   useGetStudentsQuery,
+  usePostResultMutation,
   usePostStudentMutation,
+  usePutResultMutation,
   useGetStudentByEmailQuery,
   useGetStudentByCourseQuery,
   useGetStudentAttendanceQuery,
