@@ -19,7 +19,6 @@ const TCourseResults = () => {
 
   return (
     <div>
-
       <div className="flex flex-col mt-6">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -81,12 +80,12 @@ const TCourseResults = () => {
                       Total
                     </th>
 
-                    {/* <th
+                    <th
                       scope="col"
                       className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"
                     >
                       Grades
-                    </th> */}
+                    </th>
                     <th
                       scope="col"
                       className="px-4 py-3.5 text-center rtl:text-right text-gray-500 dark:text-gray-400"

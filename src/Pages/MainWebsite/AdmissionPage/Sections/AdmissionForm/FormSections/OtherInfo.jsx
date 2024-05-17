@@ -6,12 +6,10 @@ import { usePostApplicationMutation } from "../../../../../../features/applicati
 import { useContext, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../../../../Context/UserContext";
-import { usePostUserMutation } from "../../../../../../features/user/userApi";
 import { useSendEmailMutation } from "../../../../../../features/sendEmail/sendEmailApi";
 
 const OtherInfo = () => {
   const { createUser } = useContext(AuthContext);
-  const [postUser] = usePostUserMutation();
   const [postApplication, { isLoading, isError, error, isSuccess }] =
     usePostApplicationMutation();
   const [sendEmail] = useSendEmailMutation();

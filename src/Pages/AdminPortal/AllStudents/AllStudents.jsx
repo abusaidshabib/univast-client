@@ -8,16 +8,37 @@ const AllStudents = () => {
 
   console.log(students);
 
-  const [
-    getPrediction,
-    { data: prediction, isLoading, isSuccess},
-  ] = useGetDropoutPredictionMutation();
+  const [getPrediction, { data: prediction, isLoading, isSuccess }] =
+    useGetDropoutPredictionMutation();
 
   useEffect(() => {
     const allStudentData = [];
 
     if (students?.data?.length > 0) {
       students.data.forEach((student) => {
+
+        const semester1resArr = student?.results?.filter(
+          (result) => result?.course?.semester === 1
+        );
+        const semester1Grade =
+          semester1resArr.reduce((sum, gradeObj) => sum + gradeObj?.grade, 0) /
+          semester1resArr.length;
+
+        const semester2resArr = student?.results?.filter(
+          (result) => result?.course?.semester === 2
+        );
+        const semester2Grade =
+          semester2resArr.reduce((sum, gradeObj) => sum + gradeObj?.grade, 0) /
+          semester2resArr.length;
+
+        const semester3resArr = student?.results?.filter(
+          (result) => result?.course?.semester === 3
+        );
+        const semester3Grade =
+          semester3resArr.reduce((sum, gradeObj) => sum + gradeObj?.grade, 0) /
+          semester3resArr.length;
+
+
         const data = {
           marital:
             student.personal.marital === "Single"
@@ -43,6 +64,9 @@ const AllStudents = () => {
           scholarship_holder: 1,
           age_at_enrollment: 20,
           international: student.personal.nationality === "Bangladeshi" ? 0 : 1,
+          curricular_units_1st_sem_grade : !isNaN(semester1Grade) ? semester1Grade : 0,
+          curricular_units_2nd_sem_grade : !isNaN(semester2Grade) ? semester2Grade : 0,
+          curricular_units_3rd_sem_grade : !isNaN(semester3Grade) ? semester3Grade : 0,
         };
         allStudentData.push(data);
       });
