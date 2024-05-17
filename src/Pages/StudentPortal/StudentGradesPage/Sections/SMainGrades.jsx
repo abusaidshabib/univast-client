@@ -3,6 +3,7 @@ import { useGetSemestersQuery } from "../../../../features/semester/semesterApi"
 import moment from "moment";
 import { useGetStudentByEmailQuery } from "../../../../features/student/studentApi";
 import { AuthContext } from "../../../../Context/UserContext";
+import SingleCourseResult from "./SingleCourseResult";
 
 const SMainGrades = () => {
   const [selectedSemester, setSelectedSemester] = useState("");
@@ -125,28 +126,12 @@ const SMainGrades = () => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
                   {filteredCourses?.courses?.map((course, i) => (
-                    <tr key={course._id}>
-                      <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                        <div className="inline-flex items-center gap-x-3">
-                          <div className="">{i + 1}</div>
-                        </div>
-                      </td>
-                      <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                        {course.courseCode}
-                      </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                        {course.courseName}
-                      </td>
-                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                        {course.credit}
-                      </td>
-                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
-                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
-                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
-                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
-                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
-                      <td className="px-4 py-4 text-sm text-center text-gray-500 dark:text-gray-300 whitespace-nowrap"></td>
-                    </tr>
+                    <SingleCourseResult
+                      key={i}
+                      course={course}
+                      i={i}
+                      results={studentData?.results}
+                    ></SingleCourseResult>
                   ))}
                 </tbody>
               </table>

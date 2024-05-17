@@ -6,7 +6,6 @@ const SGeneralInfo = () => {
   const {user} = useContext(AuthContext)
   const { data } = useGetStudentByEmailQuery(user?.email);
   const studentData = data?.data;
-  console.log(data?.data);
   return (
     <div className="flex gap-10">
       <div>
