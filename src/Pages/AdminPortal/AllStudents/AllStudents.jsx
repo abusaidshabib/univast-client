@@ -48,7 +48,7 @@ const AllStudents = () => {
               : 2,
           application_mode: 0,
           application_order: 1,
-          courses_taught: 3,
+          courses_taught: student.courses_taught.length,
           education_shift: student.general === "Day" ? 0 : 1,
           education: 2,
           nationality: student.personal.nationality === "Bangladeshi" ? 1 : 0,
@@ -64,9 +64,23 @@ const AllStudents = () => {
           scholarship_holder: 1,
           age_at_enrollment: 20,
           international: student.personal.nationality === "Bangladeshi" ? 0 : 1,
-          curricular_units_1st_sem_grade : !isNaN(semester1Grade) ? semester1Grade : 0,
-          curricular_units_2nd_sem_grade : !isNaN(semester2Grade) ? semester2Grade : 0,
-          curricular_units_3rd_sem_grade : !isNaN(semester3Grade) ? semester3Grade : 0,
+          curricular_units_1st_sem_credited: 19,
+          curricular_units_1st_sem_enrolled: 7,
+          curricular_units_1st_sem_evaluations: 7,
+          curricular_units_1st_sem_approved: 7,
+          curricular_units_1st_sem_grade: !isNaN(semester1Grade)
+            ? semester1Grade
+            : 0,
+          curricular_units_2nd_sem_credited: 19,
+          curricular_units_2nd_sem_enrolled: 7,
+          curricular_units_2nd_sem_evaluations: 7,
+          curricular_units_2nd_sem_approved: 7,
+          curricular_units_2nd_sem_grade: !isNaN(semester2Grade)
+            ? semester2Grade
+            : 0,
+          unemployment_rate: 13.9,
+          inflation_rate: -0.3,
+          gdp: 0.79,
         };
         allStudentData.push(data);
       });
