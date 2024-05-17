@@ -71,6 +71,7 @@ const AllStudents = () => {
           curricular_units_1st_sem_grade: !isNaN(semester1Grade)
             ? semester1Grade
             : 0,
+          curricular_units_1st_sem_without_evaluations: 0,
           curricular_units_2nd_sem_credited: 19,
           curricular_units_2nd_sem_enrolled: 7,
           curricular_units_2nd_sem_evaluations: 7,
@@ -78,6 +79,7 @@ const AllStudents = () => {
           curricular_units_2nd_sem_grade: !isNaN(semester2Grade)
             ? semester2Grade
             : 0,
+          curricular_units_2nd_sem_without_evaluations: 0,
           unemployment_rate: 13.9,
           inflation_rate: -0.3,
           gdp: 0.79,
