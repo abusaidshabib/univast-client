@@ -11,20 +11,16 @@ import auth from "../firebase/firebase.config";
 
 export const AuthContext = createContext();
 
-
 // eslint-disable-next-line react/prop-types
 const UserContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [userRole, setUserRole] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser?.uid) {
-        fetch(
-          `http://localhost:8000/api/v1/users?firebaseId=${currentUser.uid}`
-        )
+        fetch(`${import.meta.env.VITE_SERVER_URL}/users?firebaseId=${currentUser.uid}`)
           .then((res) => res.json())
           .then((data) => {
             // console.log(data.data.user.role);
@@ -36,13 +32,12 @@ const UserContext = ({ children }) => {
           .catch(() => setLoading(false));
       } else {
         setLoading(false);
-        setUser(null)
-        setUserRole(null)
+        setUser(null);
+        setUserRole(null);
       }
     });
     return () => unSubscribe();
   }, []);
-
 
   // console.log(user);
   const createUser = (email, password) => {
@@ -69,7 +64,7 @@ const UserContext = ({ children }) => {
     logIn,
     logOut,
     loading,
-    userRole
+    userRole,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

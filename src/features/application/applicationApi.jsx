@@ -1,9 +1,9 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const applicationApi = createApi({
   reducerPath: "applicationApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8000/api/v1",
+    baseUrl: `${import.meta.env.VITE_SERVER_URL}`,
   }),
   tagTypes: ["application"],
   endpoints: (builder) => ({
@@ -35,4 +35,9 @@ export const applicationApi = createApi({
   }),
 });
 
-export const {usePostApplicationMutation, useGetApplicationsQuery, useGetApplicationByEmailQuery, useDeleteApplicationMutation} = applicationApi;
+export const {
+  usePostApplicationMutation,
+  useGetApplicationsQuery,
+  useGetApplicationByEmailQuery,
+  useDeleteApplicationMutation,
+} = applicationApi;

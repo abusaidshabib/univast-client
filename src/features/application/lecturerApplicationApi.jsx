@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const lecturerApplicationApi = createApi({
   reducerPath: "lecturerApplicationApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8000/api/v1",
+    baseUrl: `${import.meta.env.VITE_SERVER_URL}`,
   }),
   tagTypes: ["application"],
   endpoints: (builder) => ({
@@ -39,5 +39,5 @@ export const {
   useGetLecturerApplicationsQuery,
   useGetLecturerApplicationByEmailQuery,
   usePostLecturerApplicationMutation,
-  useDeleteLecturerApplicationMutation
+  useDeleteLecturerApplicationMutation,
 } = lecturerApplicationApi;

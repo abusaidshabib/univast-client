@@ -3,19 +3,17 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 export const noticeApi = createApi({
   reducerPath: "noticeApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8000/api/v1",
+    baseUrl: `${import.meta.env.VITE_SERVER_URL}`,
   }),
   tagTypes: ["notice"],
   endpoints: (builder) => ({
-
     getNotices: builder.query({
-        query: () => ({
-            url: "/notice"
-        }),
-        providesTags: ["notice"]
+      query: () => ({
+        url: "/notice",
+      }),
+      providesTags: ["notice"],
     }),
-    
-  })
+  }),
 });
 
-export const {useGetNoticesQuery} = noticeApi
+export const { useGetNoticesQuery } = noticeApi;
