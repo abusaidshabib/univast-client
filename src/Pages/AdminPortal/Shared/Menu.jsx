@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { AiOutlineLogout } from "react-icons/ai";
-import { BiUser } from "react-icons/bi";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Context/UserContext";
-import { PiStudent } from "react-icons/pi";
+import { PiGear, PiStudent } from "react-icons/pi";
 import { LiaChalkboardTeacherSolid } from "react-icons/lia";
 import { FaUniversity } from "react-icons/fa";
 import { GrGroup } from "react-icons/gr";
@@ -66,6 +65,12 @@ const Menu = () => {
             <NavLink to="programs" className="flex gap-3">
               <SiSemanticscholar className="text-2xl" />
               <p className="font-semibold">Programs</p>
+            </NavLink>
+          </li>
+          <li className="">
+            <NavLink to="/control-panel" className="flex gap-3">
+              <PiGear className="text-2xl" />
+              <p className="font-semibold">Control Panel</p>
             </NavLink>
           </li>
         </ul>
