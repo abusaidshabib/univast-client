@@ -7,15 +7,13 @@ import { AiOutlineEye } from "react-icons/ai";
 import { IoMdCheckmark } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { usePostStudentMutation } from "../../../../features/student/studentApi";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { usePostUserMutation } from "../../../../features/user/userApi";
-import { AuthContext } from "../../../../Context/UserContext";
 import { useSendEmailMutation } from "../../../../features/sendEmail/sendEmailApi";
 import { useStudentEnrollCourseMutation } from "../../../../features/course/courseApi";
 
 const StudentEnroll = () => {
-  const { createUser } = useContext(AuthContext);
   const { data } = useGetApplicationsQuery();
   const [postStudent, { isLoading, isError, error, isSuccess }] =
     usePostStudentMutation();
