@@ -64,7 +64,7 @@ const OtherInfo = () => {
             <head>
               <script src="https://cdn.tailwindcss.com"></script>
             </head>
-            <section className="max-w-2xl px-6 py-8 mx-auto bg-white dark:bg-gray-900">
+            <section className="max-w-2xl px-6 py-8 mx-auto bg-white">
             <header>
               <Link
                 to="http://localhost:3000/"
@@ -86,7 +86,7 @@ const OtherInfo = () => {
             </header>
 
             <main className="mt-8">
-              <h2 className="text-gray-700 dark:text-gray-200">
+              <h2 className="text-gray-700">
                 Hi ${lastName},
               </h2>
 
@@ -108,7 +108,7 @@ const OtherInfo = () => {
 
               <p>Thank you for your application and your interest in [University/Program Name]. We wish you the best of luck with your application and hope to provide you with a positive response soon.</p>
 
-              <p className="mt-2 text-gray-600 dark:text-gray-300">
+              <p className="mt-2 text-gray-600">
                 Your online portal Login credentials:
                 <br />
                 Email: ${email}
@@ -123,7 +123,7 @@ const OtherInfo = () => {
             </main>
 
             <footer className="mt-8">
-              <p className="text-gray-500 dark:text-gray-400">
+              <p className="text-gray-500">
                 Best regards, <br/>
                 Univast Univarsity 
                 Email: univast@gmail.com
@@ -148,7 +148,7 @@ const OtherInfo = () => {
         sendEmail(emailData);
       })
       .catch((error) => {
-        toast.error(error.message)
+        toast.error(error.message);
       });
   };
 

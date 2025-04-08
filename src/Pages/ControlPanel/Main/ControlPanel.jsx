@@ -96,8 +96,8 @@ const ControlPanel = () => {
             <p className="text-xl font-semibold text-center bg-primary-blue p-2 rounded-lg text-p-white">
               Upcoming
             </p>
-            <Link
-              className="w-80 transition-all duration-300 opacity-60 bg-accent-blue/70 hover:bg-secondary-blue border-2 border-secondary-blue hover:text-p-white rounded-lg flex"
+            <button disabled
+              className="cursor-not-allowed w-80 transition-all duration-300 opacity-60 bg-accent-blue/70 hover:bg-secondary-blue border-2 border-secondary-blue hover:text-p-white rounded-lg flex"
               to="/exam"
             >
               <p className="text-5xl grid place-content-center text-p-white">
@@ -108,9 +108,9 @@ const ControlPanel = () => {
               <p className="text-xl grid place-content-center font-medium">
                 Exam ManageMent
               </p>
-            </Link>
-            <Link
-              className="w-80 transition-all duration-300 opacity-60 bg-accent-blue/70 hover:bg-secondary-blue border-2 border-secondary-blue hover:text-p-white rounded-lg flex"
+            </button>
+            <button disabled
+              className="cursor-not-allowed w-80 transition-all duration-300 opacity-60 bg-accent-blue/70 hover:bg-secondary-blue border-2 border-secondary-blue hover:text-p-white rounded-lg flex"
               to="/financial"
             >
               <p className="text-5xl grid place-content-center text-p-white">
@@ -121,9 +121,9 @@ const ControlPanel = () => {
               <p className="text-xl grid place-content-center font-medium">
                 Financial Managemet
               </p>
-            </Link>
-            <Link
-              className="w-80 transition-all duration-300 opacity-60 bg-accent-blue/70 hover:bg-secondary-blue border-2 border-secondary-blue hover:text-p-white rounded-lg flex"
+            </button>
+            <button disabled
+              className="cursor-not-allowed w-80 transition-all duration-300 opacity-60 bg-accent-blue/70 hover:bg-secondary-blue border-2 border-secondary-blue hover:text-p-white rounded-lg flex"
               to="/resource"
             >
               <p className="text-5xl grid place-content-center text-p-white">
@@ -134,7 +134,7 @@ const ControlPanel = () => {
               <p className="text-xl grid place-content-center font-medium">
                 HR Management
               </p>
-            </Link>
+            </button>
           </div>
         </div>
       </div>

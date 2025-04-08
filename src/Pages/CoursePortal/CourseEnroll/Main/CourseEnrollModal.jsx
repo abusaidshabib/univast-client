@@ -45,14 +45,12 @@ const CourseEnrollModal = ({
   useEffect(() => {
     if (isLoading) {
       toast.loading("Courses Adding", { id: "enroll" });
-    }
-    else if (isSuccess) {
+    } else if (isSuccess) {
       toast.success("Courses Added Successfully", { id: "enroll" });
-      setCourseEnrollModal(false)
+      setCourseEnrollModal(false);
       refetch();
-    }
-    else if(isError){
-      console.log(error)
+    } else if (isError) {
+      console.log(error);
       toast.error(error?.data?.message, { id: "enroll" });
     }
   }, [isSuccess, isLoading, isError]);
@@ -74,17 +72,14 @@ const CourseEnrollModal = ({
           <form>
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-3">
               <div>
-                <label
-                  className="text-gray-700 dark:text-gray-200"
-                  htmlFor="facultyCode"
-                >
+                <label className="text-gray-700" htmlFor="facultyCode">
                   Faculty
                 </label>
                 <select
                   name="facultyCode"
                   id="facultyCode"
                   onChange={(e) => setSelectedFaculty(e.target.value)}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                 >
                   <option value="">Select Faculty</option>
                   {faculties?.data?.map((faculty) => (
@@ -96,17 +91,14 @@ const CourseEnrollModal = ({
               </div>
 
               <div>
-                <label
-                  className="text-gray-700 dark:text-gray-200"
-                  htmlFor="departmentCode"
-                >
+                <label className="text-gray-700" htmlFor="departmentCode">
                   Department
                 </label>
                 <select
                   name="departmentCode"
                   id="departmentCode"
                   onChange={(e) => setSelectedDepartment(e.target.value)}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                 >
                   <option value="">Select Department</option>
                   {departments?.data?.map((department) => (
@@ -121,17 +113,14 @@ const CourseEnrollModal = ({
               </div>
 
               <div>
-                <label
-                  className="text-gray-700 dark:text-gray-200"
-                  htmlFor="programCode"
-                >
+                <label className="text-gray-700" htmlFor="programCode">
                   Program
                 </label>
                 <select
                   name="programCode"
                   id="programCode"
                   onChange={(e) => setSelectedProgram(e.target.value)}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                 >
                   <option value="">Select Program</option>
                   {programs?.data?.map((program) => (
@@ -161,21 +150,21 @@ const CourseEnrollModal = ({
           <div className="flex flex-col mt-6">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                <div className="overflow-hidden border border-gray-200 md:rounded-lg">
                   <table
                     id="courses"
                     className="min-w-full border-collapse w-full text-lg bg-p-white"
                   >
-                    <thead className="bg-gray-50 dark:bg-gray-800 text-sm uppercase font-normal tracking-wider">
+                    <thead className="bg-gray-50 text-sm uppercase font-normal tracking-wider">
                       <tr>
                         <th
                           scope="col"
-                          className="py-3.5 px-4 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="py-3.5 px-4 text-left rtl:text-right text-gray-500"
                         >
                           <div className="flex items-center gap-x-3">
                             <input
                               type="checkbox"
-                              className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700"
+                              className="text-blue-500 border-gray-300 rounded"
                             />
                             <span>SI No.</span>
                           </div>
@@ -183,27 +172,27 @@ const CourseEnrollModal = ({
 
                         <th
                           scope="col"
-                          className="px-12 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="px-12 py-3.5 text-left rtl:text-right text-gray-500"
                         >
                           Course Code
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="px-4 py-3.5 text-left rtl:text-right text-gray-500"
                         >
                           Course Title
                         </th>
 
                         <th
                           scope="col"
-                          className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                          className="px-4 py-3.5 text-left rtl:text-right text-gray-500"
                         >
                           Credit
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                    <tbody className="bg-white divide-y divide-gray-200">
                       {courses?.data
                         ?.filter((course) => {
                           if (
@@ -241,19 +230,19 @@ const CourseEnrollModal = ({
                                       }
                                     });
                                   }}
-                                  className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700"
+                                  className="text-blue-500 border-gray-300 rounded"
                                 />
 
                                 <div className="">{i + 1}</div>
                               </div>
                             </td>
-                            <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                            <td className="px-12 py-4 text-sm text-gray-500 whitespace-nowrap">
                               {course.courseCode}
                             </td>
-                            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                            <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                               {course.courseName}
                             </td>
-                            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                            <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                               {course.credit}
                             </td>
                           </tr>

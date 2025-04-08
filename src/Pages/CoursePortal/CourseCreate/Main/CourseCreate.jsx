@@ -72,18 +72,15 @@ const CourseCreate = () => {
 
   return (
     <div className="bg-gray-200 min-h-[calc(100vh-80px)] gap-5 text-gray-900 p-5 grid place-items-center">
-      <section className="p-6 bg-white rounded-md shadow-md dark:bg-gray-800">
-        <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
+      <section className="p-6 bg-white rounded-md shadow-md">
+        <h2 className="text-lg font-semibold text-gray-700 capitalize">
           Add New Course
         </h2>
 
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 lg:grid-cols-3">
             <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="facultyCode"
-              >
+              <label className="text-gray-700" htmlFor="facultyCode">
                 Faculty
               </label>
               <select
@@ -91,7 +88,7 @@ const CourseCreate = () => {
                 id="facultyCode"
                 required
                 onChange={(e) => setSelectedFaculty(e.target.value)}
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               >
                 <option value="">Select Faculty</option>
                 {faculties?.data?.map((faculty) => (
@@ -103,10 +100,7 @@ const CourseCreate = () => {
             </div>
 
             <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="departmentCode"
-              >
+              <label className="text-gray-700" htmlFor="departmentCode">
                 Department
               </label>
               <select
@@ -114,7 +108,7 @@ const CourseCreate = () => {
                 id="departmentCode"
                 required
                 onChange={(e) => setSelectedDepartment(e.target.value)}
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               >
                 <option value="">Select Department</option>
                 {departments?.data?.map((department) => (
@@ -129,17 +123,14 @@ const CourseCreate = () => {
             </div>
 
             <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="programCode"
-              >
+              <label className="text-gray-700" htmlFor="programCode">
                 Program
               </label>
               <select
                 name="programCode"
                 id="programCode"
                 required
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               >
                 <option value="">Select Program</option>
                 {programs?.data?.map((program) => (
@@ -151,10 +142,7 @@ const CourseCreate = () => {
             </div>
 
             <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="courseName"
-              >
+              <label className="text-gray-700" htmlFor="courseName">
                 Course Title
               </label>
               <input
@@ -162,15 +150,12 @@ const CourseCreate = () => {
                 id="courseName"
                 required
                 type="text"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               />
             </div>
 
             <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="courseCode"
-              >
+              <label className="text-gray-700" htmlFor="courseCode">
                 Course Code
               </label>
               <input
@@ -178,15 +163,12 @@ const CourseCreate = () => {
                 id="courseCode"
                 required
                 type="text"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               />
             </div>
 
             <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="credit"
-              >
+              <label className="text-gray-700" htmlFor="credit">
                 Course Credit
               </label>
               <input
@@ -194,22 +176,19 @@ const CourseCreate = () => {
                 id="credit"
                 required
                 type="number"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               />
             </div>
 
             <div>
-              <label
-                className="text-gray-700 dark:text-gray-200"
-                htmlFor="semester"
-              >
+              <label className="text-gray-700" htmlFor="semester">
                 Semster
               </label>
               <select
                 name="semester"
                 id="semester"
                 required
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
               >
                 <option value="">Select Semester</option>
                 {semesters?.map((semester, i) => (

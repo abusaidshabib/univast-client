@@ -86,10 +86,10 @@ const Login = () => {
                 <li
                   key={tab.key}
                   onClick={() => setTab(tab)}
-                  className={`py-1 cursor-pointer w-full border-transparent text-center ${
+                  className={`py-1 cursor-pointer w-full text-center ${
                     activeTab.key === tab.key
                       ? "border-b-2 border-accent-blue font-semibold"
-                      : ""
+                      : "border-transparent"
                   }`}
                 >
                   {tab.value}

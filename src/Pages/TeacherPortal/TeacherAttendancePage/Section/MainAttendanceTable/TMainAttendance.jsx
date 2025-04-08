@@ -21,7 +21,7 @@ const TMainAttendance = () => {
   );
 
   useEffect(() => {
-    setSelectedSemester(semesters?.data[0]);
+    setSelectedSemester("Spring-2024");
   }, [semesters]);
   return (
     <div className="bg-white p-10 rounded-lg">
@@ -35,7 +35,7 @@ const TMainAttendance = () => {
             // refetch();
           }}
           value={selectedSemester}
-          className="w-72 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+          className="w-72 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
         >
           <option value="">Select Semester</option>
           {semesters?.data?.map((semester, i) => (
@@ -48,18 +48,18 @@ const TMainAttendance = () => {
       <div className="flex flex-col mt-6">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-            <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+            <div className="overflow-hidden border border-gray-200 md:rounded-lg">
               <table className="min-w-full border-collapse w-full text-lg bg-p-white">
-                <thead className="bg-gray-50 dark:bg-gray-800 text-sm uppercase font-normal tracking-wider">
+                <thead className="bg-gray-50 text-sm uppercase font-normal tracking-wider">
                   <tr>
                     <th
                       scope="col"
-                      className="py-3.5 px-4 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="py-3.5 px-4 text-left rtl:text-right text-gray-500"
                     >
                       <div className="flex items-center gap-x-3">
                         <input
                           type="checkbox"
-                          className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700"
+                          className="text-blue-500 border-gray-300 rounded"
                         />
                         <span>SI No.</span>
                       </div>
@@ -67,56 +67,56 @@ const TMainAttendance = () => {
 
                     <th
                       scope="col"
-                      className="px-12 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-12 py-3.5 text-left rtl:text-right text-gray-500"
                     >
                       Course Code
                     </th>
 
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500"
                     >
                       Course Title
                     </th>
 
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500"
                     >
                       Credit
                     </th>
 
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                      className="px-4 py-3.5 text-left rtl:text-right text-gray-500"
                     >
                       Actions
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                <tbody className="bg-white divide-y divide-gray-200">
                   {filteredCourses?.courses?.map((course, i) => (
                     <tr key={course._id}>
                       <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                         <div className="inline-flex items-center gap-x-3">
                           <input
                             type="checkbox"
-                            className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700"
+                            className="text-blue-500 border-gray-300 rounded"
                           />
 
                           <div className="">{i + 1}</div>
                         </div>
                       </td>
-                      <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                      <td className="px-12 py-4 text-sm text-gray-500 whitespace-nowrap">
                         {course.courseCode}
                       </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                      <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                         {course.courseName}
                       </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                      <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                         {course.credit}
                       </td>
-                      <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                      <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                         <Link
                           className="bg-primary-blue rounded-md hover:bg-gray-600 text-primary-white px-2 py-1"
                           to={`${selectedSemester}/${course.courseCode}/${course.courseName}`}

@@ -55,7 +55,7 @@ const ProgramEditModal = ({ program, setModal }) => {
         onClick={() => setModal(false)}
         className="bg-black/30 fixed top-0 z-50 left-0 w-full h-screen gap-5 text-gray-900 p-5 grid place-items-center"
       ></div>
-      <section className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 p-6 bg-white rounded-md shadow-md dark:bg-gray-800">
+      <section className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 p-6 bg-white rounded-md shadow-md">
         <div className="relative">
           <span
             onClick={() => {
@@ -65,7 +65,7 @@ const ProgramEditModal = ({ program, setModal }) => {
           >
             <RxCross1 />
           </span>
-          <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
+          <h2 className="text-lg font-semibold text-gray-700 capitalize">
             Edit Program
           </h2>
 
@@ -73,7 +73,7 @@ const ProgramEditModal = ({ program, setModal }) => {
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 lg:grid-cols-3">
               <div>
                 <label
-                  className="text-gray-700 dark:text-gray-200"
+                  className="text-gray-700"
                   htmlFor="programLevel"
                 >
                   Program Level
@@ -82,7 +82,7 @@ const ProgramEditModal = ({ program, setModal }) => {
                   name="programLevel"
                   id="programLevel"
                   required
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                 >
                   <option value="">Select Program Level</option>
                   <option
@@ -101,7 +101,7 @@ const ProgramEditModal = ({ program, setModal }) => {
               </div>
               <div>
                 <label
-                  className="text-gray-700 dark:text-gray-200"
+                  className="text-gray-700"
                   htmlFor="programType"
                 >
                   Program Type
@@ -110,7 +110,7 @@ const ProgramEditModal = ({ program, setModal }) => {
                   name="programType"
                   id="programType"
                   required
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                 >
                   <option value="">Select Program Type</option>
                   <option
@@ -129,7 +129,7 @@ const ProgramEditModal = ({ program, setModal }) => {
               </div>
               <div>
                 <label
-                  className="text-gray-700 dark:text-gray-200"
+                  className="text-gray-700"
                   htmlFor="programCode"
                 >
                   Program Code
@@ -140,14 +140,14 @@ const ProgramEditModal = ({ program, setModal }) => {
                   required
                   placeholder="Type here"
                   type="text"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                   defaultValue={program?.programCode}
                 />
               </div>
 
               <div>
                 <label
-                  className="text-gray-700 dark:text-gray-200"
+                  className="text-gray-700"
                   htmlFor="programName"
                 >
                   Program Name
@@ -158,13 +158,13 @@ const ProgramEditModal = ({ program, setModal }) => {
                   required
                   placeholder="Type here"
                   type="text"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                   defaultValue={program?.programName}
                 />
               </div>
               <div>
                 <label
-                  className="text-gray-700 dark:text-gray-200"
+                  className="text-gray-700"
                   htmlFor="programDuration"
                 >
                   Program Duration
@@ -175,12 +175,12 @@ const ProgramEditModal = ({ program, setModal }) => {
                   required
                   placeholder="Type here"
                   type="number"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                   defaultValue={program?.programDuration.split(" ")[0]}
                 />
               </div>
               <div>
-                <label className="text-gray-700 dark:text-gray-200">
+                <label className="text-gray-700">
                   Program Shifts
                 </label>
                 <div className="flex items-center px-4 py-2 mt-2 gap-10">
@@ -192,12 +192,12 @@ const ProgramEditModal = ({ program, setModal }) => {
                       placeholder="Type here"
                       type="checkbox"
                       value="Day"
-                      className="text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                      className="text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                       checked={program.shifts.find((s) => s === "Day")}
                     />
                     <label
                       htmlFor="day"
-                      className="text-gray-700 dark:text-gray-200"
+                      className="text-gray-700"
                     >
                       Day
                     </label>
@@ -210,12 +210,12 @@ const ProgramEditModal = ({ program, setModal }) => {
                       placeholder="Type here"
                       type="checkbox"
                       value="Evening"
-                      className="text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                      className="text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
                       checked={program.shifts.find((s) => s === "Evening")}
                     />
                     <label
                       htmlFor="evening"
-                      className="text-gray-700 dark:text-gray-200"
+                      className="text-gray-700"
                     >
                       Evening
                     </label>

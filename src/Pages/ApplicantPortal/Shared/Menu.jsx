@@ -7,6 +7,7 @@ import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { useContext } from "react";
 import { AuthContext } from "../../../Context/UserContext";
+import { PiGear } from "react-icons/pi";
 
 const Menu = () => {
   const { logOut } = useContext(AuthContext);
@@ -59,6 +60,12 @@ const Menu = () => {
             <NavLink to="/teacher/finance" className="flex gap-3">
               <FaRegMoneyBillAlt className="text-2xl" />
               <p className="font-semibold">Financial</p>
+            </NavLink>
+          </li>
+          <li className="">
+            <NavLink to="/control-panel" className="flex gap-3">
+              <PiGear className="text-2xl" />
+              <p className="font-semibold">Control Panel</p>
             </NavLink>
           </li>
         </ul>

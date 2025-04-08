@@ -34,19 +34,19 @@ const DeptRow = ({ department }) => {
         ></DeptEditModal>
       )}
       <tr key={department._id}>
-        <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+        <td className="px-12 py-4 text-sm text-gray-500 whitespace-nowrap">
           {department.departmentCode}
         </td>
-        <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+        <td className="px-12 py-4 text-sm text-gray-500 whitespace-nowrap">
           {department.departmentName}
         </td>
 
-        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+        <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
           <div className="flex items-center gap-x-6">
-            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
+            <button className="text-gray-500 transition-colors duration-200 hover:text-red-500 focus:outline-none text-xl">
               <AiOutlineEdit onClick={() => setModal(true)} />
             </button>
-            <button className="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none text-xl">
+            <button className="text-gray-500 transition-colors duration-200 hover:text-red-500 focus:outline-none text-xl">
               <RiDeleteBin6Line
                 onClick={() => handleDelete(department.departmentCode)}
               />

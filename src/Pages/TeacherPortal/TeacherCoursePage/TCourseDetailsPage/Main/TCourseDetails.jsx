@@ -27,7 +27,7 @@ const TCourseDetails = () => {
     if (semester) {
       setSelectedSemester(semester);
     } else {
-      setSelectedSemester(semesters?.data[0]);
+      setSelectedSemester("Spring-2024");
     }
   }, [semesters, location]);
 
@@ -36,19 +36,34 @@ const TCourseDetails = () => {
       <div className="bg-white px-10 py-7 min-h-[calc(100vh-100px)]">
         <div className="flex justify-between">
           <nav className="navigation-tab flex gap-5 font-semibold text-lg">
-            <NavLink className="underline-offset-8" to={`outline?semester=${selectedSemester}`}>
+            <NavLink
+              className="underline-offset-8"
+              to={`outline?semester=${selectedSemester}`}
+            >
               Outline
             </NavLink>
-            <NavLink className="underline-offset-8" to={`lectures?semester=${selectedSemester}`}>
+            <NavLink
+              className="underline-offset-8"
+              to={`lectures?semester=${selectedSemester}`}
+            >
               Lectures
             </NavLink>
-            <NavLink className="underline-offset-8" to={`classwork?semester=${selectedSemester}`}>
+            <NavLink
+              className="underline-offset-8"
+              to={`classwork?semester=${selectedSemester}`}
+            >
               Classwork
             </NavLink>
-            <NavLink className="underline-offset-8" to={`results?semester=${selectedSemester}`}>
+            <NavLink
+              className="underline-offset-8"
+              to={`results?semester=${selectedSemester}`}
+            >
               Result
             </NavLink>
-            <NavLink className="underline-offset-8" to={`notice?semester=${selectedSemester}`}>
+            <NavLink
+              className="underline-offset-8"
+              to={`notice?semester=${selectedSemester}`}
+            >
               Notice
             </NavLink>
           </nav>
@@ -59,7 +74,7 @@ const TCourseDetails = () => {
               setSelectedSemester(e.target.value);
             }}
             value={selectedSemester}
-            className="w-72 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+            className="w-72 px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
           >
             <option value="">Select Semester</option>
             {semesters?.data?.map((semester, i) => (

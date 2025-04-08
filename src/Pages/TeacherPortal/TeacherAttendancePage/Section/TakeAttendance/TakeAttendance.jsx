@@ -76,18 +76,18 @@ const TakeAttendance = () => {
         <div className="flex flex-col mt-6">
           <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+              <div className="overflow-hidden border border-gray-200 md:rounded-lg">
                 <table className="min-w-full border-collapse w-full text-lg bg-p-white">
-                  <thead className="bg-gray-50 dark:bg-gray-800 text-sm uppercase font-normal tracking-wider">
+                  <thead className="bg-gray-50 text-sm uppercase font-normal tracking-wider">
                     <tr>
                       <th
                         scope="col"
-                        className="py-3.5 px-4 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="py-3.5 px-4 text-left rtl:text-right text-gray-500"
                       >
                         <div className="flex items-center gap-x-3">
                           <input
                             type="checkbox"
-                            className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700"
+                            className="text-blue-500 border-gray-300 rounded"
                           />
                           <span>SI No.</span>
                         </div>
@@ -95,46 +95,46 @@ const TakeAttendance = () => {
 
                       <th
                         scope="col"
-                        className="px-12 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-12 py-3.5 text-left rtl:text-right text-gray-500"
                       >
                         Student ID
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-left rtl:text-right text-gray-500"
                       >
                         Student Name
                       </th>
 
                       <th
                         scope="col"
-                        className="px-4 py-3.5 text-left rtl:text-right text-gray-500 dark:text-gray-400"
+                        className="px-4 py-3.5 text-left rtl:text-right text-gray-500"
                       >
                         Attendance
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                  <tbody className="bg-white divide-y divide-gray-200">
                     {attendaceData?.data?.map((item, i) => (
                       <tr key={item._id}>
                         <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                           <div className="inline-flex items-center gap-x-3">
                             <input
                               type="checkbox"
-                              className="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700"
+                              className="text-blue-500 border-gray-300 rounded"
                             />
 
                             <div className="">{i + 1}</div>
                           </div>
                         </td>
-                        <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                        <td className="px-12 py-4 text-sm text-gray-500 whitespace-nowrap">
                           {item.studentId}
                         </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                        <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                           {item.student_name}
                         </td>
-                        <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                        <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                           <span
                             onClick={() => {
                               const data = {

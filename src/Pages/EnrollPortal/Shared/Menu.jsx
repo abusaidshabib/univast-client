@@ -5,6 +5,7 @@ import { GoBook } from "react-icons/go";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { AuthContext } from "../../../Context/UserContext";
 import { useContext } from "react";
+import { PiGear } from "react-icons/pi";
 
 const Menu = () => {
   const { logOut } = useContext(AuthContext);
@@ -44,6 +45,12 @@ const Menu = () => {
             <NavLink to="/enroll/teacherEnroll" className="flex gap-3">
               <GoBook className="text-2xl" />
               <p className="font-semibold">Add Teacher</p>
+            </NavLink>
+          </li>
+          <li className="">
+            <NavLink to="/control-panel" className="flex gap-3">
+              <PiGear className="text-2xl" />
+              <p className="font-semibold">Control Panel</p>
             </NavLink>
           </li>
         </ul>
